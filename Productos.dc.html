@@ -25,10 +25,10 @@
 <!-- HEADER -->
 <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(10px);background:rgba(8,21,38,.92);border-bottom:1px solid rgba(255,255,255,.08)">
   <div style="max-width:1280px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:18px;justify-content:space-between">
-    <a href="KDL%20Home.dc.html" style="display:flex;align-items:baseline;gap:1px;flex-shrink:0"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;letter-spacing:-1.5px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;color:#1FC8E3">.</span></a>
+    <a href="index.html" style="display:flex;align-items:baseline;gap:1px;flex-shrink:0"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;letter-spacing:-1.5px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;color:#1FC8E3">.</span></a>
     <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
       <nav style="display:flex;gap:22px;font-size:14.5px;font-weight:500;color:#C7D4E3">
-        <a href="KDL%20Home.dc.html" style="padding:6px 0" style-hover="color:#fff">Inicio</a>
+        <a href="index.html" style="padding:6px 0" style-hover="color:#fff">Inicio</a>
         <a onClick="{{ goLanding }}" onMouseEnter="{{ openMenu }}" style="padding:6px 0;color:#fff;border-bottom:2px solid #1FC8E3;cursor:pointer;display:flex;align-items:center;gap:4px">Productos <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m6 9 6 6 6-6"/></svg></a>
         <a href="Soluciones.dc.html" style="padding:6px 0" style-hover="color:#fff">Soluciones</a>
         <a href="Industrias.dc.html" style="padding:6px 0" style-hover="color:#fff">Industrias</a>
@@ -47,7 +47,7 @@
   </div>
   <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="">
     <nav style="position:absolute;left:14px;right:14px;top:calc(100% + 8px);z-index:70;background:#071b33;border:1px solid rgba(127,180,232,.24);border-radius:8px;box-shadow:0 22px 48px rgba(0,0,0,.38);overflow-y:auto;max-height:calc(100vh - 92px);padding-bottom:10px">
-      <a onClick="{{ closeMobileMenu }}" href="KDL%20Home.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Inicio <span style="color:#148BFF">→</span></a>
+      <a onClick="{{ closeMobileMenu }}" href="index.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Inicio <span style="color:#148BFF">→</span></a>
       <a onClick="{{ closeMobileMenu }}" href="Productos.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#fff;font-weight:800;border-bottom:1px solid rgba(255,255,255,.08)">Productos <span style="color:#148BFF">→</span></a>
       <a onClick="{{ closeMobileMenu }}" href="Soluciones.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Soluciones <span style="color:#148BFF">→</span></a>
       <a onClick="{{ closeMobileMenu }}" href="Industrias.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Industrias <span style="color:#148BFF">→</span></a>
@@ -154,7 +154,7 @@
 <sc-if value="{{ isLanding }}" hint-placeholder-val="{{ true }}">
 <div style="max-width:1280px;margin:0 auto;padding:40px 22px 70px">
   <div style="margin-bottom:30px">
-    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.5px;color:#7E93AC;margin-bottom:12px"><a href="KDL%20Home.dc.html" style-hover="color:#2E7DF2">Inicio</a> <span style="color:#39A0FF">/</span> <span style="color:#0E2236;font-weight:600">Productos</span></div>
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.5px;color:#7E93AC;margin-bottom:12px"><a href="index.html" style-hover="color:#2E7DF2">Inicio</a> <span style="color:#39A0FF">/</span> <span style="color:#0E2236;font-weight:600">Productos</span></div>
     <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(30px,4vw,46px);line-height:1.02;letter-spacing:-1.2px;color:#0E2236;margin:0 0 10px">Catálogo de productos</h1>
     <p style="font-size:16px;line-height:1.6;color:#5A6B80;margin:0;max-width:640px">Explora por categoría. Cada una agrupa las líneas que manejamos; entra para ver productos, datos para cotizar y alternativas compatibles.</p>
   </div>
@@ -186,7 +186,7 @@
     </aside>
   </sc-if>
   <main style="flex:1;min-width:0">
-    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.5px;color:#7E93AC;margin-bottom:14px"><a href="KDL%20Home.dc.html" style-hover="color:#2E7DF2">Inicio</a> <span style="color:#39A0FF">/</span> <a onClick="{{ goLanding }}" style="cursor:pointer" style-hover="color:#2E7DF2">Productos</a> <span style="color:#39A0FF">/</span> <span style="color:#0E2236;font-weight:600">{{ activeName }}</span></div>
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.5px;color:#7E93AC;margin-bottom:14px"><a href="index.html" style-hover="color:#2E7DF2">Inicio</a> <span style="color:#39A0FF">/</span> <a onClick="{{ goLanding }}" style="cursor:pointer" style-hover="color:#2E7DF2">Productos</a> <span style="color:#39A0FF">/</span> <span style="color:#0E2236;font-weight:600">{{ activeName }}</span></div>
     <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:6px">
       <span style="display:flex;width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);align-items:center;justify-content:center;color:#06131f;flex-shrink:0">{{ activeIconLg }}</span>
       <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(28px,4vw,42px);line-height:1;letter-spacing:-1px;color:#0E2236;margin:0">{{ activeName }}</h1>
@@ -230,7 +230,7 @@
 
 <footer style="background:#06121F;color:#9FB1C6;padding:50px 22px 28px">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-end">
-    <div><a href="KDL%20Home.dc.html" style="display:flex;align-items:baseline;gap:1px;margin-bottom:12px"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#1FC8E3">.</span></a><p style="font-size:14px;line-height:1.6;max-width:340px;margin:0">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
+    <div><a href="index.html" style="display:flex;align-items:baseline;gap:1px;margin-bottom:12px"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#1FC8E3">.</span></a><p style="font-size:14px;line-height:1.6;max-width:340px;margin:0">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
     <div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><a href="tel:+528112273382" style="display:flex;align-items:center;gap:9px" style-hover="color:#fff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>+52 81 1227 3382</a><a href="mailto:ventas@kdl.com.mx" style="display:flex;align-items:center;gap:9px" style-hover="color:#fff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ventas@kdl.com.mx</a></div>
   </div>
   <div style="max-width:1280px;margin:22px auto 0;padding-top:20px;border-top:1px solid rgba(127,180,232,.12);font-size:13px;color:#5A6B80">© 2026 KDL · Soluciones Industriales · Monterrey, N.L. · Marcas referenciales; KDL no afirma distribución exclusiva.</div>

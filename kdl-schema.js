@@ -21,7 +21,7 @@
   }
 
   function homeUrl(){
-    return abs('KDL%20Home.dc.html');
+    try{ return location.origin + '/'; }catch(e){ return abs('/'); }
   }
 
   function catalogUrl(){

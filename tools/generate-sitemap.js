@@ -41,7 +41,7 @@ function main() {
   if (!KDL || !Array.isArray(KDL.cats)) throw new Error('No se pudo cargar KDL.cats');
 
   const urls = [
-    item(url('KDL%20Home.dc.html'), 'weekly', '1.0'),
+    item(url(''), 'weekly', '1.0'),
     item(url('productos/'), 'weekly', '0.95'),
     item(url('Servicios.dc.html'), 'monthly', '0.70'),
     item(url('Catalogos.dc.html'), 'monthly', '0.70'),

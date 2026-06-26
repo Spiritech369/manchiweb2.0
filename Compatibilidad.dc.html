@@ -26,7 +26,7 @@
 <meta name="twitter:title" content="Compatibilidad y reemplazo | KDL">
 <meta name="twitter:description" content="Busca una pieza obsoleta o descontinuada y KDL te sugiere alternativas compatibles del catálogo.">
 <meta name="twitter:image" content="https://kdl.com.mx/assets/hero-tools.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://kdl.com.mx/KDL%20Home.dc.html#local-business","name":"KDL","url":"https://kdl.com.mx/","telephone":"+52 81 1227 3382","email":"ventas@kdl.com.mx","image":"https://kdl.com.mx/assets/hero-tools.png","address":{"@type":"PostalAddress","addressLocality":"Monterrey","addressRegion":"Nuevo León","addressCountry":"MX"}},{"@type":"Service","@id":"https://kdl.com.mx/Compatibilidad.dc.html#service","name":"Compatibilidad y reemplazo de refacciones industriales","serviceType":"Búsqueda de alternativas compatibles para piezas descontinuadas","provider":{"@id":"https://kdl.com.mx/KDL%20Home.dc.html#local-business"},"areaServed":{"@type":"Country","name":"México"},"description":"KDL ayuda a identificar alternativas compatibles para refacciones industriales descontinuadas u obsoletas mediante número de parte, marca, medidas, foto o aplicación."},{"@type":"WebPage","@id":"https://kdl.com.mx/Compatibilidad.dc.html#webpage","url":"https://kdl.com.mx/Compatibilidad.dc.html","name":"Compatibilidad y reemplazo | KDL","description":"Busca alternativas compatibles para piezas descontinuadas del catálogo KDL.","about":{"@id":"https://kdl.com.mx/Compatibilidad.dc.html#service"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://kdl.com.mx/#local-business","name":"KDL","url":"https://kdl.com.mx/","telephone":"+52 81 1227 3382","email":"ventas@kdl.com.mx","image":"https://kdl.com.mx/assets/hero-tools.png","address":{"@type":"PostalAddress","addressLocality":"Monterrey","addressRegion":"Nuevo León","addressCountry":"MX"}},{"@type":"Service","@id":"https://kdl.com.mx/Compatibilidad.dc.html#service","name":"Compatibilidad y reemplazo de refacciones industriales","serviceType":"Búsqueda de alternativas compatibles para piezas descontinuadas","provider":{"@id":"https://kdl.com.mx/#local-business"},"areaServed":{"@type":"Country","name":"México"},"description":"KDL ayuda a identificar alternativas compatibles para refacciones industriales descontinuadas u obsoletas mediante número de parte, marca, medidas, foto o aplicación."},{"@type":"WebPage","@id":"https://kdl.com.mx/Compatibilidad.dc.html#webpage","url":"https://kdl.com.mx/Compatibilidad.dc.html","name":"Compatibilidad y reemplazo | KDL","description":"Busca alternativas compatibles para piezas descontinuadas del catálogo KDL.","about":{"@id":"https://kdl.com.mx/Compatibilidad.dc.html#service"}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -143,7 +143,7 @@
 
 <header class="kdlc-header">
   <div class="kdlc-shell kdlc-header__inner">
-    <a class="kdlc-logo" href="KDL%20Home.dc.html" aria-label="KDL"><span>KDL</span><span class="dot">.</span></a>
+    <a class="kdlc-logo" href="index.html" aria-label="KDL"><span>KDL</span><span class="dot">.</span></a>
     <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
       <nav class="kdlc-nav">
         <sc-for list="{{ nav }}" as="n" hint-placeholder-count="8"><a class="{{ n.cls }}" href="{{ n.href }}" style-hover="color:#fff">{{ n.label }}</a></sc-for>
@@ -176,7 +176,7 @@
 
 <section class="kdlc-hero">
   <div class="kdlc-hero__inner">
-    <div class="kdlc-breadcrumb"><a href="KDL%20Home.dc.html" style-hover="color:#fff">Inicio</a> <span>/</span> Compatibilidad</div>
+    <div class="kdlc-breadcrumb"><a href="index.html" style-hover="color:#fff">Inicio</a> <span>/</span> Compatibilidad</div>
     <h1 class="kdlc-hero__title">¿Tu pieza está descontinuada? Encuentra una alternativa compatible.</h1>
     <p class="kdlc-hero__copy">Escribe la marca, modelo o número de parte de la pieza obsoleta. Te sugerimos opciones del catálogo y validamos compatibilidad según medidas, aplicación y condiciones de trabajo.</p>
     <!-- BUSCADOR -->
@@ -261,7 +261,7 @@
 
 <footer class="kdlc-footer">
   <div class="kdlc-footer__inner">
-    <div><a class="kdlc-footer__logo" href="KDL%20Home.dc.html"><span>KDL</span><span class="dot">.</span></a><p class="kdlc-footer__copy">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
+    <div><a class="kdlc-footer__logo" href="index.html"><span>KDL</span><span class="dot">.</span></a><p class="kdlc-footer__copy">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
     <div class="kdlc-footer__contact"><a href="tel:+528112273382" style-hover="color:#fff">+52 81 1227 3382</a><a href="mailto:ventas@kdl.com.mx" style-hover="color:#fff">ventas@kdl.com.mx</a></div>
   </div>
   <div class="kdlc-footer__bottom">© 2026 KDL · Soluciones Industriales · Monterrey, N.L. · Validamos compatibilidad; marcas referenciales.</div>
@@ -418,7 +418,7 @@ class Component extends DCLogic {
     const menuOpen=m&&this.state.mobileMenuOpen;
     const base={ isMobile:m, notMobile:!m, mobileMenuOpen:menuOpen, showStickyWa:!menuOpen, toggleMobileMenu:e=>this.toggleMobileMenu(e), closeMobileMenu:()=>this.closeMobileMenu(), waSticky:this.wa('Hola KDL, busco una alternativa compatible a una pieza descontinuada.'), cartCount:this.state.cartN, hasCart:this.state.cartN>0 };
     const ACTIVE='compatibilidad';
-    const navData=[['Inicio','KDL%20Home.dc.html','inicio'],['Productos','Productos.dc.html','productos'],['Compatibilidad','Compatibilidad.dc.html','compatibilidad'],['Soluciones','Soluciones.dc.html','soluciones'],['Industrias','Industrias.dc.html','industrias'],['Servicios','Servicios.dc.html','servicios'],['Catálogos','Catalogos.dc.html','catalogos'],['Contacto','Contacto.dc.html','contacto']];
+    const navData=[['Inicio','index.html','inicio'],['Productos','Productos.dc.html','productos'],['Compatibilidad','Compatibilidad.dc.html','compatibilidad'],['Soluciones','Soluciones.dc.html','soluciones'],['Industrias','Industrias.dc.html','industrias'],['Servicios','Servicios.dc.html','servicios'],['Catálogos','Catalogos.dc.html','catalogos'],['Contacto','Contacto.dc.html','contacto']];
     const nav=navData.map(([label,href,key])=>({label,href,cls:'kdlc-nav-link'+(key===ACTIVE?' is-active':'')}));
     const K=(typeof window!=='undefined')?window.KDL:null;
     const exVals=['sensor PNP M12','cilindro Ø63','variador Delta','guía lineal HIWIN'];

@@ -74,7 +74,7 @@ function layout({ title, description: desc, canonical, image, rootRel, body, sch
 </style>
 </head>
 <body>
-<header class="top"><div class="shell nav"><a class="logo" href="${rootRel}KDL%20Home.dc.html">KDL<span>.</span></a><nav class="nav-links"><a href="${rootRel}KDL%20Home.dc.html">Inicio</a><a class="active" href="${rootRel}Productos.dc.html">Productos</a><a href="${rootRel}Soluciones.dc.html">Soluciones</a><a href="${rootRel}Industrias.dc.html">Industrias</a><a href="${rootRel}Servicios.dc.html">Servicios</a><a href="${rootRel}Catalogos.dc.html">Catálogos</a><a href="${rootRel}Contacto.dc.html">Contacto</a></nav></div></header>
+<header class="top"><div class="shell nav"><a class="logo" href="${rootRel}index.html">KDL<span>.</span></a><nav class="nav-links"><a href="${rootRel}index.html">Inicio</a><a class="active" href="${rootRel}Productos.dc.html">Productos</a><a href="${rootRel}Soluciones.dc.html">Soluciones</a><a href="${rootRel}Industrias.dc.html">Industrias</a><a href="${rootRel}Servicios.dc.html">Servicios</a><a href="${rootRel}Catalogos.dc.html">Catálogos</a><a href="${rootRel}Contacto.dc.html">Contacto</a></nav></div></header>
 ${body}
 <footer class="footer"><div class="shell"><strong>KDL</strong><br>${PHONE} · <a href="mailto:${EMAIL}">${EMAIL}</a> · Monterrey, N.L.</div></footer>
 </body>
@@ -105,7 +105,7 @@ function productSchema(cat, product) {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Inicio', item: absPath('KDL%20Home.dc.html') },
+          { '@type': 'ListItem', position: 1, name: 'Inicio', item: absPath('') },
           { '@type': 'ListItem', position: 2, name: 'Productos', item: absPath('productos/') },
           { '@type': 'ListItem', position: 3, name: cat.name, item: cleanCategoryUrl(cat) },
           { '@type': 'ListItem', position: 4, name: product.n, item: url }
