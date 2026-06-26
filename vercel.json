@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/KDL%20Home.dc.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/Producto.dc.html",
