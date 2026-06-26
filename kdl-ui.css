@@ -47,6 +47,27 @@ input,textarea,select,button{font-family:inherit}
 .kdl-nav{display:flex;gap:34px;font-size:15px;font-weight:700;color:#E6EDF7;align-items:center}
 .kdl-nav__link{padding:10px 0;display:flex;align-items:center;gap:5px}
 .kdl-nav__link--active{color:#fff;border-bottom:3px solid var(--kdl-blue)}
+.kdl-nav-product{display:flex;align-items:center}
+.kdl-nav-product>.kdl-nav__link[aria-expanded="true"],.kdl-nav-product:hover>.kdl-nav__link,.kdl-nav-product:focus-within>.kdl-nav__link{color:#fff;border-bottom:3px solid var(--kdl-cyan)}
+.kdl-mega-menu{display:none;position:absolute;left:0;right:0;top:100%;z-index:80;background:#fff;color:#10213c;border-top:1px solid #e7edf5;border-bottom:1px solid #dfe8f3;box-shadow:0 24px 54px rgba(4,18,34,.18);animation:kdlPop .14s ease-out}
+.kdl-nav-product:hover .kdl-mega-menu,.kdl-nav-product:focus-within .kdl-mega-menu{display:block}
+.kdl-mega-menu__inner{display:grid;grid-template-columns:320px 1fr;gap:42px;padding:30px 22px 36px;min-height:400px}
+.kdl-mega-menu__side{min-width:0}
+.kdl-mega-menu__head,.kdl-mega-menu__title{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:12px}
+.kdl-mega-menu__head span,.kdl-mega-menu__title h3{font-family:'Archivo';font-weight:900;color:#0e2236;letter-spacing:-.3px}
+.kdl-mega-menu__head span{font-size:19px}
+.kdl-mega-menu__title h3{font-size:24px;margin:0}
+.kdl-mega-menu__head a,.kdl-mega-menu__title a{color:#2e7df2;font-weight:800;font-size:14px;white-space:nowrap}
+.kdl-mega-menu__cats{display:grid;gap:5px}
+.kdl-mega-cat{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:10px;min-height:44px;border-radius:8px;padding:9px 12px;color:#42556e}
+.kdl-mega-cat:hover,.kdl-mega-cat.is-active{background:#eef5ff;color:#2e7df2}
+.kdl-mega-cat__icon{display:flex;align-items:center;justify-content:center;color:#2e7df2}
+.kdl-mega-cat__name{font-weight:800;font-size:15.5px;line-height:1.18}
+.kdl-mega-cat__arrow{color:#9bb0c8;font-size:28px;line-height:1}
+.kdl-mega-menu__panel{min-width:0;padding:0 8px}
+.kdl-mega-menu__products{display:grid;grid-template-columns:repeat(3,minmax(170px,1fr));column-gap:58px;row-gap:16px;padding-top:10px}
+.kdl-mega-menu__products a{font-size:16px;line-height:1.28;color:#53647b;font-weight:600}
+.kdl-mega-menu__products a:hover{color:#148bff}
 .kdl-header__actions{display:flex;align-items:center;gap:14px}
 .kdl-cart-button{position:relative;display:flex;width:40px;height:40px;border:1px solid rgba(127,180,232,.22);border-radius:4px;background:rgba(255,255,255,.08);align-items:center;justify-content:center;color:#E6EDF7;flex-shrink:0}
 .kdl-cart-button:hover{background:rgba(31,200,227,.16);color:#1FC8E3;border-color:rgba(31,200,227,.38)}

@@ -36,7 +36,33 @@
     <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
       <nav class="kdl-nav">
         <a class="kdl-nav__link kdl-nav__link--active" href="#inicio">Inicio</a>
-        <a class="kdl-nav__link" href="Productos.dc.html" style-hover="color:#fff">Productos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+        <div class="kdl-nav-product" onMouseEnter="{{ openMegaMenu }}" onMouseLeave="{{ closeMegaMenu }}">
+          <a class="kdl-nav__link" href="Productos.dc.html" aria-haspopup="true" aria-expanded="{{ megaMenuOpen }}" style-hover="color:#fff">Productos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="kdl-mega-menu" role="menu" onMouseEnter="{{ openMegaMenu }}">
+            <div class="kdl-shell kdl-mega-menu__inner">
+              <div class="kdl-mega-menu__side">
+                <div class="kdl-mega-menu__head"><span>Productos</span><a href="Productos.dc.html">Ver todo</a></div>
+                <div class="kdl-mega-menu__cats">
+                  <sc-for list="{{ megaCats }}" as="c" hint-placeholder-count="9">
+                    <a class="{{ c.cls }}" href="{{ c.href }}" onMouseEnter="{{ c.onHover }}" role="menuitem">
+                      <span class="kdl-mega-cat__icon">{{ c.icon }}</span>
+                      <span class="kdl-mega-cat__name">{{ c.name }}</span>
+                      <span class="kdl-mega-cat__arrow">›</span>
+                    </a>
+                  </sc-for>
+                </div>
+              </div>
+              <div class="kdl-mega-menu__panel">
+                <div class="kdl-mega-menu__title"><h3>{{ megaTitle }}</h3><a href="{{ megaAllHref }}">Ver todo</a></div>
+                <div class="kdl-mega-menu__products">
+                  <sc-for list="{{ megaProducts }}" as="p" hint-placeholder-count="12">
+                    <a href="{{ p.href }}" role="menuitem">{{ p.name }}</a>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <a class="kdl-nav__link" href="Soluciones.dc.html" style-hover="color:#fff">Soluciones</a>
         <a class="kdl-nav__link" href="Industrias.dc.html" style-hover="color:#fff">Industrias</a>
         <a class="kdl-nav__link" href="Servicios.dc.html" style-hover="color:#fff">Servicios</a>
@@ -731,6 +757,8 @@ class Component extends DCLogic {
       submitted:false,
       leadMailto:'',
       cartCount:0,
+      megaMenuOpen:false,
+      megaCat:'neumatica',
       lf:{ pieza:'', marca:'', parte:'', cantidad:'', urgencia:'Hoy', coment:'', fileName:'' },
       list:[],
       idFileName:'',
@@ -798,6 +826,9 @@ class Component extends DCLogic {
   setCA(k,v){ this.setState(s=>({ca:{...s.ca,[k]:v}})); }
   toggleMobileMenu(e){ if(e&&e.preventDefault)e.preventDefault(); this.setState(s=>({mobileMenuOpen:!s.mobileMenuOpen})); }
   closeMobileMenu(){ this.setState({mobileMenuOpen:false}); }
+  openMegaMenu(){ if(this.state.isMobile) return; this.setState({megaMenuOpen:true}); }
+  closeMegaMenu(){ this.setState({megaMenuOpen:false}); }
+  setMegaCat(key){ this.setState({megaCat:key,megaMenuOpen:true}); }
   quoteMailto(f,message){
     const subject='Solicitud de cotización KDL - '+(this.clean(f.categoria)||'Refacción industrial');
     const body=message||('Nombre: '+(f.nombre||'-')+'\nEmpresa: '+(f.empresa||'-')+'\nWhatsApp: '+(f.whatsapp||'-'));
@@ -973,6 +1004,19 @@ class Component extends DCLogic {
     const mobileMenuCats=catRaw.map(c=>({name:c.t, count:c.products.length, href:'Productos.dc.html?cat='+c.key, icon:catIcons[c.key]}));
     const mobileMenuProducts=[];
     catRaw.forEach(c=>{ (c.products||[]).slice(0,2).forEach(p=>{ if(mobileMenuProducts.length<10) mobileMenuProducts.push({name:p.n, cat:c.t, href:'Producto.dc.html?cat='+c.key+'&p='+p.slug}); }); });
+    const activeMegaKey=(catRaw.some(c=>c.key===this.state.megaCat)?this.state.megaCat:(catRaw[0]&&catRaw[0].key))||'';
+    const activeMega=catRaw.find(c=>c.key===activeMegaKey)||catRaw[0]||{t:'Productos',key:'',products:[]};
+    const megaCats=catRaw.map(c=>({
+      name:c.t,
+      href:'Productos.dc.html?cat='+c.key,
+      icon:catIcons[c.key],
+      cls:'kdl-mega-cat'+(c.key===activeMegaKey?' is-active':''),
+      onHover:()=>this.setMegaCat(c.key)
+    }));
+    const megaProducts=(activeMega.products||[]).slice(0,12).map(p=>({
+      name:p.n,
+      href:'Producto.dc.html?cat='+activeMega.key+'&p='+p.slug
+    }));
     const cmObj = this.state.openCat ? catRaw.find(c=>c.key===this.state.openCat) : null;
     const cm = cmObj ? {...cmObj, wa:this.wa('Hola KDL, quiero cotizar productos de: '+cmObj.t+'.')} : null;
 
@@ -1074,6 +1118,7 @@ class Component extends DCLogic {
 
     return {
       isMobile:m, notMobile:!m, mobileMenuOpen:m&&this.state.mobileMenuOpen, toggleMobileMenu:e=>this.toggleMobileMenu(e), closeMobileMenu:()=>this.closeMobileMenu(), clock:this.state.clock,
+      megaMenuOpen:!m&&this.state.megaMenuOpen, openMegaMenu:()=>this.openMegaMenu(), closeMegaMenu:()=>this.closeMegaMenu(), megaCats, megaProducts, megaTitle:activeMega.t||'Productos', megaAllHref:activeMega.key?('Productos.dc.html?cat='+activeMega.key):'Productos.dc.html',
       cartCount:this.state.cartCount||0, hasCart:(this.state.cartCount||0)>0,
       tel:'tel:+528112273382', mail:'mailto:ventas@kdl.com.mx',
       waSticky:this.wa('Hola KDL, quiero cotizar una refacción industrial. ¿Me ayudan a identificar la pieza?'),
