@@ -1,0 +1,290 @@
+/* Shared catalog/product utilities */
+.kdl-catalog-search {
+  background:#0A1B30;
+  padding:22px;
+  position:relative;
+  z-index:40;
+}
+
+.kdl-catalog-search__inner {
+  max-width:1100px;
+  margin:0 auto;
+  position:relative;
+}
+
+.kdl-catalog-search__bar {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#fff;
+  border-radius:12px;
+  padding:6px 8px 6px 18px;
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
+}
+
+.kdl-catalog-search__input {
+  flex:1;
+  border:none;
+  outline:none;
+  font-size:16px;
+  color:#0E2236;
+  min-width:0;
+  background:transparent;
+  padding:10px 0;
+}
+
+.kdl-catalog-search__clear {
+  flex-shrink:0;
+  display:flex;
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  border:none;
+  background:#F2F5F9;
+  color:#7E93AC;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.kdl-catalog-search__clear:hover {
+  background:#E7EDF4;
+}
+
+.kdl-catalog-filters {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(160px,1fr)) auto;
+  gap:10px;
+  margin-top:12px;
+}
+
+.kdl-catalog-filter,
+.kdl-catalog-filter-clear {
+  min-height:44px;
+  border-radius:10px;
+  border:1px solid rgba(127,180,232,.32);
+  background:rgba(255,255,255,.08);
+  color:#E6EDF7;
+  font:600 14px/1 'IBM Plex Sans',system-ui,sans-serif;
+  outline:none;
+}
+
+.kdl-catalog-filter {
+  width:100%;
+  padding:0 12px;
+  appearance:auto;
+}
+
+.kdl-catalog-filter option {
+  color:#0E2236;
+  background:#fff;
+}
+
+.kdl-catalog-filter-clear {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:0 14px;
+  cursor:pointer;
+}
+
+.kdl-catalog-filter-clear:hover {
+  border-color:#39A0FF;
+  background:rgba(46,125,242,.22);
+}
+
+.kdl-catalog-results {
+  position:absolute;
+  left:0;
+  right:0;
+  top:calc(100% + 8px);
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 24px 56px rgba(0,0,0,.4);
+  overflow:hidden;
+  z-index:50;
+  animation:kdlPop .15s ease;
+}
+
+.kdl-catalog-results__head {
+  padding:10px 16px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:1px;
+  color:#7E93AC;
+  text-transform:uppercase;
+  border-bottom:1px solid #EEF2F7;
+}
+
+.kdl-catalog-results__list {
+  max-height:340px;
+  overflow-y:auto;
+}
+
+.kdl-catalog-result {
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:12px 16px;
+  cursor:pointer;
+  border-bottom:1px solid #F4F6FA;
+}
+
+.kdl-catalog-result:hover {
+  background:#F2F7FF;
+}
+
+.kdl-catalog-result__icon {
+  display:flex;
+  width:34px;
+  height:34px;
+  border-radius:9px;
+  background:#EAF1FB;
+  align-items:center;
+  justify-content:center;
+  color:#2E7DF2;
+  flex-shrink:0;
+}
+
+.kdl-catalog-result__body {
+  flex:1;
+  min-width:0;
+}
+
+.kdl-catalog-result__name {
+  display:block;
+  font-weight:600;
+  font-size:15px;
+  color:#0E2236;
+}
+
+.kdl-catalog-result__meta {
+  display:block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:#7E93AC;
+}
+
+.kdl-catalog-result__cat {
+  font-size:12px;
+  color:#9AACC2;
+  flex-shrink:0;
+}
+
+.kdl-catalog-results__cta {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px;
+  background:#0E2236;
+  color:#fff;
+  font-weight:700;
+  font-size:14px;
+}
+
+.kdl-catalog-empty {
+  position:absolute;
+  left:0;
+  right:0;
+  top:calc(100% + 8px);
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 24px 56px rgba(0,0,0,.4);
+  padding:20px;
+  text-align:center;
+  z-index:50;
+  animation:kdlPop .15s ease;
+}
+
+.kdl-catalog-empty__title {
+  font-weight:700;
+  font-size:15px;
+  color:#0E2236;
+  margin-bottom:6px;
+}
+
+.kdl-catalog-empty__text {
+  font-size:14px;
+  color:#5A6B80;
+  margin-bottom:14px;
+}
+
+.kdl-catalog-empty__cta {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:#25D366;
+  color:#06310f;
+  font-weight:700;
+  font-size:14px;
+  padding:11px 18px;
+  border-radius:10px;
+}
+
+.kdl-product-media img,
+.kdl-catalog-card-media img {
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+.kdl-cart-link {
+  position:relative;
+  display:flex;
+  width:40px;
+  height:40px;
+  border-radius:9px;
+  background:rgba(255,255,255,.08);
+  align-items:center;
+  justify-content:center;
+  color:#E6EDF7;
+  border:1px solid rgba(127,180,232,.22);
+  flex-shrink:0;
+}
+
+.kdl-cart-link:hover {
+  background:rgba(31,200,227,.16);
+  color:#1FC8E3;
+  border-color:rgba(31,200,227,.38);
+}
+
+.kdl-cart-link__count {
+  position:absolute;
+  top:-7px;
+  right:-7px;
+  min-width:18px;
+  height:18px;
+  border-radius:9px;
+  background:#25D366;
+  color:#06310f;
+  font-size:11px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 5px;
+}
+
+@media (max-width:760px) {
+  .kdl-catalog-search {
+    padding:18px 14px;
+  }
+
+  .kdl-catalog-filters {
+    grid-template-columns:1fr;
+  }
+
+  .kdl-catalog-filter-clear {
+    width:100%;
+  }
+
+  .kdl-catalog-result {
+    align-items:flex-start;
+  }
+
+  .kdl-catalog-result__cat {
+    display:none;
+  }
+}

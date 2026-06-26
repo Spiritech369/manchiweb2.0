@@ -1,0 +1,23 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/Producto.dc.html",
+      "has": [
+        { "type": "query", "key": "cat", "value": "(?<cat>[^&]+)" },
+        { "type": "query", "key": "p", "value": "(?<p>[^&]+)" }
+      ],
+      "destination": "/productos/$cat/$p/",
+      "permanent": true
+    },
+    {
+      "source": "/Productos.dc.html",
+      "has": [
+        { "type": "query", "key": "cat", "value": "(?<cat>[^&]+)" }
+      ],
+      "destination": "/productos/$cat/",
+      "permanent": true
+    }
+  ]
+}

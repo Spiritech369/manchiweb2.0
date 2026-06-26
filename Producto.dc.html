@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./kdl-data.js"></script>
+<script src="./kdl-schema.js?v=2" defer></script>
+<link rel="stylesheet" href="./kdl-catalog.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Producto | KDL</title>
+<meta name="description" content="Ficha de producto KDL — especificaciones, datos para cotizar y solicitud por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F2F5F9;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E2236}a{text-decoration:none;color:inherit}@keyframes kdlBar{to{background-position:-200% 0}}</style>
+</helmet>
+
+<div style="background:#F2F5F9;overflow-x:hidden;min-height:100vh">
+
+<header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(10px);background:rgba(8,21,38,.92);border-bottom:1px solid rgba(255,255,255,.08)">
+  <div style="max-width:1280px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:18px;justify-content:space-between">
+    <a href="KDL%20Home.dc.html" style="display:flex;align-items:baseline;gap:1px;flex-shrink:0"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;letter-spacing:-1.5px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;color:#1FC8E3">.</span></a>
+    <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:22px;font-size:14.5px;font-weight:500;color:#C7D4E3">
+        <a href="KDL%20Home.dc.html" style="padding:6px 0" style-hover="color:#fff">Inicio</a>
+        <a href="Productos.dc.html" style="padding:6px 0;color:#fff;border-bottom:2px solid #1FC8E3">Productos</a>
+        <a href="Soluciones.dc.html" style="padding:6px 0" style-hover="color:#fff">Soluciones</a>
+        <a href="Industrias.dc.html" style="padding:6px 0" style-hover="color:#fff">Industrias</a>
+        <a href="Servicios.dc.html" style="padding:6px 0" style-hover="color:#fff">Servicios</a>
+        <a href="Catalogos.dc.html" style="padding:6px 0" style-hover="color:#fff">Catálogos</a>
+        <a href="Contacto.dc.html" style="padding:6px 0" style-hover="color:#fff">Contacto</a>
+      </nav>
+    </sc-if>
+    <a class="kdl-cart-link" href="Cesta.dc.html" aria-label="Cesta de cotización"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg><sc-if value="{{ hasCart }}" hint-placeholder-val=""><span class="kdl-cart-link__count">{{ cartCount }}</span></sc-if></a>
+    <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+      <a href="{{ waSticky }}" target="_blank" style="display:flex;align-items:center;gap:8px;background:#25D366;color:#06310f;font-weight:700;font-size:14px;padding:10px 15px;border-radius:10px;flex-shrink:0;box-shadow:0 6px 18px rgba(37,211,102,.3)" style-hover="filter:brightness(1.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Cotizar</a>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="">
+      <button onClick="{{ toggleMobileMenu }}" aria-label="Abrir menú" style="width:44px;height:40px;border:1px solid rgba(255,255,255,.24);background:#148BFF;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(20,139,255,.34)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="">
+    <nav style="position:absolute;left:14px;right:14px;top:calc(100% + 8px);z-index:70;background:#071b33;border:1px solid rgba(127,180,232,.24);border-radius:8px;box-shadow:0 22px 48px rgba(0,0,0,.38);overflow-y:auto;max-height:calc(100vh - 92px);padding-bottom:10px">
+      <a onClick="{{ closeMobileMenu }}" href="KDL%20Home.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Inicio <span style="color:#148BFF">→</span></a>
+      <a onClick="{{ closeMobileMenu }}" href="Productos.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#fff;font-weight:800;border-bottom:1px solid rgba(255,255,255,.08)">Productos <span style="color:#148BFF">→</span></a>
+      <a onClick="{{ closeMobileMenu }}" href="Soluciones.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Soluciones <span style="color:#148BFF">→</span></a>
+      <a onClick="{{ closeMobileMenu }}" href="Industrias.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Industrias <span style="color:#148BFF">→</span></a>
+      <a onClick="{{ closeMobileMenu }}" href="Servicios.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Servicios <span style="color:#148BFF">→</span></a>
+      <a onClick="{{ closeMobileMenu }}" href="Catalogos.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Catálogos <span style="color:#148BFF">→</span></a>
+      <a onClick="{{ closeMobileMenu }}" href="Contacto.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700">Contacto <span style="color:#148BFF">→</span></a>
+      <div style="padding:12px 14px;border-top:1px solid rgba(255,255,255,.08)"><div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.9px;text-transform:uppercase;color:#7FB4E8;margin-bottom:10px">Categorías</div><div style="display:grid;grid-template-columns:1fr;gap:8px"><sc-for list="{{ mobileMenuCats }}" as="c" hint-placeholder-count="8"><a onClick="{{ closeMobileMenu }}" href="{{ c.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px;border:1px solid rgba(127,180,232,.16);border-radius:6px;background:rgba(255,255,255,.045);color:#fff;font-weight:700;font-size:13.5px">{{ c.name }} <small style="color:#9CB0C8;font-weight:500">{{ c.count }}</small></a></sc-for></div></div>
+      <div style="padding:12px 14px;border-top:1px solid rgba(255,255,255,.08)"><div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.9px;text-transform:uppercase;color:#7FB4E8;margin-bottom:10px">Productos frecuentes</div><div style="display:grid;grid-template-columns:1fr;gap:6px"><sc-for list="{{ mobileMenuProducts }}" as="p" hint-placeholder-count="8"><a onClick="{{ closeMobileMenu }}" href="{{ p.href }}" style="display:flex;flex-direction:column;gap:2px;padding:9px 10px;border-radius:6px;color:#E6EDF7;background:rgba(255,255,255,.035);font-size:13px;font-weight:700;line-height:1.25"><span>{{ p.name }}</span><small style="font-size:11.5px;color:#9CB0C8;font-weight:500">{{ p.cat }}</small></a></sc-for></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 14px 0;border-top:1px solid rgba(255,255,255,.08)"><a onClick="{{ closeMobileMenu }}" href="Cesta.dc.html" style="display:flex;align-items:center;justify-content:center;text-align:center;border-radius:6px;padding:12px 10px;font-size:13.5px;font-weight:800;background:#148BFF;color:#fff">Cesta ({{ cartCount }})</a><a onClick="{{ closeMobileMenu }}" href="{{ waSticky }}" target="_blank" style="display:flex;align-items:center;justify-content:center;text-align:center;border-radius:6px;padding:12px 10px;font-size:13.5px;font-weight:800;background:#25D366;color:#06310f">WhatsApp</a></div>
+    </nav>
+  </sc-if>
+</header>
+
+<sc-if value="{{ found }}" hint-placeholder-val="{{ true }}">
+<!-- BREADCRUMB BAND -->
+<section style="background:linear-gradient(135deg,#0A1B30,#102C4C);padding:26px 22px 24px;position:relative">
+  <div style="max-width:1280px;margin:0 auto;font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.4px;color:#7FB4E8">
+    <a href="KDL%20Home.dc.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span>
+    <a href="Productos.dc.html" style-hover="color:#fff">Productos</a> <span style="color:#39A0FF">/</span>
+    <a href="{{ catHref }}" style-hover="color:#fff">{{ catName }}</a> <span style="color:#39A0FF">/</span>
+    <span style="color:#fff;font-weight:600">{{ prodName }}</span>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,#1FC8E3,#2E7DF2,transparent);background-size:200% 100%;animation:kdlBar 3s linear infinite"></div>
+</section>
+
+<!-- DETALLE -->
+<section style="max-width:1280px;margin:0 auto;padding:34px 22px 20px;display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start">
+  <!-- media -->
+  <div style="flex:1 1 380px;min-width:300px;background:#fff;border:1px solid #E3E9F1;border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:center;min-height:340px">{{ media }}</div>
+  <!-- info -->
+  <div style="flex:1 1 420px;min-width:300px">
+    <sc-if value="{{ brand }}" hint-placeholder-val=""><span style="display:inline-flex;align-items:center;gap:7px;background:#EAF1FB;border-radius:100px;padding:6px 13px;font-size:13px;font-weight:600;color:#2E7DF2;margin-bottom:14px"><span style="width:7px;height:7px;border-radius:50%;background:#2E7DF2"></span>{{ brand }}</span></sc-if>
+    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(28px,4vw,42px);line-height:1.05;letter-spacing:-1px;color:#0E2236;margin:0 0 12px">{{ prodName }}</h1>
+    <div style="font-family:'IBM Plex Mono';font-size:15px;color:#5A6B80;margin-bottom:18px">{{ prodSpec }}</div>
+    <p style="font-size:16px;line-height:1.6;color:#3A4A5C;margin:0 0 24px">{{ prodDesc }}</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px">
+      <a href="{{ waCotizar }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:15px 24px;border-radius:12px" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Cotizar este producto</a>
+      <button onClick="{{ addToCart }}" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid #2E7DF2;background:#fff;color:#2E7DF2;font-weight:800;font-size:15px;padding:15px 22px;border-radius:12px;cursor:pointer" style-hover="background:#EAF1FB"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M12 9v6M9 12h6"/></svg>{{ addCartLabel }}</button>
+      <a href="{{ waFoto }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid #DDE4EE;color:#2E7DF2;font-weight:700;font-size:15px;padding:15px 22px;border-radius:12px" style-hover="border-color:#2E7DF2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg>Enviar foto o No. de parte</a>
+    </div>
+    <!-- datos -->
+    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:20px 22px;margin-bottom:14px">
+      <div style="display:flex;align-items:center;gap:8px;font-family:'Archivo';font-weight:700;font-size:15px;color:#0E2236;margin-bottom:12px"><span style="display:flex;color:#2E7DF2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Datos para cotizar</div>
+      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ datos }}" as="d" hint-placeholder-count="5"><div style="display:flex;gap:9px;font-size:14px;color:#4A5A6C;line-height:1.4"><span style="color:#2E7DF2;flex-shrink:0">›</span>{{ d }}</div></sc-for></div>
+    </div>
+    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:20px 22px">
+      <div style="display:flex;align-items:center;gap:8px;font-family:'Archivo';font-weight:700;font-size:15px;color:#0E2236;margin-bottom:12px"><span style="display:flex;color:#E0852C"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>Fallas comunes</div>
+      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ fallas }}" as="f" hint-placeholder-count="3"><div style="display:flex;gap:9px;font-size:14px;color:#4A5A6C;line-height:1.4"><span style="color:#E0852C;flex-shrink:0">›</span>{{ f }}</div></sc-for></div>
+    </div>
+  </div>
+</section>
+
+<!-- RELACIONADOS -->
+<section style="max-width:1280px;margin:0 auto;padding:30px 22px 70px">
+  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(20px,2.6vw,28px);letter-spacing:-.5px;color:#0E2236;margin:0 0 18px">Otros productos en {{ catName }}</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:14px">
+    <sc-for list="{{ related }}" as="r" hint-placeholder-count="6">
+      <a href="{{ r.href }}" style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:18px;display:flex;flex-direction:column;min-height:150px" style-hover="border-color:#2E7DF2;box-shadow:0 14px 30px rgba(14,34,54,.1);transform:translateY(-3px)">
+        <div style="font-family:'Archivo';font-weight:700;font-size:15.5px;line-height:1.2;color:#0E2236;margin-bottom:6px">{{ r.n }}</div>
+        <div style="font-family:'IBM Plex Mono';font-size:12px;line-height:1.5;color:#7E93AC;flex:1">{{ r.s }}</div>
+        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;color:#2E7DF2;font-weight:700;font-size:13px" style-hover="gap:10px">Ver producto<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+    </sc-for>
+  </div>
+  <a href="{{ catHref }}" style="display:inline-flex;align-items:center;gap:7px;margin-top:22px;color:#2E7DF2;font-weight:700;font-size:15px" style-hover="gap:11px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 6-6 6 6 6"/></svg>Volver a {{ catName }}</a>
+</section>
+</sc-if>
+
+<!-- NOT FOUND -->
+<sc-if value="{{ notFound }}" hint-placeholder-val="">
+<section style="max-width:760px;margin:0 auto;padding:80px 22px;text-align:center">
+  <div style="font-family:'Archivo';font-weight:800;font-size:30px;color:#0E2236;margin-bottom:12px">Producto no encontrado</div>
+  <p style="font-size:16px;color:#5A6B80;margin:0 0 24px">El enlace no corresponde a un producto del catálogo. Explora las categorías o pídenos ayuda por WhatsApp.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="Productos.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#0E2236;color:#fff;font-weight:700;font-size:15px;padding:14px 22px;border-radius:12px">Ver catálogo</a>
+    <a href="{{ waSticky }}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#06310f;font-weight:700;font-size:15px;padding:14px 22px;border-radius:12px">Pedir ayuda</a>
+  </div>
+</section>
+</sc-if>
+
+<footer style="background:#06121F;color:#9FB1C6;padding:50px 22px 28px">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-end">
+    <div><a href="KDL%20Home.dc.html" style="display:flex;align-items:baseline;gap:1px;margin-bottom:12px"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#1FC8E3">.</span></a><p style="font-size:14px;line-height:1.6;max-width:340px;margin:0">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><a href="tel:+528112273382" style="display:flex;align-items:center;gap:9px" style-hover="color:#fff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>+52 81 1227 3382</a><a href="mailto:ventas@kdl.com.mx" style="display:flex;align-items:center;gap:9px" style-hover="color:#fff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ventas@kdl.com.mx</a></div>
+  </div>
+  <div style="max-width:1280px;margin:22px auto 0;padding-top:20px;border-top:1px solid rgba(127,180,232,.12);font-size:13px;color:#5A6B80">© 2026 KDL · Soluciones Industriales · Monterrey, N.L.</div>
+</footer>
+
+<a href="{{ waSticky }}" target="_blank" style="position:fixed;right:22px;bottom:22px;z-index:80;display:flex;align-items:center;gap:10px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px 19px;border-radius:50px;box-shadow:0 14px 38px rgba(37,211,102,.5)" style-hover="transform:scale(1.04)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg><sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}"><span>Cotizar por WhatsApp</span></sc-if></a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000, mobileMenuOpen:false, cartN:this.cartCount(), added:false, ready:(typeof window!=='undefined'&&!!window.KDL)}; }
+  componentDidMount(){
+    this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m,mobileMenuOpen:false});};
+    window.addEventListener('resize',this._r);
+    this._cart=()=>this.setState({cartN:this.cartCount()}); window.addEventListener('storage',this._cart);
+    if(!window.KDL){ let n=0; this._t=setInterval(()=>{ if(window.KDL||n++>40){ clearInterval(this._t); this.setState({ready:true}); } },80); }
+    window.addEventListener('hashchange',()=>this.forceUpdate());
+  }
+  componentWillUnmount(){ window.removeEventListener('resize',this._r); if(this._cart) window.removeEventListener('storage',this._cart); if(this._t) clearInterval(this._t); }
+  wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
+  cartCount(){ try{ return JSON.parse(localStorage.getItem('kdl_cart')||'[]').reduce((a,b)=>a+(b.qty||1),0); }catch(e){ return 0; } }
+  saveCart(item){
+    try{
+      const cart=JSON.parse(localStorage.getItem('kdl_cart')||'[]');
+      const ix=cart.findIndex(x=>x.slug===item.slug&&x.cat===item.cat);
+      if(ix>=0) cart[ix]={...cart[ix],qty:(cart[ix].qty||1)+1};
+      else cart.push({...item,qty:1});
+      localStorage.setItem('kdl_cart',JSON.stringify(cart));
+    }catch(e){}
+    this.setState({cartN:this.cartCount(),added:true});
+  }
+  toggleMobileMenu(e){ if(e&&e.preventDefault)e.preventDefault(); this.setState(s=>({mobileMenuOpen:!s.mobileMenuOpen})); }
+  closeMobileMenu(){ this.setState({mobileMenuOpen:false}); }
+  params(){ try{ return new URLSearchParams(window.location.search); }catch(e){ return new URLSearchParams(''); } }
+  renderVals(){
+    const m=this.state.isMobile;
+    const base={ isMobile:m, notMobile:!m, mobileMenuOpen:m&&this.state.mobileMenuOpen, toggleMobileMenu:e=>this.toggleMobileMenu(e), closeMobileMenu:()=>this.closeMobileMenu(), mobileMenuCats:[], mobileMenuProducts:[], cartCount:this.state.cartN||0, hasCart:(this.state.cartN||0)>0, waSticky:this.wa('Hola KDL, quiero cotizar un producto del catálogo. ¿Me ayudan a identificar la pieza?') };
+    const K=(typeof window!=='undefined')?window.KDL:null;
+    if(!K){ return {...base, found:false, notFound:false, related:[], datos:[], fallas:[]}; }
+    const cats=K.cats||[];
+    const productHref=(catKey,p)=>'Producto.dc.html?cat='+catKey+'&p='+p.slug;
+    const mobileMenuCats=cats.map(c=>({name:c.name,count:c.products.length,href:'Productos.dc.html?cat='+c.key}));
+    const mobileMenuProducts=[]; cats.forEach(c=>c.products.slice(0,2).forEach(p=>{ if(mobileMenuProducts.length<10) mobileMenuProducts.push({name:p.n,cat:c.name,href:productHref(c.key,p)}); }));
+    var F=(typeof window!=='undefined')?window.__KDL_FORCE:null;
+    const p=this.params(), catKey=(F&&F.cat)||p.get('cat')||'', pslug=(F&&F.p)||p.get('p')||'';
+    const hit=K.find(catKey,pslug);
+    if(!hit){ return {...base, mobileMenuCats, mobileMenuProducts, found:false, notFound:true, related:[], datos:[], fallas:[] }; }
+    const c=hit.cat, prod=hit.product;
+    const prodImg=prod.img||c.img;
+    const media=prodImg ? React.createElement('img',{src:prodImg,alt:prod.n,loading:'eager',decoding:'async',style:{maxWidth:'100%',maxHeight:'280px',objectFit:'contain'}})
+      : React.createElement('span',{style:{display:'flex',color:'#2E7DF2'},dangerouslySetInnerHTML:{__html:'<svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2v20M4 7l16 10M20 7 4 17"/></svg>'}});
+    const desc=prod.n+' — '+prod.s+'. Parte de la línea de '+c.name.toLowerCase()+(c.brand?(' ('+c.brand+')'):'')+'. Te ayudamos a validar compatibilidad y disponibilidad, o a encontrar una alternativa compatible según tu aplicación y condiciones de trabajo.';
+    const related=c.products.filter(x=>x.slug!==prod.slug).slice(0,6).map(x=>({ n:x.n, s:x.s, href:'Producto.dc.html?cat='+c.key+'&p='+x.slug }));
+    return {
+      ...base, mobileMenuCats, mobileMenuProducts, found:true, notFound:false,
+      catName:c.name, catHref:'Productos.dc.html', brand:c.brand,
+      prodName:prod.n, prodSpec:prod.s, prodDesc:desc, media,
+      datos:c.datos||[], fallas:c.fallas||[], related,
+      addCartLabel:this.state.added?'Añadido a cesta':'Añadir a cesta',
+      addToCart:()=>this.saveCart({n:prod.n,s:prod.s,cat:c.key,catName:c.name,slug:prod.slug}),
+      waCotizar:this.wa('Hola KDL, quiero cotizar: '+prod.n+' ('+c.name+'). Cantidad / No. de parte / aplicación: ___'),
+      waFoto:this.wa('Hola KDL, sobre '+prod.n+' ('+c.name+') les comparto foto / número de parte para identificar la pieza exacta.')
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Netlify redirects.
+# Prioritize clean SEO URLs over legacy dynamic URLs.
+
+/Producto.dc.html cat=:cat p=:p  /productos/:cat/:p/  301!
+/Productos.dc.html cat=:cat      /productos/:cat/     301!

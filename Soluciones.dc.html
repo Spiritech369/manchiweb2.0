@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soluciones | KDL — Automatización, Mantenimiento, CNC, Empaque y Reemplazo de Piezas</title>
+<meta name="description" content="Soluciones industriales KDL: automatización, líneas de producción, mantenimiento, maquinaria CNC, empaque, refrigeración y reemplazo de piezas. ¿No sabes el modelo? Envía foto o número de parte.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F2F5F9;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E2236}a{text-decoration:none;color:inherit}@keyframes kdlBar{to{background-position:-200% 0}}@keyframes kdlDash{to{stroke-dashoffset:-340}}</style>
+</helmet>
+
+<div style="background:#F2F5F9;overflow-x:hidden">
+
+<header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(10px);background:rgba(8,21,38,.92);border-bottom:1px solid rgba(255,255,255,.08)">
+  <div style="max-width:1280px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:18px;justify-content:space-between">
+    <a href="KDL%20Home.dc.html" style="display:flex;align-items:baseline;gap:1px;flex-shrink:0"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;letter-spacing:-1.5px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;color:#1FC8E3">.</span></a>
+    <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:22px;font-size:14.5px;font-weight:500;color:#C7D4E3">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="7"><a href="{{ n.href }}" style="{{ n.style }}" style-hover="color:#fff">{{ n.label }}</a></sc-for>
+      </nav>
+    </sc-if>
+    <a href="{{ waSticky }}" target="_blank" style="display:flex;align-items:center;gap:8px;background:#25D366;color:#06310f;font-weight:700;font-size:14px;padding:10px 15px;border-radius:10px;flex-shrink:0;box-shadow:0 6px 18px rgba(37,211,102,.3)" style-hover="filter:brightness(1.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Cotizar</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section style="position:relative;background:radial-gradient(120% 120% at 80% 0%,#15426F,#0A1B30 55%,#06121F);overflow:hidden;padding:46px 22px 50px">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.5" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M-60 180 C 360 60, 720 320, 1260 160" fill="none" stroke="#39A0FF" stroke-width="1.6" stroke-dasharray="14 22" style="animation:kdlDash 3s linear infinite"/></svg>
+  <div style="position:relative;max-width:1280px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;color:#7FB4E8;margin-bottom:12px"><a href="KDL%20Home.dc.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span> Soluciones</div>
+    <h1 style="font-family:'Archivo';font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;max-width:760px">No todos saben el nombre exacto de la pieza. Nosotros sí.</h1>
+    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#B8C7D9;max-width:640px;margin:0">Te ayudamos a resolver por necesidad, no por número de parte: dinos qué falla o qué proceso quieres mantener en marcha y te llevamos a la solución correcta.</p>
+  </div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,#1FC8E3,#2E7DF2,transparent);background-size:200% 100%;animation:kdlBar 3s linear infinite"></div>
+</section>
+
+<!-- BLOQUE REEMPLAZO -->
+<section style="max-width:1280px;margin:0 auto;padding:34px 22px 0">
+  <div style="background:linear-gradient(135deg,#0E2236,#16335A);border-radius:20px;padding:34px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between;position:relative;overflow:hidden">
+    <div style="position:relative;flex:1 1 420px">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(31,200,227,.12);border:1px solid rgba(31,200,227,.3);border-radius:100px;padding:6px 13px;margin-bottom:16px;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:1px;color:#9FE4F2;text-transform:uppercase">★ Lo más solicitado</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,34px);line-height:1.08;letter-spacing:-.8px;color:#fff;margin:0 0 12px">¿No sabes el modelo exacto?</h2>
+      <p style="font-size:16px;line-height:1.6;color:#B8C7D9;margin:0 0 22px;max-width:540px">Envíanos <strong style="color:#fff">foto, número de parte o la aplicación</strong> y te ayudamos a encontrar una pieza compatible. Convertimos una pieza dañada en una cotización lista.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="{{ waReemplazo }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px 22px;border-radius:12px" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg>Enviar foto o número de parte</a>
+        <a href="Productos.dc.html" style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:600;font-size:15px;padding:14px 22px;border-radius:12px" style-hover="background:rgba(255,255,255,.13)">Ver catálogo</a>
+      </div>
+    </div>
+    <div style="position:relative;flex:0 1 280px;display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ reemplazoSteps }}" as="r" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(127,180,232,.18);border-radius:12px;padding:13px 15px"><span style="display:flex;width:30px;height:30px;border-radius:8px;background:rgba(31,200,227,.16);align-items:center;justify-content:center;color:#1FC8E3;font-family:'Archivo';font-weight:800;flex-shrink:0">{{ r.n }}</span><span style="font-size:14px;color:#C7D4E3">{{ r.t }}</span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- GRID SOLUCIONES -->
+<section style="max-width:1280px;margin:0 auto;padding:44px 22px 70px">
+  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.8px;color:#0E2236;margin:0 0 6px">Soluciones por necesidad</h2>
+  <p style="font-size:16px;color:#5A6B80;margin:0 0 28px">Elige el escenario más cercano a tu operación y cotiza con un asesor técnico.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px">
+    <sc-for list="{{ solutions }}" as="s" hint-placeholder-count="7">
+      <a href="{{ s.wa }}" target="_blank" style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:26px;display:flex;flex-direction:column" style-hover="box-shadow:0 16px 38px rgba(14,34,54,.1);transform:translateY(-3px);border-color:#C9D8EC">
+        <div style="display:flex;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);align-items:center;justify-content:center;color:#06131f;margin-bottom:16px">{{ s.icon }}</div>
+        <div style="font-family:'Archivo';font-weight:700;font-size:19px;color:#0E2236;margin-bottom:8px">{{ s.t }}</div>
+        <div style="font-size:14px;line-height:1.55;color:#5A6B80;flex:1">{{ s.d }}</div>
+        <div style="margin-top:18px;display:inline-flex;align-items:center;gap:7px;color:#2E7DF2;font-weight:700;font-size:14px" style-hover="gap:11px">Cotizar esta solución<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<footer id="contacto" style="background:#06121F;color:#9FB1C6;padding:50px 22px 28px">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-end">
+    <div><a href="KDL%20Home.dc.html" style="display:flex;align-items:baseline;gap:1px;margin-bottom:12px"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#1FC8E3">.</span></a><p style="font-size:14px;line-height:1.6;max-width:340px;margin:0">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><a href="tel:+528112273382" style="display:flex;align-items:center;gap:9px" style-hover="color:#fff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>+52 81 1227 3382</a><a href="mailto:ventas@kdl.com.mx" style="display:flex;align-items:center;gap:9px" style-hover="color:#fff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ventas@kdl.com.mx</a></div>
+  </div>
+  <div style="max-width:1280px;margin:22px auto 0;padding-top:20px;border-top:1px solid rgba(127,180,232,.12);font-size:13px;color:#5A6B80">© 2026 KDL · Soluciones Industriales · Monterrey, N.L.</div>
+</footer>
+
+<a href="{{ waSticky }}" target="_blank" style="position:fixed;right:22px;bottom:22px;z-index:80;display:flex;align-items:center;gap:10px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px 19px;border-radius:50px;box-shadow:0 14px 38px rgba(37,211,102,.5)" style-hover="transform:scale(1.04)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg><sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}"><span>Cotizar por WhatsApp</span></sc-if></a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000}; }
+  componentDidMount(){ this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m});}; window.addEventListener('resize',this._r); }
+  componentWillUnmount(){ window.removeEventListener('resize',this._r); }
+  wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
+  renderVals(){
+    const ACTIVE='soluciones';
+    const icon=(p,sz)=>React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="'+(sz||22)+'" height="'+(sz||22)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+p+'</svg>'}});
+    const navData=[['Inicio','KDL%20Home.dc.html','inicio'],['Productos','Productos.dc.html','productos'],['Soluciones','Soluciones.dc.html','soluciones'],['Industrias','Industrias.dc.html','industrias'],['Servicios','Servicios.dc.html','servicios'],['Catálogos','Catalogos.dc.html','catalogos'],['Contacto','Contacto.dc.html','contacto']];
+    const nav=navData.map(([label,href,key])=>({label,href,style:'padding:6px 0;'+(key===ACTIVE?'color:#fff;border-bottom:2px solid #1FC8E3':'color:#C7D4E3')}));
+    const solutions=[
+      {t:'Automatización', d:'PLC, HMI, sensores, variadores y actuadores para integrar, reparar o ampliar tu celda.', icon:icon('<rect x="4" y="4" width="16" height="12" rx="1"/><path d="M8 20h8M12 16v4"/>')},
+      {t:'Líneas de producción', d:'Refacciones críticas y alternativas compatibles para que la línea no se detenga.', icon:icon('<path d="M3 7l9-4 9 4-9 4Z"/><path d="M3 7v10l9 4 9-4V7"/>')},
+      {t:'Mantenimiento industrial', d:'Identificación y suministro de piezas de desgaste: sensores, cilindros, válvulas, guías.', icon:icon('<path d="M14 7l3 3M5 19l8.5-8.5a2.1 2.1 0 0 0-3-3L2 16v3h3Z"/>')},
+      {t:'Maquinaria CNC', d:'Insertos, portaherramientas y movimiento lineal para torno y centros de maquinado.', icon:icon('<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>')},
+      {t:'Empaque', d:'Neumática, sensores y actuadores para líneas de empaque y manejo de materiales.', icon:icon('<path d="M3 7l9-4 9 4v10l-9 4-9-4Z"/><path d="M3 7l9 4 9-4"/>')},
+      {t:'Refrigeración / alimentos', d:'Componentes y equipos IQF para línea de frío y proceso de alimentos.', icon:icon('<path d="M12 2v20M4 7l16 10M20 7 4 17"/>')},
+      {t:'Reemplazo de piezas', d:'Envíanos foto, número de parte o aplicación y te damos una opción compatible.', icon:icon('<path d="M4 7h11l-3-3M20 17H9l3 3"/>')}
+    ].map(s=>({...s, wa:this.wa('Hola KDL, busco una solución para: '+s.t+'. Te comparto el detalle / foto / No. de parte.')}));
+    return {
+      isMobile:this.state.isMobile, notMobile:!this.state.isMobile, nav,
+      waSticky:this.wa('Hola KDL, quiero una solución industrial. ¿Me ayudan a identificar la pieza o el componente correcto?'),
+      waReemplazo:this.wa('Hola KDL, tengo una pieza dañada / descontinuada. Les comparto foto, número de parte o la aplicación para encontrar una compatible.'),
+      reemplazoSteps:[{n:'1',t:'Mándanos foto, placa o No. de parte'},{n:'2',t:'Validamos compatibilidad y alternativa'},{n:'3',t:'Recibes la cotización lista'}],
+      solutions
+    };
+  }
+}
+</script>
+</body>
+</html>

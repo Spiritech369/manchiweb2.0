@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./kdl-data.js"></script>
+<script src="./kdl-schema.js?v=2" defer></script>
+<script src="./kdl-analytics.js?v=2" defer></script>
+<script src="./kdl-config.js?v=1"></script>
+<script src="./kdl-leads.js?v=1" defer></script>
+<link rel="stylesheet" href="./kdl-ui.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KDL | Refacciones Industriales, Automatización y Herramientas de Corte en Monterrey</title>
+<meta name="description" content="Cotiza refacciones industriales, neumática, hidráulica, sensores, automatización, movimiento lineal, herramientas de corte e insertos. Asesoría técnica KDL en Monterrey.">
+<meta name="keywords" content="refacciones industriales Monterrey, suministros industriales, automatización industrial, neumática industrial, hidráulica industrial, sensores industriales, herramientas de corte, insertos de torneado, movimiento lineal, PLC, HMI, variadores">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</helmet>
+
+<div class="kdl-page">
+
+<!-- ===================== HEADER ===================== -->
+<header class="kdl-header">
+  <div class="kdl-shell kdl-header__inner">
+    <a class="kdl-wordmark" href="#inicio" aria-label="KDL">
+      <span class="kdl-wordmark__text">KDL</span>
+      <span class="kdl-wordmark__dot">.</span>
+    </a>
+    <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+      <nav class="kdl-nav">
+        <a class="kdl-nav__link kdl-nav__link--active" href="#inicio">Inicio</a>
+        <a class="kdl-nav__link" href="Productos.dc.html" style-hover="color:#fff">Productos <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+        <a class="kdl-nav__link" href="Soluciones.dc.html" style-hover="color:#fff">Soluciones</a>
+        <a class="kdl-nav__link" href="Industrias.dc.html" style-hover="color:#fff">Industrias</a>
+        <a class="kdl-nav__link" href="Servicios.dc.html" style-hover="color:#fff">Servicios</a>
+        <a class="kdl-nav__link" href="Catalogos.dc.html" style-hover="color:#fff">Catálogos</a>
+        <a class="kdl-nav__link" href="Contacto.dc.html" style-hover="color:#fff">Contacto</a>
+      </nav>
+    </sc-if>
+    <div class="kdl-header__actions">
+      <a class="kdl-cart-button" href="Cesta.dc.html" aria-label="Cesta de cotización">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+        <sc-if value="{{ hasCart }}" hint-placeholder-val=""><span class="kdl-cart-button__count">{{ cartCount }}</span></sc-if>
+      </a>
+      <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+        <a class="kdl-btn kdl-btn--primary kdl-btn--header" href="{{ waSticky }}" target="_blank" data-analytics="cta_click" data-analytics-cta="header_whatsapp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>
+          Cotizar por WhatsApp
+        </a>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="">
+        <button class="kdl-menu-button" onClick="{{ toggleMobileMenu }}" aria-label="Abrir menú" data-analytics="mobile_menu_toggle" data-analytics-cta="mobile_menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="">
+    <nav class="kdl-mobile-menu">
+      <div class="kdl-mobile-menu__section kdl-mobile-menu__section--nav">
+        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="#inicio">Inicio <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Productos.dc.html">Productos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Soluciones.dc.html">Soluciones <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Industrias.dc.html">Industrias <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Servicios.dc.html">Servicios <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Catalogos.dc.html">Catálogos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Contacto.dc.html">Contacto <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="kdl-mobile-menu__section">
+        <div class="kdl-mobile-menu__heading">Categorías</div>
+        <div class="kdl-mobile-menu__grid">
+          <sc-for list="{{ mobileMenuCats }}" as="c" hint-placeholder-count="8">
+            <a class="kdl-mobile-menu__cat" onClick="{{ closeMobileMenu }}" href="{{ c.href }}">
+              <span class="kdl-mobile-menu__icon">{{ c.icon }}</span>
+              <span class="kdl-mobile-menu__cat-copy"><span>{{ c.name }}</span><small>{{ c.count }} productos</small></span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      <div class="kdl-mobile-menu__section">
+        <div class="kdl-mobile-menu__heading">Productos frecuentes</div>
+        <div class="kdl-mobile-menu__products">
+          <sc-for list="{{ mobileMenuProducts }}" as="p" hint-placeholder-count="8">
+            <a class="kdl-mobile-menu__product" onClick="{{ closeMobileMenu }}" href="{{ p.href }}">
+              <span>{{ p.name }}</span>
+              <small>{{ p.cat }}</small>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      <div class="kdl-mobile-menu__actions">
+        <a class="kdl-mobile-menu__cart" onClick="{{ closeMobileMenu }}" href="Cesta.dc.html" data-analytics="cta_click" data-analytics-cta="mobile_menu_cart">Cesta ({{ cartCount }})</a>
+        <a class="kdl-mobile-menu__whatsapp" onClick="{{ closeMobileMenu }}" href="{{ waSticky }}" target="_blank" data-analytics="cta_click" data-analytics-cta="mobile_menu_whatsapp">WhatsApp</a>
+      </div>
+    </nav>
+  </sc-if>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="inicio" class="kdl-hero">
+  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="fg" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#1FC8E3" stop-opacity="0"/><stop offset=".5" stop-color="#39A0FF"/><stop offset="1" stop-color="#1FC8E3" stop-opacity="0"/></linearGradient></defs></svg>
+  <div class="kdl-hero__grid"></div>
+
+  <div class="kdl-shell kdl-hero__inner">
+    <!-- LEFT: copy -->
+    <div class="kdl-hero__copy">
+      <h1 class="kdl-hero__title">Que tu línea<br>siga <span class="kdl-hero__accent">fluyendo.</span></h1>
+      <p class="kdl-hero__lead">Refacciones industriales, automatización y herramientas de corte para plantas que trabajan sin descanso. Envíanos tu número de parte, foto o problema y te ayudamos a encontrar la solución correcta.</p>
+      <div class="kdl-hero__actions">
+        <a class="kdl-btn kdl-btn--primary kdl-btn--hero" href="{{ waUrgente }}" target="_blank" data-analytics="cta_click" data-analytics-cta="hero_urgent_whatsapp" style-hover="transform:translateY(-2px)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+          Cotizar refacción urgente
+        </a>
+        <a class="kdl-btn kdl-btn--ghost" href="#cotiza" data-analytics="cta_click" data-analytics-cta="hero_photo_anchor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg>
+          Enviar foto o número de parte
+        </a>
+      </div>
+      <div class="kdl-hero__chips">
+        <span>Neumática</span><span class="kdl-hero__dot">·</span><span>Hidráulica</span><span class="kdl-hero__dot">·</span><span>Sensores</span><span class="kdl-hero__dot">·</span><span>Automatización</span><span class="kdl-hero__dot">·</span><span>Movimiento lineal</span><span class="kdl-hero__dot">·</span><span>Insertos</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: product composite + flujo -->
+    <div class="kdl-hero-art" style="flex:1 1 560px;min-width:360px;position:relative;align-self:stretch;min-height:270px">
+      <!-- flujo ribbons -->
+      <svg viewBox="0 0 720 330" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;filter:blur(6px);opacity:.9"><path d="M-80 200 C 150 40, 420 250, 780 100" fill="none" stroke="#29D5FF" stroke-width="11"/><path d="M-80 245 C 190 125, 430 315, 780 185" fill="none" stroke="#148BFF" stroke-width="7" opacity=".8"/></svg>
+      <svg viewBox="0 0 720 330" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%"><path d="M-80 200 C 150 40, 420 250, 780 100" fill="none" stroke="#D6F8FF" stroke-width="2.5" stroke-dasharray="14 20" style="animation:kdlDash 2.6s linear infinite"/><path d="M-80 245 C 190 125, 430 315, 780 185" fill="none" stroke="#9BE7FF" stroke-width="1.6" stroke-dasharray="10 24" opacity=".7" style="animation:kdlDash 3.6s linear infinite"/></svg>
+      <!-- products -->
+      <img src="assets/hero-cat-movimiento.png" alt="Guía lineal HIWIN" style="position:absolute;top:6%;right:1%;width:34%;filter:drop-shadow(0 22px 30px rgba(0,0,0,.5));z-index:2">
+      <img src="assets/hero-prod-neumatica.png" alt="Cilindro neumático" style="position:absolute;top:18%;left:6%;width:52%;filter:drop-shadow(0 26px 38px rgba(0,0,0,.55));z-index:3;animation:kdlFloat 6.5s ease-in-out infinite">
+      <img src="assets/hero-prod-husillo.png" alt="Husillo de bolas" style="position:absolute;bottom:4%;right:12%;width:36%;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5));z-index:2;opacity:.96">
+      <img src="assets/hero-sensor-premium.png" alt="Sensor industrial" style="position:absolute;bottom:1%;left:20%;width:20%;filter:drop-shadow(0 18px 26px rgba(0,0,0,.55));z-index:4;animation:kdlFloat 5.5s ease-in-out infinite">
+    </div>
+  </div>
+  <div style="height:3px;background:linear-gradient(90deg,transparent,#1FC8E3,#2E7DF2,transparent);background-size:200% 100%;animation:kdlBar 3s linear infinite"></div>
+</section>
+
+<!-- ===================== IDENTIFICADOR KDL ===================== -->
+<section id="identificador" style="background:#0E2236;padding:60px 22px">
+  <div style="max-width:1080px;margin:0 auto;background:linear-gradient(135deg,#102C4C,#0B2038);border:1px solid rgba(127,180,232,.18);border-radius:22px;padding:34px;display:flex;flex-wrap:wrap;gap:36px;align-items:center">
+    <div style="flex:1 1 320px;min-width:280px">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:1.5px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px"><span style="width:7px;height:7px;border-radius:50%;background:#1FC8E3"></span>Identificador KDL</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(26px,3.6vw,38px);line-height:1.08;letter-spacing:-.8px;color:#fff;margin:0 0 14px">¿No sabes qué pieza es? Súbela y te decimos.</h2>
+      <p style="font-size:16px;line-height:1.6;color:#B8C7D9;margin:0 0 22px;max-width:480px">Sube foto de la pieza, placa o número de parte. Te ayudamos a identificar categoría, compatibilidad y una alternativa para cotizar.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ idChips }}" as="c" hint-placeholder-count="4">
+          <span style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(127,180,232,.2);border-radius:9px;padding:8px 12px;font-size:13px;color:#C7D4E3"><span style="color:#1FC8E3;display:flex">{{ c.icon }}</span>{{ c.t }}</span>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex:1 1 320px;min-width:280px">
+      <label style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(127,180,232,.06);border:2px dashed rgba(127,180,232,.35);border-radius:16px;padding:34px 20px;cursor:pointer;text-align:center" style-hover="border-color:#39A0FF;background:rgba(127,180,232,.1)">
+        <span style="display:flex;width:58px;height:58px;border-radius:14px;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06131f" stroke-width="2"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/></svg></span>
+        <span style="font-weight:700;font-size:16px;color:#fff">{{ idFileLabel }}</span>
+        <span style="font-size:13px;color:#8FA3BA">JPG, PNG o PDF · foto de la placa, etiqueta o pieza</span>
+        <input type="file" accept="image/*,application/pdf" onChange="{{ onIdFile }}" style="display:none">
+      </label>
+      <a href="{{ waIdent }}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:9px;margin-top:12px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px;border-radius:12px" style-hover="filter:brightness(1.05)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>
+        Enviar foto por WhatsApp
+      </a>
+      <p style="text-align:center;font-size:12px;color:#7E93AC;margin:10px 0 0">Adjunta la foto directo en el chat. Respuesta por asesor técnico.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DOLOR + COTIZA RÁPIDA ===================== -->
+<section id="cotiza" class="kdl-quote-section">
+  <div class="kdl-shell kdl-quote-layout">
+    <!-- LEFT: dolor cards -->
+    <div class="kdl-quote-main">
+      <h2 class="kdl-section-title kdl-quote-title">Tu planta trabaja 24/7. <span>Las piezas se desgastan.</span></h2>
+      <div class="kdl-pain-grid">
+        <sc-for list="{{ pains }}" as="p" hint-placeholder-count="6">
+          <a class="kdl-pain-card" href="{{ p.wa }}" target="_blank">
+            <span class="kdl-pain-card__icon">{{ p.icon }}</span>
+            <span class="kdl-pain-card__title">{{ p.t }}</span>
+            <span class="kdl-pain-card__meta">Envíanos foto o número de parte</span>
+          </a>
+        </sc-for>
+      </div>
+      <div class="kdl-flow-card">
+        <div>
+          <h3 class="kdl-flow-card__title">KDL convierte urgencia en solución técnica.</h3>
+          <p class="kdl-flow-card__text">No se trata de vender más piezas. Se trata de que tu producción <strong>no se seque</strong>.</p>
+        </div>
+        <div class="kdl-flow-steps">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+            <div class="kdl-flow-step">
+              <div class="kdl-flow-step__icon-wrap">
+                <span class="kdl-flow-step__icon">{{ s.icon }}</span>
+                <span class="kdl-flow-step__num">{{ s.n }}</span>
+              </div>
+              <div class="kdl-flow-step__label">{{ s.t }}</div>
+            </div>
+            <sc-if value="{{ s.notLast }}" hint-placeholder-val="">
+              <div class="kdl-flow-arrow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </sc-if>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: quick quote form -->
+    <div class="kdl-quick-form">
+      <h3 style="font-family:'Archivo';font-weight:800;font-size:24px;color:#fff;text-align:center;margin:0 0 20px">¿Qué pieza necesitas?</h3>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="">
+        <div style="text-align:center;padding:24px 6px">
+          <div style="display:inline-flex;width:60px;height:60px;border-radius:50%;background:#25D366;align-items:center;justify-content:center;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#06310f" stroke-width="2.6"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:21px;color:#fff;margin-bottom:9px">Abrimos tu WhatsApp</div>
+          <p style="font-size:14px;line-height:1.55;color:#B8C7D9;margin:0 0 16px">Adjunta ahí la <strong style="color:#fff">foto de la placa o pieza</strong> y un asesor KDL continúa contigo.</p>
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <a href="{{ waSticky }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:700;padding:12px 20px;border-radius:11px">Abrir WhatsApp</a>
+            <a href="{{ leadMailto }}" style="display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(127,180,232,.38);color:#E6EDF7;font-weight:700;padding:12px 18px;border-radius:11px">Enviar por correo</a>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+      <form data-kdl-quote-form="quick_quote" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:12px">
+        <sc-if value="{{ q_has_errors }}" hint-placeholder-val="">
+          <div class="kdl-form-alert" role="alert">{{ q_error_summary }}</div>
+        </sc-if>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <input value="{{ q_nombre }}" onChange="{{ onQNombre }}" placeholder="Nombre" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+          <input value="{{ q_empresa }}" onChange="{{ onQEmpresa }}" placeholder="Empresa" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+        </div>
+        <sc-if value="{{ q_error_nombre }}" hint-placeholder-val="">
+          <div class="kdl-field-error">{{ q_error_nombre }}</div>
+        </sc-if>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <input value="{{ q_whatsapp }}" onChange="{{ onQWhatsapp }}" placeholder="WhatsApp" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+          <input value="{{ q_parte }}" onChange="{{ onQParte }}" placeholder="Marca o No. de parte" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+        </div>
+        <sc-if value="{{ q_error_whatsapp }}" hint-placeholder-val="">
+          <div class="kdl-field-error">{{ q_error_whatsapp }}</div>
+        </sc-if>
+        <sc-if value="{{ q_error_parte }}" hint-placeholder-val="">
+          <div class="kdl-field-error">{{ q_error_parte }}</div>
+        </sc-if>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <select value="{{ q_categoria }}" onChange="{{ onQCategoria }}" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:14px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+            <option value="" style="color:#0E2236">Categoría</option>
+            <sc-for list="{{ catNames }}" as="c" hint-placeholder-count="6"><option value="{{ c }}" style="color:#0E2236">{{ c }}</option></sc-for>
+          </select>
+          <select value="{{ q_urgencia }}" onChange="{{ onQUrgencia }}" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:14px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+            <option value="Hoy" style="color:#0E2236">Urgencia: Hoy</option>
+            <option value="Esta semana" style="color:#0E2236">Esta semana</option>
+            <option value="Proyecto" style="color:#0E2236">Proyecto</option>
+          </select>
+        </div>
+        <sc-if value="{{ q_error_categoria }}" hint-placeholder-val="">
+          <div class="kdl-field-error">{{ q_error_categoria }}</div>
+        </sc-if>
+        <sc-if value="{{ q_error_cantidad }}" hint-placeholder-val="">
+          <div class="kdl-field-error">{{ q_error_cantidad }}</div>
+        </sc-if>
+        <textarea value="{{ q_mensaje }}" onChange="{{ onQMensaje }}" placeholder="Cuéntanos el problema, aplicación o detalle adicional…" rows="3" style="border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none;resize:vertical" style-focus="border-color:#39A0FF"></textarea>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <label style="flex:1 1 150px;display:flex;align-items:center;gap:9px;border:1.5px dashed rgba(127,180,232,.3);border-radius:10px;padding:12px;cursor:pointer;color:#B8C7D9;font-size:13px" style-hover="border-color:#39A0FF;color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg><span style="line-height:1.2">{{ qFileLabel }}</span><input type="file" accept="image/*" onChange="{{ onQFile }}" style="display:none"></label>
+          <button type="submit" style="flex:1 1 150px;display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:15px;padding:13px;border:none;border-radius:11px;cursor:pointer" style-hover="filter:brightness(1.05)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"/></svg>Enviar a un asesor KDL</button>
+        </div>
+        <p style="text-align:center;font-size:11.5px;color:#7E93AC;margin:2px 0 0">Al enviar, abrimos WhatsApp con tus datos. La foto se adjunta en el chat.</p>
+      </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOLUCIÓN ===================== -->
+<section id="servicios" style="background:#EAF1FB;padding:58px 22px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:36px;align-items:center">
+    <div style="flex:1 1 280px;min-width:260px">
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(25px,3vw,36px);line-height:1.12;letter-spacing:-.8px;color:#0E2236;margin:0 0 14px">KDL convierte urgencia en solución técnica.</h2>
+      <p style="font-size:16px;line-height:1.6;color:#5A6B80;margin:0">No se trata de vender más piezas. Se trata de que tu producción <strong style="color:#0E2236">no se seque</strong>.</p>
+    </div>
+    <div style="flex:2 1 540px;min-width:280px;display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="flex:1 1 140px;display:flex;flex-direction:column;align-items:center;text-align:center;padding:6px">
+          <div style="position:relative;margin-bottom:14px">
+            <span style="display:flex;width:62px;height:62px;border-radius:16px;background:#fff;align-items:center;justify-content:center;color:#2E7DF2;box-shadow:0 8px 20px rgba(14,34,54,.1)">{{ s.icon }}</span>
+            <span style="position:absolute;top:-8px;right:-8px;display:flex;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);color:#06131f;font-family:'Archivo';font-weight:800;font-size:13px;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(46,125,242,.4)">{{ s.n }}</span>
+          </div>
+          <div style="font-family:'Archivo';font-weight:700;font-size:15px;line-height:1.25;color:#0E2236;margin-bottom:6px">{{ s.t }}</div>
+          <div style="font-size:13px;line-height:1.45;color:#5A6B80">{{ s.d }}</div>
+        </div>
+        <sc-if value="{{ s.notLast }}" hint-placeholder-val="">
+          <div style="display:flex;align-items:center;align-self:center;color:#9AC0E8;padding-top:8px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </sc-if>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COTIZADOR KDL (TABS) ===================== -->
+<section id="cotizador" style="position:relative;background:linear-gradient(135deg,#0A1B30,#102C4C);padding:74px 22px;overflow:hidden">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.6" viewBox="0 0 1200 500" preserveAspectRatio="none"><path d="M-60 120 C 380 30, 700 280, 1260 160" fill="none" stroke="url(#fg)" stroke-width="1.6" stroke-dasharray="12 24" style="animation:kdlDash 3s linear infinite"></path></svg>
+  <div style="position:relative;max-width:1080px;margin:0 auto">
+    <div style="text-align:center;max-width:680px;margin:0 auto 30px">
+      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px">Cotizador por lote</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(27px,4vw,44px);line-height:1.05;letter-spacing:-1px;color:#fff;margin:0 0 14px">Arma tu lista de refacciones.</h2>
+      <p style="font-size:16px;line-height:1.6;color:#B8C7D9;margin:0">Junta varias piezas en una sola solicitud y envíala completa por WhatsApp, correo o PDF. Un asesor técnico te responde.</p>
+    </div>
+
+    <!-- PANEL: PIEZA URGENTE -->
+    <sc-if value="{{ isUrgente }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#fff;border-radius:20px;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.4);max-width:760px;margin:0 auto">
+      <sc-if value="{{ submitted }}" hint-placeholder-val="">
+        <div style="text-align:center;padding:30px 10px">
+          <div style="display:inline-flex;width:64px;height:64px;border-radius:50%;background:#25D366;align-items:center;justify-content:center;margin-bottom:18px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M5 13l4 4L19 7"/></svg></div>
+          <div style="font-family:'Archivo';font-weight:800;font-size:24px;color:#0E2236;margin-bottom:10px">Abrimos tu WhatsApp</div>
+          <p style="font-size:15px;line-height:1.55;color:#5A6B80;margin:0 0 18px">Adjunta ahí la <strong>foto de la placa o pieza</strong> y un asesor KDL continúa contigo.</p>
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <a href="{{ waSticky }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:700;padding:13px 22px;border-radius:11px">Abrir WhatsApp</a>
+            <a href="{{ leadMailto }}" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid #DDE4EE;color:#2E7DF2;font-weight:700;padding:13px 20px;border-radius:11px">Enviar por correo</a>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+      <form data-kdl-quote-form="urgent_quote" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:14px">
+        <sc-if value="{{ q_has_errors }}" hint-placeholder-val="">
+          <div class="kdl-form-alert kdl-form-alert--light" role="alert">{{ q_error_summary }}</div>
+        </sc-if>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Nombre</label><input value="{{ q_nombre }}" onChange="{{ onQNombre }}" placeholder="Tu nombre" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Empresa</label><input value="{{ q_empresa }}" onChange="{{ onQEmpresa }}" placeholder="Planta / taller" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">WhatsApp</label><input value="{{ q_whatsapp }}" onChange="{{ onQWhatsapp }}" placeholder="81 0000 0000" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Ciudad / planta</label><input value="{{ q_ciudad }}" onChange="{{ onQCiudad }}" placeholder="Ej. Apodaca, N.L." style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <div style="flex:2 1 220px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Marca o No. de parte</label><input value="{{ q_parte }}" onChange="{{ onQParte }}" placeholder="Ej. IFM KQ5105" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+          <div style="flex:1 1 110px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Cantidad</label><input value="{{ q_cantidad }}" onChange="{{ onQCantidad }}" type="number" min="1" placeholder="1" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Categoría</label>
+          <select value="{{ q_categoria }}" onChange="{{ onQCategoria }}" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none;background:#fff" style-focus="border-color:#2E7DF2">
+            <option value="">Selecciona una categoría…</option>
+            <sc-for list="{{ catNames }}" as="c" hint-placeholder-count="6"><option value="{{ c }}">{{ c }}</option></sc-for>
+          </select>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:8px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Urgencia</label>
+            <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ urgOpts }}" as="u" hint-placeholder-count="3"><button type="button" onClick="{{ u.onClick }}" style="{{ u.style }}">{{ u.label }}</button></sc-for></div>
+          </div>
+          <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:8px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">¿La máquina está detenida?</label>
+            <div style="display:flex;gap:8px"><sc-for list="{{ detOpts }}" as="d" hint-placeholder-count="2"><button type="button" onClick="{{ d.onClick }}" style="{{ d.style }}">{{ d.label }}</button></sc-for></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Mensaje</label><textarea value="{{ q_mensaje }}" onChange="{{ onQMensaje }}" placeholder="Describe la falla o la aplicación…" rows="3" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none;resize:vertical" style-focus="border-color:#2E7DF2"></textarea></div>
+        <label style="display:flex;align-items:center;gap:11px;border:1.5px dashed #C6D2E2;border-radius:10px;padding:13px;cursor:pointer;color:#5A6B80;font-size:14px" style-hover="border-color:#2E7DF2;color:#2E7DF2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg>
+          <span>{{ qFileLabel }}</span><input type="file" accept="image/*" onChange="{{ onQFile }}" style="display:none">
+        </label>
+        <button type="submit" style="display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:16px;padding:16px;border:none;border-radius:12px;cursor:pointer;box-shadow:0 12px 30px rgba(46,125,242,.35)" style-hover="filter:brightness(1.05)">Enviar a un asesor KDL<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p style="text-align:center;font-size:12px;color:#90A0B5;margin:2px 0 0">Al enviar, abrimos WhatsApp con tus datos. La foto se adjunta en el chat.</p>
+      </form>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <!-- PANEL: MI LISTA -->
+    <sc-if value="{{ isLista }}" hint-placeholder-val="">
+    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
+      <div style="flex:1 1 360px;min-width:300px;background:#fff;border-radius:20px;padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.4)">
+        <div style="font-family:'Archivo';font-weight:700;font-size:19px;color:#0E2236;margin-bottom:4px">Agregar refacción a la lista</div>
+        <div style="font-size:13px;color:#7E93AC;margin-bottom:18px">Arma tu solicitud pieza por pieza. Se guarda en este dispositivo.</div>
+        <form onSubmit="{{ addItem }}" style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Pieza *</label><input value="{{ l_pieza }}" onChange="{{ onLPieza }}" placeholder="Ej. Cilindro neumático" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <div style="flex:1 1 140px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Marca</label><input value="{{ l_marca }}" onChange="{{ onLMarca }}" placeholder="AirTAC…" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+            <div style="flex:1 1 140px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">No. de parte</label><input value="{{ l_parte }}" onChange="{{ onLParte }}" placeholder="SC 63x200" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <div style="flex:1 1 90px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Cantidad</label><input value="{{ l_cantidad }}" onChange="{{ onLCantidad }}" type="number" min="1" placeholder="1" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+            <div style="flex:2 1 180px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Urgencia</label>
+              <select value="{{ l_urgencia }}" onChange="{{ onLUrgencia }}" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none;background:#fff" style-focus="border-color:#2E7DF2"><option value="Hoy">Hoy</option><option value="Esta semana">Esta semana</option><option value="Proyecto">Proyecto</option></select></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Comentarios</label><input value="{{ l_coment }}" onChange="{{ onLComent }}" placeholder="Medidas, aplicación, falla…" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
+          <label style="display:flex;align-items:center;gap:10px;border:1.5px dashed #C6D2E2;border-radius:10px;padding:11px;cursor:pointer;color:#5A6B80;font-size:13px" style-hover="border-color:#2E7DF2;color:#2E7DF2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg><span>{{ lFileLabel }}</span><input type="file" accept="image/*" onChange="{{ onLFile }}" style="display:none"></label>
+          <button type="submit" style="display:flex;align-items:center;justify-content:center;gap:9px;background:#0E2236;color:#fff;font-weight:700;font-size:15px;padding:14px;border:none;border-radius:11px;cursor:pointer" style-hover="background:#163359"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>Agregar a mi lista</button>
+        </form>
+      </div>
+      <div style="flex:1 1 360px;min-width:300px;background:rgba(10,27,48,.55);border:1px solid rgba(127,180,232,.2);border-radius:20px;padding:24px;backdrop-filter:blur(8px)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div style="font-family:'Archivo';font-weight:700;font-size:19px;color:#fff">Mi lista <span style="color:#7FB4E8;font-size:15px">({{ listCount }})</span></div>
+          <sc-if value="{{ hasList }}" hint-placeholder-val=""><button onClick="{{ clearList }}" style="background:none;border:none;color:#8FA3BA;font-size:13px;cursor:pointer;text-decoration:underline">Vaciar</button></sc-if>
+        </div>
+        <sc-if value="{{ emptyList }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:36px 16px;text-align:center;border:1.5px dashed rgba(127,180,232,.25);border-radius:14px">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#5A6B80" stroke-width="1.6"><path d="M3 5h2l2.5 12h11l2-9H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+            <div style="color:#8FA3BA;font-size:14px">Tu lista está vacía.<br>Agrega las refacciones que necesitas cotizar.</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ hasList }}" hint-placeholder-val="">
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px;max-height:340px;overflow-y:auto">
+            <sc-for list="{{ items }}" as="it" hint-placeholder-count="2">
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(127,180,232,.15);border-radius:12px;padding:13px 14px;display:flex;gap:12px;align-items:flex-start">
+                <span style="display:flex;width:30px;height:30px;border-radius:8px;background:rgba(31,200,227,.15);align-items:center;justify-content:center;color:#1FC8E3;font-weight:800;font-size:14px;flex-shrink:0;font-family:'IBM Plex Mono'">{{ it.qty }}</span>
+                <div style="flex:1;min-width:0">
+                  <div style="font-weight:600;font-size:15px;color:#fff">{{ it.pieza }}</div>
+                  <div style="font-family:'IBM Plex Mono';font-size:12px;color:#8FA3BA;margin-top:2px">{{ it.meta }}</div>
+                  <sc-if value="{{ it.coment }}" hint-placeholder-val=""><div style="font-size:12px;color:#7E93AC;margin-top:3px">{{ it.coment }}</div></sc-if>
+                </div>
+                <span style="display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;background:{{ it.urgColor }};color:#06131f;font-size:11px;font-weight:700;flex-shrink:0">{{ it.urgencia }}</span>
+                <button onClick="{{ it.onRemove }}" style="background:none;border:none;color:#7E93AC;cursor:pointer;padding:2px;flex-shrink:0" style-hover="color:#FF6B6B"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a href="{{ waList }}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px;border-radius:11px" style-hover="filter:brightness(1.05)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Enviar lista por WhatsApp</a>
+            <div style="display:flex;gap:10px">
+              <a href="{{ mailList }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid rgba(127,180,232,.35);color:#C7D4E3;font-weight:600;font-size:14px;padding:12px;border-radius:11px" style-hover="border-color:#39A0FF;color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Correo</a>
+              <button onClick="{{ downloadPDF }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid rgba(127,180,232,.35);background:none;color:#C7D4E3;font-weight:600;font-size:14px;padding:12px;border-radius:11px;cursor:pointer" style-hover="border-color:#39A0FF;color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>PDF</button>
+            </div>
+            <p style="text-align:center;font-size:12px;color:#7E93AC;margin:2px 0 0">Las fotos se adjuntan en el chat de WhatsApp.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+    </sc-if>
+  </div>
+</section>
+
+<!-- ===================== CATEGORÍAS TÉCNICAS ===================== -->
+<section id="productos" class="kdl-products-section">
+  <div class="kdl-shell">
+    <div class="kdl-products-heading">
+      <div class="kdl-products-heading__text">
+        <h2 class="kdl-section-title kdl-products-title">Encuentra lo que tu operación necesita</h2>
+        <span class="kdl-products-subtitle">Toca una categoría para ver datos para cotizar, fallas comunes y aplicaciones.</span>
+      </div>
+      <a class="kdl-link-button" href="Productos.dc.html">Ver catálogo completo<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="kdl-category-grid">
+      <sc-for list="{{ categorias }}" as="c" hint-placeholder-count="10">
+        <div class="kdl-category-card" onClick="{{ c.onOpen }}">
+          <div class="kdl-category-card__media">
+            {{ c.imgEl }}
+            <sc-if value="{{ c.ph }}" hint-placeholder-val="{{ false }}"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2E7DF2" stroke-width="1.5"><path d="M12 2v20M4 7l16 10M20 7 4 17"/></svg></sc-if>
+          </div>
+          <div class="kdl-category-card__body">
+            <div class="kdl-category-card__head"><span class="kdl-category-card__icon">{{ c.icon }}</span><span class="kdl-category-card__title">{{ c.t }}</span></div>
+            <div class="kdl-category-card__desc">{{ c.d }}</div>
+            <div class="kdl-category-card__cta">Cotizar esta categoría<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HERRAMIENTAS KDL ===================== -->
+<section id="herramientas" style="background:#0E2236;padding:74px 22px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="text-align:center;max-width:680px;margin:0 auto 44px">
+      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px">Herramientas KDL</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(27px,4vw,42px);line-height:1.05;letter-spacing:-1px;color:#fff;margin:0 0 14px">Selecciona bien, cotiza mejor.</h2>
+      <p style="font-size:16px;line-height:1.6;color:#9FB1C6;margin:0">Herramientas guiadas para llegar a la pieza correcta antes de cotizar.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+      <sc-for list="{{ tools }}" as="t" hint-placeholder-count="5">
+        <div onClick="{{ t.onClick }}" style="background:#13293F;border:1px solid rgba(127,180,232,.14);border-radius:16px;padding:24px;cursor:pointer;display:flex;flex-direction:column;height:100%" style-hover="border-color:rgba(57,160,255,.45);transform:translateY(-3px)">
+          <div style="display:flex;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);align-items:center;justify-content:center;margin-bottom:16px;color:#06131f">{{ t.icon }}</div>
+          <div style="font-family:'Archivo';font-weight:700;font-size:18px;color:#fff;margin-bottom:7px">{{ t.t }}</div>
+          <div style="font-size:14px;line-height:1.5;color:#94A7BD;flex:1">{{ t.d }}</div>
+          <div style="margin-top:16px;display:flex;align-items:center;gap:7px;color:#1FC8E3;font-weight:600;font-size:13px">{{ t.cta }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ALTERNATIVA COMPATIBLE ===================== -->
+<section style="position:relative;background:radial-gradient(110% 120% at 80% 0%,#11355C,#0A1B30 60%);padding:74px 22px;overflow:hidden">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.5" viewBox="0 0 1200 460" preserveAspectRatio="none"><path d="M-60 230 C 360 120, 720 360, 1260 220" fill="none" stroke="url(#fg)" stroke-width="2" stroke-dasharray="18 20" style="animation:kdlDash 2.8s linear infinite"></path></svg>
+  <div style="position:relative;max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:44px;align-items:center">
+    <div style="flex:1 1 340px;min-width:300px">
+      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px">Alternativa compatible</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(27px,4vw,44px);line-height:1.06;letter-spacing:-1px;color:#fff;margin:0 0 18px">¿Tu pieza está descontinuada?</h2>
+      <p style="font-size:17px;line-height:1.65;color:#B8C7D9;margin:0 0 26px;max-width:460px">¿No encuentras el mismo modelo? Envíanos marca, número de parte, placa o foto. Validamos opciones compatibles según medidas, aplicación y condiciones de trabajo.</p>
+      <a href="{{ waAlt }}" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:16px;padding:15px 24px;border-radius:12px;box-shadow:0 12px 30px rgba(46,125,242,.4)" style-hover="transform:translateY(-2px)">Buscar alternativa compatible<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div style="flex:1 1 320px;min-width:280px;background:rgba(10,27,48,.6);border:1px solid rgba(127,180,232,.2);border-radius:18px;padding:24px;backdrop-filter:blur(8px)">
+      <div style="display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(127,180,232,.15);margin-bottom:16px">
+        <div style="flex:1"><div style="font-family:'IBM Plex Mono';font-size:11px;color:#7E93AC">PIEZA ACTUAL</div><div style="font-family:'IBM Plex Mono';font-weight:600;font-size:16px;color:#fff">Sensor · descontinuado</div></div>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div style="flex:1;text-align:right"><div style="font-family:'IBM Plex Mono';font-size:11px;color:#7BE6A0">ALTERNATIVA</div><div style="font-family:'IBM Plex Mono';font-weight:600;font-size:16px;color:#fff">2 compatibles</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:11px">
+        <sc-for list="{{ altCheck }}" as="a" hint-placeholder-count="4"><div style="display:flex;align-items:center;gap:11px;color:#C7D4E3;font-size:14px"><span style="display:flex;width:22px;height:22px;border-radius:6px;background:rgba(123,230,160,.16);align-items:center;justify-content:center;color:#7BE6A0;flex-shrink:0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><path d="M5 13l4 4L19 7"/></svg></span>{{ a }}</div></sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MARCAS ===================== -->
+<section style="background:#0E2236;padding:64px 22px">
+  <div style="max-width:1100px;margin:0 auto;text-align:center">
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px">Marcas</div>
+    <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3.4vw,38px);line-height:1.1;letter-spacing:-.5px;color:#fff;margin:0 0 12px">Tecnología industrial para aplicaciones exigentes.</h2>
+    <p style="font-size:15px;line-height:1.6;color:#9FB1C6;max-width:600px;margin:0 auto 34px">Te ayudamos a seleccionar el componente correcto según aplicación, compatibilidad y condiciones de trabajo.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:13px">
+      <sc-for list="{{ brands }}" as="b" hint-placeholder-count="9"><div style="border:1px solid rgba(127,180,232,.14);border-radius:12px;padding:22px 14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.02)" style-hover="border-color:rgba(57,160,255,.4);background:rgba(255,255,255,.05)"><span style="font-family:'Archivo';font-weight:800;font-size:18px;letter-spacing:.5px;color:#C7D4E3;text-transform:uppercase">{{ b }}</span></div></sc-for>
+    </div>
+    <p style="font-family:'IBM Plex Mono';font-size:12px;color:#5A6B80;margin:22px 0 0">Marcas referenciales. KDL no afirma distribución exclusiva.</p>
+  </div>
+</section>
+
+<!-- ===================== INDUSTRIAS ===================== -->
+<section style="background:#F2F5F9;padding:78px 22px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="text-align:center;max-width:680px;margin:0 auto 44px">
+      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#2E7DF2;text-transform:uppercase;margin-bottom:14px">Por industria y aplicación</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(27px,4vw,42px);line-height:1.05;letter-spacing:-1px;color:#0E2236;margin:0">Conocemos el contexto de tu planta.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <sc-for list="{{ industries }}" as="i" hint-placeholder-count="6">
+        <a href="{{ i.wa }}" target="_blank" style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:26px;display:flex;flex-direction:column" style-hover="box-shadow:0 16px 38px rgba(14,34,54,.1);transform:translateY(-3px);border-color:#C9D8EC">
+          <div style="display:flex;width:46px;height:46px;border-radius:12px;background:#EAF1FB;align-items:center;justify-content:center;color:#2E7DF2;margin-bottom:16px">{{ i.icon }}</div>
+          <div style="font-family:'Archivo';font-weight:700;font-size:18px;color:#0E2236;margin-bottom:8px">{{ i.t }}</div>
+          <div style="font-size:14px;line-height:1.5;color:#5A6B80;flex:1">{{ i.d }}</div>
+          <div style="margin-top:16px;display:flex;align-items:center;gap:7px;color:#2E7DF2;font-weight:700;font-size:13px">Cotizar para esta industria<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CENTRO DE SOPORTE ===================== -->
+<section id="soporte" style="background:#fff;padding:78px 22px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="text-align:center;max-width:680px;margin:0 auto 44px">
+      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#2E7DF2;text-transform:uppercase;margin-bottom:14px">Centro de soporte KDL</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(27px,4vw,44px);line-height:1.05;letter-spacing:-1px;color:#0E2236;margin:0 0 14px">Todo para cotizar con menos fricción.</h2>
+      <p style="font-size:16px;line-height:1.6;color:#5A6B80;margin:0">Catálogos 2026, checklists, guías de selección y fichas técnicas.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:18px">
+      <sc-for list="{{ catalogs }}" as="k" hint-placeholder-count="2">
+        <div style="border:1px solid #E3E9F1;border-radius:18px;overflow:hidden;display:flex;background:#fff" style-hover="box-shadow:0 16px 40px rgba(14,34,54,.1)">
+          <div style="width:130px;flex-shrink:0;background:linear-gradient(160deg,#0E2236,#16335A);display:flex;align-items:center;justify-content:center;padding:16px">{{ k.imgEl }}</div>
+          <div style="padding:22px;flex:1;display:flex;flex-direction:column">
+            <span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#9AACC2;margin-bottom:6px">PDF · 2026</span>
+            <div style="font-family:'Archivo';font-weight:700;font-size:18px;color:#0E2236;margin-bottom:6px">{{ k.t }}</div>
+            <div style="font-size:13px;line-height:1.5;color:#5A6B80;flex:1">{{ k.d }}</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+              <a href="{{ k.file }}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#0E2236;color:#fff;font-weight:700;font-size:13px;padding:10px 15px;border-radius:9px" style-hover="background:#163359"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>Descargar</a>
+              <a href="{{ waSticky }}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;border:1.5px solid #DDE4EE;color:#2E7DF2;font-weight:700;font-size:13px;padding:10px 15px;border-radius:9px" style-hover="border-color:#2E7DF2">Pedir asesoría</a>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:34px">
+      <sc-for list="{{ resources }}" as="r" hint-placeholder-count="3">
+        <a href="{{ r.wa }}" target="_blank" style="border:1px solid #E3E9F1;border-radius:14px;padding:22px;display:flex;flex-direction:column;background:#F8FAFD" style-hover="border-color:#C9D8EC;background:#fff">
+          <div style="display:flex;width:42px;height:42px;border-radius:11px;background:#EAF1FB;align-items:center;justify-content:center;color:#2E7DF2;margin-bottom:14px">{{ r.icon }}</div>
+          <div style="font-family:'Archivo';font-weight:700;font-size:16px;color:#0E2236;margin-bottom:6px">{{ r.t }}</div>
+          <div style="font-size:13px;line-height:1.5;color:#5A6B80">{{ r.d }}</div>
+        </a>
+      </sc-for>
+    </div>
+
+    <div style="max-width:820px;margin:0 auto">
+      <div style="font-family:'Archivo';font-weight:800;font-size:22px;color:#0E2236;text-align:center;margin-bottom:20px">Preguntas frecuentes</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
+          <div onClick="{{ q.onToggle }}" style="border:1px solid #E3E9F1;border-radius:12px;padding:18px 20px;cursor:pointer;background:#F8FAFD" style-hover="border-color:#C9D8EC">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:14px"><span style="font-weight:700;font-size:16px;color:#0E2236">{{ q.q }}</span><span style="color:#2E7DF2;font-size:22px;flex-shrink:0">{{ q.sign }}</span></div>
+            <sc-if value="{{ q.open }}" hint-placeholder-val=""><div style="font-size:14px;line-height:1.6;color:#5A6B80;margin-top:12px">{{ q.a }}</div></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTINUIDAD ===================== -->
+<section style="position:relative;background:linear-gradient(135deg,#0A1B30,#102C4C);padding:74px 22px;overflow:hidden">
+  <div style="position:relative;max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;gap:44px;align-items:center">
+    <div style="flex:1 1 320px;min-width:280px">
+      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px">Continuidad operativa</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.04;letter-spacing:-1px;color:#fff;margin:0 0 18px">La producción<br>no espera.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#B8C7D9;margin:0 0 26px;max-width:460px">Cada minuto de paro cuesta. Por eso no te hacemos navegar un catálogo eterno: te llevamos directo a buscar, cotizar o hablar con un asesor.</p>
+      <a href="{{ waUrgente }}" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:16px;padding:15px 24px;border-radius:12px;box-shadow:0 12px 30px rgba(46,125,242,.4)" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>Cotizar refacción urgente</a>
+    </div>
+    <div style="flex:1 1 340px;min-width:280px;background:rgba(10,27,48,.7);border:1px solid rgba(127,180,232,.2);border-radius:20px;padding:28px;backdrop-filter:blur(8px)">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid rgba(127,180,232,.15)">
+        <span style="width:12px;height:12px;border-radius:50%;background:#25D366;box-shadow:0 0 0 5px rgba(37,211,102,.2);animation:kdlPulse 1.8s infinite"></span>
+        <div><div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#7FB4E8">TU PLANTA OPERA AHORA</div><div style="font-family:'IBM Plex Mono';font-weight:600;font-size:30px;color:#fff;letter-spacing:1px">{{ clock }}</div></div>
+      </div>
+      <div style="font-family:'Archivo';font-weight:700;font-size:16px;color:#fff;margin-bottom:16px">Ten esto a la mano para cotizar más rápido:</div>
+      <div style="display:flex;flex-direction:column;gap:11px">
+        <sc-for list="{{ checklist }}" as="ci" hint-placeholder-count="5"><div style="display:flex;align-items:center;gap:11px;color:#C7D4E3;font-size:15px"><span style="display:flex;width:24px;height:24px;border-radius:7px;background:rgba(31,200,227,.15);align-items:center;justify-content:center;color:#1FC8E3;flex-shrink:0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 13l4 4L19 7"/></svg></span>{{ ci }}</div></sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONFIANZA ===================== -->
+<section style="background:#F2F5F9;padding:74px 22px">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="text-align:center;max-width:640px;margin:0 auto 44px">
+      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#2E7DF2;text-transform:uppercase;margin-bottom:14px">Por qué KDL</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(27px,3.6vw,42px);line-height:1.08;letter-spacing:-.8px;color:#0E2236;margin:0">Un aliado técnico, no una refaccionaria genérica.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+      <sc-for list="{{ trust }}" as="t" hint-placeholder-count="6">
+        <div style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:24px">
+          <div style="display:flex;width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);align-items:center;justify-content:center;margin-bottom:16px">{{ t.icon }}</div>
+          <div style="font-family:'Archivo';font-weight:700;font-size:18px;color:#0E2236;margin-bottom:7px">{{ t.t }}</div>
+          <div style="font-size:14px;line-height:1.5;color:#5A6B80">{{ t.d }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-family:'IBM Plex Mono';font-size:12px;color:#90A0B5;text-align:center;margin:26px 0 0">*Antigüedad y alcances sujetos a confirmación de KDL antes de publicar.</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="contacto" style="background:#06121F;color:#9FB1C6;padding:62px 22px 30px;border-top:1px solid rgba(127,180,232,.1)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;gap:44px;justify-content:space-between;padding-bottom:38px;border-bottom:1px solid rgba(127,180,232,.12)">
+      <div style="flex:1 1 300px;min-width:260px">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:18px"><span style="display:flex;width:44px;height:44px;border-radius:10px;background:#fff;align-items:center;justify-content:center"><img src="assets/kdl-logo.png" alt="KDL" style="width:36px;height:36px;object-fit:contain"></span><span style="font-family:'Archivo';font-weight:900;font-size:22px;color:#fff">KDL</span></div>
+        <p style="font-size:15px;line-height:1.6;max-width:340px;margin:0 0 20px">KDL: suministros, refacciones, automatización y soluciones industriales para que tu línea no se detenga.</p>
+        <a href="{{ waSticky }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:700;font-size:14px;padding:12px 18px;border-radius:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Cotizar por WhatsApp</a>
+      </div>
+      <div style="flex:0 1 150px"><div style="font-family:'Archivo';font-weight:700;color:#fff;font-size:15px;margin-bottom:16px">Navegación</div><div style="display:flex;flex-direction:column;gap:11px;font-size:14px"><a href="#productos" style-hover="color:#fff">Productos</a><a href="#herramientas" style-hover="color:#fff">Herramientas</a><a href="#soporte" style-hover="color:#fff">Soporte</a><a href="#cotizador" style-hover="color:#fff">Cotizador</a><a href="#contacto" style-hover="color:#fff">Aviso de privacidad</a></div></div>
+      <div style="flex:0 1 150px"><div style="font-family:'Archivo';font-weight:700;color:#fff;font-size:15px;margin-bottom:16px">Servicios</div><div style="display:flex;flex-direction:column;gap:11px;font-size:14px"><a href="#identificador" style-hover="color:#fff">Identificador KDL</a><a href="#cotizador" style-hover="color:#fff">Mi lista</a><a href="#soporte" style-hover="color:#fff">Catálogos 2026</a><a href="#herramientas" style-hover="color:#fff">Alternativa compatible</a></div></div>
+      <div style="flex:0 1 250px"><div style="font-family:'Archivo';font-weight:700;color:#fff;font-size:15px;margin-bottom:16px">Contacto</div><div style="display:flex;flex-direction:column;gap:13px;font-size:14px">
+        <a href="{{ tel }}" style="display:flex;align-items:center;gap:10px" style-hover="color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>+52 81 1227 3382</a>
+        <a href="{{ mail }}" style="display:flex;align-items:center;gap:10px" style-hover="color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ventas@kdl.com.mx</a>
+        <div style="display:flex;align-items:center;gap:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>Monterrey, Nuevo León</div>
+        <a href="https://kdl.com.mx" target="_blank" style="display:flex;align-items:center;gap:10px" style-hover="color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>kdl.com.mx</a>
+      </div></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding-top:24px;font-size:13px;color:#5A6B80"><span>© 2026 KDL · Suministros y Soluciones Industriales · Monterrey, N.L.</span><span style="font-family:'IBM Plex Mono'">Refacciones industriales · Automatización · Herramientas de corte</span></div>
+  </div>
+</footer>
+
+<!-- ===================== STICKY ACTIONS ===================== -->
+<sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+  <a class="kdl-sticky-whatsapp" href="{{ waSticky }}" target="_blank" data-analytics="cta_click" data-analytics-cta="sticky_whatsapp" style="position:fixed;right:24px;bottom:24px;z-index:80;display:flex;align-items:center;gap:11px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:15px 20px;border-radius:50px;box-shadow:0 14px 38px rgba(37,211,102,.5)" style-hover="transform:scale(1.04)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Cotizar por WhatsApp</a>
+</sc-if>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:80;display:flex;gap:10px;padding:11px 14px;background:rgba(8,21,38,.95);backdrop-filter:blur(10px);border-top:1px solid rgba(127,180,232,.15)">
+    <a href="{{ waSticky }}" target="_blank" data-analytics="cta_click" data-analytics-cta="mobile_bar_whatsapp" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px;border-radius:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>WhatsApp</a>
+    <a href="{{ tel }}" data-analytics="cta_click" data-analytics-cta="mobile_bar_call" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:15px;padding:14px;border-radius:12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>Llamar</a>
+  </div>
+  <div style="height:70px"></div>
+</sc-if>
+
+<!-- ===================== MODAL: CATEGORÍA TÉCNICA ===================== -->
+<sc-if value="{{ catModalOpen }}" hint-placeholder-val="">
+  <div onClick="{{ closeCat }}" style="position:fixed;inset:0;z-index:90;background:rgba(6,18,31,.72);backdrop-filter:blur(4px);display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto">
+    <div onClick="{{ stop }}" style="background:#fff;border-radius:20px;max-width:760px;width:100%;margin:auto;overflow:hidden">
+      <div style="position:relative;background:linear-gradient(135deg,#0E2236,#16335A);padding:28px 30px;display:flex;gap:20px;align-items:center">
+        <div style="flex:1"><div style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:1.5px;color:#7FB4E8;margin-bottom:8px">FICHA TÉCNICA · {{ cm.tag }}</div><div style="font-family:'Archivo';font-weight:800;font-size:26px;color:#fff;line-height:1.1">{{ cm.t }}</div></div>
+        <button onClick="{{ closeCat }}" style="background:rgba(255,255,255,.1);border:none;color:#fff;width:38px;height:38px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0" style-hover="background:rgba(255,255,255,.2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <div style="padding:28px 30px">
+        <p style="font-size:16px;line-height:1.6;color:#3A4A5C;margin:0 0 24px">{{ cm.d }}</p>
+        <div style="margin-bottom:22px"><div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#7E93AC;text-transform:uppercase;margin-bottom:11px">Filtra por</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ cm.filtros }}" as="ff" hint-placeholder-count="6"><span style="background:#EAF1FB;color:#2E7DF2;font-size:13px;font-weight:600;border-radius:8px;padding:7px 12px">{{ ff }}</span></sc-for></div></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-bottom:26px">
+          <div><div style="display:flex;align-items:center;gap:8px;font-family:'Archivo';font-weight:700;font-size:15px;color:#0E2236;margin-bottom:12px"><span style="color:#2E7DF2;display:flex"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Datos para cotizar</div><div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ cm.datos }}" as="dd" hint-placeholder-count="5"><div style="display:flex;gap:9px;font-size:14px;color:#4A5A6C;line-height:1.4"><span style="color:#2E7DF2;flex-shrink:0">›</span>{{ dd }}</div></sc-for></div></div>
+          <div><div style="display:flex;align-items:center;gap:8px;font-family:'Archivo';font-weight:700;font-size:15px;color:#0E2236;margin-bottom:12px"><span style="color:#E0852C;display:flex"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>Fallas comunes</div><div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ cm.fallas }}" as="fa" hint-placeholder-count="3"><div style="display:flex;gap:9px;font-size:14px;color:#4A5A6C;line-height:1.4"><span style="color:#E0852C;flex-shrink:0">›</span>{{ fa }}</div></sc-for></div></div>
+        </div>
+        <div style="margin-bottom:26px"><div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#7E93AC;text-transform:uppercase;margin-bottom:11px">Aplicaciones</div><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ cm.aplicaciones }}" as="ap" hint-placeholder-count="3"><span style="background:#F2F5F9;color:#4A5A6C;font-size:13px;border-radius:8px;padding:7px 12px">{{ ap }}</span></sc-for></div></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="{{ cm.wa }}" target="_blank" style="flex:1;min-width:200px;display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:15px;padding:15px;border-radius:12px" style-hover="filter:brightness(1.05)">Cotizar {{ cm.t }}<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="Productos.dc.html#cat-{{ cm.key }}" style="display:flex;align-items:center;justify-content:center;gap:9px;border:1.5px solid #DDE4EE;color:#2E7DF2;font-weight:700;font-size:15px;padding:15px 22px;border-radius:12px" style-hover="border-color:#2E7DF2">Ver productos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<!-- ===================== MODAL: CALCULADORA DE AIRE ===================== -->
+<sc-if value="{{ calcOpen }}" hint-placeholder-val="">
+  <div onClick="{{ closeCalc }}" style="position:fixed;inset:0;z-index:90;background:rgba(6,18,31,.72);backdrop-filter:blur(4px);display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto">
+    <div onClick="{{ stop }}" style="background:#fff;border-radius:20px;max-width:560px;width:100%;margin:auto;overflow:hidden">
+      <div style="background:linear-gradient(135deg,#0E2236,#16335A);padding:24px 28px;display:flex;gap:16px;align-items:center">
+        <div style="flex:1"><div style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:1.5px;color:#7FB4E8;margin-bottom:6px">HERRAMIENTA KDL</div><div style="font-family:'Archivo';font-weight:800;font-size:22px;color:#fff">Consumo de aire de un cilindro</div></div>
+        <button onClick="{{ closeCalc }}" style="background:rgba(255,255,255,.1);border:none;color:#fff;width:36px;height:36px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0" style-hover="background:rgba(255,255,255,.2)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <div style="padding:26px 28px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px">
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Ø Émbolo (mm)</label><input value="{{ ca_d }}" onChange="{{ onCaD }}" type="number" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px;font-size:15px;outline:none" style-focus="border-color:#2E7DF2"></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Carrera (mm)</label><input value="{{ ca_l }}" onChange="{{ onCaL }}" type="number" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px;font-size:15px;outline:none" style-focus="border-color:#2E7DF2"></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Presión (bar)</label><input value="{{ ca_p }}" onChange="{{ onCaP }}" type="number" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px;font-size:15px;outline:none" style-focus="border-color:#2E7DF2"></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Ciclos / min</label><input value="{{ ca_c }}" onChange="{{ onCaC }}" type="number" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px;font-size:15px;outline:none" style-focus="border-color:#2E7DF2"></div>
+        </div>
+        <div style="background:linear-gradient(135deg,#0A1B30,#102C4C);border-radius:14px;padding:22px;text-align:center;margin-bottom:18px">
+          <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#7FB4E8;margin-bottom:6px">CONSUMO ESTIMADO (doble efecto)</div>
+          <div style="font-family:'Archivo';font-weight:900;font-size:40px;color:#fff;line-height:1">{{ ca_result }} <span style="font-size:18px;color:#9FE4F2">NL/min</span></div>
+          <div style="font-family:'IBM Plex Mono';font-size:12px;color:#7E93AC;margin-top:6px">≈ {{ ca_resultStroke }} NL por ciclo</div>
+        </div>
+        <p style="font-size:12px;line-height:1.5;color:#90A0B5;margin:0 0 16px">Estimación aproximada para dimensionar; no incluye consumo del vástago, fugas ni accesorios. Para selección final, valida con un asesor.</p>
+        <a href="{{ waCalc }}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px;border-radius:11px" style-hover="filter:brightness(1.05)">Cotizar cilindro / FRL con un asesor<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    const w = (typeof window !== 'undefined') ? window.innerWidth : 1280;
+    this.state = {
+      isMobile: w < 820,
+      mobileMenuOpen:false,
+      clock: this.fmtClock(),
+      query:'', searchFocused:false, searched:false,
+      quoteTab:'urgente',
+      qf:{ nombre:'', empresa:'', whatsapp:'', ciudad:'', parte:'', cantidad:'', categoria:'', urgencia:'Hoy', detenida:'Sí', mensaje:'', fileName:'' },
+      qErrors:{},
+      qSubmitAttempted:false,
+      submitted:false,
+      leadMailto:'',
+      cartCount:0,
+      lf:{ pieza:'', marca:'', parte:'', cantidad:'', urgencia:'Hoy', coment:'', fileName:'' },
+      list:[],
+      idFileName:'',
+      openCat:null,
+      calcOpen:false,
+      ca:{ d:'50', l:'200', p:'6', c:'30' },
+      faqOpen:-1
+    };
+  }
+  fmtClock(){ const d=new Date(),p=n=>String(n).padStart(2,'0'); return p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds()); }
+  componentDidMount(){
+    this._r=()=>{ const m=window.innerWidth<820; if(m!==this.state.isMobile) this.setState({isMobile:m,mobileMenuOpen:false}); };
+    window.addEventListener('resize',this._r);
+    this._cart=()=>this.setState({cartCount:this.cartCount()});
+    window.addEventListener('storage',this._cart);
+    this._t=setInterval(()=>this.setState({clock:this.fmtClock()}),1000);
+    try{ const s=localStorage.getItem('kdl_quote_list'); if(s) this.setState({list:JSON.parse(s)}); }catch(e){}
+    this.setState({cartCount:this.cartCount()});
+  }
+  componentWillUnmount(){ window.removeEventListener('resize',this._r); if(this._cart) window.removeEventListener('storage',this._cart); clearInterval(this._t); }
+  wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
+  cartCount(){ try{ return JSON.parse(localStorage.getItem('kdl_cart')||'[]').reduce((a,b)=>a+(b.qty||1),0); }catch(e){ return 0; } }
+  persist(list){ try{ localStorage.setItem('kdl_quote_list', JSON.stringify(list)); }catch(e){} }
+  track(name,data){
+    const details=data||{};
+    const root=(typeof window!=='undefined'&&window)||(typeof document!=='undefined'&&document.defaultView)||(typeof globalThis!=='undefined'&&globalThis);
+    if(!root) return;
+    try{ if(typeof root.kdlTrack==='function'){ root.kdlTrack(name,details); return; } }catch(e){}
+    const payload=Object.assign({event:name},details);
+    try{ root.dataLayer=root.dataLayer||[]; root.dataLayer.push(payload); }catch(e){}
+    try{ root.__kdlAnalyticsEvents=root.__kdlAnalyticsEvents||[]; root.__kdlAnalyticsEvents.push(payload); }catch(e){}
+    try{ if(typeof root.gtag==='function') root.gtag('event',name,details); }catch(e){}
+  }
+  clean(v){ return String(v||'').trim(); }
+  phoneDigits(v){ return String(v||'').replace(/\D/g,''); }
+  validateQuote(f){
+    const errors={};
+    const nombre=this.clean(f.nombre), whatsapp=this.clean(f.whatsapp), parte=this.clean(f.parte), mensaje=this.clean(f.mensaje);
+    const digits=this.phoneDigits(whatsapp);
+    if(!nombre) errors.nombre='Ingresa tu nombre.';
+    if(!whatsapp) errors.whatsapp='Ingresa tu WhatsApp.';
+    else if(digits.length<10||digits.length>15) errors.whatsapp='Ingresa un WhatsApp válido.';
+    if(!this.clean(f.categoria)) errors.categoria='Selecciona una categoría.';
+    if(!parte&&!mensaje&&!f.fileName) errors.parte='Agrega número de parte, mensaje o foto.';
+    if(this.clean(f.cantidad)&&(Number(f.cantidad)<1||Number.isNaN(Number(f.cantidad)))) errors.cantidad='La cantidad debe ser mayor a cero.';
+    return errors;
+  }
+  quoteErrorSummary(errors){
+    const labels={nombre:'nombre',whatsapp:'WhatsApp',categoria:'categoría',parte:'datos de la pieza',cantidad:'cantidad'};
+    const fields=Object.keys(errors).map(k=>labels[k]||k);
+    return fields.length?'Revisa: '+fields.join(', ')+'.':'Revisa los datos del formulario.';
+  }
+  setQF(k,v){
+    this.setState(s=>{
+      const qf={...s.qf,[k]:v};
+      const qErrors=s.qSubmitAttempted?this.validateQuote(qf):{...(s.qErrors||{})};
+      if(!s.qSubmitAttempted){
+        delete qErrors[k];
+        if(k==='parte'||k==='mensaje'||k==='fileName') delete qErrors.parte;
+      }
+      return {qf,qErrors};
+    });
+  }
+  setLF(k,v){ this.setState(s=>({lf:{...s.lf,[k]:v}})); }
+  setCA(k,v){ this.setState(s=>({ca:{...s.ca,[k]:v}})); }
+  toggleMobileMenu(e){ if(e&&e.preventDefault)e.preventDefault(); this.setState(s=>({mobileMenuOpen:!s.mobileMenuOpen})); }
+  closeMobileMenu(){ this.setState({mobileMenuOpen:false}); }
+  quoteMailto(f,message){
+    const subject='Solicitud de cotización KDL - '+(this.clean(f.categoria)||'Refacción industrial');
+    const body=message||('Nombre: '+(f.nombre||'-')+'\nEmpresa: '+(f.empresa||'-')+'\nWhatsApp: '+(f.whatsapp||'-'));
+    return 'mailto:ventas@kdl.com.mx?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  }
+  leadPayload(f){
+    return {
+      form:'quick_quote',
+      name:f.nombre||'',
+      company:f.empresa||'',
+      whatsapp:f.whatsapp||'',
+      city:f.ciudad||'',
+      part:f.parte||'',
+      quantity:f.cantidad||'',
+      category:f.categoria||'',
+      urgency:f.urgencia||'',
+      machineDown:f.detenida||'',
+      message:f.mensaje||'',
+      fileName:f.fileName||'',
+      emailTo:'ventas@kdl.com.mx'
+    };
+  }
+  captureLead(f,message){
+    let mail=this.quoteMailto(f,message);
+    try{
+      if(window.kdlLead&&typeof window.kdlLead.submit==='function'){
+        const res=window.kdlLead.submit(this.leadPayload(f));
+        if(res&&res.mailto) mail=res.mailto;
+      }
+    }catch(e){
+      this.track('lead_capture_error',{form:'quick_quote'});
+    }
+    return mail;
+  }
+
+  submit(e){ if(e&&e.preventDefault)e.preventDefault();
+    const f=this.state.qf;
+    this.track('quote_submit_attempt',{form:'quick_quote',category:f.categoria||'',urgency:f.urgencia||''});
+    const errors=this.validateQuote(f);
+    const errorFields=Object.keys(errors);
+    if(errorFields.length){
+      this.track('quote_validation_error',{form:'quick_quote',fields:errorFields.join(','),error_count:errorFields.length});
+      this.setState({qErrors:errors,qSubmitAttempted:true});
+      return;
+    }
+    const t='Hola KDL, solicito una cotización de refacción urgente.\n\n'
+      +'Nombre: '+(f.nombre||'-')+'\nEmpresa: '+(f.empresa||'-')+'\nWhatsApp: '+(f.whatsapp||'-')
+      +'\nMarca/No. de parte: '+(f.parte||'-')
+      +'\nCantidad: '+(f.cantidad||'-')+'\nCiudad/planta: '+(f.ciudad||'-')
+      +'\nCategoría: '+(f.categoria||'-')+'\nUrgencia: '+(f.urgencia||'-')+'\nMáquina detenida: '+(f.detenida||'-')
+      +'\nMensaje: '+(f.mensaje||'-')+(f.fileName?('\nFoto seleccionada: '+f.fileName):'');
+    this.track('quote_submit_success',{form:'quick_quote',category:f.categoria||'',urgency:f.urgencia||'',has_part:!!this.clean(f.parte),has_message:!!this.clean(f.mensaje),has_file:!!f.fileName});
+    const leadMailto=this.captureLead(f,t);
+    try{ window.open(this.wa(t),'_blank'); }catch(err){}
+    this.setState({submitted:true,qErrors:{},qSubmitAttempted:false,leadMailto});
+  }
+  addItem(e){ if(e&&e.preventDefault)e.preventDefault();
+    const l=this.state.lf; if(!l.pieza||!l.pieza.trim()) return;
+    const item={ pieza:l.pieza.trim(), marca:l.marca.trim(), parte:l.parte.trim(), cantidad:(l.cantidad||'1'), urgencia:l.urgencia, coment:l.coment.trim(), fileName:l.fileName };
+    const list=[...this.state.list,item]; this.persist(list);
+    this.setState({ list, lf:{pieza:'',marca:'',parte:'',cantidad:'',urgencia:'Hoy',coment:'',fileName:''} });
+  }
+  removeItem(i){ const list=this.state.list.filter((_,ix)=>ix!==i); this.persist(list); this.setState({list}); }
+  clearList(){ this.persist([]); this.setState({list:[]}); }
+  listText(){
+    let t='Hola KDL, esta es mi lista de refacciones para cotizar:\n';
+    this.state.list.forEach((it,i)=>{
+      t+='\n'+(i+1)+') '+it.pieza+' — Cant: '+it.cantidad
+        +(it.marca?(' · Marca: '+it.marca):'')+(it.parte?(' · No. parte: '+it.parte):'')
+        +' · Urgencia: '+it.urgencia+(it.coment?(' · '+it.coment):'')+(it.fileName?(' · [foto: '+it.fileName+']'):'');
+    });
+    t+='\n\nAdjunto fotos en el chat. Quedo al pendiente de la cotizacion.';
+    return t;
+  }
+  downloadPDF(){
+    const rows=this.state.list.map((it,i)=>'<tr><td>'+(i+1)+'</td><td>'+it.pieza+'</td><td>'+(it.marca||'-')+'</td><td>'+(it.parte||'-')+'</td><td style="text-align:center">'+it.cantidad+'</td><td>'+it.urgencia+'</td><td>'+(it.coment||'-')+'</td></tr>').join('');
+    const styleTag='<sty'+'le>body{font-family:Arial,sans-serif;color:#0E2236;padding:40px;max-width:900px;margin:auto}'
+      +'h1{font-size:22px;margin:0}.bar{height:5px;background:linear-gradient(90deg,#1FC8E3,#2E7DF2);margin:14px 0 24px}'
+      +'table{width:100%;border-collapse:collapse;font-size:13px}th{background:#0E2236;color:#fff;text-align:left;padding:9px 10px}'
+      +'td{padding:9px 10px;border-bottom:1px solid #E3E9F1}tr:nth-child(even) td{background:#F6F9FC}'
+      +'.meta{color:#5A6B80;font-size:13px;margin-bottom:4px}.foot{margin-top:30px;font-size:12px;color:#7E93AC}</st'+'yle>';
+    const scriptTag='<scr'+'ipt>window.onload=function(){setTimeout(function(){window.print();},300);}</scr'+'ipt>';
+    const html='<!doctype html><html><head><meta charset="utf-8"><title>Solicitud de cotizacion KDL</title>'+styleTag+'</head><body>'
+      +'<div style="display:flex;justify-content:space-between;align-items:flex-end"><div><h1>KDL · Solicitud de cotización</h1>'
+      +'<div class="meta">Suministros, refacciones, automatización y soluciones industriales</div></div>'
+      +'<div style="text-align:right;font-size:12px;color:#5A6B80">Fecha: '+new Date().toLocaleDateString('es-MX')+'<br>WhatsApp: +52 81 1227 3382<br>ventas@kdl.com.mx</div></div>'
+      +'<div class="bar"></div>'
+      +'<table><thead><tr><th>#</th><th>Pieza</th><th>Marca</th><th>No. de parte</th><th>Cant.</th><th>Urgencia</th><th>Comentarios</th></tr></thead><tbody>'+rows+'</tbody></table>'
+      +'<div class="foot">Las imágenes de placa/pieza se comparten por WhatsApp. Validamos disponibilidad y alternativa compatible. KDL · Monterrey, N.L.</div>'
+      +scriptTag+'</body></html>';
+    try{ const w=window.open('','_blank'); if(w){ w.document.open(); w.document.write(html); w.document.close(); } }catch(e){}
+  }
+
+  openCat(key){ this.setState({openCat:key}); }
+  closeCat(){ this.setState({openCat:null}); }
+  openCalc(){ this.setState({calcOpen:true}); }
+  closeCalc(){ this.setState({calcOpen:false}); }
+  toggleFaq(i){ this.setState(s=>({faqOpen: s.faqOpen===i?-1:i})); }
+  runSearch(){ this.setState({searched:true}); }
+  setQuery(v){ this.setState({query:v, searched:false}); }
+
+  matchSearch(){
+    const q=(this.state.query||'').trim().toLowerCase();
+    if(!q) return [];
+    return this.searchIndex().filter(x=>x.k.toLowerCase().includes(q)||x.label.toLowerCase().includes(q)).slice(0,5);
+  }
+  searchIndex(){
+    return [
+      {label:'IFM KQ5105', sub:'Sensor capacitivo · Sensores y control', tag:'No. parte', cat:'Sensores y control', k:'ifm kq5105 sensor capacitivo pnp'},
+      {label:'AirTAC SC 63x200', sub:'Cilindro neumático · Neumática', tag:'No. parte', cat:'Neumática industrial', k:'airtac sc 63x200 cilindro neumatica'},
+      {label:'Inserto WNMG', sub:'Torneado · Herramientas de corte', tag:'Designación', cat:'Herramientas de corte', k:'wnmg inserto torneado corte carburo'},
+      {label:'Sensor PNP M12', sub:'Detección · Sensores y control', tag:'Síntoma', cat:'Sensores y control', k:'sensor pnp npn m12 inductivo fotoelectrico'},
+      {label:'Variador Delta', sub:'Drive / VFD · Automatización', tag:'Marca', cat:'Automatización', k:'variador delta vfd drive plc automatizacion'},
+      {label:'Guía lineal HIWIN', sub:'Patín / riel · Movimiento lineal', tag:'Marca', cat:'Movimiento lineal', k:'guia lineal hiwin patin riel husillo movimiento'},
+      {label:'Bomba hidráulica', sub:'Unidad de potencia · Hidráulica', tag:'Síntoma', cat:'Hidráulica industrial', k:'bomba hidraulica valvula cilindro presion'},
+      {label:'HMI Weintek', sub:'Pantalla · Automatización', tag:'Marca', cat:'Automatización', k:'hmi weintek pantalla plc'},
+      {label:'Gripper neumático', sub:'Sujeción · Neumática industrial', tag:'Síntoma', cat:'Neumática industrial', k:'gripper pinza sujecion neumatico'}
+    ];
+  }
+
+  renderVals(){
+    const m=this.state.isMobile, qf=this.state.qf, lf=this.state.lf, ca=this.state.ca;
+    const qErrors=this.state.qErrors||{}, qErrorKeys=Object.keys(qErrors);
+    const list=this.state.list;
+    const iconW = (p,c,sz) => React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="'+(sz||20)+'" height="'+(sz||20)+'" viewBox="0 0 24 24" fill="none" stroke="'+(c||'#fff')+'" stroke-width="2">'+p+'</svg>'}});
+    const rawIcon = (p,sz) => React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="'+(sz||16)+'" height="'+(sz||16)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+p+'</svg>'}});
+    const imgEl = (src,alt,st) => src ? React.createElement('img',{src:src,alt:alt||'',loading:'lazy',decoding:'async',style:st||{maxWidth:'100%',maxHeight:'100%',objectFit:'contain'}}) : null;
+    const dolorIcons=[
+      rawIcon('<path d="M4.5 11a10 10 0 0 1 15 0"/><path d="M8 14.5a5 5 0 0 1 8 0"/><circle cx="12" cy="18" r="1.4"/>',28),
+      rawIcon('<rect x="3" y="9" width="12" height="6" rx="1"/><path d="M15 11h5M15 13h5"/><circle cx="9" cy="12" r="1.4"/>',28),
+      rawIcon('<path d="M12 4 20 18H4Z"/><circle cx="12" cy="13" r="2"/>',28),
+      rawIcon('<rect x="4" y="4" width="16" height="12" rx="1"/><path d="M8 20h8M12 16v4M8 8h4M8 11h6"/>',28),
+      rawIcon('<path d="M3 14h18"/><rect x="7" y="8" width="10" height="6" rx="1"/><path d="M9 14v2M15 14v2"/>',28),
+      rawIcon('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M11 8.4a1.6 1.6 0 0 1 1 2.9c-.6.4-1 .6-1 1.2"/><circle cx="11" cy="14.4" r=".3"/>',28)
+    ];
+    const stepIcons=[
+      rawIcon('<rect x="6" y="2" width="12" height="20" rx="2"/><circle cx="12" cy="11" r="3"/><path d="M10 6h4"/>',26),
+      rawIcon('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',26),
+      rawIcon('<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 13l2 2 4-4"/>',26)
+    ];
+    const catIcons={
+      neumatica:rawIcon('<rect x="2" y="9" width="13" height="6" rx="1"/><path d="M15 11h4M15 13h4"/>',20),
+      hidraulica:rawIcon('<path d="M12 3c3 4 5 6 5 9a5 5 0 0 1-10 0c0-3 2-5 5-9Z"/>',20),
+      sensores:rawIcon('<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>',20),
+      automatizacion:rawIcon('<rect x="4" y="4" width="16" height="12" rx="1"/><path d="M8 20h8M12 16v4"/>',20),
+      movimiento:rawIcon('<path d="M3 14h18"/><rect x="8" y="9" width="8" height="5" rx="1"/>',20),
+      corte:rawIcon('<path d="M12 3 3 8v8l9 5 9-5V8Z"/>',20),
+      grippers:rawIcon('<path d="M8 4v6M16 4v6M6 10h12l-2 8H8Z"/>',20),
+      electrico:rawIcon('<path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/>',20),
+      iqf:rawIcon('<path d="M12 2v20M4 7l16 10M20 7 4 17"/>',20),
+      suministros:rawIcon('<path d="M4 7l8-4 8 4-8 4Z"/><path d="M4 7v10l8 4 8-4V7"/>',20)
+    };
+
+    const K=(typeof window!=='undefined')?window.KDL:null;
+    const sharedCats=(K&&Array.isArray(K.cats))?K.cats:[];
+    const catRaw=sharedCats.map((c,ix)=>{
+      const filtros=(c.filtros&&c.filtros.length)?c.filtros:(c.products||[]).slice(0,6).map(p=>p.n);
+      return {
+        key:c.key,
+        t:c.name,
+        d:c.intro,
+        img:c.img||'',
+        tag:String(ix+1).padStart(2,'0'),
+        ph:!c.img,
+        filtros,
+        datos:c.datos||[],
+        fallas:c.fallas||[],
+        aplicaciones:c.aplicaciones||[],
+        products:c.products||[]
+      };
+    });
+    const categorias=catRaw.map(c=>({...c, imgEl:imgEl(c.img,c.t), icon:catIcons[c.key], onOpen:()=>this.openCat(c.key)}));
+    const mobileMenuCats=catRaw.map(c=>({name:c.t, count:c.products.length, href:'Productos.dc.html?cat='+c.key, icon:catIcons[c.key]}));
+    const mobileMenuProducts=[];
+    catRaw.forEach(c=>{ (c.products||[]).slice(0,2).forEach(p=>{ if(mobileMenuProducts.length<10) mobileMenuProducts.push({name:p.n, cat:c.t, href:'Producto.dc.html?cat='+c.key+'&p='+p.slug}); }); });
+    const cmObj = this.state.openCat ? catRaw.find(c=>c.key===this.state.openCat) : null;
+    const cm = cmObj ? {...cmObj, wa:this.wa('Hola KDL, quiero cotizar productos de: '+cmObj.t+'.')} : null;
+
+    const matches=this.matchSearch();
+    const results=matches.map(r=>({
+      label:r.label, sub:r.sub, tag:r.tag,
+      icon: rawIcon('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',16),
+      onClick:()=>{ this.setQF('parte', r.label); this.setQF('categoria', r.cat); this.setState({quoteTab:'urgente', query:r.label, searched:false}); try{location.hash='#cotizador';}catch(e){} }
+    }));
+    const exVals=['IFM KQ5105','AirTAC SC 63x200','WNMG','sensor PNP','variador Delta'];
+    const examples=exVals.map(v=>({label:v, onClick:()=>{ this.setState({query:v, searched:true, searchFocused:true}); }}));
+    const showResults = this.state.query.trim().length>0 && results.length>0;
+    const showNoResults = this.state.searched && this.state.query.trim().length>0 && results.length===0;
+
+    const urgVals=['Hoy','Esta semana','Proyecto'];
+    const urgOpts=urgVals.map(v=>{ const sel=qf.urgencia===v;
+      return { label:v, onClick:()=>this.setQF('urgencia',v),
+        style:'flex:1;min-width:90px;cursor:pointer;border-radius:10px;padding:11px 8px;font-size:14px;font-weight:600;transition:all .15s;'+(sel?'background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;border:1.5px solid transparent;':'background:#fff;color:#5A6B80;border:1.5px solid #DDE4EE;') };
+    });
+    const detVals=['Sí','No'];
+    const detOpts=detVals.map(v=>{ const sel=qf.detenida===v;
+      return { label:v, onClick:()=>this.setQF('detenida',v),
+        style:'flex:1;cursor:pointer;border-radius:10px;padding:11px 8px;font-size:14px;font-weight:600;transition:all .15s;'+(sel?(v==='Sí'?'background:#E0852C;color:#fff;border:1.5px solid transparent;':'background:#0E2236;color:#fff;border:1.5px solid transparent;'):'background:#fff;color:#5A6B80;border:1.5px solid #DDE4EE;') };
+    });
+
+    const urgColor=u=> u==='Hoy'?'#FF9D4D' : (u==='Esta semana'?'#7FB4E8':'#9FE4F2');
+    const items=list.map((it,i)=>({
+      qty:it.cantidad, pieza:it.pieza, urgencia:it.urgencia, urgColor:urgColor(it.urgencia),
+      coment:it.coment||'',
+      meta:[it.marca,it.parte].filter(Boolean).join(' · ')||'Sin marca / No. parte',
+      onRemove:()=>this.removeItem(i)
+    }));
+
+    const tools=[
+      {t:'Selector de cilindro', d:'Te guiamos al diámetro, carrera y montaje correctos.', cta:'Iniciar selección', icon:rawIcon('<rect x="2" y="9" width="14" height="6" rx="1"/><path d="M16 11h3l3-2v8l-3-2h-3"/>',20), onClick:()=>{ try{window.open(this.wa('Hola KDL, quiero usar el Selector de cilindro. Aplicacion: ___ · Diametro: ___ · Carrera: ___ · Montaje: ___'),'_blank');}catch(e){} }},
+      {t:'Selector de sensor', d:'Salida, distancia y conexión según tu aplicación.', cta:'Iniciar selección', icon:rawIcon('<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>',20), onClick:()=>{ try{window.open(this.wa('Hola KDL, quiero usar el Selector de sensor. Tipo: ___ · Distancia: ___ · Salida (PNP/NPN): ___ · Conexion: ___'),'_blank');}catch(e){} }},
+      {t:'Selector de inserto', d:'Geometría y grado según material y operación.', cta:'Iniciar selección', icon:rawIcon('<path d="M12 3 3 8v8l9 5 9-5V8Z"/><path d="M12 12 3 8M12 12v9M12 12l9-4"/>',20), onClick:()=>{ try{window.open(this.wa('Hola KDL, quiero usar el Selector de inserto. Operacion (torneado/fresado/ranurado): ___ · Material: ___ · Portaherramienta: ___'),'_blank');}catch(e){} }},
+      {t:'Calculadora de consumo de aire', d:'Estima el consumo de tu cilindro neumático.', cta:'Abrir calculadora', icon:rawIcon('<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h4M8 15h2M12 15h4"/>',20), onClick:()=>this.openCalc()},
+      {t:'Referencia cruzada / alternativa', d:'Encuentra una opción compatible a tu pieza actual.', cta:'Buscar alternativa', icon:rawIcon('<path d="M4 7h11l-3-3M20 17H9l3 3"/>',20), onClick:()=>{ try{window.open(this.wa('Hola KDL, necesito una referencia cruzada / alternativa compatible. Pieza actual (marca y No. de parte): ___'),'_blank');}catch(e){} }}
+    ];
+
+    const D=parseFloat(ca.d)||0, L=parseFloat(ca.l)||0, P=parseFloat(ca.p)||0, C=parseFloat(ca.c)||0;
+    const area=Math.PI/4*Math.pow(D/1000,2);
+    const volStrokeL=area*(L/1000)*1000;
+    const ratio=(P+1.013)/1.013;
+    const perCycle=2*volStrokeL*ratio;
+    const perMin=perCycle*C;
+    const ca_result=(D&&L&&P)? (perMin>=100?perMin.toFixed(0):perMin.toFixed(1)) : '0';
+    const ca_resultStroke=(D&&L&&P)? (perCycle>=10?perCycle.toFixed(1):perCycle.toFixed(2)) : '0';
+
+    const ind=[
+      {t:'Mantenimiento industrial 24/7', d:'Refacciones críticas y alternativas compatibles para parar lo menos posible.', icon:rawIcon('<path d="M14 7l3 3M5 19l8.5-8.5a2.1 2.1 0 0 0-3-3L2 16v3h3Z"/>',22)},
+      {t:'CNC y metalmecánica', d:'Insertos, portaherramientas y movimiento lineal para tu taller.', icon:rawIcon('<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>',22)},
+      {t:'Alimentos, refrigeración e IQF', d:'Componentes y soluciones para línea de frío y proceso de alimentos.', icon:rawIcon('<path d="M12 2v20M4 7l16 10M20 7 4 17"/>',22)},
+      {t:'Empaque y manejo de materiales', d:'Neumática, sensores y actuadores para líneas de empaque.', icon:rawIcon('<path d="M3 7l9-4 9 4-9 4Z"/><path d="M3 7v10l9 4 9-4V7"/>',22)},
+      {t:'Automatización de líneas', d:'PLC, HMI, variadores y control para tu proceso.', icon:rawIcon('<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/>',22)},
+      {t:'Robótica y grippers', d:'Sujeción, vacío y actuadores para celdas robotizadas.', icon:rawIcon('<rect x="6" y="10" width="12" height="8" rx="2"/><path d="M12 10V6M9 6h6M9 14h.01M15 14h.01"/>',22)}
+    ];
+    const industries=ind.map(i=>({...i, wa:this.wa('Hola KDL, busco soluciones para: '+i.t+'. Me ayudan a cotizar?')}));
+
+    const resources=[
+      {t:'Checklists para cotizar', d:'Qué datos reunir por categoría para una cotización más rápida.', icon:rawIcon('<path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',20), wa:this.wa('Hola KDL, me comparten el checklist de datos para cotizar?')},
+      {t:'Guías rápidas de selección', d:'Cómo elegir cilindro, sensor o inserto según tu aplicación.', icon:rawIcon('<path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2Z"/><path d="M8 7h8M8 11h8"/>',20), wa:this.wa('Hola KDL, me comparten las guias rapidas de seleccion?')},
+      {t:'Fichas técnicas', d:'Hojas de datos por producto y marca para validar compatibilidad.', icon:rawIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/>',20), wa:this.wa('Hola KDL, necesito la ficha tecnica de un producto. Marca/No. de parte: ___')}
+    ];
+
+    const faqRaw=[
+      {q:'¿Necesito el número de parte exacto para cotizar?', a:'No. Puedes enviarnos foto de la placa, medidas, marca, modelo o describir la aplicación. Con eso te ayudamos a identificar la pieza o una alternativa compatible.'},
+      {q:'¿Manejan alternativas a piezas descontinuadas?', a:'Sí. Validamos opciones compatibles según medidas, aplicación y condiciones de trabajo cuando el modelo original ya no está disponible.'},
+      {q:'¿Cómo recibo la cotización?', a:'Por WhatsApp o correo, según prefieras. Un asesor técnico da seguimiento a tu solicitud.'},
+      {q:'¿Trabajan con compras y mantenimiento de planta?', a:'Sí. Atendemos a jefes de mantenimiento, compradores, gerentes de planta y talleres. Puedes armar una lista de refacciones y enviarla completa.'}
+    ];
+    const faqs=faqRaw.map((f,i)=>({ q:f.q, a:f.a, open:this.state.faqOpen===i, sign:this.state.faqOpen===i?'–':'+', onToggle:()=>this.toggleFaq(i) }));
+
+    const idChips=[
+      {t:'Foto de la pieza', icon:rawIcon('<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/>',14)},
+      {t:'Placa o etiqueta', icon:rawIcon('<rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 10h8M8 14h5"/>',14)},
+      {t:'Número de parte', icon:rawIcon('<path d="M6 3v18M18 3v18M3 8h18M3 16h18"/>',14)},
+      {t:'Medidas / aplicación', icon:rawIcon('<path d="M3 7h18v10H3Z"/><path d="M7 7v4M11 7v6M15 7v4M19 7v6"/>',14)}
+    ];
+
+    const trust=[
+      {t:'Asesoría técnica especializada', d:'Te orienta gente que conoce la aplicación, no un mostrador.', icon:iconW('<path d="M12 2 4 6v6c0 4.5 3.4 8.5 8 10 4.6-1.5 8-5.5 8-10V6l-8-4Z"/>')},
+      {t:'Identificación por foto o No. de parte', d:'Marca, modelo, placa o imagen: con eso te ayudamos.', icon:iconW('<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m4 18 5-4 4 3"/>')},
+      {t:'Soluciones a medida', d:'Componentes y alternativas según tu equipo y condiciones.', icon:iconW('<path d="M14 7l3 3M5 19l8.5-8.5a2.1 2.1 0 0 0-3-3L2 16v3h3Z"/>')},
+      {t:'Soporte postventa', d:'Seguimos contigo después de la cotización y la entrega.', icon:iconW('<path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 4v5h-5"/>')},
+      {t:'Atención en Monterrey, N.L.', d:'Cerca de tu planta y de tu operación en el noreste.', icon:iconW('<path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/>')},
+      {t:'Catálogos 2026 disponibles', d:'Suministros y herramientas de corte, listos para descargar.', icon:iconW('<path d="M4 4h11l5 5v11H4Z"/><path d="M14 4v6h6"/>')}
+    ];
+    const catStyle={maxWidth:'100%',maxHeight:'120px',objectFit:'contain',filter:'drop-shadow(0 12px 24px rgba(0,0,0,.4))'};
+    const catalogs=[
+      {t:'Catálogo de suministros industriales', d:'Neumática, hidráulica, sensores, automatización y movimiento lineal.', img:'assets/cat-sensores.png', file:'uploads/KDLCATALOGO-SUMINISTROS.pdf'},
+      {t:'Catálogo de herramientas de corte e insertos', d:'Insertos, carburo sólido, torneado, ranurado y fresado.', img:'assets/cat-corte.png', file:'uploads/KDLCATALOGO-HERRAMIENTA.pdf'}
+    ].map(k=>({...k, imgEl:imgEl(k.img,k.t,catStyle)}));
+
+    const tabBase='cursor:pointer;border-radius:11px;padding:13px 20px;font-size:15px;font-weight:700;transition:all .15s;display:inline-flex;align-items:center;';
+    const tabOn='background:#fff;color:#0E2236;border:1.5px solid transparent;box-shadow:0 8px 22px rgba(0,0,0,.25);';
+    const tabOff='background:rgba(255,255,255,.06);color:#C7D4E3;border:1.5px solid rgba(255,255,255,.18);';
+
+    return {
+      isMobile:m, notMobile:!m, mobileMenuOpen:m&&this.state.mobileMenuOpen, toggleMobileMenu:e=>this.toggleMobileMenu(e), closeMobileMenu:()=>this.closeMobileMenu(), clock:this.state.clock,
+      cartCount:this.state.cartCount||0, hasCart:(this.state.cartCount||0)>0,
+      tel:'tel:+528112273382', mail:'mailto:ventas@kdl.com.mx',
+      waSticky:this.wa('Hola KDL, quiero cotizar una refacción industrial. ¿Me ayudan a identificar la pieza?'),
+      waUrgente:this.wa('Hola KDL, necesito cotizar una refacción URGENTE para mi línea de producción. ¿Me ayudan a identificar la pieza?'),
+      waIdent:this.wa('Hola KDL, les comparto una foto / placa / número de parte para identificar la refacción que necesito.'),
+      waAlt:this.wa('Hola KDL, mi pieza está descontinuada o no encuentro el mismo modelo. Marca / No. de parte / medidas: ___. ¿Me ayudan con una alternativa compatible?'),
+      waSearch:this.wa('Hola KDL, busco: "'+this.state.query+'". ¿Me ayudan a identificar la pieza o una alternativa compatible?'),
+      waCalc:this.wa('Hola KDL, dimensioné un cilindro (Ø'+ca.d+' mm, carrera '+ca.l+' mm, '+ca.p+' bar, '+ca.c+' ciclos/min ≈ '+ca_result+' NL/min). Quiero cotizar el cilindro y/o la unidad FRL.'),
+      query:this.state.query, searchPlaceholder:'Busca por número de parte, marca, categoría, síntoma o sube foto',
+      onQuery:e=>this.setQuery(e.target.value),
+      onSearchFocus:()=>this.setState({searchFocused:true}),
+      doSearch:()=>this.runSearch(),
+      closeSearch:()=>this.setState({query:'',searched:false}),
+      results, showResults, showNoResults,
+      resultsLabel: results.length+' coincidencia'+(results.length===1?'':'s'),
+      examples,
+      idChips, idFileLabel: this.state.idFileName?this.state.idFileName:'Arrastra o selecciona una imagen',
+      onIdFile:e=>{ const f=e.target.files&&e.target.files[0]; if(f) this.setState({idFileName:f.name}); },
+      isUrgente:false, isLista:true,
+      listCount:list.length,
+      q_urgencia:qf.urgencia, onQUrgencia:e=>this.setQF('urgencia',e.target.value),
+      submitted:this.state.submitted, notSubmitted:!this.state.submitted,
+      leadMailto:this.state.leadMailto||'mailto:ventas@kdl.com.mx',
+      q_nombre:qf.nombre,q_empresa:qf.empresa,q_whatsapp:qf.whatsapp,q_ciudad:qf.ciudad,q_parte:qf.parte,q_cantidad:qf.cantidad,q_categoria:qf.categoria,q_mensaje:qf.mensaje,
+      q_has_errors:qErrorKeys.length>0, q_error_summary:this.quoteErrorSummary(qErrors),
+      q_error_nombre:qErrors.nombre||'', q_error_whatsapp:qErrors.whatsapp||'', q_error_parte:qErrors.parte||'', q_error_categoria:qErrors.categoria||'', q_error_cantidad:qErrors.cantidad||'',
+      qFileLabel: qf.fileName?qf.fileName:'Subir foto de la placa o pieza (opcional)',
+      onQNombre:e=>this.setQF('nombre',e.target.value), onQEmpresa:e=>this.setQF('empresa',e.target.value),
+      onQWhatsapp:e=>this.setQF('whatsapp',e.target.value), onQCiudad:e=>this.setQF('ciudad',e.target.value),
+      onQParte:e=>this.setQF('parte',e.target.value), onQCantidad:e=>this.setQF('cantidad',e.target.value),
+      onQCategoria:e=>this.setQF('categoria',e.target.value), onQMensaje:e=>this.setQF('mensaje',e.target.value),
+      onQFile:e=>{ const f=e.target.files&&e.target.files[0]; if(f){ this.setQF('fileName',f.name); this.track('quote_file_selected',{form:'quick_quote',file_type:f.type||'',file_size:f.size||0}); } },
+      urgOpts, detOpts, submit:e=>this.submit(e),
+      catNames:catRaw.map(c=>c.t), mobileMenuCats, mobileMenuProducts,
+      l_pieza:lf.pieza,l_marca:lf.marca,l_parte:lf.parte,l_cantidad:lf.cantidad,l_urgencia:lf.urgencia,l_coment:lf.coment,
+      lFileLabel: lf.fileName?lf.fileName:'Foto (opcional)',
+      onLPieza:e=>this.setLF('pieza',e.target.value), onLMarca:e=>this.setLF('marca',e.target.value),
+      onLParte:e=>this.setLF('parte',e.target.value), onLCantidad:e=>this.setLF('cantidad',e.target.value),
+      onLUrgencia:e=>this.setLF('urgencia',e.target.value), onLComent:e=>this.setLF('coment',e.target.value),
+      onLFile:e=>{ const f=e.target.files&&e.target.files[0]; if(f) this.setLF('fileName',f.name); },
+      addItem:e=>this.addItem(e), items, hasList:list.length>0, emptyList:list.length===0,
+      clearList:()=>this.clearList(),
+      waList:this.wa(this.listText()),
+      mailList:'mailto:ventas@kdl.com.mx?subject='+encodeURIComponent('Solicitud de cotización — Mi lista KDL')+'&body='+encodeURIComponent(this.listText()),
+      downloadPDF:()=>this.downloadPDF(),
+      categorias, catModalOpen:!!cm, cm, closeCat:()=>this.closeCat(), stop:e=>{ if(e&&e.stopPropagation)e.stopPropagation(); },
+      tools, calcOpen:this.state.calcOpen, closeCalc:()=>this.closeCalc(),
+      ca_d:ca.d,ca_l:ca.l,ca_p:ca.p,ca_c:ca.c,
+      onCaD:e=>this.setCA('d',e.target.value), onCaL:e=>this.setCA('l',e.target.value), onCaP:e=>this.setCA('p',e.target.value), onCaC:e=>this.setCA('c',e.target.value),
+      ca_result, ca_resultStroke,
+      altCheck:['Mismas medidas y montaje','Salida y conexión equivalentes','Apta para tus condiciones de trabajo','Validamos disponibilidad'],
+      brands:['IFM','HIWIN','AirTAC','Bosch Rexroth','Zenso','Delta','Omron','Weintek','Arico'],
+      industries, resources, faqs, catalogs, trust,
+      pains:[
+        {t:'Sensor fallando', d:'Lectura intermitente, errática o sin señal. La estación se detiene.', img:'assets/pain-sensor.png', ph:false},
+        {t:'Cilindro con fuga', d:'Pierde presión, ciclo lento o no retorna a posición.', img:'assets/prod-neumatica.png', ph:false},
+        {t:'Inserto que ya no rinde', d:'Filo desgastado, mal acabado y paros constantes para cambio.', img:'assets/pain-insert.png', ph:false},
+        {t:'Variador o PLC detenido', d:'Falla de control, código de error o equipo descontinuado.', img:'assets/pain-plc.png', ph:false},
+        {t:'Guía lineal con desgaste', d:'Juego, ruido o pérdida de precisión en el eje.', img:'assets/cat-movimiento.png', ph:false},
+        {t:'Componente difícil de identificar', d:'Sin caja, sin número visible o de una marca descontinuada.', img:'', ph:true}
+      ].map((p,ix)=>({...p, icon:dolorIcons[ix], wa:this.wa('Hola KDL, tengo este problema: "'+p.t+'". Les comparto foto / número de parte para identificar la refacción.')})),
+      steps:[
+        {n:'1', t:'Envía la pieza, foto, placa o número de parte', d:'Por WhatsApp, formulario o llamada. Como te sea más rápido.'},
+        {n:'2', t:'Te ayudamos a identificar compatibilidad', d:'Según aplicación, marca y condiciones de trabajo.'},
+        {n:'3', t:'Cotizamos la solución para que tu operación siga', d:'Recibes la opción correcta y los siguientes pasos.'}
+      ].map((s,ix,arr)=>({...s, icon:stepIcons[ix], notLast: ix<arr.length-1})),
+      checklist:['Marca y modelo (si lo tienes)','Número de parte o el de la pieza dañada','Foto de la placa o del componente','Medidas o aplicación','Cantidad y nivel de urgencia']
+    };
+  }
+}
+</script>
+</body>
+</html>

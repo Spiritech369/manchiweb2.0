@@ -1,0 +1,16 @@
+Options -Indexes
+DirectorySlash On
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Legacy product app URLs -> clean product URLs.
+RewriteCond %{QUERY_STRING} (^|&)cat=([^&]+)&p=([^&]+) [NC]
+RewriteRule ^Producto\.dc\.html$ /productos/%2/%3/? [R=301,L,NE]
+RewriteCond %{QUERY_STRING} (^|&)p=([^&]+)&cat=([^&]+) [NC]
+RewriteRule ^Producto\.dc\.html$ /productos/%3/%2/? [R=301,L,NE]
+
+# Legacy catalog category URLs -> clean category URLs.
+RewriteCond %{QUERY_STRING} (^|&)cat=([^&]+) [NC]
+RewriteRule ^Productos\.dc\.html$ /productos/%2/? [R=301,L,NE]
+</IfModule>

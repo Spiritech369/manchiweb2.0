@@ -1,0 +1,21 @@
+.codex-remote-attachments/
+.thumbnail
+
+# Local/editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Environment/secrets
+.env
+.env.*
+
+# Dependencies/build output
+node_modules/
+dist/
+build/
+.vercel/
+.netlify/
+
+# Reference screenshots pasted during design reviews
+uploads/pasted-*.png
