@@ -1,4 +1,10 @@
 /* Shared catalog/product utilities */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible {
+  outline:3px solid #FFD166!important;
+  outline-offset:3px!important;
+  box-shadow:0 0 0 2px #071B33!important;
+}
+
 .kdl-catalog-search {
   background:#0A1B30;
   padding:22px;
@@ -287,4 +293,90 @@
   .kdl-catalog-result__cat {
     display:none;
   }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+.kdl-flow-product-card {
+  background:#fff;
+  border:1px solid #E3E9F1;
+  border-radius:14px;
+  display:flex;
+  flex-direction:column;
+  min-height:228px;
+  overflow:hidden;
+  transition:border-color .18s,box-shadow .18s,transform .18s;
+}
+
+.kdl-flow-product-card:hover {
+  border-color:#B9CEE8;
+  box-shadow:0 14px 30px rgba(14,34,54,.1);
+  transform:translateY(-3px);
+}
+
+.kdl-flow-product-card__detail {
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  padding:18px 18px 14px;
+}
+
+.kdl-flow-product-card__media {
+  height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:14px;
+}
+
+.kdl-flow-product-card__name {
+  font-family:'Archivo',sans-serif;
+  font-weight:700;
+  font-size:15.5px;
+  line-height:1.2;
+  color:#0E2236;
+  margin-bottom:6px;
+}
+
+.kdl-flow-product-card__spec {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  line-height:1.5;
+  color:#7E93AC;
+  flex:1;
+}
+
+.kdl-flow-product-card__link {
+  margin-top:12px;
+  color:#2E7DF2;
+  font-weight:700;
+  font-size:13px;
+}
+
+.kdl-flow-product-card__quote {
+  min-height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0E2236;
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  padding:11px 14px;
+}
+
+.kdl-flow-product-card__quote:hover {
+  background:#163359;
+}
+
+@media (max-width:520px) {
+  .kdl-flow-product-card { min-height:210px; }
+  .kdl-flow-product-card__quote { min-height:48px; }
 }

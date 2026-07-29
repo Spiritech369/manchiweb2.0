@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
+<script src="./kdl-site-header.js" defer></script>
 <script src="./kdl-schema.js?v=2" defer></script>
 <link rel="stylesheet" href="./kdl-catalog.css">
 </head>
@@ -41,11 +42,11 @@
       <a href="{{ waSticky }}" target="_blank" style="display:flex;align-items:center;gap:8px;background:#25D366;color:#06310f;font-weight:700;font-size:14px;padding:10px 15px;border-radius:10px;flex-shrink:0;box-shadow:0 6px 18px rgba(37,211,102,.3)" style-hover="filter:brightness(1.06)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Cotizar</a>
     </sc-if>
     <sc-if value="{{ isMobile }}" hint-placeholder-val="">
-      <button onClick="{{ toggleMobileMenu }}" aria-label="Abrir menú" style="width:44px;height:40px;border:1px solid rgba(255,255,255,.24);background:#148BFF;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(20,139,255,.34)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button onClick="{{ toggleMobileMenu }}" aria-label="Abrir menú" aria-expanded="{{ mobileMenuOpen }}" aria-controls="product-mobile-menu" style="width:44px;height:44px;border:1px solid rgba(255,255,255,.24);background:#148BFF;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px rgba(20,139,255,.34)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </sc-if>
   </div>
   <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="">
-    <nav style="position:absolute;left:14px;right:14px;top:calc(100% + 8px);z-index:70;background:#071b33;border:1px solid rgba(127,180,232,.24);border-radius:8px;box-shadow:0 22px 48px rgba(0,0,0,.38);overflow-y:auto;max-height:calc(100vh - 92px);padding-bottom:10px">
+    <nav id="product-mobile-menu" aria-label="Navegación de productos" style="position:absolute;left:14px;right:14px;top:calc(100% + 8px);z-index:70;background:#071b33;border:1px solid rgba(127,180,232,.24);border-radius:8px;box-shadow:0 22px 48px rgba(0,0,0,.38);overflow-y:auto;max-height:calc(100vh - 92px);padding-bottom:10px">
       <a onClick="{{ closeMobileMenu }}" href="index.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Inicio <span style="color:#148BFF">→</span></a>
       <a onClick="{{ closeMobileMenu }}" href="Productos.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#fff;font-weight:800;border-bottom:1px solid rgba(255,255,255,.08)">Productos <span style="color:#148BFF">→</span></a>
       <a onClick="{{ closeMobileMenu }}" href="Soluciones.dc.html" style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px;color:#E6EDF7;font-weight:700;border-bottom:1px solid rgba(255,255,255,.08)">Soluciones <span style="color:#148BFF">→</span></a>
@@ -83,10 +84,15 @@
     <div style="font-family:'IBM Plex Mono';font-size:15px;color:#5A6B80;margin-bottom:18px">{{ prodSpec }}</div>
     <p style="font-size:16px;line-height:1.6;color:#3A4A5C;margin:0 0 24px">{{ prodDesc }}</p>
     <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px">
-      <a href="{{ waCotizar }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:15px 24px;border-radius:12px" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Cotizar este producto</a>
-      <button onClick="{{ addToCart }}" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid #2E7DF2;background:#fff;color:#2E7DF2;font-weight:800;font-size:15px;padding:15px 22px;border-radius:12px;cursor:pointer" style-hover="background:#EAF1FB"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M12 9v6M9 12h6"/></svg>{{ addCartLabel }}</button>
+      <button onClick="{{ addToCart }}" style="display:inline-flex;align-items:center;gap:9px;border:1px solid #1F4E79;background:#1F4E79;color:#fff;font-weight:800;font-size:15px;padding:15px 22px;border-radius:7px;cursor:pointer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M12 9v6M9 12h6"/></svg>{{ addCartLabel }}</button>
       <a href="{{ waFoto }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid #DDE4EE;color:#2E7DF2;font-weight:700;font-size:15px;padding:15px 22px;border-radius:12px" style-hover="border-color:#2E7DF2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg>Enviar foto o No. de parte</a>
     </div>
+    <sc-if value="{{ added }}" hint-placeholder-val="">
+      <div role="status" aria-live="polite" style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#EAF8EE;border:1px solid #A8DDB6;border-radius:12px;padding:13px 15px;margin:-12px 0 22px;color:#164C27">
+        <span><strong>Producto a&ntilde;adido.</strong> Puedes seguir explorando o revisar cantidades antes de enviar.</span>
+        <a href="Cesta.dc.html" style="display:inline-flex;min-height:44px;align-items:center;color:#0E5A27;font-weight:800">Revisar cesta &rarr;</a>
+      </div>
+    </sc-if>
     <!-- datos -->
     <div style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:20px 22px;margin-bottom:14px">
       <div style="display:flex;align-items:center;gap:8px;font-family:'Archivo';font-weight:700;font-size:15px;color:#0E2236;margin-bottom:12px"><span style="display:flex;color:#2E7DF2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Datos para cotizar</div>
@@ -96,6 +102,52 @@
       <div style="display:flex;align-items:center;gap:8px;font-family:'Archivo';font-weight:700;font-size:15px;color:#0E2236;margin-bottom:12px"><span style="display:flex;color:#E0852C"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>Fallas comunes</div>
       <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ fallas }}" as="f" hint-placeholder-count="3"><div style="display:flex;gap:9px;font-size:14px;color:#4A5A6C;line-height:1.4"><span style="color:#E0852C;flex-shrink:0">›</span>{{ f }}</div></sc-for></div>
     </div>
+  </div>
+</section>
+
+<!-- INFORMACIÓN TÉCNICA Y SOPORTE -->
+<section style="max-width:1280px;margin:0 auto;padding:18px 22px 20px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:22px">
+      <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#2E7DF2;text-transform:uppercase;margin-bottom:9px">Aplicaciones</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#0E2236;margin:0 0 14px">Dónde suele utilizarse</h2>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <sc-for list="{{ aplicaciones }}" as="a" hint-placeholder-count="3">
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:14px;line-height:1.45;color:#4A5A6C"><span style="display:flex;width:21px;height:21px;border-radius:6px;background:#EAF1FB;color:#2E7DF2;align-items:center;justify-content:center;flex-shrink:0">✓</span>{{ a }}</div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:22px">
+      <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#2E7DF2;text-transform:uppercase;margin-bottom:9px">Documentación</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#0E2236;margin:0 0 8px">Valida antes de comprar</h2>
+      <p style="font-size:14px;line-height:1.5;color:#5A6B80;margin:0 0 15px">Solicita la ficha, manual, diagrama o archivo técnico correspondiente a la marca y modelo exactos.</p>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <a href="{{ waDocumento }}" target="_blank" style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:#0E2236;color:#fff;border-radius:9px;padding:12px 14px;font-size:13.5px;font-weight:700">Pedir documentación oficial <span>→</span></a>
+        <a href="Catalogos.dc.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #DDE4EE;color:#2E7DF2;border-radius:9px;padding:12px 14px;font-size:13.5px;font-weight:700">Ir al centro documental <span>→</span></a>
+      </div>
+    </div>
+    <div style="background:linear-gradient(145deg,#102C4C,#0B1F38);border:1px solid rgba(127,180,232,.2);border-radius:16px;padding:22px;color:#fff">
+      <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#39A0FF;text-transform:uppercase;margin-bottom:9px">Compatibilidad</div>
+      <h2 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#fff;margin:0 0 8px">¿El modelo cambió o está descontinuado?</h2>
+      <p style="font-size:14px;line-height:1.5;color:#B8C7D9;margin:0 0 15px">Comparamos medidas, montaje, conexión y condiciones de trabajo antes de sugerir una alternativa.</p>
+      <a href="Compatibilidad.dc.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:#148BFF;color:#fff;border-radius:9px;padding:12px 14px;font-size:13.5px;font-weight:800">Buscar alternativa <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ TÉCNICA -->
+<section style="max-width:960px;margin:0 auto;padding:26px 22px 34px">
+  <div style="text-align:center;margin-bottom:20px">
+    <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1.2px;color:#2E7DF2;text-transform:uppercase;margin-bottom:8px">Soporte técnico</div>
+    <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(22px,3vw,30px);color:#0E2236;margin:0">Preguntas frecuentes sobre {{ prodName }}</h2>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
+      <div style="background:#fff;border:1px solid #E3E9F1;border-radius:12px;overflow:hidden" style-hover="border-color:#C9D8EC">
+        <button type="button" onClick="{{ q.onToggle }}" onKeyDown="{{ q.onKeyDown }}" aria-expanded="{{ q.open }}" aria-controls="{{ q.panelId }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;border:0;background:#fff;padding:18px 20px;text-align:left;cursor:pointer"><span style="font-weight:700;font-size:15.5px;color:#0E2236">{{ q.q }}</span><span aria-hidden="true" style="color:#2E7DF2;font-size:22px;flex-shrink:0">{{ q.sign }}</span></button>
+        <sc-if value="{{ q.open }}" hint-placeholder-val=""><div id="{{ q.panelId }}" style="font-size:14px;line-height:1.6;color:#5A6B80;margin:0 20px 18px;padding-top:12px;border-top:1px solid #EEF2F7">{{ q.a }}</div></sc-if>
+      </div>
+    </sc-for>
   </div>
 </section>
 
@@ -141,7 +193,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000, mobileMenuOpen:false, cartN:this.cartCount(), added:false, ready:(typeof window!=='undefined'&&!!window.KDL)}; }
+  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000, mobileMenuOpen:false, cartN:this.cartCount(), added:false, faqOpen:-1, ready:(typeof window!=='undefined'&&!!window.KDL)}; }
   componentDidMount(){
     this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m,mobileMenuOpen:false});};
     window.addEventListener('resize',this._r);
@@ -164,12 +216,13 @@ class Component extends DCLogic {
   }
   toggleMobileMenu(e){ if(e&&e.preventDefault)e.preventDefault(); this.setState(s=>({mobileMenuOpen:!s.mobileMenuOpen})); }
   closeMobileMenu(){ this.setState({mobileMenuOpen:false}); }
+  toggleFaq(i){ this.setState(s=>({faqOpen:s.faqOpen===i?-1:i})); }
   params(){ try{ return new URLSearchParams(window.location.search); }catch(e){ return new URLSearchParams(''); } }
   renderVals(){
     const m=this.state.isMobile;
     const base={ isMobile:m, notMobile:!m, mobileMenuOpen:m&&this.state.mobileMenuOpen, toggleMobileMenu:e=>this.toggleMobileMenu(e), closeMobileMenu:()=>this.closeMobileMenu(), mobileMenuCats:[], mobileMenuProducts:[], cartCount:this.state.cartN||0, hasCart:(this.state.cartN||0)>0, waSticky:this.wa('Hola KDL, quiero cotizar un producto del catálogo. ¿Me ayudan a identificar la pieza?') };
     const K=(typeof window!=='undefined')?window.KDL:null;
-    if(!K){ return {...base, found:false, notFound:false, related:[], datos:[], fallas:[]}; }
+    if(!K){ return {...base, found:false, notFound:false, related:[], datos:[], fallas:[], aplicaciones:[], faqs:[]}; }
     const cats=K.cats||[];
     const productHref=(catKey,p)=>'Producto.dc.html?cat='+catKey+'&p='+p.slug;
     const mobileMenuCats=cats.map(c=>({name:c.name,count:c.products.length,href:'Productos.dc.html?cat='+c.key}));
@@ -177,22 +230,31 @@ class Component extends DCLogic {
     var F=(typeof window!=='undefined')?window.__KDL_FORCE:null;
     const p=this.params(), catKey=(F&&F.cat)||p.get('cat')||'', pslug=(F&&F.p)||p.get('p')||'';
     const hit=K.find(catKey,pslug);
-    if(!hit){ return {...base, mobileMenuCats, mobileMenuProducts, found:false, notFound:true, related:[], datos:[], fallas:[] }; }
+    if(!hit){ return {...base, mobileMenuCats, mobileMenuProducts, found:false, notFound:true, related:[], datos:[], fallas:[], aplicaciones:[], faqs:[] }; }
     const c=hit.cat, prod=hit.product;
     const prodImg=prod.img||c.img;
     const media=prodImg ? React.createElement('img',{src:prodImg,alt:prod.n,loading:'eager',decoding:'async',style:{maxWidth:'100%',maxHeight:'280px',objectFit:'contain'}})
       : React.createElement('span',{style:{display:'flex',color:'#2E7DF2'},dangerouslySetInnerHTML:{__html:'<svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2v20M4 7l16 10M20 7 4 17"/></svg>'}});
     const desc=prod.n+' — '+prod.s+'. Parte de la línea de '+c.name.toLowerCase()+(c.brand?(' ('+c.brand+')'):'')+'. Te ayudamos a validar compatibilidad y disponibilidad, o a encontrar una alternativa compatible según tu aplicación y condiciones de trabajo.';
     const related=c.products.filter(x=>x.slug!==prod.slug).slice(0,6).map(x=>({ n:x.n, s:x.s, href:'Producto.dc.html?cat='+c.key+'&p='+x.slug }));
+    const faqRaw=[
+      {q:'¿Qué información necesita KDL para cotizar '+prod.n+'?',a:'Comparte '+(c.datos||[]).join(', ').toLowerCase()+'. Si no tienes todos los datos, una foto de la placa o de la pieza ayuda a comenzar la identificación.'},
+      {q:'¿Cómo se valida una alternativa compatible?',a:'Se revisan las especificaciones críticas, montaje, conexiones, dimensiones, condiciones de trabajo y aplicación. La coincidencia por nombre o apariencia no es suficiente para confirmar compatibilidad.'},
+      {q:'¿Qué hago si presenta '+String((c.fallas||['una falla'])[0]).toLowerCase()+'?',a:'Evita sustituir la pieza únicamente por apariencia. Documenta el síntoma, número de parte, condiciones de operación y, cuando sea seguro, fotografías de la placa y el montaje para que KDL pueda orientar la revisión.'},
+      {q:'¿Puedo solicitar ficha técnica, manual o diagrama?',a:'Sí. Indica la marca y el modelo exactos. KDL localizará la documentación oficial disponible o te indicará qué información hace falta para identificar la variante correcta.'}
+    ];
+    const faqs=faqRaw.map((q,i)=>({...q,panelId:'product-faq-panel-'+i,open:this.state.faqOpen===i,sign:this.state.faqOpen===i?'−':'+',onToggle:()=>this.toggleFaq(i),onKeyDown:e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();this.toggleFaq(i);}}}));
     return {
       ...base, mobileMenuCats, mobileMenuProducts, found:true, notFound:false,
-      catName:c.name, catHref:'Productos.dc.html', brand:c.brand,
+      catName:c.name, catHref:'Productos.dc.html?cat='+encodeURIComponent(c.key), brand:c.brand,
+      quoteHref:'Cesta.dc.html?add='+encodeURIComponent(c.key+':'+prod.slug), added:this.state.added,
       prodName:prod.n, prodSpec:prod.s, prodDesc:desc, media,
-      datos:c.datos||[], fallas:c.fallas||[], related,
+      datos:c.datos||[], fallas:c.fallas||[], aplicaciones:c.aplicaciones||[], related, faqs,
       addCartLabel:this.state.added?'Añadido a cesta':'Añadir a cesta',
       addToCart:()=>this.saveCart({n:prod.n,s:prod.s,cat:c.key,catName:c.name,slug:prod.slug}),
       waCotizar:this.wa('Hola KDL, quiero cotizar: '+prod.n+' ('+c.name+'). Cantidad / No. de parte / aplicación: ___'),
-      waFoto:this.wa('Hola KDL, sobre '+prod.n+' ('+c.name+') les comparto foto / número de parte para identificar la pieza exacta.')
+      waFoto:this.wa('Hola KDL, sobre '+prod.n+' ('+c.name+') les comparto foto / número de parte para identificar la pieza exacta.'),
+      waDocumento:this.wa('Hola KDL, necesito documentación oficial de '+prod.n+' ('+c.name+'). Marca / modelo / No. de parte exacto: ___. Documento requerido: ficha técnica / manual / diagrama / CAD / certificado.')
     };
   }
 }

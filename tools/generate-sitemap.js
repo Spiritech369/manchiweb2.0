@@ -45,7 +45,8 @@ function main() {
     item(url('productos/'), 'weekly', '0.95'),
     item(url('Servicios.dc.html'), 'monthly', '0.70'),
     item(url('Catalogos.dc.html'), 'monthly', '0.70'),
-    item(url('Contacto.dc.html'), 'monthly', '0.75')
+    item(url('Contacto.dc.html'), 'monthly', '0.75'),
+    item(url('Aviso-Privacidad.html'), 'yearly', '0.35')
   ];
 
   KDL.cats.forEach((cat) => {

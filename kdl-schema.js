@@ -155,6 +155,7 @@
       '@type':'LocalBusiness',
       '@id':homeUrl()+'#local-business',
       name:'KDL',
+      legalName:'Refacciones y Distribuciones KDL',
       description:'Refacciones industriales, automatizacion, neumatica, hidraulica, sensores, movimiento lineal, herramientas de corte y suministros para plantas industriales.',
       url:homeUrl(),
       image:abs('assets/hero-tools.png'),
@@ -163,10 +164,18 @@
       priceRange:'$$',
       address:{
         '@type':'PostalAddress',
+        streetAddress:'Lic. Jose Benitez 2186, colonia Obispado',
+        postalCode:'64060',
         addressLocality:'Monterrey',
         addressRegion:'Nuevo Leon',
         addressCountry:'MX'
       },
+      openingHoursSpecification:[{
+        '@type':'OpeningHoursSpecification',
+        dayOfWeek:['Monday','Tuesday','Wednesday','Thursday','Friday'],
+        opens:'08:00',
+        closes:'18:00'
+      }],
       areaServed:[
         {'@type':'City',name:'Monterrey'},
         {'@type':'AdministrativeArea',name:'Nuevo Leon'},
