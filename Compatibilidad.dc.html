@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
+<script src="./kdl-site-header.js" defer></script>
 <script src="./kdl-analytics.js?v=2" defer></script>
 </head>
 <body>
@@ -135,7 +136,28 @@
 .kdlc-footer__copy{font-size:14px;line-height:1.6;max-width:340px;margin:0}
 .kdlc-footer__contact{display:flex;flex-direction:column;gap:10px;font-size:14px}
 .kdlc-footer__bottom{max-width:1280px;margin:20px auto 0;padding-top:20px;border-top:1px solid rgba(127,180,232,.12);font-size:13px;color:#5A6B80}
-@media(max-width:980px){.kdlc-header__inner{padding:10px 18px}.kdlc-wa{display:none}.kdlc-search-box{align-items:stretch;flex-wrap:wrap;padding:10px}.kdlc-search-box svg{margin-top:12px}.kdlc-search-input{min-width:calc(100% - 36px)}.kdlc-search-btn{width:100%}.kdlc-no-form{grid-template-columns:1fr}.kdlc-sticky-wa{left:18px;right:18px;bottom:18px;justify-content:center;border-radius:14px}}
+.kdlc-air{max-width:1080px;margin:0 auto;padding:18px 22px 54px}
+.kdlc-air-card{overflow:hidden;background:#fff;border:1px solid #DCE6F1;border-radius:18px;box-shadow:0 18px 44px rgba(14,34,54,.08)}
+.kdlc-air-head{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;padding:24px 26px 18px;border-bottom:1px solid #E8EEF5}
+.kdlc-air-eyebrow{margin-bottom:6px;font-family:'IBM Plex Mono';font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#1B78DE}
+.kdlc-air-title{margin:0 0 6px;font-family:'Archivo';font-size:clamp(22px,3vw,30px);line-height:1.15;color:#0E2236}
+.kdlc-air-copy{max-width:650px;margin:0;font-size:14px;line-height:1.55;color:#5A6B80}
+.kdlc-air-link{min-height:44px;display:inline-flex;align-items:center;color:#176BC1;font-size:14px;font-weight:800}
+.kdlc-air-body{padding:22px 26px 26px}
+.kdlc-air-grid{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:12px}
+.kdlc-air-field{display:flex;flex-direction:column;gap:7px}
+.kdlc-air-field label{font-family:'IBM Plex Mono';font-size:11px;font-weight:700;letter-spacing:.45px;text-transform:uppercase;color:#62758C}
+.kdlc-air-field input{width:100%;min-height:46px;padding:10px 12px;border:1px solid #C9D8E8;border-radius:10px;background:#F8FAFD;color:#0E2236;font-size:17px;outline:none}
+.kdlc-air-field input:focus-visible{border-color:#2E7DF2;box-shadow:0 0 0 3px rgba(46,125,242,.16)}
+.kdlc-air-result{display:flex;gap:20px;align-items:center;justify-content:space-between;margin-top:16px;padding:18px 20px;border-radius:14px;background:#0B2038;color:#fff}
+.kdlc-air-result-label{display:block;margin-bottom:3px;font-family:'IBM Plex Mono';font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#7FB4E8}
+.kdlc-air-value{display:block;font-family:'Archivo';font-size:clamp(28px,4vw,40px);font-weight:800;line-height:1}
+.kdlc-air-meta{font-size:14px;color:#B8C7D9;text-align:right}
+.kdlc-air-foot{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-top:15px}
+.kdlc-air-note{max-width:650px;margin:0;font-size:12px;line-height:1.5;color:#708299}
+.kdlc-air-cta{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:10px;background:#25D366;color:#06310F;font-size:13px;font-weight:800;white-space:nowrap}
+@media(max-width:980px){.kdlc-header__inner{padding:10px 18px}.kdlc-wa{display:none}.kdlc-search-box{align-items:stretch;flex-wrap:wrap;padding:10px}.kdlc-search-box svg{margin-top:12px}.kdlc-search-input{min-width:calc(100% - 36px)}.kdlc-search-btn{width:100%}.kdlc-no-form{grid-template-columns:1fr}.kdlc-air-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.kdlc-sticky-wa{left:18px;right:18px;bottom:18px;justify-content:center;border-radius:14px}}
+@media(max-width:560px){.kdlc-air{padding:8px 14px 42px}.kdlc-air-head,.kdlc-air-body{padding:20px 18px}.kdlc-air-grid{grid-template-columns:1fr}.kdlc-air-result,.kdlc-air-foot{align-items:stretch;flex-direction:column}.kdlc-air-meta{text-align:left}.kdlc-air-cta{width:100%;white-space:normal;text-align:center}}
 </style>
 </helmet>
 
@@ -259,6 +281,35 @@
   </sc-if>
 </section>
 
+<section id="consumo-aire" class="kdlc-air" aria-labelledby="air-calc-title">
+  <div class="kdlc-air-card">
+    <div class="kdlc-air-head">
+      <div>
+        <div class="kdlc-air-eyebrow">Herramienta neum&aacute;tica</div>
+        <h2 id="air-calc-title" class="kdlc-air-title">Calculadora de consumo de aire</h2>
+        <p class="kdlc-air-copy">Estima el consumo te&oacute;rico de un cilindro de doble efecto para dimensionar la preparaci&oacute;n y el suministro de aire.</p>
+      </div>
+      <a class="kdlc-air-link" href="Productos.dc.html?cat=neumatica">Ver cilindros neum&aacute;ticos &rarr;</a>
+    </div>
+    <div class="kdlc-air-body">
+      <div class="kdlc-air-grid">
+        <div class="kdlc-air-field"><label for="compat-calc-d">&Oslash; &eacute;mbolo (mm)</label><input id="compat-calc-d" type="number" min="1" inputmode="decimal" value="{{ ca_d }}" onInput="{{ onCaD }}"></div>
+        <div class="kdlc-air-field"><label for="compat-calc-l">Carrera (mm)</label><input id="compat-calc-l" type="number" min="1" inputmode="decimal" value="{{ ca_l }}" onInput="{{ onCaL }}"></div>
+        <div class="kdlc-air-field"><label for="compat-calc-p">Presi&oacute;n (bar)</label><input id="compat-calc-p" type="number" min="0" step="0.1" inputmode="decimal" value="{{ ca_p }}" onInput="{{ onCaP }}"></div>
+        <div class="kdlc-air-field"><label for="compat-calc-c">Ciclos / min</label><input id="compat-calc-c" type="number" min="1" inputmode="decimal" value="{{ ca_c }}" onInput="{{ onCaC }}"></div>
+      </div>
+      <div class="kdlc-air-result" role="status" aria-live="polite">
+        <div><span class="kdlc-air-result-label">Consumo estimado</span><strong class="kdlc-air-value">{{ ca_result }} NL/min</strong></div>
+        <span class="kdlc-air-meta">&asymp; {{ ca_resultStroke }} NL por ciclo &middot; doble efecto</span>
+      </div>
+      <div class="kdlc-air-foot">
+        <p class="kdlc-air-note">Estimaci&oacute;n aproximada: no incluye el volumen del v&aacute;stago, fugas ni accesorios. La selecci&oacute;n final debe confirmarse con un asesor.</p>
+        <a class="kdlc-air-cta" href="{{ waCalc }}" target="_blank" rel="noopener">Usar resultado para cotizar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="kdlc-footer">
   <div class="kdlc-footer__inner">
     <div><a class="kdlc-footer__logo" href="index.html"><span>KDL</span><span class="dot">.</span></a><p class="kdlc-footer__copy">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
@@ -273,7 +324,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<980, mobileMenuOpen:false, query:'', searched:false, ready:(typeof window!=='undefined'&&!!window.KDL), cartN:this.cartCount(), added:{}, suggestionsClosed:false, activeSuggestion:0, noBrand:'', noModel:'', noApp:'', noFile:''}; }
+  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<980, mobileMenuOpen:false, query:'', searched:false, ready:(typeof window!=='undefined'&&!!window.KDL), cartN:this.cartCount(), added:{}, suggestionsClosed:false, activeSuggestion:0, noBrand:'', noModel:'', noApp:'', noFile:'', ca:{d:'50',l:'200',p:'6',c:'30'}}; }
   componentDidMount(){
     this._r=()=>{const m=window.innerWidth<980; if(m!==this.state.isMobile)this.setState({isMobile:m,mobileMenuOpen:false});}; window.addEventListener('resize',this._r);
     this._cart=()=>this.setState({cartN:this.cartCount()}); window.addEventListener('storage',this._cart);
@@ -287,6 +338,7 @@ class Component extends DCLogic {
     const s=document.createElement('script'); s.src='kdl-data.js'; s.async=true; s.setAttribute('data-kdl-data-loader','compatibilidad'); s.onload=()=>this.setState({ready:true}); document.head.appendChild(s);
   }
   wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
+  setCA(k,v){ this.setState(s=>({ca:{...s.ca,[k]:v}})); }
   cartCount(){ try{ return JSON.parse(localStorage.getItem('kdl_cart')||'[]').reduce((a,b)=>a+(b.qty||1),0); }catch(e){ return 0; } }
   track(name,data){ try{ if(typeof window.kdlTrack==='function') window.kdlTrack(name,data||{}); }catch(e){} }
   norm(v){
@@ -414,7 +466,15 @@ class Component extends DCLogic {
     return this.wa(lines.join('\n'));
   }
   renderVals(){
-    const m=this.state.isMobile, q=(this.state.query||'').trim();
+    const m=this.state.isMobile, q=(this.state.query||'').trim(), ca=this.state.ca;
+    const D=parseFloat(ca.d)||0, L=parseFloat(ca.l)||0, P=parseFloat(ca.p)||0, C=parseFloat(ca.c)||0;
+    const area=Math.PI/4*Math.pow(D/1000,2);
+    const volStrokeL=area*(L/1000)*1000;
+    const ratio=(P+1.013)/1.013;
+    const perCycle=2*volStrokeL*ratio;
+    const perMin=perCycle*C;
+    const ca_result=(D&&L&&P)?(perMin>=100?perMin.toFixed(0):perMin.toFixed(1)):'0';
+    const ca_resultStroke=(D&&L&&P)?(perCycle>=10?perCycle.toFixed(1):perCycle.toFixed(2)):'0';
     const menuOpen=m&&this.state.mobileMenuOpen;
     const base={ isMobile:m, notMobile:!m, mobileMenuOpen:menuOpen, showStickyWa:!menuOpen, toggleMobileMenu:e=>this.toggleMobileMenu(e), closeMobileMenu:()=>this.closeMobileMenu(), waSticky:this.wa('Hola KDL, busco una alternativa compatible a una pieza descontinuada.'), cartCount:this.state.cartN, hasCart:this.state.cartN>0 };
     const ACTIVE='compatibilidad';
@@ -443,6 +503,8 @@ class Component extends DCLogic {
       results, resultCount:results.length,
       waQuery:this.wa('Hola KDL, busco una alternativa compatible para: "'+this.state.query+'" (pieza descontinuada). Les puedo enviar foto / medidas / No. de parte.'),
       noBrand:this.state.noBrand, noModel:this.state.noModel, noApp:this.state.noApp, noFileLabel:this.state.noFile||'Seleccionar foto de placa o pieza', setNoBrand:e=>this.setNoField('noBrand',e), setNoModel:e=>this.setNoField('noModel',e), setNoApp:e=>this.setNoField('noApp',e), setNoFile:e=>this.setNoFile(e), waNoResults:this.noResultsWhatsApp(),
+      ca_d:ca.d, ca_l:ca.l, ca_p:ca.p, ca_c:ca.c, onCaD:e=>this.setCA('d',e.target.value), onCaL:e=>this.setCA('l',e.target.value), onCaP:e=>this.setCA('p',e.target.value), onCaC:e=>this.setCA('c',e.target.value), ca_result, ca_resultStroke,
+      waCalc:this.wa('Hola KDL, calcule un cilindro (diametro '+ca.d+' mm, carrera '+ca.l+' mm, presion '+ca.p+' bar, '+ca.c+' ciclos/min): aprox. '+ca_result+' NL/min. Quiero confirmar la seleccion y cotizar.'),
       steps:[{n:'1',t:'Escribe tu pieza',d:'Marca, modelo, número de parte o el síntoma. Aunque esté incompleto.'},{n:'2',t:'Vemos alternativas',d:'Te mostramos opciones del catálogo que suelen reemplazarla.'},{n:'3',t:'Validamos y cotizamos',d:'Un asesor confirma compatibilidad por medidas, aplicación y condiciones.'}]
     };
   }

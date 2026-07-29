@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./kdl-data.js"></script>
+<script src="./kdl-site-header.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -34,42 +36,61 @@
 <section style="position:relative;background:radial-gradient(120% 120% at 80% 0%,#15426F,#0A1B30 55%,#06121F);overflow:hidden;padding:46px 22px 50px">
   <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.5" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M-60 200 C 360 80, 720 340, 1260 180" fill="none" stroke="#39A0FF" stroke-width="1.6" stroke-dasharray="14 22" style="animation:kdlDash 3s linear infinite"/></svg>
   <div style="position:relative;max-width:1280px;margin:0 auto">
-    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;color:#7FB4E8;margin-bottom:12px"><a href="index.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span> Catálogos</div>
-    <h1 style="font-family:'Archivo';font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;max-width:760px">Catálogos 2026 — descarga rápida</h1>
-    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#B8C7D9;max-width:640px;margin:0">Descarga los catálogos en PDF o pide una ficha técnica específica por WhatsApp.</p>
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;color:#7FB4E8;margin-bottom:12px"><a href="index.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span> Centro documental</div>
+    <h1 style="font-family:'Archivo';font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;max-width:820px">Documentación técnica para seleccionar con certeza.</h1>
+    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#B8C7D9;max-width:720px;margin:0">Encuentra catálogos KDL o solicita fichas, manuales, diagramas, CAD y certificados de la marca y modelo exactos.</p>
   </div>
   <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,#1FC8E3,#2E7DF2,transparent);background-size:200% 100%;animation:kdlBar 3s linear infinite"></div>
 </section>
 
-<section style="max-width:1280px;margin:0 auto;padding:44px 22px 16px">
-  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.6px;color:#0E2236;margin:0 0 20px">Catálogos generales</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
-    <sc-for list="{{ catalogs }}" as="k" hint-placeholder-count="2">
-      <div style="border:1px solid #E3E9F1;border-radius:18px;overflow:hidden;display:flex;background:#fff" style-hover="box-shadow:0 16px 40px rgba(14,34,54,.1)">
-        <div style="width:128px;flex-shrink:0;background:linear-gradient(160deg,#0E2236,#16335A);display:flex;align-items:center;justify-content:center;padding:16px">{{ k.media }}</div>
-        <div style="padding:22px;flex:1;display:flex;flex-direction:column">
-          <span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#9AACC2;margin-bottom:6px">PDF · 2026</span>
-          <div style="font-family:'Archivo';font-weight:700;font-size:18px;color:#0E2236;margin-bottom:6px">{{ k.t }}</div>
-          <div style="font-size:13px;line-height:1.5;color:#5A6B80;flex:1">{{ k.d }}</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
-            <a href="{{ k.file }}" target="_blank" style="display:inline-flex;align-items:center;gap:7px;background:#0E2236;color:#fff;font-weight:700;font-size:13px;padding:10px 15px;border-radius:9px" style-hover="background:#163359"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>Descargar</a>
-            <a href="Productos.dc.html" style="display:inline-flex;align-items:center;gap:7px;border:1.5px solid #DDE4EE;color:#2E7DF2;font-weight:700;font-size:13px;padding:10px 15px;border-radius:9px" style-hover="border-color:#2E7DF2">Ver en línea</a>
-          </div>
-        </div>
-      </div>
-    </sc-for>
+<section style="max-width:1280px;margin:0 auto;padding:44px 22px 18px">
+  <div style="background:#fff;border:1px solid #E3E9F1;border-radius:18px;padding:18px;box-shadow:0 12px 34px rgba(14,34,54,.07);margin-bottom:22px">
+    <div style="display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:11px;border:1.5px solid #DDE4EE;border-radius:11px;padding:4px 5px 4px 14px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2E7DF2" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input value="{{ query }}" onInput="{{ onQuery }}" placeholder="Busca por documento, marca, producto o categoría…" aria-label="Buscar documentación técnica" style="width:100%;border:0;outline:0;background:transparent;font-size:15px;color:#0E2236;padding:11px 8px">
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
+        <button type="button" onClick="{{ f.onClick }}" aria-pressed="{{ f.selected }}" style="{{ f.style }}">{{ f.label }}</button>
+      </sc-for>
+      <sc-if value="{{ hasActiveFilters }}" hint-placeholder-val=""><button type="button" onClick="{{ clearFilters }}" style="border:0;background:transparent;color:#2E7DF2;padding:8px 10px;font-size:12.5px;font-weight:800;cursor:pointer">Limpiar filtros</button></sc-if>
+    </div>
   </div>
+  <div style="display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:18px">
+    <div><h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.6px;color:#0E2236;margin:0 0 5px">Biblioteca técnica</h2><p role="status" aria-live="polite" style="font-size:14px;color:#5A6B80;margin:0">{{ resultLabel }}</p></div>
+    <a href="{{ waFicha }}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#2E7DF2;font-weight:800;font-size:14px">Pedir documento oficial a un asesor <span>→</span></a>
+  </div>
+  <sc-if value="{{ hasDocs }}" hint-placeholder-val="{{ true }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:15px">
+      <sc-for list="{{ documents }}" as="d" hint-placeholder-count="6">
+        <article style="background:#fff;border:1px solid #E3E9F1;border-radius:15px;padding:20px;display:flex;flex-direction:column;min-height:225px" style-hover="border-color:#C9D8EC;box-shadow:0 14px 32px rgba(14,34,54,.08);transform:translateY(-2px)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px"><span style="font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;background:#EAF1FB;color:#2E7DF2;border-radius:99px;padding:6px 9px;font-weight:700">{{ d.type }}</span><span style="font-size:11px;color:#8A9AAF">{{ d.format }}</span></div>
+          <h3 style="font-family:'Archivo';font-weight:800;font-size:18px;line-height:1.2;color:#0E2236;margin:0 0 7px">{{ d.title }}</h3>
+          <p style="font-size:13.5px;line-height:1.5;color:#5A6B80;margin:0;flex:1">{{ d.desc }}</p>
+          <a href="{{ d.href }}" target="{{ d.target }}" style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;border-top:1px solid #EEF2F7;padding-top:13px;color:#2E7DF2;font-size:13.5px;font-weight:800">{{ d.action }} <span>→</span></a>
+        </article>
+      </sc-for>
+    </div>
+  </sc-if>
+  <sc-if value="{{ noDocs }}" hint-placeholder-val="">
+    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:38px 22px;text-align:center">
+      <h3 style="font-family:'Archivo';font-size:20px;color:#0E2236;margin:0 0 8px">No encontramos un documento directo</h3>
+      <p style="font-size:14px;color:#5A6B80;line-height:1.5;margin:0 auto 18px;max-width:560px">Envíanos marca, modelo, número de parte y tipo de documento. Así evitamos compartir una versión que no corresponda a tu producto.</p>
+      <a href="{{ waSearch }}" target="_blank" style="display:inline-flex;background:#25D366;color:#06310f;border-radius:10px;padding:12px 18px;font-weight:800;font-size:14px">Solicitar por WhatsApp</a>
+    </div>
+  </sc-if>
 </section>
 
 <section style="max-width:1280px;margin:0 auto;padding:30px 22px 16px">
   <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.6px;color:#0E2236;margin:0 0 6px">Catálogos por marca</h2>
-  <p style="font-size:15px;color:#5A6B80;margin:0 0 20px">Pide el material técnico de la marca que necesitas.</p>
+  <p style="font-size:15px;color:#5A6B80;margin:0 0 10px">Pide el material técnico oficial de la marca y variante exactas.</p>
+  <p class="kdl-document-explainer">Los dos catálogos KDL marcados como <strong>PDF · descarga</strong> existen en este sitio. Las fichas, manuales, CAD, diagramas y certificados no están almacenados aquí: un asesor los localiza con el fabricante cuando proporcionas marca, modelo, número de parte y tipo de documento. La entrega depende de su disponibilidad y permisos.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:13px">
     <sc-for list="{{ brands }}" as="b" hint-placeholder-count="9">
       <a href="{{ b.wa }}" target="_blank" style="border:1px solid #E3E9F1;border-radius:12px;padding:22px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;background:#fff;text-align:center" style-hover="border-color:#C9D8EC;box-shadow:0 10px 24px rgba(14,34,54,.08)">
         <span style="font-family:'Archivo';font-weight:800;font-size:18px;letter-spacing:.3px;color:#0E2236">{{ b.n }}</span>
         <span style="font-size:12px;color:#7E93AC">{{ b.c }}</span>
-        <span style="display:inline-flex;align-items:center;gap:5px;color:#2E7DF2;font-weight:700;font-size:12.5px;margin-top:2px">Pedir ficha<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span style="display:inline-flex;align-items:center;gap:5px;color:#2E7DF2;font-weight:700;font-size:12.5px;margin-top:2px">Pedir documento oficial<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </sc-for>
   </div>
@@ -78,7 +99,7 @@
 <section style="max-width:1280px;margin:0 auto;padding:30px 22px 70px">
   <div style="background:linear-gradient(135deg,#0E2236,#16335A);border-radius:18px;padding:30px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between">
     <div style="flex:1 1 340px"><div style="font-family:'Archivo';font-weight:800;font-size:21px;color:#fff;margin-bottom:8px">¿Necesitas una ficha técnica específica?</div><p style="font-size:15px;line-height:1.55;color:#B8C7D9;margin:0;max-width:520px">Dinos marca, modelo o número de parte y te enviamos la hoja de datos o una alternativa compatible.</p></div>
-    <a href="{{ waFicha }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:15px 24px;border-radius:12px" style-hover="transform:translateY(-2px)">Pedir ficha técnica<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="{{ waFicha }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:15px 24px;border-radius:12px" style-hover="transform:translateY(-2px)">Pedir documento oficial<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -96,10 +117,19 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000}; }
-  componentDidMount(){ this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m});}; window.addEventListener('resize',this._r); }
+  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000,query:'',docType:'Todos'}; }
+  componentDidMount(){
+    this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m});};
+    window.addEventListener('resize',this._r);
+    try{ const saved=JSON.parse(sessionStorage.getItem('kdl_document_filters')||'{}'); this.setState({query:saved.query||'',docType:saved.docType||'Todos'}); }catch(e){}
+  }
   componentWillUnmount(){ window.removeEventListener('resize',this._r); }
   wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
+  norm(v){ return String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+  saveFilters(query,docType){ try{ sessionStorage.setItem('kdl_document_filters',JSON.stringify({query:query||'',docType:docType||'Todos'})); }catch(e){} }
+  setQuery(query){ this.saveFilters(query,this.state.docType); this.setState({query}); }
+  setDocType(docType){ this.saveFilters(this.state.query,docType); this.setState({docType}); }
+  clearFilters(){ this.saveFilters('','Todos'); this.setState({query:'',docType:'Todos'}); }
   renderVals(){
     const ACTIVE='catalogos';
     const navData=[['Inicio','index.html','inicio'],['Productos','Productos.dc.html','productos'],['Soluciones','Soluciones.dc.html','soluciones'],['Industrias','Industrias.dc.html','industrias'],['Servicios','Servicios.dc.html','servicios'],['Catálogos','Catalogos.dc.html','catalogos'],['Contacto','Contacto.dc.html','contacto']];
@@ -114,11 +144,28 @@ class Component extends DCLogic {
       {n:'Bosch Rexroth',c:'Hidráulica'},{n:'OMRON',c:'Sensores · visión'},{n:'DELTA',c:'Automatización'},
       {n:'Weintek',c:'HMI'},{n:'ARICO',c:'Refrigeración / IQF'},{n:'Zenso',c:'Componentes'}
     ].map(b=>({...b, wa:this.wa('Hola KDL, ¿me comparten el catálogo / ficha técnica de '+b.n+'? Aplicación o modelo: ___')}));
+    const request=(type,title,desc,keywords)=>({type,title,desc,keywords,format:'Requiere marca y modelo',action:'Pedir a un asesor',target:'_blank',href:this.wa('Hola KDL, necesito '+type.toLowerCase()+'. Producto / marca / modelo / No. de parte: ___. Aplicación: ___.')});
+    const rawDocs=[
+      {type:'Catálogos',title:'Catálogo de suministros industriales 2026',desc:'Neumática, hidráulica, sensores, automatización, movimiento lineal y refrigeración.',keywords:'catalogo suministros neumatica hidraulica sensores automatizacion movimiento iqf',format:'PDF · descarga',action:'Descargar PDF',target:'_blank',href:'uploads/KDLCATALOGO-SUMINISTROS.pdf'},
+      {type:'Catálogos',title:'Catálogo de herramientas de corte 2026',desc:'Insertos, torneado, ranurado, carburo sólido y grados CVD/PVD.',keywords:'catalogo herramientas corte insertos torneado ranurado carburo',format:'PDF · descarga',action:'Descargar PDF',target:'_blank',href:'uploads/KDLCATALOGO-HERRAMIENTA.pdf'},
+      request('Fichas técnicas','Ficha técnica oficial','Hoja de datos correspondiente a la marca, serie y variante exactas.','ficha datos especificaciones producto marca modelo'),
+      request('Manuales','Manual de instalación u operación','Instrucciones oficiales para instalación, configuración, operación o mantenimiento.','manual instalacion operacion mantenimiento configuracion'),
+      request('CAD','Archivos CAD 2D / 3D','Modelos dimensionales disponibles para validar integración y montaje.','cad dwg dxf step iges modelo dibujo dimensiones'),
+      request('Diagramas','Diagramas eléctricos, neumáticos o hidráulicos','Esquemas oficiales según el equipo y la revisión aplicable.','diagrama electrico neumatico hidraulico conexion cableado'),
+      request('Certificados','Certificados y declaraciones','Documentación disponible de conformidad, materiales o certificaciones del fabricante.','certificado declaracion conformidad materiales certificacion')
+    ];
+    const q=this.norm(this.state.query), type=this.state.docType;
+    const documents=rawDocs.filter(d=>(type==='Todos'||d.type===type)&&(!q||this.norm(d.title+' '+d.desc+' '+d.keywords+' '+d.type).includes(q)));
+    const filterNames=['Todos','Catálogos','Fichas técnicas','Manuales','CAD','Diagramas','Certificados'];
+    const filters=filterNames.map(label=>({label,selected:type===label,onClick:()=>this.setDocType(label),style:'border:1px solid '+(type===label?'#148BFF':'#DDE4EE')+';background:'+(type===label?'#148BFF':'#fff')+';color:'+(type===label?'#fff':'#5A6B80')+';border-radius:99px;padding:8px 13px;font-size:12.5px;font-weight:700;cursor:pointer'}));
     return {
       isMobile:this.state.isMobile, notMobile:!this.state.isMobile, nav,
       waSticky:this.wa('Hola KDL, quiero los catálogos 2026 o una ficha técnica específica.'),
       waFicha:this.wa('Hola KDL, necesito una ficha técnica. Marca / modelo / No. de parte: ___'),
-      catalogs, brands
+      waSearch:this.wa('Hola KDL, busco documentación técnica sobre: '+(this.state.query||'___')+'. Marca / modelo / No. de parte: ___. Tipo de documento: '+(type==='Todos'?'___':type)+'.'),
+      catalogs, brands, query:this.state.query, onQuery:e=>this.setQuery(e.target.value), filters, documents,
+      hasActiveFilters:!!this.state.query||type!=='Todos', clearFilters:()=>this.clearFilters(),
+      hasDocs:documents.length>0, noDocs:documents.length===0, resultLabel:documents.length+' recurso'+(documents.length===1?'':'s')+' disponible'+(documents.length===1?'':'s')
     };
   }
 }

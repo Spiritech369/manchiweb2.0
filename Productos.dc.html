@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
+<script src="./kdl-site-header.js" defer></script>
 <script src="./kdl-schema.js?v=2" defer></script>
 <link rel="stylesheet" href="./kdl-catalog.css">
 </head>
@@ -196,12 +197,15 @@
     <div style="background:#fff;border:1px solid #E7EDF4;border-radius:16px;padding:22px">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:14px">
         <sc-for list="{{ activeProducts }}" as="p" hint-placeholder-count="8">
-          <a href="{{ p.href }}" style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:18px;display:flex;flex-direction:column;min-height:182px;transition:all .18s" style-hover="border-color:#2E7DF2;box-shadow:0 14px 30px rgba(14,34,54,.1);transform:translateY(-3px)">
-            <div style="height:74px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">{{ p.media }}</div>
-            <div style="font-family:'Archivo';font-weight:700;font-size:15.5px;line-height:1.2;color:#0E2236;margin-bottom:6px">{{ p.n }}</div>
-            <div style="font-family:'IBM Plex Mono';font-size:12px;line-height:1.5;color:#7E93AC;flex:1">{{ p.s }}</div>
-            <div style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;color:#2E7DF2;font-weight:700;font-size:13px" style-hover="gap:10px">Ver producto<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-          </a>
+          <article class="kdl-flow-product-card">
+            <a class="kdl-flow-product-card__detail" href="{{ p.href }}">
+              <div class="kdl-flow-product-card__media">{{ p.media }}</div>
+              <div class="kdl-flow-product-card__name">{{ p.n }}</div>
+              <div class="kdl-flow-product-card__spec">{{ p.s }}</div>
+              <span class="kdl-flow-product-card__link">Ver detalles t&eacute;cnicos <span aria-hidden="true">&rarr;</span></span>
+            </a>
+            <a class="kdl-flow-product-card__quote" href="{{ p.quoteHref }}" aria-label="{{ p.quoteLabel }}">A&ntilde;adir y cotizar</a>
+          </article>
         </sc-for>
       </div>
     </div>
@@ -285,6 +289,7 @@ class Component extends DCLogic {
     if(!K){ return {...base, isLanding:true, notLanding:false, menuOpen:false, landingCats:[], navTiles:[], menuCats:[], hoverProducts:[], searchResults:[] }; }
     const cats=K.cats, byKey={}; cats.forEach(c=>byKey[c.key]=c);
     const href=(catKey,p)=>'Producto.dc.html?cat='+catKey+'&p='+p.slug;
+    const quoteHref=(catKey,p)=>'Cesta.dc.html?add='+encodeURIComponent(catKey+':'+p.slug);
 
     const navTiles=cats.map(c=>{ const on=c.key===active; return { name:c.name, media:imgEl(c.key,74), onClick:()=>this.setActive(c.key), tileStyle:'flex:0 0 148px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;border-radius:14px;cursor:pointer;border:1px solid '+(on?'#2E7DF2':'transparent')+';background:'+(on?'#EAF1FB':'transparent') }; });
     const landingCats=cats.map(c=>({ name:c.name, intro:c.intro, count:c.products.length, media:imgEl(c.key,108), icon:icon(I[c.key],18), onOpen:()=>this.setActive(c.key) }));
@@ -296,7 +301,7 @@ class Component extends DCLogic {
 
     // active category view
     const ac=active?byKey[active]:null;
-    const activeProducts=ac?ac.products.map(p=>({n:p.n, s:p.s, media:imgEl(p.img||ac.key,86,p.n), href:href(ac.key,p)})):[];
+    const activeProducts=ac?ac.products.map(p=>({n:p.n,s:p.s,media:imgEl(p.img||ac.key,86,p.n),href:href(ac.key,p),quoteHref:quoteHref(ac.key,p),quoteLabel:'A\u00f1adir '+p.n+' a la cesta y revisar cotizaci\u00f3n'})):[];
     const sideItems=cats.map(c=>{ const on=c.key===active; return { name:c.name, count:c.products.length, icon:icon(I[c.key],17), onClick:()=>this.setActive(c.key), style:'display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:'+(on?'600':'500')+';cursor:pointer;'+(on?'background:#fff;color:#2E7DF2;box-shadow:0 2px 10px rgba(14,34,54,.06)':'color:#3A4A5C') }; });
     const relMap={neumatica:['hidraulica','movimiento','electrico'],hidraulica:['neumatica','automatizacion','electrico'],sensores:['automatizacion','electrico','neumatica'],automatizacion:['sensores','electrico','movimiento'],movimiento:['neumatica','automatizacion','corte'],corte:['movimiento','suministros','automatizacion'],iqf:['electrico','automatizacion','sensores'],electrico:['automatizacion','sensores','neumatica'],suministros:['neumatica','corte','electrico']};
     const suggested=[]; if(ac){ (relMap[active]||[]).forEach(k=>{ const c=byKey[k]; if(!c)return; c.products.slice(0,2).forEach(p=>{ suggested.push({n:p.n, catName:c.name, media:imgEl(p.img||k,104,p.n), href:href(k,p)}); }); }); }
