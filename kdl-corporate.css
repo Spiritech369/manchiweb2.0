@@ -580,3 +580,56 @@ a[href*="wa.me"][class*="btn"]:hover,
   .kdl-footer-nav { grid-template-columns: 1fr 1fr; gap: 22px; }
   .kdl-footer-lockup { width: min(260px, 82vw); }
 }
+
+
+/* Hero motion: restrained, industrial and limited to the product visual */
+@keyframes kdlFlowAdvance {
+  to { stroke-dashoffset: -136; }
+}
+@keyframes kdlPartDriftA {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(3px, -4px, 0); }
+}
+@keyframes kdlPartDriftB {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-3px, 3px, 0); }
+}
+@keyframes kdlFlowBreathe {
+  0%, 100% { opacity: .44; }
+  50% { opacity: .58; }
+}
+
+.kdl-hero-art .kdl-flow-glow {
+  animation: kdlFlowBreathe 9s ease-in-out infinite !important;
+}
+.kdl-hero-art .kdl-flow-line--primary {
+  animation: kdlFlowAdvance 12s linear infinite !important;
+}
+.kdl-hero-art .kdl-flow-line--secondary {
+  animation: kdlFlowAdvance 17s linear infinite reverse !important;
+}
+.kdl-hero-art .kdl-hero-part {
+  transform: translate3d(0, 0, 0);
+  transform-origin: center;
+  will-change: transform;
+}
+.kdl-hero-art .kdl-hero-part--cylinder,
+.kdl-hero-art .kdl-hero-part--screw {
+  animation: kdlPartDriftA 10s ease-in-out infinite !important;
+}
+.kdl-hero-art .kdl-hero-part--rail,
+.kdl-hero-art .kdl-hero-part--sensor {
+  animation: kdlPartDriftB 12s ease-in-out infinite !important;
+}
+.kdl-hero-art .kdl-hero-part--rail { animation-delay: -4s !important; }
+.kdl-hero-art .kdl-hero-part--screw { animation-delay: -6s !important; }
+.kdl-hero-art .kdl-hero-part--sensor { animation-delay: -8s !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kdl-hero-art .kdl-flow-glow,
+  .kdl-hero-art .kdl-flow-line,
+  .kdl-hero-art .kdl-hero-part {
+    animation: none !important;
+    transform: none !important;
+  }
+}
