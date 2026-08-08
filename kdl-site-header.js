@@ -3,6 +3,26 @@
 
   var script = document.currentScript;
   var rootUrl = new URL('.', script && script.src ? script.src : window.location.href);
+  function loadLanguageSwitcher() {
+    if (document.querySelector('script[data-kdl-language]')) return;
+    var languageScript = document.createElement('script');
+    languageScript.src = new URL('kdl-language.js?v=10', rootUrl).href;
+    languageScript.defer = true;
+    languageScript.setAttribute('data-kdl-language', '');
+    document.head.appendChild(languageScript);
+  }
+  if (window.KDLI18n) loadLanguageSwitcher();
+  else {
+    var i18nScript = document.querySelector('script[data-kdl-i18n]');
+    if (!i18nScript) {
+      i18nScript = document.createElement('script');
+      i18nScript.src = new URL('kdl-i18n.js?v=2', rootUrl).href;
+      i18nScript.defer = true;
+      i18nScript.setAttribute('data-kdl-i18n', '');
+      document.head.appendChild(i18nScript);
+    }
+    i18nScript.addEventListener('load', loadLanguageSwitcher, { once: true });
+  }
   var indexPage = /(?:^|\/)index\.html$/i.test(window.location.pathname);
   var isRootIndex = indexPage && !/(?:^|\/)productos\/index\.html$/i.test(window.location.pathname);
   if (isRootIndex && document.querySelector('.kdl-header')) return;
@@ -23,8 +43,6 @@
     ['Inicio', 'index.html', 'inicio'],
     ['Productos', 'Productos.dc.html', 'productos'],
     ['Soluciones', 'Soluciones.dc.html', 'soluciones'],
-    ['Industrias', 'Industrias.dc.html', 'industrias'],
-    ['Servicios', 'Servicios.dc.html', 'servicios'],
     ['Catálogos', 'Catalogos.dc.html', 'catalogos'],
     ['Contacto', 'Contacto.dc.html', 'contacto']
   ];
@@ -129,10 +147,14 @@
 
   function injectStylesheet() {
     [
-      { href: 'kdl-site-header.css', attr: 'data-kdl-shared-header' },
+      { href: 'kdl-site-header.css?v=3', attr: 'data-kdl-shared-header' },
       { href: 'kdl-corporate.css?v=1', attr: 'data-kdl-corporate' }
     ].forEach(function (sheet) {
-      if (document.querySelector('link[' + sheet.attr + ']')) return;
+      var existing = document.querySelector('link[' + sheet.attr + ']');
+      if (existing) {
+        existing.href = href(sheet.href);
+        return;
+      }
       var link = document.createElement('link');
       link.rel = 'stylesheet';
       link.href = href(sheet.href);
@@ -205,6 +227,7 @@
     var productsTrigger = products.querySelector(':scope > .kdl-shared-nav__link');
     var mega = products.querySelector('.kdl-shared-mega');
     var closeTimer = 0;
+    var openTimer = 0;
 
     function openMega() {
       window.clearTimeout(closeTimer);
@@ -220,13 +243,17 @@
       }, immediate ? 0 : 260);
     }
 
-    products.addEventListener('pointerenter', openMega);
-    products.addEventListener('pointerleave', function () { closeMega(false); });
+    productsTrigger.addEventListener('pointerenter', function () {
+      window.clearTimeout(openTimer);
+      openTimer = window.setTimeout(openMega, 180);
+    });
+    products.addEventListener('pointerleave', function () { window.clearTimeout(openTimer); closeMega(false); });
     products.addEventListener('focusin', openMega);
     products.addEventListener('focusout', function (event) {
       if (!products.contains(event.relatedTarget)) closeMega(false);
     });
     mega.addEventListener('pointerenter', openMega);
+    window.addEventListener('scroll', function () { closeMega(true); }, { passive: true });
 
     var title = header.querySelector('[data-kdl-mega-title]');
     var allLink = header.querySelector('[data-kdl-mega-all]');
@@ -293,6 +320,12 @@
       var footer = document.querySelector('footer');
       if (!footer) return;
       var firstHomeLink = footer.querySelector('a[href$="index.html"], a[href$="index.html#inicio"]');
+      if (!firstHomeLink) {
+        firstHomeLink = document.createElement('a');
+        firstHomeLink.href = href('index.html');
+        var footerContainer = footer.querySelector('.shell, div') || footer;
+        footerContainer.insertBefore(firstHomeLink, footerContainer.firstChild);
+      }
       if (firstHomeLink && !firstHomeLink.querySelector('.kdl-footer-lockup')) {
         firstHomeLink.innerHTML = '<img class="kdl-footer-lockup" src="' + href('assets/kdl-logo-lockup.png') + '" alt="KDL · Suministros y Servicios Industriales">';
         firstHomeLink.classList.add('kdl-footer-brand');

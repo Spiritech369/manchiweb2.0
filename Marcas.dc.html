@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
-<script src="./kdl-site-header.js" defer></script>
+<script src="./kdl-site-header.js?v=13" defer></script>
 </head>
 <body>
 <x-dc>
@@ -17,6 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F2F5F9;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E2236}a{text-decoration:none;color:inherit}@keyframes kdlBar{to{background-position:-200% 0}}@keyframes kdlDash{to{stroke-dashoffset:-340}}</style>
+<link rel="stylesheet" href="./kdl-site-header.css?v=3" data-kdl-shared-header>
+<link rel="stylesheet" href="./kdl-corporate.css?v=3" data-kdl-corporate>
 </helmet>
 
 <div style="background:#F2F5F9;overflow-x:hidden">
@@ -46,7 +48,7 @@
 <section style="max-width:1280px;margin:0 auto;padding:44px 22px 70px">
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px">
     <sc-for list="{{ brands }}" as="b" hint-placeholder-count="9">
-      <a href="{{ b.wa }}" target="_blank" style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:26px;display:flex;flex-direction:column;min-height:160px" style-hover="box-shadow:0 16px 38px rgba(14,34,54,.1);transform:translateY(-3px);border-color:#C9D8EC">
+      <a class="kdl-commercial-card" href="{{ b.wa }}" target="_blank" style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:26px;display:flex;flex-direction:column;min-height:160px" style-hover="box-shadow:0 16px 38px rgba(14,34,54,.1);transform:translateY(-3px);border-color:#C9D8EC">
         <div style="font-family:'Archivo';font-weight:900;font-size:26px;letter-spacing:.3px;color:#0E2236;margin-bottom:4px">{{ b.n }}</div>
         <div style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.5px;color:#2E7DF2;text-transform:uppercase;margin-bottom:12px">{{ b.tag }}</div>
         <div style="font-size:14px;line-height:1.5;color:#5A6B80;flex:1">{{ b.d }}</div>

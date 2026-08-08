@@ -43,6 +43,8 @@ function main() {
   const urls = [
     item(url(''), 'weekly', '1.0'),
     item(url('productos/'), 'weekly', '0.95'),
+    item(url('Soluciones.dc.html'), 'monthly', '0.75'),
+    item(url('Industrias.dc.html'), 'monthly', '0.70'),
     item(url('Servicios.dc.html'), 'monthly', '0.70'),
     item(url('Catalogos.dc.html'), 'monthly', '0.70'),
     item(url('Contacto.dc.html'), 'monthly', '0.75'),

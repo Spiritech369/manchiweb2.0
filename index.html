@@ -9,8 +9,10 @@
 <script src="./kdl-analytics.js?v=2" defer></script>
 <script src="./kdl-config.js?v=1"></script>
 <script src="./kdl-leads.js?v=1" defer></script>
+<script src="./kdl-i18n.js?v=2" defer></script>
+<script src="./kdl-language.js?v=10" defer></script>
 <link rel="stylesheet" href="./kdl-ui.css">
-<link rel="stylesheet" href="./kdl-corporate.css?v=1">
+<link rel="stylesheet" href="./kdl-corporate.css?v=3">
 </head>
 <body>
 <x-dc>
@@ -64,8 +66,6 @@
           </div>
         </div>
         <a class="kdl-nav__link" href="Soluciones.dc.html" style-hover="color:#fff">Soluciones</a>
-        <a class="kdl-nav__link" href="Industrias.dc.html" style-hover="color:#fff">Industrias</a>
-        <a class="kdl-nav__link" href="Servicios.dc.html" style-hover="color:#fff">Servicios</a>
         <a class="kdl-nav__link" href="Catalogos.dc.html" style-hover="color:#fff">Catálogos</a>
         <a class="kdl-nav__link" href="Contacto.dc.html" style-hover="color:#fff">Contacto</a>
       </nav>
@@ -94,8 +94,6 @@
         <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="#inicio">Inicio <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Productos.dc.html">Productos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Soluciones.dc.html">Soluciones <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Industrias.dc.html">Industrias <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Servicios.dc.html">Servicios <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Catalogos.dc.html">Catálogos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="kdl-mobile-menu__link" onClick="{{ closeMobileMenu }}" href="Contacto.dc.html">Contacto <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#148BFF" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -199,7 +197,7 @@
   </div>
   <div class="kdl-hero-proof">
     <div class="kdl-shell kdl-hero-proof__grid">
-      <a href="#identificador"><strong>Identificación asistida</strong><span>Por foto, placa o número de parte</span></a>
+      <a href="#cotiza"><strong>Cotización e identificación</strong><span>Por foto, placa o número de parte</span></a>
       <a href="Compatibilidad.dc.html"><strong>Alternativas compatibles</strong><span>Para componentes difíciles de encontrar o descontinuados</span></a>
       <a href="Productos.dc.html"><strong>Catálogo multi-marca</strong><span>9 familias de producto industrial</span></a>
       <a href="Contacto.dc.html"><strong>Soporte técnico</strong><span>Atención directa desde Monterrey</span></a>
@@ -208,26 +206,49 @@
   <div style="height:3px;background:linear-gradient(90deg,transparent,#1FC8E3,#2E7DF2,transparent);background-size:200% 100%;animation:kdlBar 3s linear infinite"></div>
 </section>
 
-<!-- ===================== DOLOR + COTIZA RÁPIDA ===================== -->
+<!-- ===================== COTIZACIÓN + IDENTIFICACIÓN ===================== -->
 <section id="cotiza" class="kdl-quote-section">
-  <div class="kdl-shell kdl-quote-layout">
-    <!-- LEFT: dolor cards -->
-    <div class="kdl-quote-main">
-      <h2 class="kdl-section-title kdl-quote-title">Tu planta trabaja 24/7. <span>Los componentes se desgastan.</span></h2>
+  <div class="kdl-quote-hero">
+    <div class="kdl-shell kdl-quote-hero__content">
+      <img class="kdl-quote-hero__brand" src="assets/kdl-logo-lockup.png" width="320" height="85" alt="" aria-hidden="true">
+      <div class="kdl-quote-eyebrow">Cotización e identificación KDL</div>
+      <h2 class="kdl-section-title kdl-quote-title">Cotiza o identifica <span>un componente.</span></h2>
+      <p class="kdl-quote-intro">Comparte la marca o el número de parte si lo conoces. Si no, describe la falla o sube una foto para que un asesor reúna contigo los datos necesarios.</p>
+    </div>
+  </div>
+  <div class="kdl-shell kdl-quote-body">
+    <div class="kdl-quote-panel">
       <div class="kdl-pain-grid">
         <sc-for list="{{ pains }}" as="p" hint-placeholder-count="4">
           <div class="kdl-pain-card">
             <span class="kdl-pain-card__icon">{{ p.icon }}</span>
             <span class="kdl-pain-card__title">{{ p.t }}</span>
-            <span class="kdl-pain-card__meta">Identifica la falla antes de cotizar</span>
+            <span class="kdl-pain-card__meta">{{ p.meta }}</span>
           </div>
         </sc-for>
       </div>
-</div>
+      <div class="kdl-quote-support-links">
+        <a href="Compatibilidad.dc.html"><strong>¿El componente está descontinuado?</strong><span>Revisar una alternativa compatible</span></a>
+        <a href="Cesta.dc.html"><strong>¿Necesitas varias refacciones?</strong><span>Usar la cesta de cotización</span></a>
+      </div>
+    </div>
 
-    <!-- RIGHT: quick quote form -->
-    <div class="kdl-quick-form">
-      <h3 style="font-family:'Archivo';font-weight:800;font-size:24px;color:#fff;text-align:center;margin:0 0 20px">¿Qué componente necesitas?</h3>
+    <div class="kdl-quote-trust" aria-label="Compromisos de atención KDL">
+      <div><strong>Asesoría especializada</strong><span>Revisión técnica de tu solicitud</span></div>
+      <div><strong>Seguimiento con folio</strong><span>Referencia visible para continuar</span></div>
+      <div><strong>Información transparente</strong><span>Consulta nuestro aviso de privacidad</span></div>
+    </div>
+
+    <section class="kdl-quote-request" aria-labelledby="quote-request-title">
+      <h2 class="kdl-quote-request__title" id="quote-request-title">Enviar solicitud o fotografía</h2>
+      <div class="kdl-quick-form">
+      <h3 style="font-family:'Archivo';font-weight:800;font-size:24px;color:#fff;text-align:center;margin:0 0 8px">Cuéntanos qué necesitas</h3>
+      <p class="kdl-quick-form__intro">Puedes cotizar una referencia conocida o pedir ayuda para identificarla.</p>
+      <div class="kdl-quote-paths" aria-label="Formas de iniciar la solicitud">
+        <span class="kdl-quote-path"><strong>Conozco la pieza</strong><small>Marca o número de parte</small></span>
+        <span class="kdl-quote-paths__or" aria-hidden="true">o</span>
+        <span class="kdl-quote-path"><strong>Necesito identificarla</strong><small>Foto, placa, falla o aplicación</small></span>
+      </div>
       <sc-if value="{{ submitted }}" hint-placeholder-val="">
         <div style="text-align:center;padding:24px 6px">
           <div style="display:inline-flex;width:60px;height:60px;border-radius:50%;background:#25D366;align-items:center;justify-content:center;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#06310f" stroke-width="2.6"><path d="M5 13l4 4L19 7"/></svg></div>
@@ -254,19 +275,20 @@
         <sc-if value="{{ q_error_whatsapp }}" hint-placeholder-val=""><div class="kdl-field-error">{{ q_error_whatsapp }}</div></sc-if>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <div class="kdl-quick-field"><label for="quick-part">Marca o No. de parte</label><input id="quick-part" value="{{ q_parte }}" onChange="{{ onQParte }}" placeholder="Ej. IFM KQ5105"></div>
-          <div class="kdl-quick-field"><label for="quick-category">Categoría *</label><select id="quick-category" value="{{ q_categoria }}" onChange="{{ onQCategoria }}"><option value="" style="color:#0E2236">Selecciona una categoría</option><sc-for list="{{ catNames }}" as="c" hint-placeholder-count="6"><option value="{{ c }}" style="color:#0E2236">{{ c }}</option></sc-for></select></div>
+          <div class="kdl-quick-field"><label for="quick-category">Categoría (opcional)</label><select id="quick-category" value="{{ q_categoria }}" onChange="{{ onQCategoria }}"><option value="" style="color:#0E2236">Selecciona si la conoces</option><sc-for list="{{ catNames }}" as="c" hint-placeholder-count="6"><option value="{{ c }}" style="color:#0E2236">{{ c }}</option></sc-for></select></div>
         </div>
         <sc-if value="{{ q_error_parte }}" hint-placeholder-val=""><div class="kdl-field-error">{{ q_error_parte }}</div></sc-if>
         <sc-if value="{{ q_error_categoria }}" hint-placeholder-val=""><div class="kdl-field-error">{{ q_error_categoria }}</div></sc-if>
         <div class="kdl-quick-field kdl-quick-field--wide"><label for="quick-message">Problema o aplicación</label><textarea id="quick-message" value="{{ q_mensaje }}" onChange="{{ onQMensaje }}" placeholder="Describe la falla, aplicación o detalle adicional…" rows="3"></textarea></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <label style="flex:1 1 150px;display:flex;align-items:center;gap:9px;border:1.5px dashed rgba(127,180,232,.3);border-radius:10px;padding:12px;cursor:pointer;color:#B8C7D9;font-size:13px" style-hover="border-color:#39A0FF;color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg><span style="line-height:1.2">{{ qFileLabel }}</span><input type="file" accept="image/*" onChange="{{ onQFile }}" style="display:none"></label>
+          <label style="flex:1 1 150px;display:flex;align-items:center;gap:9px;border:1.5px dashed rgba(127,180,232,.3);border-radius:10px;padding:12px;cursor:pointer;color:#B8C7D9;font-size:13px" style-hover="border-color:#39A0FF;color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg><span style="line-height:1.2">{{ qFileLabel }}</span><input type="file" accept="image/*,application/pdf" onChange="{{ onQFile }}" style="display:none"></label>
           <button type="submit" style="flex:1 1 150px;display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:15px;padding:13px;border:none;border-radius:11px;cursor:pointer" style-hover="filter:brightness(1.05)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"/></svg>Enviar a un asesor KDL</button>
         </div>
-        <p style="text-align:center;font-size:11.5px;line-height:1.45;color:#7E93AC;margin:2px 0 0">Incluye marca o número de parte, foto, cantidad y aplicación. Al enviar, KDL usa estos datos para atender y dar seguimiento a tu solicitud. Consulta el <a href="Aviso-Privacidad.html" style="color:#DCE6EE;text-decoration:underline">aviso de privacidad</a>.</p>
+        <p style="text-align:center;font-size:11.5px;line-height:1.45;color:#9FB1C6;margin:2px 0 0">Si no conoces la referencia, una foto y la aplicación son suficientes para iniciar la revisión. Al enviar, KDL usa estos datos para atender y dar seguimiento a tu solicitud. Consulta el <a href="Aviso-Privacidad.html" style="color:#DCE6EE;text-decoration:underline">aviso de privacidad</a>.</p>
       </form>
       </sc-if>
-    </div>
+      </div>
+    </section>
   </div>
 </section>
 
@@ -298,180 +320,22 @@
   </div>
 </section>
 
-<!-- ===================== IDENTIFICADOR KDL ===================== -->
-<section id="identificador" style="background:#0E2236;padding:60px 22px">
-  <div style="max-width:1080px;margin:0 auto;background:linear-gradient(135deg,#102C4C,#0B2038);border:1px solid rgba(127,180,232,.18);border-radius:22px;padding:34px;display:flex;flex-wrap:wrap;gap:36px;align-items:center">
-    <div style="flex:1 1 320px;min-width:280px">
-      <div style="display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:1.5px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px"><span style="width:7px;height:7px;border-radius:50%;background:#1FC8E3"></span>Identificador KDL</div>
-      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(26px,3.6vw,38px);line-height:1.08;letter-spacing:-.8px;color:#fff;margin:0 0 14px">¿No sabes qué componente necesitas? Súbelo y te ayudamos a identificarlo.</h2>
-      <p style="font-size:16px;line-height:1.6;color:#B8C7D9;margin:0 0 22px;max-width:480px">Sube una foto del componente, la placa o el número de parte. Te ayudamos a identificar el producto y reunir los datos necesarios para cotizar.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:10px">
-        <sc-for list="{{ idChips }}" as="c" hint-placeholder-count="4">
-          <span style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(127,180,232,.2);border-radius:9px;padding:8px 12px;font-size:13px;color:#C7D4E3"><span style="color:#1FC8E3;display:flex">{{ c.icon }}</span>{{ c.t }}</span>
-        </sc-for>
-      </div>
-      <div style="margin-top:18px;border-left:3px solid #39A0FF;background:rgba(57,160,255,.08);border-radius:0 10px 10px 0;padding:14px 16px">
-        <strong style="display:block;color:#fff;font-size:15px;margin-bottom:5px">¿El componente está descontinuado?</strong>
-        <span style="display:block;color:#9FB1C6;font-size:13px;line-height:1.5;margin-bottom:10px">Comparamos medidas, conexión, aplicación y condiciones de trabajo. La compatibilidad requiere validación técnica antes de cotizar.</span>
-        <a href="Compatibilidad.dc.html" style="color:#1FC8E3;font-weight:700;font-size:13px">Revisar una alternativa →</a>
-      </div>
-    </div>
-    <div style="flex:1 1 320px;min-width:280px">
-      <label style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(127,180,232,.06);border:2px dashed rgba(127,180,232,.35);border-radius:16px;padding:34px 20px;cursor:pointer;text-align:center" style-hover="border-color:#39A0FF;background:rgba(127,180,232,.1)">
-        <span style="display:flex;width:58px;height:58px;border-radius:14px;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06131f" stroke-width="2"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/></svg></span>
-        <span style="font-weight:700;font-size:16px;color:#fff">{{ idFileLabel }}</span>
-        <span style="font-size:13px;color:#8FA3BA">JPG, PNG o PDF · foto del componente, placa o etiqueta</span>
-        <input type="file" accept="image/*,application/pdf" onChange="{{ onIdFile }}" style="display:none">
-      </label>
-      <button type="button" onClick="{{ shareIdent }}" style="width:100%;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:12px;background:#25D366;color:#06310f;border:1px solid #1ea952;font-weight:800;font-size:15px;padding:14px;border-radius:7px;cursor:pointer">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>
-        {{ idShareLabel }}
-      </button>
-      <p role="status" aria-live="polite" style="text-align:center;font-size:12px;line-height:1.5;color:#B9C9D8;margin:10px 0 0">{{ idShareHelp }}</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== COTIZADOR KDL (TABS) ===================== -->
-<section id="cotizador" style="position:relative;background:linear-gradient(135deg,#0A1B30,#102C4C);padding:74px 22px;overflow:hidden">
-  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.6" viewBox="0 0 1200 500" preserveAspectRatio="none"><path d="M-60 120 C 380 30, 700 280, 1260 160" fill="none" stroke="url(#fg)" stroke-width="1.6" stroke-dasharray="12 24" style="animation:kdlDash 3s linear infinite"></path></svg>
-  <div style="position:relative;max-width:1080px;margin:0 auto">
-    <div style="text-align:center;max-width:680px;margin:0 auto 30px">
-      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px">Cotizador por lote</div>
-      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(27px,4vw,44px);line-height:1.05;letter-spacing:-1px;color:#fff;margin:0 0 14px">Arma tu lista de refacciones.</h2>
-      <p style="font-size:16px;line-height:1.6;color:#B8C7D9;margin:0">Junta varias refacciones en una sola solicitud y envíala completa por WhatsApp, correo o PDF. Un asesor técnico te responde.</p>
-    </div>
-
-    <!-- PANEL: PIEZA URGENTE -->
-    <sc-if value="{{ isUrgente }}" hint-placeholder-val="{{ true }}">
-    <div style="background:#fff;border-radius:20px;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.4);max-width:760px;margin:0 auto">
-      <sc-if value="{{ submitted }}" hint-placeholder-val="">
-        <div style="text-align:center;padding:30px 10px">
-          <div style="display:inline-flex;width:64px;height:64px;border-radius:50%;background:#25D366;align-items:center;justify-content:center;margin-bottom:18px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M5 13l4 4L19 7"/></svg></div>
-          <div style="font-family:'Archivo';font-weight:800;font-size:24px;color:#0E2236;margin-bottom:10px">Abrimos tu WhatsApp</div>
-          <sc-if value="{{ hasLeadFolio }}" hint-placeholder-val=""><div style="display:inline-flex;align-items:center;gap:8px;background:#EAF1FB;border:1px solid #CFE0F4;border-radius:99px;padding:7px 12px;font-family:'IBM Plex Mono';font-size:12px;color:#2E7DF2;margin-bottom:12px">Folio {{ leadFolio }}</div></sc-if>
-          <div role="status" aria-live="polite" style="{{ leadSyncStyleLight }}">{{ leadSyncMessage }}</div>
-          <p style="font-size:15px;line-height:1.55;color:#5A6B80;margin:0 0 18px">Adjunta ahí la <strong>foto de la placa o del componente</strong> y un asesor KDL continúa contigo.</p>
-          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-            <a href="{{ waSticky }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:700;padding:13px 22px;border-radius:11px">Abrir WhatsApp</a>
-            <a href="{{ leadMailto }}" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid #DDE4EE;color:#2E7DF2;font-weight:700;padding:13px 20px;border-radius:11px">Enviar por correo</a>
-          </div>
-        </div>
-      </sc-if>
-      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
-      <form data-kdl-quote-form="urgent_quote" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:14px">
-        <sc-if value="{{ q_has_errors }}" hint-placeholder-val="">
-          <div class="kdl-form-alert kdl-form-alert--light" role="alert">{{ q_error_summary }}</div>
-        </sc-if>
-        <div style="display:flex;gap:14px;flex-wrap:wrap">
-          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Nombre</label><input value="{{ q_nombre }}" onChange="{{ onQNombre }}" placeholder="Tu nombre" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Empresa</label><input value="{{ q_empresa }}" onChange="{{ onQEmpresa }}" placeholder="Planta / taller" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-        </div>
-        <div style="display:flex;gap:14px;flex-wrap:wrap">
-          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">WhatsApp</label><input value="{{ q_whatsapp }}" onChange="{{ onQWhatsapp }}" placeholder="81 0000 0000" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Ciudad / planta</label><input value="{{ q_ciudad }}" onChange="{{ onQCiudad }}" placeholder="Ej. Apodaca, N.L." style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-        </div>
-        <div style="display:flex;gap:14px;flex-wrap:wrap">
-          <div style="flex:2 1 220px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Marca o No. de parte</label><input value="{{ q_parte }}" onChange="{{ onQParte }}" placeholder="Ej. IFM KQ5105" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-          <div style="flex:1 1 110px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Cantidad</label><input value="{{ q_cantidad }}" onChange="{{ onQCantidad }}" type="number" min="1" placeholder="1" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Categoría</label>
-          <select value="{{ q_categoria }}" onChange="{{ onQCategoria }}" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none;background:#fff" style-focus="border-color:#2E7DF2">
-            <option value="">Selecciona una categoría…</option>
-            <sc-for list="{{ catNames }}" as="c" hint-placeholder-count="6"><option value="{{ c }}">{{ c }}</option></sc-for>
-          </select>
-        </div>
-        <div style="display:flex;gap:14px;flex-wrap:wrap">
-          <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:8px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Urgencia</label>
-            <div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ urgOpts }}" as="u" hint-placeholder-count="3"><button type="button" onClick="{{ u.onClick }}" style="{{ u.style }}">{{ u.label }}</button></sc-for></div>
-          </div>
-          <div style="flex:1 1 240px;display:flex;flex-direction:column;gap:8px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">¿La máquina está detenida?</label>
-            <div style="display:flex;gap:8px"><sc-for list="{{ detOpts }}" as="d" hint-placeholder-count="2"><button type="button" onClick="{{ d.onClick }}" style="{{ d.style }}">{{ d.label }}</button></sc-for></div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Mensaje</label><textarea value="{{ q_mensaje }}" onChange="{{ onQMensaje }}" placeholder="Describe la falla o la aplicación…" rows="3" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:12px 13px;font-size:15px;color:#0E2236;outline:none;resize:vertical" style-focus="border-color:#2E7DF2"></textarea></div>
-        <label style="display:flex;align-items:center;gap:11px;border:1.5px dashed #C6D2E2;border-radius:10px;padding:13px;cursor:pointer;color:#5A6B80;font-size:14px" style-hover="border-color:#2E7DF2;color:#2E7DF2">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg>
-          <span>{{ qFileLabel }}</span><input type="file" accept="image/*" onChange="{{ onQFile }}" style="display:none">
-        </label>
-        <button type="submit" style="display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:16px;padding:16px;border:none;border-radius:12px;cursor:pointer;box-shadow:0 12px 30px rgba(46,125,242,.35)" style-hover="filter:brightness(1.05)">Enviar a un asesor KDL<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        <p style="text-align:center;font-size:12px;color:#90A0B5;margin:2px 0 0">Al enviar, KDL utiliza tus datos para atender la solicitud. Consulta el <a href="Aviso-Privacidad.html" style="color:#1F4E79;text-decoration:underline">aviso de privacidad</a>. La foto se adjunta en WhatsApp.</p>
-      </form>
-      </sc-if>
-    </div>
-    </sc-if>
-
-    <!-- PANEL: MI LISTA -->
-    <sc-if value="{{ isLista }}" hint-placeholder-val="">
-    <div style="display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start">
-      <div style="flex:1 1 360px;min-width:300px;background:#fff;border-radius:20px;padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.4)">
-        <div style="font-family:'Archivo';font-weight:700;font-size:19px;color:#0E2236;margin-bottom:4px">Agregar refacción a la lista</div>
-        <div style="font-size:13px;color:#7E93AC;margin-bottom:18px">Arma tu solicitud refacción por refacción. Se guarda en este dispositivo.</div>
-        <form onSubmit="{{ addItem }}" style="display:flex;flex-direction:column;gap:12px">
-          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Componente / producto *</label><input value="{{ l_pieza }}" onChange="{{ onLPieza }}" placeholder="Ej. Cilindro neumático" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <div style="flex:1 1 140px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Marca</label><input value="{{ l_marca }}" onChange="{{ onLMarca }}" placeholder="AirTAC…" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-            <div style="flex:1 1 140px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">No. de parte</label><input value="{{ l_parte }}" onChange="{{ onLParte }}" placeholder="SC 63x200" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <div style="flex:1 1 90px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Cantidad</label><input value="{{ l_cantidad }}" onChange="{{ onLCantidad }}" type="number" min="1" placeholder="1" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-            <div style="flex:2 1 180px;display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Urgencia</label>
-              <select value="{{ l_urgencia }}" onChange="{{ onLUrgencia }}" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none;background:#fff" style-focus="border-color:#2E7DF2"><option value="Hoy">Hoy</option><option value="Esta semana">Esta semana</option><option value="Proyecto">Proyecto</option></select></div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:6px"><label style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.5px;color:#5A6B80;text-transform:uppercase">Comentarios</label><input value="{{ l_coment }}" onChange="{{ onLComent }}" placeholder="Medidas, aplicación, falla…" style="border:1.5px solid #DDE4EE;border-radius:10px;padding:11px 13px;font-size:15px;color:#0E2236;outline:none" style-focus="border-color:#2E7DF2"></div>
-          <label style="display:flex;align-items:center;gap:10px;border:1.5px dashed #C6D2E2;border-radius:10px;padding:11px;cursor:pointer;color:#5A6B80;font-size:13px" style-hover="border-color:#2E7DF2;color:#2E7DF2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg><span>{{ lFileLabel }}</span><input type="file" accept="image/*" onChange="{{ onLFile }}" style="display:none"></label>
-          <button type="submit" style="display:flex;align-items:center;justify-content:center;gap:9px;background:#0E2236;color:#fff;font-weight:700;font-size:15px;padding:14px;border:none;border-radius:11px;cursor:pointer" style-hover="background:#163359"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>Agregar a mi lista</button>
-        </form>
-      </div>
-      <div style="flex:1 1 360px;min-width:300px;background:rgba(10,27,48,.55);border:1px solid rgba(127,180,232,.2);border-radius:20px;padding:24px;backdrop-filter:blur(8px)">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-          <div style="font-family:'Archivo';font-weight:700;font-size:19px;color:#fff">Mi lista <span style="color:#7FB4E8;font-size:15px">({{ listCount }})</span></div>
-          <sc-if value="{{ hasList }}" hint-placeholder-val=""><button onClick="{{ clearList }}" style="background:none;border:none;color:#8FA3BA;font-size:13px;cursor:pointer;text-decoration:underline">Vaciar</button></sc-if>
-        </div>
-        <sc-if value="{{ emptyList }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:36px 16px;text-align:center;border:1.5px dashed rgba(127,180,232,.25);border-radius:14px">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#5A6B80" stroke-width="1.6"><path d="M3 5h2l2.5 12h11l2-9H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
-            <div style="color:#8FA3BA;font-size:14px">Tu lista está vacía.<br>Agrega las refacciones que necesitas cotizar.</div>
-          </div>
-        </sc-if>
-        <sc-if value="{{ hasList }}" hint-placeholder-val="">
-          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px;max-height:340px;overflow-y:auto">
-            <sc-for list="{{ items }}" as="it" hint-placeholder-count="2">
-              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(127,180,232,.15);border-radius:12px;padding:13px 14px;display:flex;gap:12px;align-items:flex-start">
-                <span style="display:flex;width:30px;height:30px;border-radius:8px;background:rgba(31,200,227,.15);align-items:center;justify-content:center;color:#1FC8E3;font-weight:800;font-size:14px;flex-shrink:0;font-family:'IBM Plex Mono'">{{ it.qty }}</span>
-                <div style="flex:1;min-width:0">
-                  <div style="font-weight:600;font-size:15px;color:#fff">{{ it.pieza }}</div>
-                  <div style="font-family:'IBM Plex Mono';font-size:12px;color:#8FA3BA;margin-top:2px">{{ it.meta }}</div>
-                  <sc-if value="{{ it.coment }}" hint-placeholder-val=""><div style="font-size:12px;color:#7E93AC;margin-top:3px">{{ it.coment }}</div></sc-if>
-                </div>
-                <span style="display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;background:{{ it.urgColor }};color:#06131f;font-size:11px;font-weight:700;flex-shrink:0">{{ it.urgencia }}</span>
-                <button onClick="{{ it.onRemove }}" style="background:none;border:none;color:#7E93AC;cursor:pointer;padding:2px;flex-shrink:0" style-hover="color:#FF6B6B"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-              </div>
-            </sc-for>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <a href="{{ waList }}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px;border-radius:11px" style-hover="filter:brightness(1.05)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.07L2 22l5.07-1.33A10 10 0 1 0 12 2Zm5.5 14.2c-.23.65-1.35 1.24-1.86 1.28-.5.05-.97.23-3.27-.68-2.76-1.09-4.5-3.93-4.64-4.11-.13-.18-1.1-1.46-1.1-2.79 0-1.33.7-1.98.94-2.25.24-.27.53-.34.7-.34l.5.01c.16.01.38-.06.59.45.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.88.27.14.45.2.51.31.07.11.07.64-.16 1.29Z"/></svg>Enviar lista por WhatsApp</a>
-            <div style="display:flex;gap:10px">
-              <a href="{{ mailList }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid rgba(127,180,232,.35);color:#C7D4E3;font-weight:600;font-size:14px;padding:12px;border-radius:11px" style-hover="border-color:#39A0FF;color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Correo</a>
-              <button onClick="{{ downloadPDF }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid rgba(127,180,232,.35);background:none;color:#C7D4E3;font-weight:600;font-size:14px;padding:12px;border-radius:11px;cursor:pointer" style-hover="border-color:#39A0FF;color:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>PDF</button>
-            </div>
-            <p style="text-align:center;font-size:12px;color:#7E93AC;margin:2px 0 0">Las fotos se adjuntan en el chat de WhatsApp.</p>
-          </div>
-        </sc-if>
-      </div>
-    </div>
-    </sc-if>
-  </div>
-</section>
-
 <!-- ===================== MARCAS ===================== -->
-<section style="background:#0E2236;padding:64px 22px">
+<section id="marcas" style="background:#0E2236;padding:64px 22px">
   <div style="max-width:1100px;margin:0 auto;text-align:center">
     <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:2px;color:#39A0FF;text-transform:uppercase;margin-bottom:14px">Marcas</div>
     <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3.4vw,38px);line-height:1.1;letter-spacing:-.5px;color:#fff;margin:0 0 12px">Tecnología industrial para aplicaciones exigentes.</h2>
     <p style="font-size:15px;line-height:1.6;color:#9FB1C6;max-width:600px;margin:0 auto 34px">Te ayudamos a seleccionar el componente correcto según aplicación, compatibilidad y condiciones de trabajo.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:13px">
-      <sc-for list="{{ brands }}" as="b" hint-placeholder-count="9"><div style="border:1px solid rgba(127,180,232,.14);border-radius:12px;padding:22px 14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.02)" style-hover="border-color:rgba(57,160,255,.4);background:rgba(255,255,255,.05)"><span style="font-family:'Archivo';font-weight:800;font-size:18px;letter-spacing:.5px;color:#C7D4E3;text-transform:uppercase">{{ b }}</span></div></sc-for>
+    <div class="kdl-brand-grid" aria-label="Marcas industriales">
+      <a class="kdl-brand-card kdl-brand-card--ifm" href="https://www.ifm.com/mx/es" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio oficial de IFM"><img src="assets/brands/ifm.svg" alt="IFM" loading="lazy"></a>
+      <a class="kdl-brand-card" href="https://hiwin.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio oficial de HIWIN"><img src="assets/brands/hiwin.png" alt="HIWIN" width="260" height="75" loading="lazy"></a>
+      <a class="kdl-brand-card" href="https://www.airtac.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio oficial de AirTAC"><img src="assets/brands/airtac.png" alt="AirTAC" width="165" height="52" loading="lazy"></a>
+      <a class="kdl-brand-card" href="https://www.boschrexroth.com/es/mx/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio oficial de Bosch Rexroth"><img src="assets/brands/bosch-rexroth.gif" alt="Bosch Rexroth" width="300" height="122" loading="lazy"></a>
+      <div class="kdl-brand-card kdl-brand-card--wordmark" aria-label="Zenso"><span class="kdl-brand-wordmark">zenso</span></div>
+      <a class="kdl-brand-card" href="https://www.deltaww.com/en-US/products/industrial-automation" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio oficial de Delta"><img src="assets/brands/delta.png" alt="Delta" width="183" height="49" loading="lazy"></a>
+      <a class="kdl-brand-card kdl-brand-card--omron" href="https://automation.omron.com/es/mx/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio oficial de OMRON"><img src="assets/brands/omron.svg" alt="OMRON" loading="lazy"></a>
+      <a class="kdl-brand-card" href="https://www.weintek.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio oficial de Weintek"><img src="assets/brands/weintek.png" alt="Weintek" width="236" height="47" loading="lazy"></a>
+      <a class="kdl-brand-card" href="https://arico.com.vn/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio oficial de ARICO"><img src="assets/brands/arico.png" alt="ARICO" width="475" height="76" loading="lazy"></a>
     </div>
     <p style="font-family:'IBM Plex Mono';font-size:12px;color:#5A6B80;margin:22px 0 0">Marcas referenciales. KDL no afirma distribución exclusiva.</p>
     <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(127,180,232,.14)">
@@ -608,8 +472,7 @@ class Component extends DCLogic {
       mobileMenuOpen:false,
       clock: this.fmtClock(),
       query:'', searchFocused:false, searched:false, activeSearchIndex:-1,
-      quoteTab:'urgente',
-      qf:{ nombre:'', empresa:'', whatsapp:'', ciudad:'', parte:'', cantidad:'', categoria:'', urgencia:'Hoy', detenida:'Sí', mensaje:'', fileName:'' },
+      qf:{ nombre:'', empresa:'', whatsapp:'', ciudad:'', parte:'', cantidad:'', categoria:'', urgencia:'', detenida:'', mensaje:'', fileName:'' },
       qErrors:{},
       qSubmitAttempted:false,
       submitted:false,
@@ -619,9 +482,6 @@ class Component extends DCLogic {
       cartCount:0,
       megaMenuOpen:false,
       megaCat:'neumatica',
-      lf:{ pieza:'', marca:'', parte:'', cantidad:'', urgencia:'Hoy', coment:'', fileName:'' },
-      list:[],
-      idFileName:'',
       openCat:null,
       catFilter:'',
       faqOpen:-1
@@ -634,14 +494,12 @@ class Component extends DCLogic {
     this._cart=()=>this.setState({cartCount:this.cartCount()});
     window.addEventListener('storage',this._cart);
     this._t=setInterval(()=>this.setState({clock:this.fmtClock()}),1000);
-    try{ const s=localStorage.getItem('kdl_quote_list'); if(s) this.setState({list:JSON.parse(s)}); }catch(e){}
     try{ const q=sessionStorage.getItem('kdl_search_query'); if(q) this.setState({query:q}); }catch(e){}
     this.setState({cartCount:this.cartCount()});
   }
   componentWillUnmount(){ window.removeEventListener('resize',this._r); if(this._cart) window.removeEventListener('storage',this._cart); clearInterval(this._t); if(this._megaCloseTimer) clearTimeout(this._megaCloseTimer); }
   wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
   cartCount(){ try{ return JSON.parse(localStorage.getItem('kdl_cart')||'[]').reduce((a,b)=>a+(b.qty||1),0); }catch(e){ return 0; } }
-  persist(list){ try{ localStorage.setItem('kdl_quote_list', JSON.stringify(list)); }catch(e){} }
   track(name,data){
     const details=data||{};
     const root=(typeof window!=='undefined'&&window)||(typeof document!=='undefined'&&document.defaultView)||(typeof globalThis!=='undefined'&&globalThis);
@@ -661,7 +519,6 @@ class Component extends DCLogic {
     if(!nombre) errors.nombre='Ingresa tu nombre.';
     if(!whatsapp) errors.whatsapp='Ingresa tu WhatsApp.';
     else if(digits.length<10||digits.length>15) errors.whatsapp='Ingresa un WhatsApp válido.';
-    if(!this.clean(f.categoria)) errors.categoria='Selecciona una categoría.';
     if(!parte&&!mensaje&&!f.fileName) errors.parte='Agrega número de parte, mensaje o foto.';
     if(this.clean(f.cantidad)&&(Number(f.cantidad)<1||Number.isNaN(Number(f.cantidad)))) errors.cantidad='La cantidad debe ser mayor a cero.';
     return errors;
@@ -682,7 +539,6 @@ class Component extends DCLogic {
       return {qf,qErrors};
     });
   }
-  setLF(k,v){ this.setState(s=>({lf:{...s.lf,[k]:v}})); }
   toggleMobileMenu(e){ if(e&&e.preventDefault)e.preventDefault(); this.setState(s=>({mobileMenuOpen:!s.mobileMenuOpen})); }
   closeMobileMenu(){ this.setState({mobileMenuOpen:false}); }
   openMegaMenu(){
@@ -749,11 +605,10 @@ class Component extends DCLogic {
       this.setState({qErrors:errors,qSubmitAttempted:true});
       return;
     }
-    const t='Hola KDL, solicito una cotización de refacción urgente.\n\n'
+    const t='Hola KDL, solicito apoyo para cotizar o identificar un componente.\n\n'
       +'Nombre: '+(f.nombre||'-')+'\nEmpresa: '+(f.empresa||'-')+'\nWhatsApp: '+(f.whatsapp||'-')
       +'\nMarca/No. de parte: '+(f.parte||'-')
-      +'\nCantidad: '+(f.cantidad||'-')+'\nCiudad/planta: '+(f.ciudad||'-')
-      +'\nCategoría: '+(f.categoria||'-')+'\nUrgencia: '+(f.urgencia||'-')+'\nMáquina detenida: '+(f.detenida||'-')
+      +'\nCategoría: '+(f.categoria||'No identificada')
       +'\nMensaje: '+(f.mensaje||'-')+(f.fileName?('\nFoto seleccionada: '+f.fileName):'');
     this.track('quote_submit_success',{form:'quick_quote',category:f.categoria||'',urgency:f.urgencia||'',has_part:!!this.clean(f.parte),has_message:!!this.clean(f.mensaje),has_file:!!f.fileName});
     const lead=this.captureLead(f,t);
@@ -768,61 +623,8 @@ class Component extends DCLogic {
       }).catch(()=>this.setState({leadSyncStatus:'fallback'}));
     }
   }
-  addItem(e){ if(e&&e.preventDefault)e.preventDefault();
-    const l=this.state.lf; if(!l.pieza||!l.pieza.trim()) return;
-    const item={ pieza:l.pieza.trim(), marca:l.marca.trim(), parte:l.parte.trim(), cantidad:(l.cantidad||'1'), urgencia:l.urgencia, coment:l.coment.trim(), fileName:l.fileName };
-    const list=[...this.state.list,item]; this.persist(list);
-    this.setState({ list, lf:{pieza:'',marca:'',parte:'',cantidad:'',urgencia:'Hoy',coment:'',fileName:''} });
-  }
-  removeItem(i){ const list=this.state.list.filter((_,ix)=>ix!==i); this.persist(list); this.setState({list}); }
-  clearList(){ this.persist([]); this.setState({list:[]}); }
-  listText(){
-    let t='Hola KDL, esta es mi lista de refacciones para cotizar:\n';
-    this.state.list.forEach((it,i)=>{
-      t+='\n'+(i+1)+') '+it.pieza+' — Cant: '+it.cantidad
-        +(it.marca?(' · Marca: '+it.marca):'')+(it.parte?(' · No. parte: '+it.parte):'')
-        +' · Urgencia: '+it.urgencia+(it.coment?(' · '+it.coment):'')+(it.fileName?(' · [foto: '+it.fileName+']'):'');
-    });
-    t+='\n\nAdjunto fotos en el chat. Quedo al pendiente de la cotizacion.';
-    return t;
-  }
-  downloadPDF(){
-    const rows=this.state.list.map((it,i)=>'<tr><td>'+(i+1)+'</td><td>'+it.pieza+'</td><td>'+(it.marca||'-')+'</td><td>'+(it.parte||'-')+'</td><td style="text-align:center">'+it.cantidad+'</td><td>'+it.urgencia+'</td><td>'+(it.coment||'-')+'</td></tr>').join('');
-    const styleTag='<sty'+'le>body{font-family:Arial,sans-serif;color:#0E2236;padding:40px;max-width:900px;margin:auto}'
-      +'h1{font-size:22px;margin:0}.bar{height:5px;background:linear-gradient(90deg,#1FC8E3,#2E7DF2);margin:14px 0 24px}'
-      +'table{width:100%;border-collapse:collapse;font-size:13px}th{background:#0E2236;color:#fff;text-align:left;padding:9px 10px}'
-      +'td{padding:9px 10px;border-bottom:1px solid #E3E9F1}tr:nth-child(even) td{background:#F6F9FC}'
-      +'.meta{color:#5A6B80;font-size:13px;margin-bottom:4px}.foot{margin-top:30px;font-size:12px;color:#7E93AC}</st'+'yle>';
-    const scriptTag='<scr'+'ipt>window.onload=function(){setTimeout(function(){window.print();},300);}</scr'+'ipt>';
-    const html='<!doctype html><html><head><meta charset="utf-8"><title>Solicitud de cotizacion KDL</title>'+styleTag+'</head><body>'
-      +'<div style="display:flex;justify-content:space-between;align-items:flex-end"><div><h1>KDL · Solicitud de cotización</h1>'
-      +'<div class="meta">Suministros, refacciones, automatización y soluciones industriales</div></div>'
-      +'<div style="text-align:right;font-size:12px;color:#5A6B80">Fecha: '+new Date().toLocaleDateString('es-MX')+'<br>Refacciones y Distribuciones KDL<br>Lic. José Benítez 2186, Obispado, C.P. 64060, Monterrey, N.L.<br>WhatsApp: +52 81 1227 3382 · ventas@kdl.com.mx<br>Lunes a viernes · 8:00 a.m. a 6:00 p.m.</div></div>'
-      +'<div class="bar"></div>'
-      +'<table><thead><tr><th>#</th><th>Componente</th><th>Marca</th><th>No. de parte</th><th>Cant.</th><th>Urgencia</th><th>Comentarios</th></tr></thead><tbody>'+rows+'</tbody></table>'
-      +'<div class="foot">Las imágenes de placa/componente se comparten por WhatsApp. Validamos disponibilidad y alternativa compatible. KDL · Monterrey, N.L.</div>'
-      +scriptTag+'</body></html>';
-    try{ const w=window.open('','_blank'); if(w){ w.document.open(); w.document.write(html); w.document.close(); } }catch(e){}
-  }
-
   openCat(key){ this.setState({openCat:key,catFilter:''}); }
   setCatFilter(value){ this.setState({catFilter:value||''}); }
-  async shareIdent(e){
-    if(e&&e.preventDefault)e.preventDefault();
-    const file=this._idFile;
-    const text='Hola KDL, necesito identificar este componente o refacción. Comparto foto, placa o número de parte.';
-    if(file&&typeof navigator!=='undefined'&&navigator.share&&navigator.canShare){
-      try{
-        if(navigator.canShare({files:[file]})){
-          await navigator.share({title:'Identificación KDL',text,files:[file]});
-          this.setState({idShareStatus:'Archivo compartido. Selecciona WhatsApp si aparece entre tus aplicaciones.'});
-          return;
-        }
-      }catch(err){ if(err&&err.name==='AbortError') return; }
-    }
-    this.setState({idShareStatus:file?'WhatsApp se abrirá; adjunta manualmente el archivo seleccionado.':'WhatsApp se abrirá; adjunta ahí una foto o escribe el número de parte.'});
-    try{ window.open(this.wa(text),'_blank'); }catch(err){}
-  }
   closeCat(){ this.setState({openCat:null}); }
   toggleFaq(i){ this.setState(s=>({faqOpen: s.faqOpen===i?-1:i})); }
   runSearch(e){ if(e&&e.preventDefault)e.preventDefault(); this.setState({searched:true,searchFocused:true,activeSearchIndex:-1}); }
@@ -835,8 +637,8 @@ class Component extends DCLogic {
     if(!r) return;
     this.setQF('parte',r.label);
     this.setQF('categoria',r.cat);
-    this.setState({quoteTab:'urgente',query:r.label,searched:false,searchFocused:false,activeSearchIndex:-1});
-    try{ sessionStorage.setItem('kdl_search_query',r.label); location.hash='#cotizador'; }catch(e){}
+    this.setState({query:r.label,searched:false,searchFocused:false,activeSearchIndex:-1});
+    try{ sessionStorage.setItem('kdl_search_query',r.label); location.hash='#cotiza'; }catch(e){}
   }
   onSearchKeyDown(e){
     const matches=this.matchSearch();
@@ -890,9 +692,8 @@ class Component extends DCLogic {
   }
 
   renderVals(){
-    const m=this.state.isMobile, qf=this.state.qf, lf=this.state.lf;
+    const m=this.state.isMobile, qf=this.state.qf;
     const qErrors=this.state.qErrors||{}, qErrorKeys=Object.keys(qErrors);
-    const list=this.state.list;
     const iconW = (p,c,sz) => React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="'+(sz||20)+'" height="'+(sz||20)+'" viewBox="0 0 24 24" fill="none" stroke="'+(c||'#fff')+'" stroke-width="2">'+p+'</svg>'}});
     const rawIcon = (p,sz) => React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="'+(sz||16)+'" height="'+(sz||16)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+p+'</svg>'}});
     const imgEl = (src,alt,st) => src ? React.createElement('img',{src:src,alt:alt||'',loading:'lazy',decoding:'async',style:st||{maxWidth:'100%',maxHeight:'100%',objectFit:'contain'}}) : null;
@@ -996,25 +797,6 @@ class Component extends DCLogic {
     const showResults = this.state.searchFocused && this.state.query.trim().length>0 && results.length>0;
     const showNoResults = this.state.searchFocused && this.state.searched && this.state.query.trim().length>0 && results.length===0;
 
-    const urgVals=['Hoy','Esta semana','Proyecto'];
-    const urgOpts=urgVals.map(v=>{ const sel=qf.urgencia===v;
-      return { label:v, onClick:()=>this.setQF('urgencia',v),
-        style:'flex:1;min-width:90px;cursor:pointer;border-radius:10px;padding:11px 8px;font-size:14px;font-weight:600;transition:all .15s;'+(sel?'background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;border:1.5px solid transparent;':'background:#fff;color:#5A6B80;border:1.5px solid #DDE4EE;') };
-    });
-    const detVals=['Sí','No'];
-    const detOpts=detVals.map(v=>{ const sel=qf.detenida===v;
-      return { label:v, onClick:()=>this.setQF('detenida',v),
-        style:'flex:1;cursor:pointer;border-radius:10px;padding:11px 8px;font-size:14px;font-weight:600;transition:all .15s;'+(sel?(v==='Sí'?'background:#E0852C;color:#fff;border:1.5px solid transparent;':'background:#0E2236;color:#fff;border:1.5px solid transparent;'):'background:#fff;color:#5A6B80;border:1.5px solid #DDE4EE;') };
-    });
-
-    const urgColor=u=> u==='Hoy'?'#FF9D4D' : (u==='Esta semana'?'#7FB4E8':'#9FE4F2');
-    const items=list.map((it,i)=>({
-      qty:it.cantidad, pieza:it.pieza, urgencia:it.urgencia, urgColor:urgColor(it.urgencia),
-      coment:it.coment||'',
-      meta:[it.marca,it.parte].filter(Boolean).join(' · ')||'Sin marca / No. parte',
-      onRemove:()=>this.removeItem(i)
-    }));
-
 const resources=[
       {t:'Checklists para cotizar', d:'Qué datos reunir por categoría para una cotización más rápida.', icon:rawIcon('<path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',20), href:'Catalogos.dc.html'},
       {t:'Guías rápidas de selección', d:'Cómo elegir cilindro, sensor o inserto según tu aplicación.', icon:rawIcon('<path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2Z"/><path d="M8 7h8M8 11h8"/>',20), href:'Catalogos.dc.html'},
@@ -1029,12 +811,6 @@ const resources=[
     ];
     const faqs=faqRaw.map((f,i)=>({ q:f.q, a:f.a, panelId:'home-faq-panel-'+i, open:this.state.faqOpen===i, sign:this.state.faqOpen===i?'–':'+', onToggle:()=>this.toggleFaq(i), onKeyDown:e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();this.toggleFaq(i);}} }));
 
-    const idChips=[
-      {t:'Foto del componente', icon:rawIcon('<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/>',14)},
-      {t:'Placa o etiqueta', icon:rawIcon('<rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 10h8M8 14h5"/>',14)},
-      {t:'Número de parte', icon:rawIcon('<path d="M6 3v18M18 3v18M3 8h18M3 16h18"/>',14)},
-      {t:'Medidas / aplicación', icon:rawIcon('<path d="M3 7h18v10H3Z"/><path d="M7 7v4M11 7v6M15 7v4M19 7v6"/>',14)}
-    ];
 
     const catStyle={maxWidth:'100%',maxHeight:'120px',objectFit:'contain',filter:'drop-shadow(0 12px 24px rgba(0,0,0,.4))'};
     const catalogs=[
@@ -1063,51 +839,30 @@ const resources=[
       activeSearchId:this.state.activeSearchIndex>=0?'kdl-search-option-'+this.state.activeSearchIndex:'',
       searchStatus:showNoResults?'Sin coincidencias. Puedes pedir identificación a un asesor.':(showResults?(results.length+' resultados disponibles.'):''),
       examples,
-      idChips, idFileLabel: this.state.idFileName?this.state.idFileName:'Arrastra o selecciona una imagen',
-      idShareLabel:this.state.idFileName?'Compartir archivo o abrir WhatsApp':'Abrir WhatsApp para identificar',
-      idShareHelp:this.state.idShareStatus||(this.state.idFileName?'Si tu dispositivo permite compartir archivos, podrás elegir WhatsApp. En otros casos, adjúntalo manualmente en el chat.':'Selecciona una foto primero o abre WhatsApp y adjúntala en el chat.'),
-      onIdFile:e=>{ const f=e.target.files&&e.target.files[0]; if(f){ this._idFile=f; this.setState({idFileName:f.name,idShareStatus:''}); } },
-      shareIdent:e=>this.shareIdent(e),
-      isUrgente:false, isLista:true,
-      listCount:list.length,
-      q_urgencia:qf.urgencia, onQUrgencia:e=>this.setQF('urgencia',e.target.value),
       submitted:this.state.submitted, notSubmitted:!this.state.submitted,
       leadMailto:this.state.leadMailto||'mailto:ventas@kdl.com.mx',
       leadFolio:this.state.leadFolio||'', hasLeadFolio:!!this.state.leadFolio,
       leadSyncMessage:this.state.leadSyncStatus==='pending'?'Confirmando respaldo de la solicitud…':(this.state.leadSyncStatus==='durable'?'Solicitud respaldada en el CRM.':(this.state.leadSyncStatus==='delivered'?'Solicitud entregada; persistencia CRM no confirmada.':'El respaldo web no pudo confirmarse. Continúa por WhatsApp o correo con tu folio.')),
       leadSyncStyle:'font-size:12.5px;line-height:1.45;border-radius:6px;padding:9px 11px;margin:0 0 12px;'+(this.state.leadSyncStatus==='durable'?'background:rgba(37,211,102,.14);color:#BDF5CC;border:1px solid rgba(37,211,102,.3);':(this.state.leadSyncStatus==='fallback'?'background:rgba(255,209,102,.12);color:#FFE4A3;border:1px solid rgba(255,209,102,.28);':'background:rgba(57,160,255,.12);color:#CBE7FF;border:1px solid rgba(57,160,255,.28);')),
-      leadSyncStyleLight:'font-size:12.5px;line-height:1.45;border-radius:6px;padding:9px 11px;margin:0 auto 12px;max-width:520px;'+(this.state.leadSyncStatus==='durable'?'background:#EAF9EF;color:#176B35;border:1px solid #BFE8CA;':(this.state.leadSyncStatus==='fallback'?'background:#FFF8E5;color:#74520A;border:1px solid #F2D98E;':'background:#EDF6FF;color:#245D91;border:1px solid #CFE3F7;')),
       q_nombre:qf.nombre,q_empresa:qf.empresa,q_whatsapp:qf.whatsapp,q_ciudad:qf.ciudad,q_parte:qf.parte,q_cantidad:qf.cantidad,q_categoria:qf.categoria,q_mensaje:qf.mensaje,
       q_has_errors:qErrorKeys.length>0, q_error_summary:this.quoteErrorSummary(qErrors),
       q_error_nombre:qErrors.nombre||'', q_error_whatsapp:qErrors.whatsapp||'', q_error_parte:qErrors.parte||'', q_error_categoria:qErrors.categoria||'', q_error_cantidad:qErrors.cantidad||'',
-      qFileLabel: qf.fileName?qf.fileName:'Subir foto de la placa o componente (opcional)',
+      qFileLabel: qf.fileName?qf.fileName:'Foto de placa o componente (opcional)',
       onQNombre:e=>this.setQF('nombre',e.target.value), onQEmpresa:e=>this.setQF('empresa',e.target.value),
       onQWhatsapp:e=>this.setQF('whatsapp',e.target.value), onQCiudad:e=>this.setQF('ciudad',e.target.value),
       onQParte:e=>this.setQF('parte',e.target.value), onQCantidad:e=>this.setQF('cantidad',e.target.value),
       onQCategoria:e=>this.setQF('categoria',e.target.value), onQMensaje:e=>this.setQF('mensaje',e.target.value),
       onQFile:e=>{ const f=e.target.files&&e.target.files[0]; if(f){ this.setQF('fileName',f.name); this.track('quote_file_selected',{form:'quick_quote',file_type:f.type||'',file_size:f.size||0}); } },
-      urgOpts, detOpts, submit:e=>this.submit(e),
+      submit:e=>this.submit(e),
       catNames:catRaw.map(c=>c.t), mobileMenuCats, mobileMenuProducts,
-      l_pieza:lf.pieza,l_marca:lf.marca,l_parte:lf.parte,l_cantidad:lf.cantidad,l_urgencia:lf.urgencia,l_coment:lf.coment,
-      lFileLabel: lf.fileName?lf.fileName:'Foto (opcional)',
-      onLPieza:e=>this.setLF('pieza',e.target.value), onLMarca:e=>this.setLF('marca',e.target.value),
-      onLParte:e=>this.setLF('parte',e.target.value), onLCantidad:e=>this.setLF('cantidad',e.target.value),
-      onLUrgencia:e=>this.setLF('urgencia',e.target.value), onLComent:e=>this.setLF('coment',e.target.value),
-      onLFile:e=>{ const f=e.target.files&&e.target.files[0]; if(f) this.setLF('fileName',f.name); },
-      addItem:e=>this.addItem(e), items, hasList:list.length>0, emptyList:list.length===0,
-      clearList:()=>this.clearList(),
-      waList:this.wa(this.listText()),
-      mailList:'mailto:ventas@kdl.com.mx?subject='+encodeURIComponent('Solicitud de cotización — Mi lista KDL')+'&body='+encodeURIComponent(this.listText()),
-      downloadPDF:()=>this.downloadPDF(),
       categorias, catModalOpen:!!cm, cm, closeCat:()=>this.closeCat(), stop:e=>{ if(e&&e.stopPropagation)e.stopPropagation(); },
-      brands:['IFM','HIWIN','AirTAC','Bosch Rexroth','Zenso','Delta','Omron','Weintek','Arico'],
       industryNames:['Mantenimiento 24/7','CNC y metalmecánica','Alimentos y refrigeración','Empaque','Automatización','Robótica'],
       resources, faqs, catalogs,
       pains:[
-        {t:'Sensor fallando', iconIndex:0},
-        {t:'Cilindro con fuga', iconIndex:1},
-        {t:'Inserto desgastado', iconIndex:2},
-        {t:'Componente difícil de identificar', iconIndex:5}
+        {t:'Sensor fallando', meta:'Describe el síntoma o sube una foto', iconIndex:0},
+        {t:'Cilindro con fuga', meta:'Comparte placa, medidas o aplicación', iconIndex:1},
+        {t:'Inserto desgastado', meta:'Indica geometría, grado o envía foto', iconIndex:2},
+        {t:'Componente difícil de identificar', meta:'Una foto y la aplicación ayudan a revisarlo', iconIndex:5}
       ].map(p=>({...p, icon:dolorIcons[p.iconIndex]}))
     };
   }

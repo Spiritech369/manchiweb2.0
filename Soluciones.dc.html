@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
-<script src="./kdl-site-header.js" defer></script>
+<script src="./kdl-site-header.js?v=13" defer></script>
 </head>
 <body>
 <x-dc>
@@ -17,6 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F2F5F9;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E2236}a{text-decoration:none;color:inherit}@keyframes kdlBar{to{background-position:-200% 0}}@keyframes kdlDash{to{stroke-dashoffset:-340}}</style>
+<link rel="stylesheet" href="./kdl-site-header.css?v=3" data-kdl-shared-header>
+<link rel="stylesheet" href="./kdl-corporate.css?v=3" data-kdl-corporate>
 </helmet>
 
 <div style="background:#F2F5F9;overflow-x:hidden">
@@ -33,51 +35,68 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- CONTENIDO CONSOLIDADO -->
 <section style="position:relative;background:radial-gradient(120% 120% at 80% 0%,#15426F,#0A1B30 55%,#06121F);overflow:hidden;padding:46px 22px 50px">
-  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.5" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M-60 180 C 360 60, 720 320, 1260 160" fill="none" stroke="#39A0FF" stroke-width="1.6" stroke-dasharray="14 22" style="animation:kdlDash 3s linear infinite"/></svg>
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.45" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M-60 180 C 360 60, 720 320, 1260 160" fill="none" stroke="#39A0FF" stroke-width="1.6" stroke-dasharray="14 22" style="animation:kdlDash 3s linear infinite"/></svg>
   <div style="position:relative;max-width:1280px;margin:0 auto">
     <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;color:#7FB4E8;margin-bottom:12px"><a href="index.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span> Soluciones</div>
-    <h1 style="font-family:'Archivo';font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;max-width:760px">No todos saben el nombre exacto de la pieza. Nosotros sí.</h1>
-    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#B8C7D9;max-width:640px;margin:0">Te ayudamos a resolver por necesidad, no por número de parte: dinos qué falla o qué proceso quieres mantener en marcha y te llevamos a la solución correcta.</p>
+    <h1 style="font-family:'Archivo';font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;max-width:830px">Soluciones, industrias y servicios KDL.</h1>
+    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#B8C7D9;max-width:760px;margin:0">Encuentra la familia de producto, el contexto industrial y el tipo de apoyo que necesitas, sin repetir el mismo proceso en páginas distintas.</p>
   </div>
   <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,#1FC8E3,#2E7DF2,transparent);background-size:200% 100%;animation:kdlBar 3s linear infinite"></div>
 </section>
 
-<!-- BLOQUE REEMPLAZO -->
-<section style="max-width:1280px;margin:0 auto;padding:34px 22px 0">
-  <div style="background:linear-gradient(135deg,#0E2236,#16335A);border-radius:20px;padding:34px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between;position:relative;overflow:hidden">
-    <div style="position:relative;flex:1 1 420px">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(31,200,227,.12);border:1px solid rgba(31,200,227,.3);border-radius:100px;padding:6px 13px;margin-bottom:16px;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:1px;color:#9FE4F2;text-transform:uppercase">★ Lo más solicitado</div>
-      <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,34px);line-height:1.08;letter-spacing:-.8px;color:#fff;margin:0 0 12px">¿No sabes el modelo exacto?</h2>
-      <p style="font-size:16px;line-height:1.6;color:#B8C7D9;margin:0 0 22px;max-width:540px">Envíanos <strong style="color:#fff">foto, número de parte o la aplicación</strong> y te ayudamos a encontrar una pieza compatible. Convertimos una pieza dañada en una cotización lista.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px">
-        <a href="{{ waReemplazo }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:800;font-size:15px;padding:14px 22px;border-radius:12px" style-hover="transform:translateY(-2px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg>Enviar foto o número de parte</a>
-        <a href="Productos.dc.html" style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:600;font-size:15px;padding:14px 22px;border-radius:12px" style-hover="background:rgba(255,255,255,.13)">Ver catálogo</a>
-      </div>
-    </div>
-    <div style="position:relative;flex:0 1 280px;display:flex;flex-direction:column;gap:10px">
-      <sc-for list="{{ reemplazoSteps }}" as="r" hint-placeholder-count="3"><div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(127,180,232,.18);border-radius:12px;padding:13px 15px"><span style="display:flex;width:30px;height:30px;border-radius:8px;background:rgba(31,200,227,.16);align-items:center;justify-content:center;color:#1FC8E3;font-family:'Archivo';font-weight:800;flex-shrink:0">{{ r.n }}</span><span style="font-size:14px;color:#C7D4E3">{{ r.t }}</span></div></sc-for>
-    </div>
-  </div>
-</section>
+<nav aria-label="Contenido de soluciones" style="max-width:1280px;margin:24px auto 0;padding:0 22px;display:flex;flex-wrap:wrap;gap:10px">
+  <a href="#soluciones" style="background:#0E2236;color:#fff;border-radius:8px;padding:11px 16px;font-weight:800">Soluciones</a>
+  <a href="#industrias" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Industrias</a>
+  <a href="#servicios" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Servicios</a>
+</nav>
 
-<!-- GRID SOLUCIONES -->
-<section style="max-width:1280px;margin:0 auto;padding:44px 22px 70px">
-  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,34px);letter-spacing:-.8px;color:#0E2236;margin:0 0 6px">Soluciones por necesidad</h2>
-  <p style="font-size:16px;color:#5A6B80;margin:0 0 28px">Elige el escenario más cercano a tu operación y cotiza con un asesor técnico.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px">
-    <sc-for list="{{ solutions }}" as="s" hint-placeholder-count="7">
-      <a href="{{ s.wa }}" target="_blank" style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:26px;display:flex;flex-direction:column" style-hover="box-shadow:0 16px 38px rgba(14,34,54,.1);transform:translateY(-3px);border-color:#C9D8EC">
-        <div style="display:flex;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);align-items:center;justify-content:center;color:#06131f;margin-bottom:16px">{{ s.icon }}</div>
-        <div style="font-family:'Archivo';font-weight:700;font-size:19px;color:#0E2236;margin-bottom:8px">{{ s.t }}</div>
-        <div style="font-size:14px;line-height:1.55;color:#5A6B80;flex:1">{{ s.d }}</div>
-        <div style="margin-top:18px;display:inline-flex;align-items:center;gap:7px;color:#2E7DF2;font-weight:700;font-size:14px" style-hover="gap:11px">Cotizar esta solución<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<section id="soluciones" style="max-width:1280px;margin:0 auto;padding:42px 22px 34px;scroll-margin-top:110px">
+  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(25px,3vw,35px);letter-spacing:-.8px;color:#0E2236;margin:0 0 7px">Soluciones por familia técnica</h2>
+  <p style="font-size:16px;color:#5A6B80;margin:0 0 24px;max-width:760px">Parte del tipo de tecnología que necesitas y revisa productos, datos para cotizar y aplicaciones.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+    <sc-for list="{{ solutionFamilies }}" as="s" hint-placeholder-count="4">
+      <a class="kdl-commercial-card" href="{{ s.href }}" style="border:1px solid #2F6D9F;border-radius:14px;padding:24px;display:flex;flex-direction:column;min-height:190px">
+        <div style="font-family:'Archivo';font-weight:800;font-size:20px;color:#fff;margin-bottom:9px">{{ s.t }}</div>
+        <div style="font-size:14px;line-height:1.55;color:#D4E0EC;flex:1">{{ s.d }}</div>
+        <div style="margin-top:18px;color:#8EDCFF;font-weight:800;font-size:14px">Ver productos →</div>
       </a>
     </sc-for>
   </div>
 </section>
 
+<section id="industrias" style="background:#fff;padding:42px 22px;scroll-margin-top:110px">
+  <div style="max-width:1280px;margin:0 auto">
+    <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(25px,3vw,35px);letter-spacing:-.8px;color:#0E2236;margin:0 0 7px">Aplicaciones por industria</h2>
+    <p style="font-size:16px;color:#5A6B80;margin:0 0 24px;max-width:760px">Selecciona el contexto de operación para que un asesor considere ambiente, montaje y condiciones de trabajo.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+      <sc-for list="{{ industries }}" as="i" hint-placeholder-count="8">
+        <a class="kdl-commercial-card" href="{{ i.wa }}" target="_blank" style="border:1px solid #2F6D9F;border-radius:12px;padding:20px;display:flex;flex-direction:column;min-height:150px">
+          <strong style="font-family:'Archivo';font-size:18px;color:#fff;margin-bottom:7px">{{ i.t }}</strong>
+          <span style="font-size:13.5px;line-height:1.5;color:#D4E0EC;flex:1">{{ i.d }}</span>
+          <span style="margin-top:14px;color:#8EDCFF;font-weight:800;font-size:13px">Cotizar para esta industria →</span>
+        </a>
+      </sc-for>
+    </div>
+    <a href="Industrias.dc.html" style="display:inline-flex;margin-top:20px;color:#245B89;font-weight:800">Conocer cómo atendemos cada sector →</a>
+  </div>
+</section>
+
+<section id="servicios" style="max-width:1280px;margin:0 auto;padding:42px 22px 70px;scroll-margin-top:110px">
+  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(25px,3vw,35px);letter-spacing:-.8px;color:#0E2236;margin:0 0 7px">Servicios de apoyo técnico y comercial</h2>
+  <p style="font-size:16px;color:#5A6B80;margin:0 0 24px;max-width:760px">Elige el apoyo necesario. La compatibilidad y disponibilidad se confirman antes de cotizar.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px">
+    <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+      <a class="kdl-commercial-card" href="{{ s.href }}" target="{{ s.target }}" style="border:1px solid #2F6D9F;border-radius:14px;padding:24px;display:flex;flex-direction:column;min-height:180px">
+        <strong style="font-family:'Archivo';font-size:19px;color:#fff;margin-bottom:8px">{{ s.t }}</strong>
+        <span style="font-size:14px;line-height:1.55;color:#D4E0EC;flex:1">{{ s.d }}</span>
+        <span style="margin-top:16px;color:#8EDCFF;font-weight:800;font-size:13.5px">{{ s.cta }} →</span>
+      </a>
+    </sc-for>
+  </div>
+  <a href="Servicios.dc.html" style="display:inline-flex;margin-top:20px;color:#245B89;font-weight:800">Ver proceso de atención →</a>
+</section>
 <footer id="contacto" style="background:#06121F;color:#9FB1C6;padding:50px 22px 28px">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-end">
     <div><a href="index.html" style="display:flex;align-items:baseline;gap:1px;margin-bottom:12px"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#1FC8E3">.</span></a><p style="font-size:14px;line-height:1.6;max-width:340px;margin:0">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
@@ -93,30 +112,36 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000}; }
-  componentDidMount(){ this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m});}; window.addEventListener('resize',this._r); }
+  componentDidMount(){ this._r=()=>{const m=window.innerWidth<1000;if(m!==this.state.isMobile)this.setState({isMobile:m});};window.addEventListener('resize',this._r); }
   componentWillUnmount(){ window.removeEventListener('resize',this._r); }
   wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
   renderVals(){
     const ACTIVE='soluciones';
-    const icon=(p,sz)=>React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="'+(sz||22)+'" height="'+(sz||22)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+p+'</svg>'}});
-    const navData=[['Inicio','index.html','inicio'],['Productos','Productos.dc.html','productos'],['Soluciones','Soluciones.dc.html','soluciones'],['Industrias','Industrias.dc.html','industrias'],['Servicios','Servicios.dc.html','servicios'],['Catálogos','Catalogos.dc.html','catalogos'],['Contacto','Contacto.dc.html','contacto']];
+    const navData=[['Inicio','index.html','inicio'],['Productos','Productos.dc.html','productos'],['Soluciones','Soluciones.dc.html','soluciones'],['Catálogos','Catalogos.dc.html','catalogos'],['Contacto','Contacto.dc.html','contacto']];
     const nav=navData.map(([label,href,key])=>({label,href,style:'padding:6px 0;'+(key===ACTIVE?'color:#fff;border-bottom:2px solid #1FC8E3':'color:#C7D4E3')}));
-    const solutions=[
-      {t:'Automatización', d:'PLC, HMI, sensores, variadores y actuadores para integrar, reparar o ampliar tu celda.', icon:icon('<rect x="4" y="4" width="16" height="12" rx="1"/><path d="M8 20h8M12 16v4"/>')},
-      {t:'Líneas de producción', d:'Refacciones críticas y alternativas compatibles para que la línea no se detenga.', icon:icon('<path d="M3 7l9-4 9 4-9 4Z"/><path d="M3 7v10l9 4 9-4V7"/>')},
-      {t:'Mantenimiento industrial', d:'Identificación y suministro de piezas de desgaste: sensores, cilindros, válvulas, guías.', icon:icon('<path d="M14 7l3 3M5 19l8.5-8.5a2.1 2.1 0 0 0-3-3L2 16v3h3Z"/>')},
-      {t:'Maquinaria CNC', d:'Insertos, portaherramientas y movimiento lineal para torno y centros de maquinado.', icon:icon('<circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>')},
-      {t:'Empaque', d:'Neumática, sensores y actuadores para líneas de empaque y manejo de materiales.', icon:icon('<path d="M3 7l9-4 9 4v10l-9 4-9-4Z"/><path d="M3 7l9 4 9-4"/>')},
-      {t:'Refrigeración / alimentos', d:'Componentes y equipos IQF para línea de frío y proceso de alimentos.', icon:icon('<path d="M12 2v20M4 7l16 10M20 7 4 17"/>')},
-      {t:'Reemplazo de piezas', d:'Envíanos foto, número de parte o aplicación y te damos una opción compatible.', icon:icon('<path d="M4 7h11l-3-3M20 17H9l3 3"/>')}
-    ].map(s=>({...s, wa:this.wa('Hola KDL, busco una solución para: '+s.t+'. Te comparto el detalle / foto / No. de parte.')}));
-    return {
-      isMobile:this.state.isMobile, notMobile:!this.state.isMobile, nav,
-      waSticky:this.wa('Hola KDL, quiero una solución industrial. ¿Me ayudan a identificar la pieza o el componente correcto?'),
-      waReemplazo:this.wa('Hola KDL, tengo una pieza dañada / descontinuada. Les comparto foto, número de parte o la aplicación para encontrar una compatible.'),
-      reemplazoSteps:[{n:'1',t:'Mándanos foto, placa o No. de parte'},{n:'2',t:'Validamos compatibilidad y alternativa'},{n:'3',t:'Recibes la cotización lista'}],
-      solutions
-    };
+    const solutionFamilies=[
+      {t:'Automatización y control',d:'PLC, HMI, sensores, variadores, servos y comunicación industrial.',href:'Productos.dc.html?cat=automatizacion'},
+      {t:'Movimiento y actuación',d:'Neumática, hidráulica, guías, husillos y actuadores para movimiento industrial.',href:'Productos.dc.html?cat=movimiento'},
+      {t:'Herramientas de corte',d:'Insertos, portaherramientas, carburo sólido y soluciones para maquinado.',href:'Productos.dc.html?cat=corte'},
+      {t:'Refrigeración industrial / IQF',d:'Equipos y componentes para congelación, proceso y cadena de frío.',href:'Productos.dc.html?cat=iqf'}
+    ];
+    const industries=[
+      ['Alimentos y bebidas','Componentes para proceso, refrigeración y condiciones higiénicas.'],
+      ['Manufactura','Automatización, sensores y refacciones para producción continua.'],
+      ['Metal-mecánica','Corte, movimiento lineal y componentes de máquina.'],
+      ['Empaque','Neumática, sensores y actuación para manejo de materiales.'],
+      ['Automotriz','Componentes para automatización y celdas de alta exigencia.'],
+      ['Refrigeración industrial','Equipos IQF, control y componentes para cadena de frío.'],
+      ['Maquinados / CNC','Insertos, portaherramientas y movimiento de precisión.'],
+      ['Mantenimiento industrial','Identificación y suministro de piezas de desgaste.']
+    ].map(([t,d])=>({t,d,wa:this.wa('Hola KDL, trabajo en '+t+'. Necesito cotizar: ___. Aplicación / No. de parte: ___.')}));
+    const services=[
+      {t:'Identificación y cotización',d:'Comparte foto, placa, marca o número de parte para iniciar la revisión.',cta:'Iniciar solicitud',href:'index.html#cotiza',target:'_self'},
+      {t:'Alternativas y compatibilidad',d:'Revisamos medidas, conexión, montaje, aplicación y condiciones de trabajo.',cta:'Revisar alternativa',href:'Compatibilidad.dc.html',target:'_self'},
+      {t:'Suministro de refacciones',d:'Concentra productos de distintas familias en una sola cesta de solicitud.',cta:'Armar cesta',href:'Cesta.dc.html',target:'_self'},
+      {t:'Entrega y seguimiento',d:'Un asesor confirma disponibilidad, entrega aplicable y seguimiento comercial.',cta:'Hablar con un asesor',href:this.wa('Hola KDL, necesito apoyo con entrega o seguimiento de una solicitud.'),target:'_blank'}
+    ];
+    return {isMobile:this.state.isMobile,notMobile:!this.state.isMobile,nav,solutionFamilies,industries,services,waSticky:this.wa('Hola KDL, necesito una solución industrial. ¿Me ayudan a revisar mi aplicación?')};
   }
 }
 </script>

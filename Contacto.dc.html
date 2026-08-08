@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
-<script src="./kdl-site-header.js" defer></script>
+<script src="./kdl-site-header.js?v=13" defer></script>
 </head>
 <body>
 <x-dc>
@@ -17,6 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F2F5F9;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E2236}a{text-decoration:none;color:inherit}input,textarea,select{font-family:inherit}@keyframes kdlBar{to{background-position:-200% 0}}@keyframes kdlDash{to{stroke-dashoffset:-340}}</style>
+<link rel="stylesheet" href="./kdl-site-header.css?v=3" data-kdl-shared-header>
+<link rel="stylesheet" href="./kdl-corporate.css?v=3" data-kdl-corporate>
 </helmet>
 
 <div style="background:#F2F5F9;overflow-x:hidden">
@@ -47,12 +49,12 @@
   <!-- acciones rápidas -->
   <div style="flex:1 1 360px;min-width:300px">
     <h2 style="font-family:'Archivo';font-weight:800;font-size:24px;letter-spacing:-.5px;color:#0E2236;margin:0 0 18px">Acciones rápidas</h2>
-    <div style="display:flex;flex-direction:column;gap:12px">
+    <div class="kdl-contact-actions">
       <sc-for list="{{ actions }}" as="a" hint-placeholder-count="4">
-        <a href="{{ a.wa }}" target="_blank" style="display:flex;align-items:center;gap:15px;background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:18px" style-hover="border-color:#2E7DF2;box-shadow:0 12px 28px rgba(14,34,54,.08)">
-          <span style="display:flex;width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#1FC8E3,#2E7DF2);align-items:center;justify-content:center;color:#06131f;flex-shrink:0">{{ a.icon }}</span>
-          <span style="flex:1"><span style="display:block;font-family:'Archivo';font-weight:700;font-size:16px;color:#0E2236">{{ a.t }}</span><span style="display:block;font-size:13px;color:#7E93AC;margin-top:2px">{{ a.d }}</span></span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E7DF2" stroke-width="2.2" style="flex-shrink:0"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <a class="kdl-commercial-card" href="{{ a.wa }}" target="_blank">
+          <span class="kdl-contact-action__icon">{{ a.icon }}</span>
+          <span class="kdl-contact-action__copy"><span class="kdl-contact-action__title">{{ a.t }}</span><span class="kdl-contact-action__description">{{ a.d }}</span></span>
+          <svg class="kdl-contact-action__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </sc-for>
     </div>
@@ -70,14 +72,18 @@
       <div style="text-align:center;padding:24px 6px"><div style="display:inline-flex;width:60px;height:60px;border-radius:50%;background:#25D366;align-items:center;justify-content:center;margin-bottom:16px"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#06310f" stroke-width="2.6"><path d="M5 13l4 4L19 7"/></svg></div><div style="font-family:'Archivo';font-weight:800;font-size:21px;color:#fff;margin-bottom:9px">Abrimos tu WhatsApp</div><p style="font-size:14px;line-height:1.55;color:#B8C7D9;margin:0 0 16px">Adjunta ahí la <strong style="color:#fff">foto de la placa o pieza</strong>.</p><a href="{{ waSticky }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#06310f;font-weight:700;padding:12px 20px;border-radius:11px">Abrir WhatsApp</a></div>
     </sc-if>
     <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
-    <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:12px">
+    <form onSubmit="{{ submit }}" novalidate style="display:flex;flex-direction:column;gap:12px">
+      <sc-if value="{{ hasErrors }}" hint-placeholder-val=""><div role="alert" style="background:rgba(255,209,102,.12);border:1px solid rgba(255,209,102,.35);color:#FFE4A3;border-radius:9px;padding:10px 12px;font-size:13px">{{ errorSummary }}</div></sc-if>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <input value="{{ f_nombre }}" onChange="{{ onNombre }}" placeholder="Nombre" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
-        <input value="{{ f_empresa }}" onChange="{{ onEmpresa }}" placeholder="Empresa" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+        <input aria-label="Nombre" aria-invalid="{{ invalidName }}" autocomplete="name" value="{{ f_nombre }}" onChange="{{ onNombre }}" placeholder="Nombre" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+        <input aria-label="Empresa" autocomplete="organization" value="{{ f_empresa }}" onChange="{{ onEmpresa }}" placeholder="Empresa" style="flex:1 1 130px;border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
       </div>
-      <input value="{{ f_whatsapp }}" onChange="{{ onWhatsapp }}" placeholder="WhatsApp — (81) 1234 5678" style="border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
-      <input value="{{ f_parte }}" onChange="{{ onParte }}" placeholder="Marca o número de parte" style="border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
-      <textarea value="{{ f_mensaje }}" onChange="{{ onMensaje }}" placeholder="¿Qué pieza necesitas? Describe la falla o aplicación…" rows="3" style="border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none;resize:vertical" style-focus="border-color:#39A0FF"></textarea>
+      <sc-if value="{{ errorName }}" hint-placeholder-val=""><div role="alert" style="color:#FFE4A3;font-size:12px">{{ errorName }}</div></sc-if>
+      <input aria-label="WhatsApp" aria-invalid="{{ invalidWhatsapp }}" autocomplete="tel" inputmode="tel" value="{{ f_whatsapp }}" onChange="{{ onWhatsapp }}" placeholder="WhatsApp — (81) 1234 5678" style="border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+      <sc-if value="{{ errorWhatsapp }}" hint-placeholder-val=""><div role="alert" style="color:#FFE4A3;font-size:12px">{{ errorWhatsapp }}</div></sc-if>
+      <input aria-label="Marca o número de parte" aria-invalid="{{ invalidReference }}" value="{{ f_parte }}" onChange="{{ onParte }}" placeholder="Marca o número de parte" style="border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none" style-focus="border-color:#39A0FF">
+      <textarea aria-label="Pieza, falla o aplicación" aria-invalid="{{ invalidReference }}" value="{{ f_mensaje }}" onChange="{{ onMensaje }}" placeholder="¿Qué pieza necesitas? Describe la falla o aplicación…" rows="3" style="border:1px solid rgba(127,180,232,.25);background:rgba(255,255,255,.05);border-radius:10px;padding:13px;font-size:15px;color:#fff;outline:none;resize:vertical" style-focus="border-color:#39A0FF"></textarea>
+      <sc-if value="{{ errorReference }}" hint-placeholder-val=""><div role="alert" style="color:#FFE4A3;font-size:12px">{{ errorReference }}</div></sc-if>
       <button type="submit" style="display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(100deg,#1FC8E3,#2E7DF2);color:#06131f;font-weight:800;font-size:15px;padding:15px;border:none;border-radius:11px;cursor:pointer" style-hover="filter:brightness(1.05)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"/></svg>Enviar a un asesor KDL</button>
       <p style="text-align:center;font-size:11.5px;line-height:1.5;color:#AFC0D1;margin:2px 0 0">Al enviar, KDL utilizará tus datos para atender y dar seguimiento a la solicitud. Consulta el <a href="Aviso-Privacidad.html" style="color:#fff;text-decoration:underline">aviso de privacidad</a>. La foto se adjunta directamente en WhatsApp.</p>
     </form>
@@ -117,17 +123,18 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000, f:{nombre:'',empresa:'',whatsapp:'',parte:'',mensaje:''}, submitted:false}; }
-  componentDidMount(){ this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m});}; window.addEventListener('resize',this._r); }
+  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000, f:{nombre:'',empresa:'',whatsapp:'',parte:'',mensaje:''}, errors:{}, submitted:false}; }
+  componentDidMount(){ try{ const draft=JSON.parse(sessionStorage.getItem('kdl_contact_draft')||'null'); if(draft)this.setState({f:{...this.state.f,...draft}}); }catch(e){} this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m});}; window.addEventListener('resize',this._r); }
   componentWillUnmount(){ window.removeEventListener('resize',this._r); }
   wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
-  setF(k,v){ this.setState(s=>({f:{...s.f,[k]:v}})); }
-  submit(e){ if(e&&e.preventDefault)e.preventDefault(); const f=this.state.f;
+  setF(k,v){ this.setState(s=>{ const f={...s.f,[k]:v}, errors={...(s.errors||{})}; delete errors[k]; if(k==='parte'||k==='mensaje') delete errors.reference; try{ sessionStorage.setItem('kdl_contact_draft',JSON.stringify(f)); }catch(e){} return {f,errors}; }); }
+  validate(f){ const errors={}, digits=String(f.whatsapp||'').replace(/\D/g,''); if(!String(f.nombre||'').trim())errors.nombre='Ingresa tu nombre.'; if(!digits)errors.whatsapp='Ingresa tu WhatsApp.'; else if(digits.length<10||digits.length>15)errors.whatsapp='Ingresa un WhatsApp válido.'; if(!String(f.parte||'').trim()&&!String(f.mensaje||'').trim())errors.reference='Agrega un número de parte o describe la pieza, falla o aplicación.'; return errors; }
+  submit(e){ if(e&&e.preventDefault)e.preventDefault(); const f=this.state.f, errors=this.validate(f); if(Object.keys(errors).length){ this.setState({errors}); return; }
     const t='Hola KDL, solicito disponibilidad / cotización.\n\nNombre: '+(f.nombre||'-')+'\nEmpresa: '+(f.empresa||'-')+'\nWhatsApp: '+(f.whatsapp||'-')+'\nMarca/No. de parte: '+(f.parte||'-')+'\nMensaje: '+(f.mensaje||'-');
-    try{ window.open(this.wa(t),'_blank'); }catch(err){} this.setState({submitted:true});
+    try{ window.open(this.wa(t),'_blank'); }catch(err){} try{ sessionStorage.removeItem('kdl_contact_draft'); }catch(err){} this.setState({submitted:true,errors:{}});
   }
   renderVals(){
-    const ACTIVE='contacto', f=this.state.f;
+    const ACTIVE='contacto', f=this.state.f, errors=this.state.errors||{};
     const icon=(p)=>React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+p+'</svg>'}});
     const navData=[['Inicio','index.html','inicio'],['Productos','Productos.dc.html','productos'],['Soluciones','Soluciones.dc.html','soluciones'],['Industrias','Industrias.dc.html','industrias'],['Servicios','Servicios.dc.html','servicios'],['Catálogos','Catalogos.dc.html','catalogos'],['Contacto','Contacto.dc.html','contacto']];
     const nav=navData.map(([label,href,key])=>({label,href,style:'padding:6px 0;'+(key===ACTIVE?'color:#fff;border-bottom:2px solid #1FC8E3':'color:#C7D4E3')}));
@@ -143,6 +150,7 @@ class Component extends DCLogic {
       actions,
       submitted:this.state.submitted, notSubmitted:!this.state.submitted,
       f_nombre:f.nombre, f_empresa:f.empresa, f_whatsapp:f.whatsapp, f_parte:f.parte, f_mensaje:f.mensaje,
+      hasErrors:Object.keys(errors).length>0, errorSummary:'Revisa los campos indicados antes de continuar.', errorName:errors.nombre||'', errorWhatsapp:errors.whatsapp||'', errorReference:errors.reference||'', invalidName:!!errors.nombre, invalidWhatsapp:!!errors.whatsapp, invalidReference:!!errors.reference,
       onNombre:e=>this.setF('nombre',e.target.value), onEmpresa:e=>this.setF('empresa',e.target.value),
       onWhatsapp:e=>this.setF('whatsapp',e.target.value), onParte:e=>this.setF('parte',e.target.value),
       onMensaje:e=>this.setF('mensaje',e.target.value), submit:e=>this.submit(e),
