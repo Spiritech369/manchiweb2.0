@@ -10,6 +10,10 @@
   var observer;
 
   var rows = [
+    ['Solicitud técnica', 'Technical request', '技术申请', 'तकनीकी अनुरोध', 'طلب فني'],
+    ['Envía tu referencia o fotografía desde Contacto', 'Send your reference or photo from the Contact page', '从联系页面发送您的参考信息或照片', 'संपर्क पृष्ठ से अपना संदर्भ या फोटो भेजें', 'أرسل المرجع أو الصورة من صفحة الاتصال'],
+    ['Completa tus datos, número de parte o descripción. La fotografía se adjunta directamente al abrir WhatsApp.', 'Enter your details, part number, or description. Attach the photo directly when WhatsApp opens.', '填写您的信息、零件编号或说明。打开 WhatsApp 后可直接附加照片。', 'अपनी जानकारी, पार्ट नंबर या विवरण भरें। WhatsApp खुलने पर फोटो सीधे संलग्न करें।', 'أدخل بياناتك أو رقم القطعة أو الوصف. أرفق الصورة مباشرة عند فتح واتساب.'],
+    ['Abrir formulario de contacto', 'Open contact form', '打开联系表单', 'संपर्क फ़ॉर्म खोलें', 'فتح نموذج الاتصال'],
     ['Inicio', 'Home', '首页', 'होम', 'الرئيسية'],
     ['Productos', 'Products', '产品', 'उत्पाद', 'المنتجات'],
     ['Soluciones', 'Solutions', '解决方案', 'समाधान', 'الحلول'],
@@ -38,7 +42,6 @@
     ['Refacciones industriales, automatización y herramientas de corte para plantas que trabajan sin descanso. Envíanos tu número de parte, foto o problema y te ayudamos a encontrar la solución correcta.', 'Industrial spare parts, automation and cutting tools for plants that operate nonstop. Send us your part number, photo or problem and we will help you find the right solution.', '工业备件、自动化和切削工具，服务于持续运行的工厂。请发送零件编号、照片或问题，我们将帮助您找到合适的解决方案。', 'लगातार चलने वाले संयंत्रों के लिए औद्योगिक स्पेयर पार्ट्स, ऑटोमेशन और कटिंग टूल्स। अपना पार्ट नंबर, फोटो या समस्या भेजें और हम सही समाधान खोजने में आपकी मदद करेंगे।', 'قطع غيار صناعية وأتمتة وأدوات قطع للمصانع التي تعمل دون توقف. أرسل رقم القطعة أو صورة أو وصف المشكلة وسنساعدك في العثور على الحل المناسب.'],
     ['Busca por número de parte, marca, categoría, síntoma o sube foto', 'Search by part number, brand, category, symptom, or upload a photo', '按零件编号、品牌、类别、症状搜索，或上传照片', 'पार्ट नंबर, ब्रांड, श्रेणी, लक्षण से खोजें या फोटो अपलोड करें', 'ابحث برقم القطعة أو العلامة أو الفئة أو العطل، أو ارفع صورة'],
     ['Buscar productos y refacciones', 'Search products and spare parts', '搜索产品和备件', 'उत्पाद और स्पेयर पार्ट्स खोजें', 'البحث عن المنتجات وقطع الغيار'],
-    ['Prueba:', 'Try:', '示例：', 'उदाहरण:', 'جرّب:'],
     ['Neumática', 'Pneumatics', '气动', 'न्यूमैटिक्स', 'الأنظمة الهوائية'],
     ['Hidráulica', 'Hydraulics', '液压', 'हाइड्रॉलिक्स', 'الأنظمة الهيدروليكية'],
     ['Sensores', 'Sensors', '传感器', 'सेंसर', 'المستشعرات'],

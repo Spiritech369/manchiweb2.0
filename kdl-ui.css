@@ -43,8 +43,9 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
 .kdl-page>sc-if{order:95}
 .kdl-page>div[style*="height: 70px"]{order:95}
 #inicio{order:1}
-#cotiza{order:2}
-#productos{order:3}
+#soporte{order:2}
+#cotiza{order:3}
+#productos{order:4}
 #servicios{display:none!important}
 
 .kdl-shell{max-width:1440px;margin:0 auto}
@@ -126,9 +127,6 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
 .kdl-hero-search__bar input::placeholder{color:#667991}
 .kdl-hero-search__bar button{border:0;border-radius:4px;background:#148bff;color:#fff;font-weight:800;font-size:14px;padding:12px 20px;cursor:pointer}
 .kdl-hero-search__bar button:hover{filter:brightness(1.06)}
-.kdl-hero-search__examples{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:9px;color:#9fb1c6;font-size:12px}
-.kdl-hero-search__examples button{border:1px solid rgba(255,255,255,.23);background:rgba(4,18,34,.55);color:#e7eff9;border-radius:99px;padding:5px 9px;font-size:11.5px;cursor:pointer}
-.kdl-hero-search__examples button:hover{border-color:#39a0ff;color:#fff}
 .kdl-search-results,.kdl-search-empty{position:absolute;left:0;right:0;top:calc(100% + 8px);z-index:20;background:#fff;color:#10213c;border:1px solid #dce6f2;border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,.36);overflow:hidden}
 .kdl-search-results__head{display:flex;justify-content:space-between;gap:16px;padding:10px 14px;background:#f4f8fc;border-bottom:1px solid #e4ebf3;color:#63758d;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
 .kdl-search-result{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:11px;border:0;border-bottom:1px solid #e8eef5;background:#fff;color:#10213c;padding:11px 14px;text-align:left;cursor:pointer}
@@ -183,15 +181,15 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
 .kdl-quote-trust>div:nth-child(3)::before{content:'i'}
 .kdl-quote-trust strong{font-family:'Archivo';font-size:14px}
 .kdl-quote-trust span{margin-top:4px;font-size:12.5px;color:#C7D5E4}
-.kdl-quote-request{margin-top:18px;border:1px solid #D5E1EE;border-radius:8px;background:#fff;overflow:hidden}
-.kdl-quote-request__title{margin:0;padding:17px 20px;background:#0A3768;color:#fff;font-family:'Archivo';font-size:16px;font-weight:800}
-.kdl-quick-form__intro{margin:0 0 14px;text-align:center;font-size:13.5px;line-height:1.45;color:#C4D2E1}
-.kdl-quote-paths{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;margin:0 0 18px}
-.kdl-quote-path{display:flex;min-height:58px;flex-direction:column;justify-content:center;padding:9px 11px;border:1px solid rgba(127,180,232,.24);border-radius:6px;background:rgba(255,255,255,.045);text-align:left}
-.kdl-quote-path strong{font-size:12.5px;color:#fff}
-.kdl-quote-path small{margin-top:3px;font-size:11.5px;line-height:1.3;color:#AFC0D2}
-.kdl-quote-paths__or{font-family:'IBM Plex Mono';font-size:11px;text-transform:uppercase;color:#7F96AD}
 
+.kdl-quote-contact-cta{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:18px;padding:26px 28px;border:1px solid #D5E1EE;border-radius:8px;background:#fff;box-shadow:0 12px 30px rgba(14,34,54,.08)}
+.kdl-quote-contact-cta__copy{max-width:760px}
+.kdl-quote-contact-cta__eyebrow{display:block;margin-bottom:7px;font-family:'IBM Plex Mono';font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#1F5D95}
+.kdl-quote-contact-cta h2{margin:0 0 7px;font-family:'Archivo';font-size:clamp(20px,2vw,27px);line-height:1.15;color:#0E2236}
+.kdl-quote-contact-cta p{margin:0;font-size:14px;line-height:1.55;color:#526A83}
+.kdl-quote-contact-cta__button{display:inline-flex;min-height:48px;flex:0 0 auto;align-items:center;justify-content:center;gap:10px;padding:13px 20px;border-radius:6px;background:#0A3768;color:#fff;font-weight:800;text-align:center;box-shadow:0 8px 18px rgba(10,55,104,.16)}
+.kdl-quote-contact-cta__button:hover{background:#0D477F;color:#fff;transform:translateY(-1px)}
+.kdl-quote-contact-cta__button:focus-visible{outline:3px solid #2E7DF2;outline-offset:3px}
 .kdl-pain-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
 .kdl-pain-card{min-height:270px;border-radius:8px;background:#fff;border:1px solid #E0E7F0;padding:28px 18px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 10px 28px rgba(14,34,54,.06)}
 .kdl-pain-card:hover{border-color:#B8CBE2;transform:translateY(-3px);box-shadow:0 16px 32px rgba(14,34,54,.1)}
@@ -212,24 +210,12 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
 .kdl-flow-step__label{font-size:13.5px;line-height:1.35;color:var(--kdl-text)}
 .kdl-flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--kdl-blue)}
 
-.kdl-quick-form{width:100%;min-width:0;background:var(--kdl-navy-2);border:0;border-radius:0;padding:28px;box-shadow:none}
-.kdl-quick-form input,.kdl-quick-form select,.kdl-quick-form textarea{background:#fff!important;color:#10213c!important;border:1px solid #d7e2ef!important;border-radius:4px!important;min-width:0!important}
-.kdl-quick-form input::placeholder,.kdl-quick-form textarea::placeholder{color:#7c8da3}
-.kdl-quick-form button[type="submit"]{background:var(--kdl-blue)!important;color:#fff!important;border-radius:4px!important;box-shadow:none!important;font-size:14px!important}
-.kdl-quick-form label{border-radius:4px!important}
-.kdl-quick-field{display:flex;flex:1 1 130px;min-width:0;flex-direction:column;gap:5px}
-.kdl-quick-field>label{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.45px;text-transform:uppercase;color:#B8C7D9}
-.kdl-quick-field--wide{flex-basis:100%}
 .kdl-search-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
-.kdl-form-alert{border:1px solid rgba(255,180,168,.4);background:rgba(255,180,168,.12);color:#ffe7e3;border-radius:6px;padding:10px 12px;font-size:13px;line-height:1.4}
-.kdl-form-alert--light{border-color:#f2b8ad;background:#fff4f2;color:#9f2619}
-.kdl-field-error{margin:-5px 0 2px;color:#ffcfca;font-size:12px;line-height:1.35}
-.kdl-field-error--light{color:#b42318}
 
 .kdl-products-section{background:#f7fbff;padding:0 22px 56px}
 .kdl-products-heading{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end;margin-bottom:16px}
@@ -275,7 +261,6 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
   .kdl-hero__inner{padding-top:32px;min-height:auto}
   .kdl-hero-search__bar{padding-left:12px}
   .kdl-hero-search__bar button{padding:12px 14px}
-  .kdl-hero-search__examples{display:none}
   .kdl-brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .kdl-brand-card{min-height:108px;padding:20px 14px}
   .kdl-brand-card img{max-width:88%;max-height:56px}
@@ -299,7 +284,8 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
   .kdl-quote-trust{grid-template-columns:1fr}
   .kdl-quote-trust>div{min-height:76px}
   .kdl-quote-trust>div:not(:last-child)::after{top:auto;right:20px;bottom:0;left:20px;width:auto;height:1px}
-  .kdl-quick-form{padding:22px 16px}
+  .kdl-quote-contact-cta{align-items:flex-start;flex-direction:column;padding:22px}
+  .kdl-quote-contact-cta__button{width:100%}
   .kdl-flow-steps{grid-template-columns:1fr}
   .kdl-flow-arrow{display:none!important}
   .kdl-flow-card{padding:16px}
@@ -312,8 +298,6 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
   .kdl-quote-section .kdl-pain-grid{grid-template-columns:1fr;gap:12px}
   .kdl-pain-card{min-height:218px}
   .kdl-quote-support-links a{padding-left:66px}
-  .kdl-quote-paths{grid-template-columns:1fr;gap:7px}
-  .kdl-quote-paths__or{display:none}
   .kdl-hero-search__bar{grid-template-columns:auto minmax(0,1fr)}
   .kdl-hero-search__bar button{grid-column:1/-1;width:100%}
   .kdl-hero-proof__grid{grid-template-columns:1fr}
