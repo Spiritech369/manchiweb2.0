@@ -43,9 +43,11 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
 .kdl-page>sc-if{order:95}
 .kdl-page>div[style*="height: 70px"]{order:95}
 #inicio{order:1}
-#soporte{order:2}
-#cotiza{order:3}
-#productos{order:4}
+#productos{order:2}
+#soporte{order:3}
+#cotiza{order:4}
+#marcas{order:5}
+#faq{order:6}
 #servicios{display:none!important}
 
 .kdl-shell{max-width:1440px;margin:0 auto}
