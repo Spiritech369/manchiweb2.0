@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
+<script src="./kdl-inventory-data.js?v=1"></script>
 <script src="./kdl-site-header.js?v=13" defer></script>
 <script src="./kdl-schema.js?v=2" defer></script>
 <link rel="stylesheet" href="./kdl-catalog.css">
@@ -15,7 +16,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Productos | Catálogo KDL — Neumática, Hidráulica, Sensores, Automatización, Movimiento Lineal e Insertos</title>
-<meta name="description" content="Catálogo de productos KDL por categoría: neumática, hidráulica, sensores y control, automatización, movimiento lineal, herramientas de corte, refrigeración IQF y suministros. Busca y cotiza por WhatsApp.">
+<meta name="description" content="Catálogo de inventario KDL: 74 modelos industriales con fotografías, disponibilidad, precio de referencia y documentación técnica para cotizar.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F2F5F9;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E2236}a{text-decoration:none;color:inherit}input{font-family:inherit}@keyframes kdlBar{to{background-position:-200% 0}}@keyframes kdlPop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}#kdl-cat-strip::-webkit-scrollbar,#kdl-sugg-strip::-webkit-scrollbar{height:0}#kdl-cat-strip,#kdl-sugg-strip{-ms-overflow-style:none;scrollbar-width:none}</style>
@@ -92,7 +93,7 @@
   <div class="kdl-catalog-search__inner">
     <div class="kdl-catalog-search__bar">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E7DF2" stroke-width="2.2" style="flex-shrink:0"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input class="kdl-catalog-search__input" aria-label="Buscar productos" value="{{ query }}" onInput="{{ onQuery }}" placeholder="Busca por nombre de producto, referencia o categoría">
+      <input class="kdl-catalog-search__input" aria-label="Buscar productos" value="{{ query }}" onInput="{{ onQuery }}" placeholder="Busca por modelo, SKU, marca o descripción">
       <sc-if value="{{ hasSearchState }}" hint-placeholder-val=""><button class="kdl-catalog-search__clear" onClick="{{ clearSearch }}" aria-label="Limpiar búsqueda y filtros"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6 6 18"/></svg></button></sc-if>
     </div>
     <div class="kdl-catalog-filters">
@@ -104,8 +105,8 @@
         <option value="">Todas las marcas</option>
         <sc-for list="{{ brandOptions }}" as="o" hint-placeholder-count="8"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
       </select>
-      <select class="kdl-catalog-filter" value="{{ filterType }}" onChange="{{ onFilterType }}" aria-label="Filtrar por tipo">
-        <option value="">Todos los tipos</option>
+      <select class="kdl-catalog-filter" value="{{ filterType }}" onChange="{{ onFilterType }}" aria-label="Filtrar por disponibilidad">
+        <option value="">Toda disponibilidad</option>
         <sc-for list="{{ typeOptions }}" as="o" hint-placeholder-count="8"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
       </select>
       <sc-if value="{{ hasFilters }}" hint-placeholder-val="">
@@ -118,7 +119,7 @@
         <div class="kdl-catalog-results__list">
           <sc-for list="{{ searchResults }}" as="r" hint-placeholder-count="5">
             <a class="kdl-catalog-result" href="{{ r.href }}">
-              <span class="kdl-catalog-result__icon">{{ r.icon }}</span>
+              <span class="kdl-catalog-result__icon">{{ r.media }}</span>
               <span class="kdl-catalog-result__body"><span class="kdl-catalog-result__name">{{ r.name }}</span><span class="kdl-catalog-result__meta">{{ r.sub }}</span></span>
               <span class="kdl-catalog-result__cat">{{ r.catName }}</span>
             </a>
@@ -158,19 +159,27 @@
 <div style="max-width:1280px;margin:0 auto;padding:40px 22px 70px">
   <div style="margin-bottom:30px">
     <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.5px;color:#7E93AC;margin-bottom:12px"><a href="index.html" style-hover="color:#2E7DF2">Inicio</a> <span style="color:#39A0FF">/</span> <span style="color:#0E2236;font-weight:600">Productos</span></div>
-    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(30px,4vw,46px);line-height:1.02;letter-spacing:-1.2px;color:#0E2236;margin:0 0 10px">Catálogo de productos</h1>
-    <p style="font-size:16px;line-height:1.6;color:#5A6B80;margin:0;max-width:640px">Explora por categoría. Cada una agrupa las líneas que manejamos; entra para ver productos, datos para cotizar y alternativas compatibles.</p>
+    <div class="kdl-inventory-eyebrow">Inventario industrial · actualización 2026</div>
+    <h1 class="kdl-inventory-title">Encuentra el modelo exacto.<br><span>Valídalo antes de cotizar.</span></h1>
+    <p class="kdl-inventory-lead">Catálogo construido desde el inventario KDL, con fotografías de producto o familia, existencia, precio de referencia y acceso a documentación técnica.</p>
+    <div class="kdl-inventory-stats" aria-label="Resumen del catálogo">
+      <div class="kdl-inventory-stat"><strong>{{ statTotal }}</strong><span>modelos</span></div>
+      <div class="kdl-inventory-stat"><strong>{{ statVerified }}</strong><span>verificados</span></div>
+      <div class="kdl-inventory-stat"><strong>{{ statInStock }}</strong><span>con existencia</span></div>
+      <div class="kdl-inventory-stat"><strong>{{ statBrands }}</strong><span>marcas identificadas</span></div>
+    </div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px">
+  <div class="kdl-inventory-categories">
     <sc-for list="{{ landingCats }}" as="c" hint-placeholder-count="9">
-      <div onClick="{{ c.onOpen }}" style="background:#fff;border:1px solid #E3E9F1;border-radius:18px;overflow:hidden;display:flex;cursor:pointer;min-height:172px" style-hover="box-shadow:0 18px 42px rgba(14,34,54,.12);transform:translateY(-3px);border-color:#C9D8EC">
-        <div style="width:138px;flex-shrink:0;background:linear-gradient(160deg,#F4F7FB,#E7EEF6);display:flex;align-items:center;justify-content:center;padding:16px">{{ c.media }}</div>
-        <div style="padding:20px 22px;flex:1;display:flex;flex-direction:column">
-          <div style="display:flex;align-items:center;gap:9px;margin-bottom:7px"><span style="display:flex;color:#2E7DF2">{{ c.icon }}</span><span style="font-family:'Archivo';font-weight:700;font-size:18px;color:#0E2236;line-height:1.1">{{ c.name }}</span></div>
-          <div style="font-size:13.5px;line-height:1.5;color:#5A6B80;flex:1">{{ c.intro }}</div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px"><span style="font-family:'IBM Plex Mono';font-size:12px;color:#9AACC2">{{ c.count }} productos</span><span style="display:inline-flex;align-items:center;gap:6px;color:#2E7DF2;font-weight:700;font-size:13.5px" style-hover="gap:10px">Ver categoría<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <button type="button" class="kdl-inventory-category" onClick="{{ c.onOpen }}">
+        <div class="kdl-inventory-category__media">{{ c.media }}</div>
+        <div class="kdl-inventory-category__content">
+          <div class="kdl-inventory-category__top"><span class="kdl-inventory-category__icon">{{ c.icon }}</span><span class="kdl-inventory-category__count">{{ c.count }} modelos</span></div>
+          <div class="kdl-inventory-category__name">{{ c.name }}</div>
+          <div class="kdl-inventory-category__intro">{{ c.intro }}</div>
+          <span class="kdl-inventory-category__link">Explorar categoría <span aria-hidden="true">→</span></span>
         </div>
-      </div>
+      </button>
     </sc-for>
   </div>
 </div>
@@ -196,17 +205,20 @@
       <sc-if value="{{ activeBrand }}" hint-placeholder-val=""><span style="display:inline-flex;align-items:center;gap:7px;background:#EAF1FB;border-radius:100px;padding:7px 14px;font-size:13px;font-weight:600;color:#2E7DF2"><span style="width:7px;height:7px;border-radius:50%;background:#2E7DF2"></span>{{ activeBrand }}</span></sc-if>
     </div>
     <p style="font-size:16px;line-height:1.55;color:#5A6B80;margin:0 0 22px;max-width:680px">{{ activeIntro }}</p>
-    <div style="background:#fff;border:1px solid #E7EDF4;border-radius:16px;padding:22px">
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:14px">
+    <div class="kdl-inventory-grid-shell">
+      <div class="kdl-inventory-grid">
         <sc-for list="{{ activeProducts }}" as="p" hint-placeholder-count="8">
           <article class="kdl-flow-product-card">
             <a class="kdl-flow-product-card__detail" href="{{ p.href }}">
-              <div class="kdl-flow-product-card__media">{{ p.media }}</div>
+              <div class="kdl-flow-product-card__media">{{ p.media }}<span class="{{ p.photoClass }}">{{ p.photoLabel }}</span></div>
+              <div class="kdl-flow-product-card__badges"><span class="kdl-product-brand">{{ p.brand }}</span><span class="{{ p.stockClass }}">{{ p.stockLabel }}</span></div>
               <div class="kdl-flow-product-card__name">{{ p.n }}</div>
+              <div class="kdl-flow-product-card__title">{{ p.title }}</div>
               <div class="kdl-flow-product-card__spec">{{ p.s }}</div>
-              <span class="kdl-flow-product-card__link">Ver detalles t&eacute;cnicos <span aria-hidden="true">&rarr;</span></span>
+              <div class="kdl-flow-product-card__price">{{ p.price }}</div>
+              <span class="kdl-flow-product-card__link">Ver ficha del modelo <span aria-hidden="true">&rarr;</span></span>
             </a>
-            <a class="kdl-flow-product-card__quote" href="{{ p.quoteHref }}" aria-label="{{ p.quoteLabel }}">A&ntilde;adir y cotizar</a>
+            <a class="kdl-flow-product-card__quote" href="{{ p.quoteHref }}" aria-label="{{ p.quoteLabel }}">Añadir a cotización</a>
           </article>
         </sc-for>
       </div>
@@ -248,114 +260,239 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<880, active:null, query:'', filterCat:'', filterBrand:'', filterType:'', menuOpen:false, mobileMenuOpen:false, hoverCat:'neumatica', cartN:this.cartCount(), ready:(typeof window!=='undefined'&&!!window.KDL)}; }
+  constructor(props){
+    super(props);
+    const width=(typeof window!=='undefined')?window.innerWidth:1280;
+    this.state={isMobile:width<880,active:null,query:'',filterCat:'',filterBrand:'',filterType:'',menuOpen:false,mobileMenuOpen:false,hoverCat:'neumatica',cartN:this.cartCount(),ready:(typeof window!=='undefined'&&!!window.KDLInventory)};
+  }
   componentDidMount(){
-    this._r=()=>{const m=window.innerWidth<880; if(m!==this.state.isMobile)this.setState({isMobile:m,mobileMenuOpen:false});}; window.addEventListener('resize',this._r);
-    this._cart=()=>this.setState({cartN:this.cartCount()}); window.addEventListener('storage',this._cart);
-    try{ const c=new URLSearchParams(window.location.search).get('cat'); if(c) this.setState({active:c}); }catch(e){}
-    if(!window.KDL){ let n=0; this._t=setInterval(()=>{ if(window.KDL||n++>40){ clearInterval(this._t); this.setState({ready:true}); } },80); }
+    this._resize=()=>{ const mobile=window.innerWidth<880; if(mobile!==this.state.isMobile)this.setState({isMobile:mobile,mobileMenuOpen:false}); };
+    window.addEventListener('resize',this._resize);
+    this._cart=()=>this.setState({cartN:this.cartCount()});
+    window.addEventListener('storage',this._cart);
+    const applyParam=()=>{
+      const inventory=window.KDLInventory;
+      if(!inventory)return;
+      try{
+        const category=new URLSearchParams(window.location.search).get('cat');
+        if(category&&inventory.category(category)) this.setState({active:category,hoverCat:category,ready:true});
+        else this.setState({ready:true});
+      }catch(error){ this.setState({ready:true}); }
+    };
+    if(window.KDLInventory) applyParam();
+    else {
+      let attempts=0;
+      this._timer=setInterval(()=>{
+        if(window.KDLInventory||attempts++>40){ clearInterval(this._timer); applyParam(); }
+      },80);
+    }
   }
-  componentWillUnmount(){ window.removeEventListener('resize',this._r); if(this._cart) window.removeEventListener('storage',this._cart); if(this._t)clearInterval(this._t); }
-  wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
-  cartCount(){ try{ return JSON.parse(localStorage.getItem('kdl_cart')||'[]').reduce((a,b)=>a+(b.qty||1),0); }catch(e){ return 0; } }
-  setActive(k){ this.setState({active:k, query:'', menuOpen:false,mobileMenuOpen:false}); try{ window.scrollTo({top:0,behavior:'auto'}); }catch(e){} }
-  toggleMobileMenu(e){ if(e&&e.preventDefault)e.preventDefault(); this.setState(s=>({mobileMenuOpen:!s.mobileMenuOpen})); }
+  componentWillUnmount(){
+    if(this._resize)window.removeEventListener('resize',this._resize);
+    if(this._cart)window.removeEventListener('storage',this._cart);
+    if(this._timer)clearInterval(this._timer);
+  }
+  wa(text){ return 'https://wa.me/528112273382?text='+encodeURIComponent(text); }
+  cartCount(){ try{ return JSON.parse(localStorage.getItem('kdl_cart')||'[]').reduce((sum,item)=>sum+(item.qty||1),0); }catch(error){ return 0; } }
+  syncCategoryUrl(key){
+    try{
+      const url=new URL(window.location.href);
+      if(key)url.searchParams.set('cat',key); else url.searchParams.delete('cat');
+      window.history.replaceState(null,'',url.pathname+(url.search||'')+(url.hash||''));
+    }catch(error){}
+  }
+  setActive(key){
+    this.syncCategoryUrl(key);
+    this.setState({active:key,query:'',menuOpen:false,mobileMenuOpen:false,hoverCat:key||this.state.hoverCat});
+    try{ window.scrollTo({top:0,behavior:'auto'}); }catch(error){}
+  }
+  goLanding(){ this.setActive(null); }
+  toggleMobileMenu(event){ if(event&&event.preventDefault)event.preventDefault(); this.setState(state=>({mobileMenuOpen:!state.mobileMenuOpen})); }
   closeMobileMenu(){ this.setState({mobileMenuOpen:false}); }
-  inferType(product,cat){
-    const text=((product&&product.n)||'')+' '+((product&&product.s)||'');
-    const low=text.toLowerCase();
-    const rules=[
-      ['Cilindros',/cilindro|twin|clamp/i],
-      ['Sensores',/sensor|foto|induct|capacit|laser|presi/i],
-      ['PLC / HMI',/plc|hmi|controller/i],
-      ['Variadores',/variador|drive|servo|motor/i],
-      ['Válvulas',/v[aá]lvula/i],
-      ['Bombas',/bomba|hpu|potencia/i],
-      ['Guías',/gu[ií]a|riel|pat[ií]n|husillo|lineal/i],
-      ['Insertos',/inserto|cermet|cer[aá]mico|grado|torneado|ranurado|roscado|carburo/i],
-      ['Eléctrico',/fuente|relevador|contactor|breaker|bornera|bot[oó]n|piloto/i],
-      ['IQF',/iqf|congel|banda|acuacultura/i],
-      ['Suministros',/mantenimiento|transmisi[oó]n|sujeci[oó]n|consumible/i]
-    ];
-    for(let i=0;i<rules.length;i++){ if(rules[i][1].test(low)) return rules[i][0]; }
-    return (cat&&cat.filtros&&cat.filtros[0])||((cat&&cat.name)||'General');
+  animScroll(id,distance){
+    const element=document.getElementById(id);
+    if(!element)return;
+    const start=element.scrollLeft;
+    const target=Math.max(0,Math.min(start+distance,element.scrollWidth-element.clientWidth));
+    const started=(performance&&performance.now)?performance.now():Date.now();
+    const step=(now)=>{
+      const current=(performance&&performance.now)?now:Date.now();
+      let amount=Math.min(1,(current-started)/320);
+      amount=amount<.5?2*amount*amount:1-Math.pow(-2*amount+2,2)/2;
+      element.scrollLeft=start+(target-start)*amount;
+      if(amount<1)requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   }
-  animScroll(id,d){ const e=document.getElementById(id); if(!e) return; const start=e.scrollLeft, target=Math.max(0,Math.min(start+d,e.scrollWidth-e.clientWidth)), t0=(performance&&performance.now)?performance.now():Date.now(), dur=320; const step=(now)=>{ const n=(performance&&performance.now)?now:Date.now(); let k=Math.min(1,(n-t0)/dur); k=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; e.scrollLeft=start+(target-start)*k; if(k<1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
+  icon(key,size){
+    const icons={
+      neumatica:'<rect x="2" y="9" width="13" height="6" rx="1"/><path d="M15 11h4M15 13h4"/>',
+      sensores:'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>',
+      amortiguacion:'<path d="M5 7h10v10H5zM15 10h5v4h-5M2 9v6"/>',
+      hidraulica:'<path d="M12 3c3 4 5 6 5 9a5 5 0 0 1-10 0c0-3 2-5 5-9Z"/>',
+      movimiento:'<path d="M3 14h18"/><rect x="8" y="9" width="8" height="5" rx="1"/>',
+      motores:'<circle cx="12" cy="12" r="7"/><path d="M12 5v14M5 12h14"/>',
+      electrico:'<path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/>',
+      termico:'<path d="M9 5a3 3 0 0 1 6 0v8.2a5 5 0 1 1-6 0Z"/><path d="M12 7v9"/>',
+      hmi:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
+      'control-maquina':'<path d="M4 7l8-4 8 4-8 4Z"/><path d="M4 7v10l8 4 8-4V7"/>',
+      'por-identificar':'<circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.5 2.1c-.9.5-1.3 1-1.3 2M12 17h.01"/>'
+    };
+    return React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="'+(size||18)+'" height="'+(size||18)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+(icons[key]||icons['por-identificar'])+'</svg>'}});
+  }
+  image(source,alt,height,eager){
+    return React.createElement('img',{src:source,alt:alt||'',loading:eager?'eager':'lazy',decoding:'async',style:{maxWidth:'100%',maxHeight:(height||100)+'px',objectFit:'contain'}});
+  }
+  money(price){
+    if(!(price>0))return 'Precio a consultar';
+    try{return new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2,maximumFractionDigits:2}).format(price)+' MXN';}
+    catch(error){return '$'+Number(price).toFixed(2)+' MXN';}
+  }
   renderVals(){
-    const m=this.state.isMobile, active=this.state.active, q=(this.state.query||'').trim();
-    const base={ isMobile:m, notMobile:!m, mobileMenuOpen:m&&this.state.mobileMenuOpen, toggleMobileMenu:e=>this.toggleMobileMenu(e), closeMobileMenu:()=>this.closeMobileMenu(), mobileMenuCats:[], mobileMenuProducts:[], cartCount:this.state.cartN||0, hasCart:(this.state.cartN||0)>0, waSticky:this.wa('Hola KDL, quiero cotizar productos del catálogo. ¿Me ayudan a identificar la pieza?') };
-    const K=(typeof window!=='undefined')?window.KDL:null;
-    const icon=(p,sz)=>React.createElement('span',{style:{display:'flex'},dangerouslySetInnerHTML:{__html:'<svg width="'+(sz||18)+'" height="'+(sz||18)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">'+p+'</svg>'}});
-    const I={neumatica:'<rect x="2" y="9" width="13" height="6" rx="1"/><path d="M15 11h4M15 13h4"/>',hidraulica:'<path d="M12 3c3 4 5 6 5 9a5 5 0 0 1-10 0c0-3 2-5 5-9Z"/>',sensores:'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>',automatizacion:'<rect x="4" y="4" width="16" height="12" rx="1"/><path d="M8 20h8M12 16v4"/>',movimiento:'<path d="M3 14h18"/><rect x="8" y="9" width="8" height="5" rx="1"/>',corte:'<path d="M12 3 3 8v8l9 5 9-5V8Z"/>',iqf:'<path d="M12 2v20M4 7l16 10M20 7 4 17"/>',electrico:'<path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/>',suministros:'<path d="M4 7l8-4 8 4-8 4Z"/><path d="M4 7v10l8 4 8-4V7"/>'};
-    const imgEl=(k,h,alt)=>{ const src=(K&&K.img[k])?K.img[k]:k; return src?React.createElement('img',{src:src,alt:alt||'',loading:'lazy',decoding:'async',style:{maxWidth:'100%',maxHeight:(h||74)+'px',objectFit:'contain'}}):icon(I[k]||'',40); };
-    if(!K){ return {...base, isLanding:true, notLanding:false, menuOpen:false, landingCats:[], navTiles:[], menuCats:[], hoverProducts:[], searchResults:[] }; }
-    const cats=K.cats, byKey={}; cats.forEach(c=>byKey[c.key]=c);
-    const href=(catKey,p)=>'Producto.dc.html?cat='+catKey+'&p='+p.slug;
-    const quoteHref=(catKey,p)=>'Cesta.dc.html?add='+encodeURIComponent(catKey+':'+p.slug);
+    const mobile=this.state.isMobile;
+    const query=(this.state.query||'').trim();
+    const inventory=(typeof window!=='undefined')?window.KDLInventory:null;
+    const base={
+      isMobile:mobile,
+      notMobile:!mobile,
+      mobileMenuOpen:mobile&&this.state.mobileMenuOpen,
+      toggleMobileMenu:event=>this.toggleMobileMenu(event),
+      closeMobileMenu:()=>this.closeMobileMenu(),
+      mobileMenuCats:[],mobileMenuProducts:[],
+      cartCount:this.state.cartN||0,
+      hasCart:(this.state.cartN||0)>0,
+      waSticky:this.wa('Hola KDL, quiero cotizar productos del catálogo. ¿Me ayudan a validar el modelo exacto?')
+    };
+    if(!inventory){
+      return {...base,isLanding:true,notLanding:false,menuOpen:false,landingCats:[],navTiles:[],menuCats:[],hoverProducts:[],sideItems:[],activeProducts:[],suggested:[],searchResults:[],categoryOptions:[],brandOptions:[],typeOptions:[],statTotal:'—',statVerified:'—',statInStock:'—',statBrands:'—'};
+    }
+    const categories=inventory.categories||[];
+    const products=inventory.products||[];
+    const byKey={};
+    categories.forEach(category=>{ byKey[category.key]={...category,products:inventory.byCategory(category.key)}; });
+    const active=this.state.active&&byKey[this.state.active]?this.state.active:null;
+    const productHref=product=>'Producto.dc.html?sku='+encodeURIComponent(product.sku);
+    const quoteHref=product=>'Cesta.dc.html?add='+encodeURIComponent(product.categoryKey+':'+product.slug);
+    const unique=values=>Array.from(new Set(values.filter(Boolean))).sort((a,b)=>a.localeCompare(b,'es'));
+    const stockText=product=>product.stock>0?(product.stock+' '+product.unit+' disponible'+(product.stock===1?'':'s')):'Consultar disponibilidad';
+    const photoInfo=product=>product.imageKind==='exact'
+      ?{label:'Foto del modelo',className:'kdl-photo-badge kdl-photo-badge--exact'}
+      :product.imageKind==='family'
+        ?{label:'Foto de familia',className:'kdl-photo-badge kdl-photo-badge--family'}
+        :{label:'Imagen de referencia',className:'kdl-photo-badge kdl-photo-badge--reference'};
 
-    const navTiles=cats.map(c=>{ const on=c.key===active; return { name:c.name, media:imgEl(c.key,74), onClick:()=>this.setActive(c.key), tileStyle:'flex:0 0 148px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;border-radius:14px;cursor:pointer;border:1px solid '+(on?'#2E7DF2':'transparent')+';background:'+(on?'#EAF1FB':'transparent') }; });
-    const landingCats=cats.map(c=>({ name:c.name, intro:c.intro, count:c.products.length, media:imgEl(c.key,108), icon:icon(I[c.key],18), onOpen:()=>this.setActive(c.key) }));
+    const navTiles=categories.map(category=>{
+      const selected=category.key===active;
+      return {
+        name:category.name,
+        media:this.image(category.image,category.name,74),
+        onClick:()=>this.setActive(category.key),
+        tileStyle:'flex:0 0 148px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;border-radius:14px;cursor:pointer;border:1px solid '+(selected?'#2E7DF2':'transparent')+';background:'+(selected?'#EAF1FB':'transparent')
+      };
+    });
+    const landingCats=categories.map(category=>({
+      name:category.name,
+      intro:category.intro,
+      count:category.count,
+      media:this.image(category.image,category.name,138),
+      icon:this.icon(category.key,18),
+      onOpen:()=>this.setActive(category.key)
+    }));
 
-    // mega menu
-    const hoverCat=this.state.hoverCat, hc=byKey[hoverCat]||cats[0];
-    const menuCats=cats.map(c=>{ const on=c.key===hoverCat; return { name:c.name, icon:icon(I[c.key],17), onHover:()=>this.setState({hoverCat:c.key}), onOpen:()=>this.setActive(c.key), rowStyle:'display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;font-size:14px;font-weight:'+(on?'600':'500')+';cursor:pointer;'+(on?'background:#EAF1FB;color:#2E7DF2':'color:#3A4A5C') }; });
-    const hoverProducts=hc.products.map(p=>({ n:p.n, href:href(hc.key,p) }));
+    const hoverKey=byKey[this.state.hoverCat]?this.state.hoverCat:(categories[0]&&categories[0].key);
+    const hoverCategory=byKey[hoverKey]||{name:'Productos',products:[]};
+    const menuCats=categories.map(category=>{
+      const selected=category.key===hoverKey;
+      return {
+        name:category.name,
+        icon:this.icon(category.key,17),
+        onHover:()=>this.setState({hoverCat:category.key}),
+        onOpen:()=>this.setActive(category.key),
+        rowStyle:'display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;font-size:14px;font-weight:'+(selected?'700':'500')+';cursor:pointer;'+(selected?'background:#EAF1FB;color:#2E7DF2':'color:#3A4A5C')
+      };
+    });
+    const hoverProducts=hoverCategory.products.slice(0,12).map(product=>({n:product.model,href:productHref(product)}));
+    const sideItems=categories.map(category=>{
+      const selected=category.key===active;
+      return {
+        name:category.name,count:category.count,icon:this.icon(category.key,17),onClick:()=>this.setActive(category.key),
+        style:'display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:'+(selected?'700':'500')+';cursor:pointer;'+(selected?'background:#fff;color:#2E7DF2;box-shadow:0 2px 10px rgba(14,34,54,.06)':'color:#3A4A5C')
+      };
+    });
 
-    // active category view
-    const ac=active?byKey[active]:null;
-    const activeProducts=ac?ac.products.map(p=>({n:p.n,s:p.s,media:imgEl(p.img||ac.key,86,p.n),href:href(ac.key,p),quoteHref:quoteHref(ac.key,p),quoteLabel:'A\u00f1adir '+p.n+' a la cesta y revisar cotizaci\u00f3n'})):[];
-    const sideItems=cats.map(c=>{ const on=c.key===active; return { name:c.name, count:c.products.length, icon:icon(I[c.key],17), onClick:()=>this.setActive(c.key), style:'display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:'+(on?'600':'500')+';cursor:pointer;'+(on?'background:#fff;color:#2E7DF2;box-shadow:0 2px 10px rgba(14,34,54,.06)':'color:#3A4A5C') }; });
-    const relMap={neumatica:['hidraulica','movimiento','electrico'],hidraulica:['neumatica','automatizacion','electrico'],sensores:['automatizacion','electrico','neumatica'],automatizacion:['sensores','electrico','movimiento'],movimiento:['neumatica','automatizacion','corte'],corte:['movimiento','suministros','automatizacion'],iqf:['electrico','automatizacion','sensores'],electrico:['automatizacion','sensores','neumatica'],suministros:['neumatica','corte','electrico']};
-    const suggested=[]; if(ac){ (relMap[active]||[]).forEach(k=>{ const c=byKey[k]; if(!c)return; c.products.slice(0,2).forEach(p=>{ suggested.push({n:p.n, catName:c.name, media:imgEl(p.img||k,104,p.n), href:href(k,p)}); }); }); }
+    const activeCategory=active?byKey[active]:null;
+    const activeProducts=activeCategory?activeCategory.products.map(product=>{
+      const photo=photoInfo(product);
+      return {
+        n:product.model,title:product.title,s:product.summary,brand:product.brand,
+        media:this.image(product.image,product.imageAlt,170),
+        href:productHref(product),quoteHref:quoteHref(product),
+        quoteLabel:'Añadir '+product.model+' a la cesta y revisar cotización',
+        price:this.money(product.price),stockLabel:stockText(product),
+        stockClass:product.stock>0?'kdl-stock-badge kdl-stock-badge--available':'kdl-stock-badge kdl-stock-badge--consult',
+        photoLabel:photo.label,photoClass:photo.className
+      };
+    }):[];
+    const suggested=products
+      .filter(product=>!activeCategory||product.categoryKey!==activeCategory.key)
+      .sort((a,b)=>(b.stock>0)-(a.stock>0)||(a.imageKind==='exact'?0:1)-(b.imageKind==='exact'?0:1))
+      .slice(0,6)
+      .map(product=>({n:product.model,catName:product.categoryName,media:this.image(product.image,product.imageAlt,104),href:productHref(product)}));
 
-    // search + filters
-    const all=[]; cats.forEach(c=>c.products.forEach(p=>all.push({name:p.n, spec:p.s, catKey:c.key, catName:c.name, brand:c.brand||'KDL', type:this.inferType(p,c), slug:p.slug})));
-    const uniq=arr=>Array.from(new Set(arr.filter(Boolean))).sort((a,b)=>a.localeCompare(b,'es'));
-    const categoryOptions=cats.map(c=>({value:c.key,label:c.name}));
-    const brandOptions=uniq(all.map(x=>x.brand)).map(v=>({value:v,label:v}));
-    const typeOptions=uniq(all.map(x=>x.type)).map(v=>({value:v,label:v}));
-    const mobileMenuCats=cats.map(c=>({name:c.name,count:c.products.length,href:'Productos.dc.html?cat='+c.key}));
-    const mobileMenuProducts=[]; cats.forEach(c=>c.products.slice(0,2).forEach(p=>{ if(mobileMenuProducts.length<10) mobileMenuProducts.push({name:p.n,cat:c.name,href:href(c.key,p)}); }));
-    let searchResults=[];
-    const filterCat=this.state.filterCat||'', filterBrand=this.state.filterBrand||'', filterType=this.state.filterType||'';
+    const categoryOptions=categories.map(category=>({value:category.key,label:category.name+' ('+category.count+')'}));
+    const brandOptions=unique(products.map(product=>product.brand)).map(value=>({value,label:value}));
+    const typeOptions=[{value:'stock',label:'Con existencia'},{value:'consult',label:'Consultar disponibilidad'}];
+    const mobileMenuCats=categories.map(category=>({name:category.name,count:category.count,href:'Productos.dc.html?cat='+category.key}));
+    const mobileMenuProducts=products.filter(product=>product.stock>0).slice(0,10).map(product=>({name:product.model,cat:product.categoryName,href:productHref(product)}));
+
+    const filterCat=this.state.filterCat||'';
+    const filterBrand=this.state.filterBrand||'';
+    const filterType=this.state.filterType||'';
     const hasFilters=!!(filterCat||filterBrand||filterType);
-    const hasSearchState=q.length>0||hasFilters;
+    const hasSearchState=query.length>0||hasFilters;
+    const needle=query.toLocaleLowerCase('es');
+    let searchResults=[];
     if(hasSearchState){
-      const ql=q.toLowerCase();
-      searchResults=all.filter(x=>{
-        const hay=(x.name+' '+x.spec+' '+x.catName+' '+x.brand+' '+x.type).toLowerCase();
-        return (!ql||hay.includes(ql))&&(!filterCat||x.catKey===filterCat)&&(!filterBrand||x.brand===filterBrand)&&(!filterType||x.type===filterType);
+      searchResults=products.filter(product=>{
+        const text=[product.model,product.sku,product.title,product.summary,product.categoryName,product.brand].join(' ').toLocaleLowerCase('es');
+        const availability=!filterType||(filterType==='stock'?product.stock>0:product.stock<=0);
+        return (!needle||text.includes(needle))&&(!filterCat||product.categoryKey===filterCat)&&(!filterBrand||product.brand===filterBrand)&&availability;
       }).sort((a,b)=>{
-        const an=ql&&a.name.toLowerCase().startsWith(ql)?0:1, bn=ql&&b.name.toLowerCase().startsWith(ql)?0:1;
-        return an-bn || a.name.localeCompare(b.name,'es');
-      }).slice(0,12).map(x=>({name:x.name, sub:x.spec+' · '+x.brand+' · '+x.type, catName:x.catName, icon:icon(I[x.catKey],17), href:'Producto.dc.html?cat='+x.catKey+'&p='+x.slug}));
+        const aPrefix=needle&&(a.model.toLocaleLowerCase('es').startsWith(needle)||a.sku.toLocaleLowerCase('es').startsWith(needle))?0:1;
+        const bPrefix=needle&&(b.model.toLocaleLowerCase('es').startsWith(needle)||b.sku.toLocaleLowerCase('es').startsWith(needle))?0:1;
+        return aPrefix-bPrefix||a.model.localeCompare(b.model,'es');
+      }).slice(0,18).map(product=>({
+        name:product.model,
+        sub:product.sku+' · '+product.title+' · '+product.brand+' · '+stockText(product),
+        catName:product.categoryName,
+        media:this.image(product.image,'',48),
+        href:productHref(product)
+      }));
     }
 
     return {
       ...base,
-      isLanding: active===null, notLanding: active!==null,
-      menuOpen:this.state.menuOpen && !m,
-      goLanding:()=>this.setState({active:null, menuOpen:false, query:''}),
-      openMenu:()=>this.setState({menuOpen:true}), closeMenu:()=>this.setState({menuOpen:false}),
-      mobileMenuCats, mobileMenuProducts,
-      menuCats, hoverName:hc.name, hoverProducts, openHover:()=>this.setActive(hc.key),
-      navTiles, landingCats, sideItems,
-      catLeft:()=>this.animScroll('kdl-cat-strip',-320), catRight:()=>this.animScroll('kdl-cat-strip',320),
-      suggLeft:()=>this.animScroll('kdl-sugg-strip',-260), suggRight:()=>this.animScroll('kdl-sugg-strip',260),
-      activeName:ac?ac.name:'', activeIntro:ac?ac.intro:'', activeBrand:ac?ac.brand:'', activeIconLg:icon(I[active]||'',24),
-      activeProducts, suggested,
-      query:this.state.query, hasSearchState, hasFilters,
-      filterCat, filterBrand, filterType, categoryOptions, brandOptions, typeOptions,
-      onQuery:e=>this.setState({query:e.target.value}),
-      onFilterCat:e=>this.setState({filterCat:e.target.value}),
-      onFilterBrand:e=>this.setState({filterBrand:e.target.value}),
-      onFilterType:e=>this.setState({filterType:e.target.value}),
+      isLanding:active===null,notLanding:active!==null,
+      menuOpen:this.state.menuOpen&&!mobile,
+      goLanding:()=>this.goLanding(),openMenu:()=>this.setState({menuOpen:true}),closeMenu:()=>this.setState({menuOpen:false}),
+      mobileMenuCats,mobileMenuProducts,menuCats,hoverName:hoverCategory.name,hoverProducts,openHover:()=>this.setActive(hoverKey),
+      navTiles,landingCats,sideItems,
+      catLeft:()=>this.animScroll('kdl-cat-strip',-320),catRight:()=>this.animScroll('kdl-cat-strip',320),
+      suggLeft:()=>this.animScroll('kdl-sugg-strip',-260),suggRight:()=>this.animScroll('kdl-sugg-strip',260),
+      activeName:activeCategory?activeCategory.name:'',activeIntro:activeCategory?activeCategory.intro:'',activeBrand:activeCategory?(activeCategory.count+' modelos'):'',activeIconLg:this.icon(active||'por-identificar',24),
+      activeProducts,suggested,
+      statTotal:inventory.stats.total,statVerified:inventory.stats.verified,statInStock:inventory.stats.inStock,statBrands:inventory.stats.brands,
+      query:this.state.query,hasSearchState,hasFilters,filterCat,filterBrand,filterType,categoryOptions,brandOptions,typeOptions,
+      onQuery:event=>this.setState({query:event.target.value}),
+      onFilterCat:event=>this.setState({filterCat:event.target.value}),
+      onFilterBrand:event=>this.setState({filterBrand:event.target.value}),
+      onFilterType:event=>this.setState({filterType:event.target.value}),
       clearFilters:()=>this.setState({filterCat:'',filterBrand:'',filterType:''}),
       clearSearch:()=>this.setState({query:'',filterCat:'',filterBrand:'',filterType:''}),
-      searchResults, showResults:hasSearchState&&searchResults.length>0, showNoResults:hasSearchState&&searchResults.length===0,
+      searchResults,showResults:hasSearchState&&searchResults.length>0,showNoResults:hasSearchState&&searchResults.length===0,
       resultsLabel:searchResults.length+' resultado'+(searchResults.length===1?'':'s'),
-      noResultsTitle:q?('Sin coincidencias para "'+q+'".'):'Sin coincidencias con esos filtros.',
-      waQuery:this.wa('Hola KDL, busco: "'+(this.state.query||'productos del catálogo')+'". Filtros: categoría '+(filterCat||'todas')+', marca '+(filterBrand||'todas')+', tipo '+(filterType||'todos')+'. ¿Me ayudan a identificar la pieza o una alternativa compatible?')
+      noResultsTitle:query?('Sin coincidencias para "'+query+'".'):'Sin coincidencias con esos filtros.',
+      waQuery:this.wa('Hola KDL, busco: "'+(this.state.query||'productos del catálogo')+'". Categoría: '+(filterCat||'todas')+', marca: '+(filterBrand||'todas')+', disponibilidad: '+(filterType||'toda')+'. ¿Me ayudan a validar el modelo o una alternativa?')
     };
   }
 }

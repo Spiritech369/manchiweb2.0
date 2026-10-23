@@ -20,3 +20,14 @@ build/
 
 # Reference screenshots pasted during design reviews
 uploads/pasted-*.png
+
+# Local scratch / generated artifacts
+.codex-presentation-kdl/
+.codex-work/
+tmp/
+output/
+artifacts/
+kdl-*-desktop.png
+kdl-*-mobile.png
+kdl-*-tablet.png
+Presentacion_KDL_sitio_web.pptx*

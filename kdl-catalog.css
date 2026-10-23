@@ -380,3 +380,626 @@
   .kdl-flow-product-card { min-height:210px; }
   .kdl-flow-product-card__quote { min-height:48px; }
 }
+
+/* Inventory catalog redesign */
+.kdl-inventory-eyebrow {
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  margin-bottom:14px;
+  padding:5px 11px;
+  border:1px solid #C9DCF2;
+  border-radius:999px;
+  background:#EAF3FE;
+  color:#146BC0;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+}
+
+.kdl-inventory-title {
+  max-width:800px;
+  margin:0 0 15px;
+  color:#0E2236;
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(34px,5vw,62px);
+  font-weight:900;
+  letter-spacing:-2.4px;
+  line-height:.98;
+}
+
+.kdl-inventory-title span { color:#2E7DF2; }
+
+.kdl-inventory-lead {
+  max-width:760px;
+  margin:0;
+  color:#50647A;
+  font-size:clamp(16px,2vw,19px);
+  line-height:1.58;
+}
+
+.kdl-inventory-stats {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(120px,1fr));
+  max-width:820px;
+  margin-top:26px;
+  overflow:hidden;
+  border:1px solid #DCE6F1;
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 12px 30px rgba(14,34,54,.06);
+}
+
+.kdl-inventory-stat {
+  display:flex;
+  min-height:86px;
+  padding:16px 18px;
+  flex-direction:column;
+  justify-content:center;
+  border-right:1px solid #E5EBF2;
+}
+
+.kdl-inventory-stat:last-child { border-right:0; }
+.kdl-inventory-stat strong {
+  color:#0E2236;
+  font-family:'Archivo',sans-serif;
+  font-size:28px;
+  font-weight:900;
+  line-height:1;
+}
+.kdl-inventory-stat span {
+  margin-top:6px;
+  color:#708399;
+  font-size:12.5px;
+  font-weight:600;
+}
+
+.kdl-inventory-categories {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+
+.kdl-inventory-category {
+  position:relative;
+  display:grid;
+  min-height:240px;
+  overflow:hidden;
+  grid-template-columns:minmax(110px,42%) 1fr;
+  padding:0;
+  border:1px solid #DCE5EF;
+  border-radius:18px;
+  background:#fff;
+  color:#0E2236;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(14,34,54,.045);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+
+.kdl-inventory-category:hover {
+  border-color:#8EB8E8;
+  box-shadow:0 18px 38px rgba(14,34,54,.11);
+  transform:translateY(-4px);
+}
+
+.kdl-inventory-category__media {
+  position:relative;
+  display:flex;
+  min-height:240px;
+  padding:24px 12px;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#E8F3FE,#F8FBFF 64%);
+}
+
+.kdl-inventory-category__media::after {
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(46,125,242,.11);
+  border-radius:13px;
+  content:'';
+  pointer-events:none;
+}
+
+.kdl-inventory-category__media img {
+  position:relative;
+  z-index:1;
+  max-width:100%;
+  filter:drop-shadow(0 12px 13px rgba(14,34,54,.17));
+  transition:transform .2s ease;
+}
+
+.kdl-inventory-category:hover .kdl-inventory-category__media img { transform:scale(1.045); }
+
+.kdl-inventory-category__content {
+  display:flex;
+  min-width:0;
+  padding:22px 20px;
+  flex-direction:column;
+}
+
+.kdl-inventory-category__top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.kdl-inventory-category__icon {
+  display:flex;
+  width:34px;
+  height:34px;
+  border-radius:9px;
+  align-items:center;
+  justify-content:center;
+  background:#EAF3FE;
+  color:#2E7DF2;
+}
+
+.kdl-inventory-category__count {
+  color:#71859C;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;
+  font-weight:600;
+}
+
+.kdl-inventory-category__name {
+  margin-top:20px;
+  color:#0E2236;
+  font-family:'Archivo',sans-serif;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:-.4px;
+  line-height:1.08;
+}
+
+.kdl-inventory-category__intro {
+  display:-webkit-box;
+  margin-top:8px;
+  overflow:hidden;
+  color:#687A8E;
+  font-size:13px;
+  line-height:1.45;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+}
+
+.kdl-inventory-category__link {
+  display:inline-flex;
+  margin-top:auto;
+  padding-top:16px;
+  align-items:center;
+  gap:7px;
+  color:#176FC6;
+  font-size:13px;
+  font-weight:800;
+}
+
+.kdl-inventory-grid-shell { width:100%; }
+.kdl-inventory-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+
+.kdl-flow-product-card {
+  min-height:460px;
+  border-radius:16px;
+}
+
+.kdl-flow-product-card__detail { padding:14px 16px 17px; }
+
+.kdl-flow-product-card__media {
+  position:relative;
+  height:184px;
+  margin:-2px -2px 14px;
+  padding:17px;
+  overflow:hidden;
+  border-radius:12px;
+  background:linear-gradient(145deg,#F8FAFD,#EAF2FA)!important;
+}
+
+.kdl-flow-product-card__media img {
+  filter:drop-shadow(0 12px 12px rgba(14,34,54,.14));
+  transition:transform .2s ease;
+}
+
+.kdl-flow-product-card:hover .kdl-flow-product-card__media img { transform:scale(1.035); }
+
+.kdl-photo-badge {
+  position:absolute;
+  right:8px;
+  bottom:8px;
+  z-index:2;
+  display:inline-flex;
+  padding:4px 7px;
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:6px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.25px;
+  backdrop-filter:blur(7px);
+}
+
+.kdl-photo-badge--exact { background:rgba(218,245,228,.92);color:#17603A; }
+.kdl-photo-badge--family { background:rgba(234,243,254,.94);color:#185FAD; }
+.kdl-photo-badge--reference { background:rgba(247,240,226,.94);color:#79551B; }
+
+.kdl-flow-product-card__badges {
+  display:flex;
+  min-height:25px;
+  margin-bottom:10px;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.kdl-product-brand,
+.kdl-stock-badge {
+  display:inline-flex;
+  min-width:0;
+  padding:4px 7px;
+  border-radius:6px;
+  font-size:10.5px;
+  font-weight:800;
+  line-height:1.25;
+}
+
+.kdl-product-brand {
+  overflow:hidden;
+  background:#EDF3FA;
+  color:#445A72;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.kdl-stock-badge { text-align:right; }
+.kdl-stock-badge--available { background:#E5F6EA;color:#17603A; }
+.kdl-stock-badge--consult { background:#F7EDE3;color:#874E1B; }
+
+.kdl-flow-product-card__name {
+  margin-bottom:5px;
+  font-size:18px;
+  font-weight:900;
+  overflow-wrap:anywhere;
+}
+
+.kdl-flow-product-card__title {
+  margin-bottom:7px;
+  color:#3F5267;
+  font-size:13.5px;
+  font-weight:700;
+  line-height:1.35;
+}
+
+.kdl-flow-product-card__spec {
+  display:-webkit-box;
+  overflow:hidden;
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:12.5px;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+}
+
+.kdl-flow-product-card__price {
+  margin-top:12px;
+  color:#0E2236;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;
+  font-weight:800;
+}
+
+.kdl-flow-product-card__link { margin-top:8px; }
+.kdl-flow-product-card > .kdl-flow-product-card__quote { background-color:#123B65!important;background-image:none!important; }
+.kdl-flow-product-card > .kdl-flow-product-card__quote:hover { background-color:#0B3154!important; }
+.kdl-flow-product-card .kdl-flow-product-card__media { background-color:#F1F6FB!important;background-image:linear-gradient(145deg,#F8FAFD,#EAF2FA)!important; }
+
+.kdl-catalog-result__icon {
+  width:56px;
+  height:56px;
+  overflow:hidden;
+  border:1px solid #E1E9F2;
+  background:#F7FAFD;
+}
+
+.kdl-catalog-result__icon img { max-width:48px!important;max-height:48px!important; }
+
+@media (max-width:1100px) {
+  .kdl-inventory-categories { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .kdl-inventory-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+@media (max-width:700px) {
+  .kdl-inventory-title { letter-spacing:-1.5px; }
+  .kdl-inventory-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .kdl-inventory-stat:nth-child(2) { border-right:0; }
+  .kdl-inventory-stat:nth-child(-n+2) { border-bottom:1px solid #E5EBF2; }
+  .kdl-inventory-categories,.kdl-inventory-grid { grid-template-columns:1fr; }
+  .kdl-inventory-category { grid-template-columns:138px 1fr;min-height:224px; }
+  .kdl-inventory-category__media { min-height:224px;padding:18px 10px; }
+  .kdl-inventory-category__content { padding:18px 16px; }
+  .kdl-inventory-category__name { margin-top:15px;font-size:18px; }
+  .kdl-flow-product-card { min-height:450px; }
+}
+
+@media (max-width:430px) {
+  .kdl-inventory-category { grid-template-columns:112px 1fr; }
+  .kdl-inventory-category__intro { -webkit-line-clamp:2; }
+  .kdl-inventory-category__count { font-size:9.5px; }
+}
+
+/* Inventory product detail */
+.kdl-product-detail {
+  display:grid;
+  grid-template-columns:minmax(340px,.92fr) minmax(420px,1.08fr);
+  max-width:1280px;
+  margin:0 auto;
+  padding:38px 22px 24px;
+  gap:42px;
+  align-items:start;
+}
+
+.kdl-product-detail__visual {
+  position:sticky;
+  top:92px;
+  margin:0;
+  overflow:hidden;
+  border:1px solid #DDE6EF;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 18px 46px rgba(14,34,54,.08);
+}
+
+.kdl-product-detail__media {
+  display:flex;
+  min-height:420px;
+  padding:42px;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at 55% 42%,#fff 0,#F5F9FD 58%,#EAF2F9 100%);
+}
+
+.kdl-product-detail__media img { filter:drop-shadow(0 22px 20px rgba(14,34,54,.18)); }
+
+.kdl-product-photo-note {
+  display:flex;
+  min-height:42px;
+  padding:10px 16px;
+  align-items:center;
+  justify-content:center;
+  border-top:1px solid #E5EBF2;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.35px;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.kdl-product-photo-note--exact { background:#EAF8EF;color:#17603A; }
+.kdl-product-photo-note--family { background:#EAF3FE;color:#185FAD; }
+.kdl-product-photo-note--reference { background:#F8F1E5;color:#79551B; }
+.kdl-product-detail__content { min-width:0; }
+
+.kdl-product-detail__badges {
+  display:flex;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+}
+
+.kdl-product-detail__brand,
+.kdl-product-validation {
+  display:inline-flex;
+  min-height:29px;
+  padding:6px 11px;
+  border-radius:999px;
+  align-items:center;
+  font-size:11.5px;
+  font-weight:800;
+}
+
+.kdl-product-detail__brand { background:#EAF3FE;color:#176FC6; }
+.kdl-product-validation--verified { background:#E5F6EA;color:#17603A; }
+.kdl-product-validation--partial { background:#F9EEDC;color:#81531B; }
+.kdl-product-validation--pending { background:#F3E7E5;color:#8B4139; }
+
+.kdl-product-detail__model {
+  margin:0 0 8px;
+  color:#0E2236;
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(34px,4.8vw,58px);
+  font-weight:900;
+  letter-spacing:-2px;
+  line-height:.98;
+  overflow-wrap:anywhere;
+}
+
+.kdl-product-detail__title {
+  color:#28455F;
+  font-family:'Archivo',sans-serif;
+  font-size:clamp(18px,2.3vw,24px);
+  font-weight:700;
+  line-height:1.22;
+}
+
+.kdl-product-detail__description {
+  max-width:720px;
+  margin:14px 0 22px;
+  color:#52677C;
+  font-size:15.5px;
+  line-height:1.62;
+}
+
+.kdl-product-commerce {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  margin-bottom:19px;
+  overflow:hidden;
+  border:1px solid #DCE5EF;
+  border-radius:13px;
+  background:#fff;
+}
+
+.kdl-product-commerce > div {
+  display:flex;
+  min-height:78px;
+  padding:13px 14px;
+  flex-direction:column;
+  justify-content:center;
+  border-right:1px solid #E6ECF2;
+}
+
+.kdl-product-commerce > div:last-child { border-right:0; }
+.kdl-product-commerce span { color:#71849A;font-size:11px;font-weight:700; }
+.kdl-product-commerce strong { margin-top:5px;color:#0E2236;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.35; }
+.kdl-product-stock--available { color:#177044!important; }
+.kdl-product-stock--consult { color:#8A551B!important; }
+
+.kdl-product-actions {
+  display:flex;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.kdl-product-action {
+  display:inline-flex;
+  min-height:48px;
+  padding:12px 16px;
+  border:1px solid transparent;
+  border-radius:9px;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font:800 13.5px/1.2 'IBM Plex Sans',sans-serif;
+  cursor:pointer;
+  transition:background .16s ease,border-color .16s ease,transform .16s ease;
+}
+
+.kdl-product-action:hover { transform:translateY(-1px); }
+.kdl-product-action--primary { background:#103E69;color:#fff; }
+.kdl-product-action--primary:hover { background:#0B3154; }
+.kdl-product-action--document { border-color:#2E7DF2;background:#EDF5FF;color:#1469BA; }
+.kdl-product-action--document:hover { background:#DFEDFE; }
+.kdl-product-action--secondary { border-color:#C8D5E3;background:#fff;color:#284E72; }
+.kdl-product-action--secondary:hover { border-color:#6A9ED1; }
+
+.kdl-product-added {
+  display:flex;
+  margin:-7px 0 18px;
+  padding:12px 14px;
+  border:1px solid #A8DDB6;
+  border-radius:10px;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:#EAF8EE;
+  color:#164C27;
+  font-size:13px;
+}
+.kdl-product-added a { font-weight:800;white-space:nowrap; }
+
+.kdl-product-data {
+  overflow:hidden;
+  border:1px solid #DDE6EF;
+  border-radius:14px;
+  background:#fff;
+}
+
+.kdl-product-data__head {
+  display:flex;
+  min-height:48px;
+  padding:12px 16px;
+  border-bottom:1px solid #E6ECF2;
+  align-items:center;
+  gap:8px;
+  color:#0E2236;
+  font-family:'Archivo',sans-serif;
+  font-size:14px;
+  font-weight:800;
+}
+.kdl-product-data__head span { display:flex;color:#2E7DF2; }
+.kdl-product-data__list { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0; }
+.kdl-product-data__list > div { min-width:0;padding:12px 16px;border-right:1px solid #EDF1F5;border-bottom:1px solid #EDF1F5; }
+.kdl-product-data__list > div:nth-child(2n) { border-right:0; }
+.kdl-product-data__list > div:nth-last-child(-n+2) { border-bottom:0; }
+.kdl-product-data__list dt { margin:0;color:#7A8DA2;font-size:10.5px;font-weight:700;text-transform:uppercase; }
+.kdl-product-data__list dd { margin:4px 0 0;color:#243C53;font-size:13px;font-weight:700;overflow-wrap:anywhere; }
+
+.kdl-product-verification {
+  display:flex;
+  margin-top:12px;
+  padding:13px 15px;
+  border-left:4px solid #E09A2F;
+  border-radius:0 10px 10px 0;
+  flex-direction:column;
+  gap:4px;
+  background:#FBF5E9;
+  color:#675126;
+  font-size:12.5px;
+  line-height:1.5;
+}
+.kdl-product-verification strong { color:#523E18;font-size:12px;text-transform:uppercase; }
+
+.kdl-product-support { max-width:1280px;margin:0 auto;padding:22px 22px 20px; }
+.kdl-product-support__grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px; }
+.kdl-product-support__card { display:flex;min-height:280px;padding:24px;border:1px solid #DDE6EF;border-radius:17px;flex-direction:column;background:#fff; }
+.kdl-product-support__eyebrow { margin-bottom:10px;color:#2E7DF2;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase; }
+.kdl-product-support__card h2 { margin:0 0 11px;color:#0E2236;font-family:'Archivo',sans-serif;font-size:21px;font-weight:800; }
+.kdl-product-support__card p { margin:0 0 15px;color:#65788C;font-size:13.5px;line-height:1.55; }
+.kdl-product-support__list { display:flex;flex-direction:column;gap:10px; }
+.kdl-product-support__list > div { display:flex;align-items:flex-start;gap:9px;color:#4A5D70;font-size:13.5px;line-height:1.45; }
+.kdl-product-support__check { display:flex;width:21px;height:21px;border-radius:6px;align-items:center;justify-content:center;flex-shrink:0;background:#EAF3FE;color:#2E7DF2;font-weight:900; }
+.kdl-product-support__copy { flex:1;min-width:0;color:#4A5D70;font-size:13.5px;line-height:1.45; }
+.kdl-product-support__links { display:flex;margin-top:auto;flex-direction:column;gap:8px; }
+.kdl-product-support__link { display:flex;min-height:41px;padding:10px 12px;border:1px solid #D7E1EC;border-radius:8px;align-items:center;justify-content:space-between;gap:10px;color:#24679F;font-size:12.5px;font-weight:800; }
+.kdl-product-support__link--primary { border-color:#123B65;background:#123B65;color:#fff; }
+.kdl-product-support__card small { display:block;margin-top:10px;color:#8A99AA;font-size:10.5px;line-height:1.4; }
+.kdl-product-support__grid > .kdl-product-support__card--dark { border-color:#193959;background-color:#071A2F!important;background-image:linear-gradient(145deg,#102C4C,#071A2F)!important;color:#fff; }
+.kdl-product-support__card--dark .kdl-product-support__eyebrow { color:#50C8EA; }
+.kdl-product-support__card--dark h2 { color:#fff!important; }
+.kdl-product-support__card--dark p { color:#B8C7D9!important; }
+.kdl-product-support__link--blue { margin-top:auto;border-color:#148BFF;background:#148BFF;color:#fff; }
+
+.kdl-product-related { max-width:1280px;margin:0 auto;padding:32px 22px 70px; }
+.kdl-product-related h2 { margin:0 0 18px;color:#0E2236;font-family:'Archivo',sans-serif;font-size:clamp(21px,2.6vw,29px);font-weight:800;letter-spacing:-.5px; }
+.kdl-product-related__grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px; }
+.kdl-product-related__card { display:grid;min-height:160px;padding:14px;border:1px solid #E0E7EF;border-radius:14px;grid-template-columns:92px 1fr;grid-template-rows:auto 1fr auto;column-gap:14px;background:#fff;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease; }
+.kdl-product-related__card:hover { border-color:#8EB8E8;box-shadow:0 12px 26px rgba(14,34,54,.09);transform:translateY(-2px); }
+.kdl-product-related__media { display:flex;width:92px;height:116px;padding:8px;border-radius:10px;grid-row:1/4;align-items:center;justify-content:center;background:#F2F7FB; }
+.kdl-product-related__card .kdl-product-related__media { background-color:#F2F7FB!important; }
+.kdl-product-related__media img { max-width:100%!important;max-height:100%!important; }
+.kdl-product-related__model { color:#0E2236;font-family:'Archivo',sans-serif;font-size:15px;font-weight:900;overflow-wrap:anywhere; }
+.kdl-product-related__title { margin-top:5px;color:#687A8E;font-size:12px;line-height:1.35; }
+.kdl-product-related__card > span { align-self:end;color:#2E7DF2;font-size:12px;font-weight:800; }
+.kdl-product-related__back { display:inline-flex;margin-top:22px;color:#2E7DF2;font-size:14px;font-weight:800; }
+
+@media (max-width:1000px) {
+  .kdl-product-detail { grid-template-columns:1fr;gap:24px; }
+  .kdl-product-detail__visual { position:relative;top:auto; }
+  .kdl-product-detail__media { min-height:360px; }
+  .kdl-product-support__grid { grid-template-columns:1fr 1fr; }
+  .kdl-product-support__card--dark { grid-column:1/-1;min-height:220px; }
+  .kdl-product-related__grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+@media (max-width:640px) {
+  .kdl-product-detail { padding:24px 14px 16px; }
+  .kdl-product-detail__media { min-height:300px;padding:28px; }
+  .kdl-product-detail__model { letter-spacing:-1.3px; }
+  .kdl-product-commerce { grid-template-columns:1fr; }
+  .kdl-product-commerce > div { min-height:66px;border-right:0;border-bottom:1px solid #E6ECF2; }
+  .kdl-product-commerce > div:last-child { border-bottom:0; }
+  .kdl-product-action { width:100%; }
+  .kdl-product-added { align-items:flex-start;flex-direction:column; }
+  .kdl-product-support { padding:16px 14px; }
+  .kdl-product-support__grid,.kdl-product-related__grid { grid-template-columns:1fr; }
+  .kdl-product-support__card--dark { grid-column:auto; }
+  .kdl-product-related { padding:28px 14px 60px; }
+}

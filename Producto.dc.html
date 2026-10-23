@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
+<script src="./kdl-inventory-data.js?v=1"></script>
 <script src="./kdl-site-header.js?v=13" defer></script>
 <script src="./kdl-schema.js?v=2" defer></script>
 <link rel="stylesheet" href="./kdl-catalog.css">
@@ -76,64 +77,74 @@
 </section>
 
 <!-- DETALLE -->
-<section style="max-width:1280px;margin:0 auto;padding:34px 22px 20px;display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start">
-  <!-- media -->
-  <div style="flex:1 1 380px;min-width:300px;background:#fff;border:1px solid #E3E9F1;border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:center;min-height:340px">{{ media }}</div>
-  <!-- info -->
-  <div style="flex:1 1 420px;min-width:300px">
-    <sc-if value="{{ brand }}" hint-placeholder-val=""><span style="display:inline-flex;align-items:center;gap:7px;background:#EAF1FB;border-radius:100px;padding:6px 13px;font-size:13px;font-weight:600;color:#2E7DF2;margin-bottom:14px"><span style="width:7px;height:7px;border-radius:50%;background:#2E7DF2"></span>{{ brand }}</span></sc-if>
-    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(28px,4vw,42px);line-height:1.05;letter-spacing:-1px;color:#0E2236;margin:0 0 12px">{{ prodName }}</h1>
-    <div style="font-family:'IBM Plex Mono';font-size:15px;color:#5A6B80;margin-bottom:18px">{{ prodSpec }}</div>
-    <p style="font-size:16px;line-height:1.6;color:#3A4A5C;margin:0 0 24px">{{ prodDesc }}</p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px">
-      <button onClick="{{ addToCart }}" style="display:inline-flex;align-items:center;gap:9px;border:1px solid #1F4E79;background:#1F4E79;color:#fff;font-weight:800;font-size:15px;padding:15px 22px;border-radius:7px;cursor:pointer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M12 9v6M9 12h6"/></svg>{{ addCartLabel }}</button>
-      <a href="{{ waFoto }}" target="_blank" style="display:inline-flex;align-items:center;gap:9px;border:1.5px solid #DDE4EE;color:#2E7DF2;font-weight:700;font-size:15px;padding:15px 22px;border-radius:12px" style-hover="border-color:#2E7DF2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="m4 18 5-4 4 3 3-3 4 3"/></svg>Enviar foto o No. de parte</a>
+<section class="kdl-product-detail">
+  <figure class="kdl-product-detail__visual">
+    <div class="kdl-product-detail__media">{{ media }}</div>
+    <figcaption class="{{ imageNoteClass }}">{{ imageNote }}</figcaption>
+  </figure>
+  <div class="kdl-product-detail__content">
+    <div class="kdl-product-detail__badges">
+      <span class="kdl-product-detail__brand">{{ brand }}</span>
+      <span class="{{ validationClass }}">{{ validationLabel }}</span>
     </div>
+    <h1 class="kdl-product-detail__model">{{ prodName }}</h1>
+    <div class="kdl-product-detail__title">{{ prodSpec }}</div>
+    <p class="kdl-product-detail__description">{{ prodDesc }}</p>
+
+    <div class="kdl-product-commerce" aria-label="Precio y disponibilidad">
+      <div><span>Precio unitario</span><strong>{{ priceLabel }}</strong></div>
+      <div><span>Existencia</span><strong class="{{ stockValueClass }}">{{ stockLabel }}</strong></div>
+      <div><span>Clave KDL</span><strong>{{ sku }}</strong></div>
+    </div>
+
+    <div class="kdl-product-actions">
+      <button class="kdl-product-action kdl-product-action--primary" onClick="{{ addToCart }}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M12 9v6M9 12h6"/></svg>{{ addCartLabel }}</button>
+      <sc-if value="{{ hasTechnical }}" hint-placeholder-val="{{ true }}"><a class="kdl-product-action kdl-product-action--document" href="{{ technicalUrl }}" target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l4 4v16H6z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></svg>{{ technicalLabel }}</a></sc-if>
+      <a class="kdl-product-action kdl-product-action--secondary" href="{{ waCotizar }}" target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp</a>
+    </div>
+
     <sc-if value="{{ added }}" hint-placeholder-val="">
-      <div role="status" aria-live="polite" style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#EAF8EE;border:1px solid #A8DDB6;border-radius:12px;padding:13px 15px;margin:-12px 0 22px;color:#164C27">
-        <span><strong>Producto a&ntilde;adido.</strong> Puedes seguir explorando o revisar cantidades antes de enviar.</span>
-        <a href="Cesta.dc.html" style="display:inline-flex;min-height:44px;align-items:center;color:#0E5A27;font-weight:800">Revisar cesta &rarr;</a>
-      </div>
+      <div class="kdl-product-added" role="status" aria-live="polite"><span><strong>Producto añadido.</strong> Puedes ajustar la cantidad antes de enviar.</span><a href="Cesta.dc.html">Revisar cesta →</a></div>
     </sc-if>
-    <!-- datos -->
-    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:20px 22px;margin-bottom:14px">
-      <div style="display:flex;align-items:center;gap:8px;font-family:'Archivo';font-weight:700;font-size:15px;color:#0E2236;margin-bottom:12px"><span style="display:flex;color:#2E7DF2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Datos para cotizar</div>
-      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ datos }}" as="d" hint-placeholder-count="5"><div style="display:flex;gap:9px;font-size:14px;color:#4A5A6C;line-height:1.4"><span style="color:#2E7DF2;flex-shrink:0">›</span>{{ d }}</div></sc-for></div>
+
+    <div class="kdl-product-data">
+      <div class="kdl-product-data__head"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Datos del inventario</div>
+      <dl class="kdl-product-data__list">
+        <sc-for list="{{ datos }}" as="d" hint-placeholder-count="6"><div><dt>{{ d.label }}</dt><dd>{{ d.value }}</dd></div></sc-for>
+      </dl>
     </div>
-    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:20px 22px">
-      <div style="display:flex;align-items:center;gap:8px;font-family:'Archivo';font-weight:700;font-size:15px;color:#0E2236;margin-bottom:12px"><span style="display:flex;color:#E0852C"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>Fallas comunes</div>
-      <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ fallas }}" as="f" hint-placeholder-count="3"><div style="display:flex;gap:9px;font-size:14px;color:#4A5A6C;line-height:1.4"><span style="color:#E0852C;flex-shrink:0">›</span>{{ f }}</div></sc-for></div>
-    </div>
+    <div class="kdl-product-verification"><strong>Antes de instalar</strong><span>{{ verificationNote }}</span></div>
   </div>
 </section>
 
 <!-- INFORMACIÓN TÉCNICA Y SOPORTE -->
-<section style="max-width:1280px;margin:0 auto;padding:18px 22px 20px">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
-    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:22px">
-      <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#2E7DF2;text-transform:uppercase;margin-bottom:9px">Aplicaciones</div>
-      <h2 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#0E2236;margin:0 0 14px">Dónde suele utilizarse</h2>
-      <div style="display:flex;flex-direction:column;gap:9px">
-        <sc-for list="{{ aplicaciones }}" as="a" hint-placeholder-count="3">
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:14px;line-height:1.45;color:#4A5A6C"><span style="display:flex;width:21px;height:21px;border-radius:6px;background:#EAF1FB;color:#2E7DF2;align-items:center;justify-content:center;flex-shrink:0">✓</span>{{ a }}</div>
-        </sc-for>
+<section class="kdl-product-support">
+  <div class="kdl-product-support__grid">
+    <article class="kdl-product-support__card">
+      <div class="kdl-product-support__eyebrow">Aplicaciones</div>
+      <h2>Dónde suele utilizarse</h2>
+      <div class="kdl-product-support__list">
+        <sc-for list="{{ aplicaciones }}" as="a" hint-placeholder-count="3"><div><span class="kdl-product-support__check">✓</span><span class="kdl-product-support__copy">{{ a }}</span></div></sc-for>
       </div>
-    </div>
-    <div style="background:#fff;border:1px solid #E3E9F1;border-radius:16px;padding:22px">
-      <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#2E7DF2;text-transform:uppercase;margin-bottom:9px">Documentación</div>
-      <h2 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#0E2236;margin:0 0 8px">Valida antes de comprar</h2>
-      <p style="font-size:14px;line-height:1.5;color:#5A6B80;margin:0 0 15px">Solicita la ficha técnica correspondiente a la marca y modelo exactos.</p>
-      <div style="display:flex;flex-direction:column;gap:9px">
-        <a href="{{ waDocumento }}" target="_blank" style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:#0E2236;color:#fff;border-radius:9px;padding:12px 14px;font-size:13.5px;font-weight:700">Pedir documentación oficial <span>→</span></a>
-        <a href="Catalogos.dc.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #DDE4EE;color:#2E7DF2;border-radius:9px;padding:12px 14px;font-size:13.5px;font-weight:700">Ir al centro documental <span>→</span></a>
+    </article>
+    <article class="kdl-product-support__card">
+      <div class="kdl-product-support__eyebrow">Documentación</div>
+      <h2>Valida el modelo exacto</h2>
+      <p>Consulta la fuente localizada para este modelo y confirma sufijos, montaje y condiciones de operación.</p>
+      <div class="kdl-product-support__links">
+        <sc-if value="{{ hasTechnical }}" hint-placeholder-val="{{ true }}"><a class="kdl-product-support__link kdl-product-support__link--primary" href="{{ technicalUrl }}" target="_blank" rel="noopener noreferrer">{{ technicalLabel }} <span>↗</span></a></sc-if>
+        <sc-if value="{{ hasSource }}" hint-placeholder-val=""><a class="kdl-product-support__link" href="{{ sourceUrl }}" target="_blank" rel="noopener noreferrer">Fuente del producto <span>↗</span></a></sc-if>
+        <sc-if value="{{ noTechnical }}" hint-placeholder-val=""><a class="kdl-product-support__link kdl-product-support__link--primary" href="{{ waDocumento }}" target="_blank" rel="noopener noreferrer">Solicitar ficha técnica <span>→</span></a></sc-if>
+        <a class="kdl-product-support__link" href="Catalogos.dc.html">Centro documental KDL <span>→</span></a>
       </div>
-    </div>
-    <div style="background:linear-gradient(145deg,#102C4C,#0B1F38);border:1px solid rgba(127,180,232,.2);border-radius:16px;padding:22px;color:#fff">
-      <div style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;color:#39A0FF;text-transform:uppercase;margin-bottom:9px">Compatibilidad</div>
-      <h2 style="font-family:'Archivo';font-weight:800;font-size:20px;color:#fff;margin:0 0 8px">¿El modelo cambió o está descontinuado?</h2>
-      <p style="font-size:14px;line-height:1.5;color:#B8C7D9;margin:0 0 15px">Comparamos medidas, montaje, conexión y condiciones de trabajo antes de sugerir una alternativa.</p>
-      <a href="Compatibilidad.dc.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:#148BFF;color:#fff;border-radius:9px;padding:12px 14px;font-size:13.5px;font-weight:800">Buscar alternativa <span>→</span></a>
-    </div>
+      <small>{{ sourceNote }}</small>
+    </article>
+    <article class="kdl-product-support__card kdl-product-support__card--dark">
+      <div class="kdl-product-support__eyebrow">Compatibilidad</div>
+      <h2>¿Cambió el modelo?</h2>
+      <p>Comparamos medidas, montaje, conexión y condiciones de trabajo antes de proponer una alternativa.</p>
+      <a class="kdl-product-support__link kdl-product-support__link--blue" href="Compatibilidad.dc.html">Buscar alternativa <span>→</span></a>
+    </article>
   </div>
 </section>
 
@@ -154,20 +165,20 @@
 </section>
 
 <!-- RELACIONADOS -->
-<section style="max-width:1280px;margin:0 auto;padding:30px 22px 70px">
-  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(20px,2.6vw,28px);letter-spacing:-.5px;color:#0E2236;margin:0 0 18px">Otros productos en {{ catName }}</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:14px">
+<section class="kdl-product-related">
+  <h2>Otros modelos en {{ catName }}</h2>
+  <div class="kdl-product-related__grid">
     <sc-for list="{{ related }}" as="r" hint-placeholder-count="6">
-      <a href="{{ r.href }}" style="background:#fff;border:1px solid #E3E9F1;border-radius:14px;padding:18px;display:flex;flex-direction:column;min-height:150px" style-hover="border-color:#2E7DF2;box-shadow:0 14px 30px rgba(14,34,54,.1);transform:translateY(-3px)">
-        <div style="font-family:'Archivo';font-weight:700;font-size:15.5px;line-height:1.2;color:#0E2236;margin-bottom:6px">{{ r.n }}</div>
-        <div style="font-family:'IBM Plex Mono';font-size:12px;line-height:1.5;color:#7E93AC;flex:1">{{ r.s }}</div>
-        <div style="margin-top:12px;display:inline-flex;align-items:center;gap:6px;color:#2E7DF2;font-weight:700;font-size:13px" style-hover="gap:10px">Ver producto<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <a class="kdl-product-related__card" href="{{ r.href }}">
+        <div class="kdl-product-related__media">{{ r.media }}</div>
+        <div class="kdl-product-related__model">{{ r.n }}</div>
+        <div class="kdl-product-related__title">{{ r.s }}</div>
+        <span>Ver ficha →</span>
       </a>
     </sc-for>
   </div>
-  <a href="{{ catHref }}" style="display:inline-flex;align-items:center;gap:7px;margin-top:22px;color:#2E7DF2;font-weight:700;font-size:15px" style-hover="gap:11px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 6-6 6 6 6"/></svg>Volver a {{ catName }}</a>
+  <a class="kdl-product-related__back" href="{{ catHref }}">← Volver a {{ catName }}</a>
 </section>
-</sc-if>
 
 <!-- NOT FOUND -->
 <sc-if value="{{ notFound }}" hint-placeholder-val="">
@@ -195,68 +206,159 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000, mobileMenuOpen:false, cartN:this.cartCount(), added:false, faqOpen:-1, ready:(typeof window!=='undefined'&&!!window.KDL)}; }
-  componentDidMount(){
-    this._r=()=>{const m=window.innerWidth<1000; if(m!==this.state.isMobile)this.setState({isMobile:m,mobileMenuOpen:false});};
-    window.addEventListener('resize',this._r);
-    this._cart=()=>this.setState({cartN:this.cartCount()}); window.addEventListener('storage',this._cart);
-    if(!window.KDL){ let n=0; this._t=setInterval(()=>{ if(window.KDL||n++>40){ clearInterval(this._t); this.setState({ready:true}); } },80); }
-    window.addEventListener('hashchange',()=>this.forceUpdate());
+  constructor(props){
+    super(props);
+    const width=(typeof window!=='undefined')?window.innerWidth:1280;
+    this.state={isMobile:width<1000,mobileMenuOpen:false,cartN:this.cartCount(),added:false,faqOpen:-1,ready:(typeof window!=='undefined'&&!!window.KDLInventory)};
   }
-  componentWillUnmount(){ window.removeEventListener('resize',this._r); if(this._cart) window.removeEventListener('storage',this._cart); if(this._t) clearInterval(this._t); }
-  wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
-  cartCount(){ try{ return JSON.parse(localStorage.getItem('kdl_cart')||'[]').reduce((a,b)=>a+(b.qty||1),0); }catch(e){ return 0; } }
+  componentDidMount(){
+    this._resize=()=>{ const mobile=window.innerWidth<1000; if(mobile!==this.state.isMobile)this.setState({isMobile:mobile,mobileMenuOpen:false}); };
+    window.addEventListener('resize',this._resize);
+    this._cart=()=>this.setState({cartN:this.cartCount()});
+    window.addEventListener('storage',this._cart);
+    this._hash=()=>this.forceUpdate();
+    window.addEventListener('hashchange',this._hash);
+    if(!window.KDLInventory){
+      let attempts=0;
+      this._timer=setInterval(()=>{ if(window.KDLInventory||attempts++>40){ clearInterval(this._timer); this.setState({ready:true}); } },80);
+    }
+  }
+  componentWillUnmount(){
+    if(this._resize)window.removeEventListener('resize',this._resize);
+    if(this._cart)window.removeEventListener('storage',this._cart);
+    if(this._hash)window.removeEventListener('hashchange',this._hash);
+    if(this._timer)clearInterval(this._timer);
+  }
+  wa(text){ return 'https://wa.me/528112273382?text='+encodeURIComponent(text); }
+  cartCount(){ try{ return JSON.parse(localStorage.getItem('kdl_cart')||'[]').reduce((sum,item)=>sum+(item.qty||1),0); }catch(error){ return 0; } }
   saveCart(item){
     try{
       const cart=JSON.parse(localStorage.getItem('kdl_cart')||'[]');
-      const ix=cart.findIndex(x=>x.slug===item.slug&&x.cat===item.cat);
-      if(ix>=0) cart[ix]={...cart[ix],qty:(cart[ix].qty||1)+1};
+      const index=cart.findIndex(entry=>entry.slug===item.slug&&entry.cat===item.cat);
+      if(index>=0)cart[index]={...cart[index],qty:(cart[index].qty||1)+1};
       else cart.push({...item,qty:1});
       localStorage.setItem('kdl_cart',JSON.stringify(cart));
-    }catch(e){}
+    }catch(error){}
     this.setState({cartN:this.cartCount(),added:true});
   }
-  toggleMobileMenu(e){ if(e&&e.preventDefault)e.preventDefault(); this.setState(s=>({mobileMenuOpen:!s.mobileMenuOpen})); }
+  toggleMobileMenu(event){ if(event&&event.preventDefault)event.preventDefault(); this.setState(state=>({mobileMenuOpen:!state.mobileMenuOpen})); }
   closeMobileMenu(){ this.setState({mobileMenuOpen:false}); }
-  toggleFaq(i){ this.setState(s=>({faqOpen:s.faqOpen===i?-1:i})); }
-  params(){ try{ return new URLSearchParams(window.location.search); }catch(e){ return new URLSearchParams(''); } }
-  renderVals(){
-    const m=this.state.isMobile;
-    const base={ isMobile:m, notMobile:!m, mobileMenuOpen:m&&this.state.mobileMenuOpen, toggleMobileMenu:e=>this.toggleMobileMenu(e), closeMobileMenu:()=>this.closeMobileMenu(), mobileMenuCats:[], mobileMenuProducts:[], cartCount:this.state.cartN||0, hasCart:(this.state.cartN||0)>0, waSticky:this.wa('Hola KDL, quiero cotizar un producto del catálogo. ¿Me ayudan a identificar la pieza?') };
-    const K=(typeof window!=='undefined')?window.KDL:null;
-    if(!K){ return {...base, found:false, notFound:false, related:[], datos:[], fallas:[], aplicaciones:[], faqs:[]}; }
-    const cats=K.cats||[];
-    const productHref=(catKey,p)=>'Producto.dc.html?cat='+catKey+'&p='+p.slug;
-    const mobileMenuCats=cats.map(c=>({name:c.name,count:c.products.length,href:'Productos.dc.html?cat='+c.key}));
-    const mobileMenuProducts=[]; cats.forEach(c=>c.products.slice(0,2).forEach(p=>{ if(mobileMenuProducts.length<10) mobileMenuProducts.push({name:p.n,cat:c.name,href:productHref(c.key,p)}); }));
-    var F=(typeof window!=='undefined')?window.__KDL_FORCE:null;
-    const p=this.params(), catKey=(F&&F.cat)||p.get('cat')||'', pslug=(F&&F.p)||p.get('p')||'';
-    const hit=K.find(catKey,pslug);
-    if(!hit){ return {...base, mobileMenuCats, mobileMenuProducts, found:false, notFound:true, related:[], datos:[], fallas:[], aplicaciones:[], faqs:[] }; }
-    const c=hit.cat, prod=hit.product;
-    const prodImg=prod.img||c.img;
-    const media=prodImg ? React.createElement('img',{src:prodImg,alt:prod.n,loading:'eager',decoding:'async',style:{maxWidth:'100%',maxHeight:'280px',objectFit:'contain'}})
-      : React.createElement('span',{style:{display:'flex',color:'#2E7DF2'},dangerouslySetInnerHTML:{__html:'<svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2v20M4 7l16 10M20 7 4 17"/></svg>'}});
-    const desc=prod.n+' — '+prod.s+'. Parte de la línea de '+c.name.toLowerCase()+(c.brand?(' ('+c.brand+')'):'')+'. Te ayudamos a validar compatibilidad y disponibilidad, o a encontrar una alternativa compatible según tu aplicación y condiciones de trabajo.';
-    const related=c.products.filter(x=>x.slug!==prod.slug).slice(0,6).map(x=>({ n:x.n, s:x.s, href:'Producto.dc.html?cat='+c.key+'&p='+x.slug }));
-    const faqRaw=[
-      {q:'¿Qué información necesita KDL para cotizar '+prod.n+'?',a:'Comparte '+(c.datos||[]).join(', ').toLowerCase()+'. Si no tienes todos los datos, una foto de la placa o de la pieza ayuda a comenzar la identificación.'},
-      {q:'¿Cómo se valida una alternativa compatible?',a:'Se revisan las especificaciones críticas, montaje, conexiones, dimensiones, condiciones de trabajo y aplicación. La coincidencia por nombre o apariencia no es suficiente para confirmar compatibilidad.'},
-      {q:'¿Qué hago si presenta '+String((c.fallas||['una falla'])[0]).toLowerCase()+'?',a:'Evita sustituir la pieza únicamente por apariencia. Documenta el síntoma, número de parte, condiciones de operación y, cuando sea seguro, fotografías de la placa y el montaje para que KDL pueda orientar la revisión.'},
-      {q:'¿Puedo solicitar una ficha técnica?',a:'Sí. Indica la marca y el modelo exactos. KDL localizará la ficha técnica oficial disponible o te indicará qué información hace falta para identificar la variante correcta.'}
-    ];
-    const faqs=faqRaw.map((q,i)=>({...q,panelId:'product-faq-panel-'+i,open:this.state.faqOpen===i,sign:this.state.faqOpen===i?'−':'+',onToggle:()=>this.toggleFaq(i),onKeyDown:e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();this.toggleFaq(i);}}}));
+  toggleFaq(index){ this.setState(state=>({faqOpen:state.faqOpen===index?-1:index})); }
+  params(){ try{return new URLSearchParams(window.location.search);}catch(error){return new URLSearchParams('');} }
+  money(price){
+    if(!(price>0))return 'A consultar';
+    try{return new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',minimumFractionDigits:2,maximumFractionDigits:2}).format(price)+' MXN';}
+    catch(error){return '$'+Number(price).toFixed(2)+' MXN';}
+  }
+  image(product,height,eager){
+    return React.createElement('img',{src:product.image,alt:product.imageAlt||product.model,loading:eager?'eager':'lazy',decoding:'async',style:{maxWidth:'100%',maxHeight:(height||180)+'px',objectFit:'contain'}});
+  }
+  legacyProduct(){
+    const legacy=(typeof window!=='undefined')?window.KDL:null;
+    if(!legacy||typeof legacy.find!=='function')return null;
+    const params=this.params();
+    const forced=(typeof window!=='undefined')?window.__KDL_FORCE:null;
+    const categoryKey=(forced&&forced.cat)||params.get('cat')||'';
+    const slug=(forced&&forced.p)||params.get('p')||'';
+    const hit=categoryKey&&slug?legacy.find(categoryKey,slug):null;
+    if(!hit)return null;
+    const category=hit.cat,old=hit.product;
     return {
-      ...base, mobileMenuCats, mobileMenuProducts, found:true, notFound:false,
-      catName:c.name, catHref:'Productos.dc.html?cat='+encodeURIComponent(c.key), brand:c.brand,
-      quoteHref:'Cesta.dc.html?add='+encodeURIComponent(c.key+':'+prod.slug), added:this.state.added,
-      prodName:prod.n, prodSpec:prod.s, prodDesc:desc, media,
-      datos:c.datos||[], fallas:c.fallas||[], aplicaciones:c.aplicaciones||[], related, faqs,
-      addCartLabel:this.state.added?'Añadido a cesta':'Añadir a cesta',
-      addToCart:()=>this.saveCart({n:prod.n,s:prod.s,cat:c.key,catName:c.name,slug:prod.slug}),
-      waCotizar:this.wa('Hola KDL, quiero cotizar: '+prod.n+' ('+c.name+'). Cantidad / No. de parte / aplicación: ___'),
-      waFoto:this.wa('Hola KDL, sobre '+prod.n+' ('+c.name+') les comparto foto / número de parte para identificar la pieza exacta.'),
-      waDocumento:this.wa('Hola KDL, necesito la ficha técnica oficial de '+prod.n+' ('+c.name+'). Marca / modelo / No. de parte exacto: ___.')
+      product:{sku:'',slug:old.slug,model:old.n,title:old.s,summary:old.s,description:old.n+' — '+old.s+'.',categoryKey:category.key,categoryName:category.name,brand:old.brand||category.brand||'KDL',stock:0,unit:'PZA',price:0,validation:'Pendiente',image:old.img||category.img,imageKind:'reference',imageAlt:old.n,sourceUrl:'',technicalUrl:'',technicalKind:'none',updated:''},
+      category:{key:category.key,name:category.name,intro:category.intro||'',image:category.img||old.img,count:(category.products||[]).length}
+    };
+  }
+  renderVals(){
+    const mobile=this.state.isMobile;
+    const inventory=(typeof window!=='undefined')?window.KDLInventory:null;
+    const base={
+      isMobile:mobile,notMobile:!mobile,mobileMenuOpen:mobile&&this.state.mobileMenuOpen,
+      toggleMobileMenu:event=>this.toggleMobileMenu(event),closeMobileMenu:()=>this.closeMobileMenu(),
+      mobileMenuCats:[],mobileMenuProducts:[],cartCount:this.state.cartN||0,hasCart:(this.state.cartN||0)>0,
+      waSticky:this.wa('Hola KDL, quiero cotizar un producto del catálogo. ¿Me ayudan a validar el modelo exacto?')
+    };
+    if(!inventory){return {...base,found:false,notFound:false,related:[],datos:[],aplicaciones:[],faqs:[]};}
+    const categories=inventory.categories||[];
+    const products=inventory.products||[];
+    const productHref=product=>'Producto.dc.html?sku='+encodeURIComponent(product.sku);
+    const mobileMenuCats=categories.map(category=>({name:category.name,count:category.count,href:'Productos.dc.html?cat='+category.key}));
+    const mobileMenuProducts=products.filter(product=>product.stock>0).slice(0,10).map(product=>({name:product.model,cat:product.categoryName,href:productHref(product)}));
+    const params=this.params();
+    const forced=(typeof window!=='undefined')?window.__KDL_FORCE:null;
+    const sku=(forced&&forced.sku)||params.get('sku')||'';
+    const categoryParam=(forced&&forced.cat)||params.get('cat')||'';
+    const slugParam=(forced&&forced.p)||params.get('p')||'';
+    let product=inventory.find(sku);
+    if(!product&&categoryParam&&slugParam)product=products.find(item=>item.categoryKey===categoryParam&&item.slug===slugParam)||null;
+    let category=product?inventory.category(product.categoryKey):null;
+    if(!product){
+      const legacy=this.legacyProduct();
+      if(legacy){product=legacy.product;category=legacy.category;}
+    }
+    if(!product||!category){return {...base,mobileMenuCats,mobileMenuProducts,found:false,notFound:true,related:[],datos:[],aplicaciones:[],faqs:[]};}
+
+    const exactInventory=!!product.sku;
+    const priceLabel=this.money(product.price);
+    const stockLabel=product.stock>0?(product.stock+' '+product.unit+' disponible'+(product.stock===1?'':'s')):'Consultar';
+    const media=this.image(product,380,true);
+    const photoMap={exact:['Foto del modelo','kdl-product-photo-note kdl-product-photo-note--exact'],family:['Foto de la familia de producto','kdl-product-photo-note kdl-product-photo-note--family'],reference:['Imagen de referencia','kdl-product-photo-note kdl-product-photo-note--reference']};
+    const photo=photoMap[product.imageKind]||photoMap.reference;
+    const validationMap={Verificado:['Modelo verificado','kdl-product-validation kdl-product-validation--verified'],Parcial:['Validación parcial','kdl-product-validation kdl-product-validation--partial'],Pendiente:['Por confirmar','kdl-product-validation kdl-product-validation--pending']};
+    const validation=validationMap[product.validation]||validationMap.Pendiente;
+    const categoryProducts=products.filter(item=>item.categoryKey===product.categoryKey&&item.sku!==product.sku);
+    const fallbackProducts=products.filter(item=>item.categoryKey!==product.categoryKey);
+    const related=[...categoryProducts,...fallbackProducts].slice(0,6).map(item=>({n:item.model,s:item.title,media:this.image(item,100,false),href:productHref(item)}));
+    const applicationMap={
+      neumatica:['Automatización neumática y manipulación','Mantenimiento de cilindros, pinzas y válvulas','Integración de maquinaria y estaciones de ensamble'],
+      sensores:['Detección de posición, presencia o condición','Retroalimentación para PLC y control de máquina','Mantenimiento y reemplazo de sensores industriales'],
+      amortiguacion:['Control de impacto y desaceleración','Protección de mecanismos y finales de carrera','Equipos de manejo de materiales y ensamble'],
+      hidraulica:['Circuitos de sujeción y potencia hidráulica','Mantenimiento de válvulas y actuadores','Maquinaria, prensas y dispositivos de fijación'],
+      movimiento:['Ejes, guías y módulos de posicionamiento','Automatización de precisión y ensamble','Mantenimiento de maquinaria CNC'],
+      motores:['Control de movimiento, velocidad y posición','Servoejes, máquinas CNC y automatización','Reemplazo de motores y accionamientos'],
+      electrico:['Tableros de control y maniobra','Interfaz de señales y automatización','Mantenimiento eléctrico industrial'],
+      termico:['Control de temperatura de proceso','Hornos, resistencias y maquinaria','Monitoreo y regulación térmica'],
+      hmi:['Operación y visualización de maquinaria','Alarmas, recetas y supervisión de proceso','Modernización de interfaces de operador'],
+      'control-maquina':['Control especializado de maquinaria','Integración de señales y secuencias','Reemplazo y modernización de control'],
+      'por-identificar':['Identificación mediante placa y medidas','Comparación con la pieza instalada','Búsqueda de reemplazo compatible']
+    };
+    const aplicaciones=applicationMap[product.categoryKey]||applicationMap['por-identificar'];
+    const datos=[
+      {label:'SKU KDL',value:product.sku||'Catálogo anterior'},
+      {label:'Marca',value:product.brand||'Por confirmar'},
+      {label:'Categoría',value:product.categoryName},
+      {label:'Existencia',value:stockLabel},
+      {label:'Precio',value:priceLabel},
+      {label:'Actualización',value:product.updated||'Por confirmar'}
+    ];
+    const hasTechnical=!!product.technicalUrl;
+    const hasSource=!!(product.sourceUrl&&product.sourceUrl!==product.technicalUrl);
+    const technicalLabel=product.technicalKind==='pdf'?'Abrir ficha técnica PDF':'Abrir página técnica';
+    const verificationNote=product.validation==='Verificado'
+      ?'El modelo fue contrastado con una fuente técnica. Confirma sufijos, voltaje, conexiones y dimensiones antes de instalar.'
+      :product.validation==='Parcial'
+        ?'Parte de la información requiere confirmación. Comparte una foto de la placa y valida la variante antes de comprar.'
+        :'La identificación aún está pendiente. No compres por apariencia; envía placa, medidas y aplicación a un asesor.';
+    const faqRaw=[
+      {q:'¿Qué debo confirmar antes de pedir '+product.model+'?',a:'Confirma el modelo completo y sus sufijos, cantidad, voltaje o señal cuando aplique, conexiones, montaje, dimensiones y condiciones de trabajo.'},
+      {q:'¿La fotografía corresponde exactamente al producto?',a:product.imageKind==='exact'?'La fotografía localizada corresponde al modelo investigado; aun así, la variante física puede cambiar por sufijos o revisión de fabricante.':product.imageKind==='family'?'La fotografía representa la familia de producto. La forma, conectores o accesorios pueden variar en el modelo exacto.':'La imagen es referencial y no debe usarse como única confirmación de compatibilidad.'},
+      {q:'¿Cómo se valida una alternativa compatible?',a:'KDL compara especificaciones críticas, montaje, conexiones, dimensiones y condiciones de operación. Una coincidencia de apariencia o nombre no confirma compatibilidad.'},
+      {q:'¿Puedo solicitar apoyo con la ficha técnica?',a:hasTechnical?'Sí. Esta página enlaza la documentación o página técnica localizada; si necesitas confirmar una variante, envía la placa completa a KDL.':'Sí. Envía la marca, modelo completo y una fotografía de la placa para localizar la documentación correspondiente.'}
+    ];
+    const faqs=faqRaw.map((item,index)=>({...item,panelId:'product-faq-panel-'+index,open:this.state.faqOpen===index,sign:this.state.faqOpen===index?'−':'+',onToggle:()=>this.toggleFaq(index),onKeyDown:event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();this.toggleFaq(index);}}}));
+    const cartItem={n:product.model,s:product.title,cat:product.categoryKey,catName:product.categoryName,brand:product.brand,slug:product.slug,img:product.image,sku:product.sku,price:product.price};
+
+    return {
+      ...base,mobileMenuCats,mobileMenuProducts,found:true,notFound:false,
+      catName:category.name,catHref:'Productos.dc.html?cat='+encodeURIComponent(category.key),brand:product.brand||'Por confirmar',
+      prodName:product.model,prodSpec:product.title,prodDesc:product.summary||product.description,media,
+      sku:product.sku||'—',priceLabel,stockLabel,stockValueClass:product.stock>0?'kdl-product-stock--available':'kdl-product-stock--consult',
+      imageNote:photo[0],imageNoteClass:photo[1],validationLabel:validation[0],validationClass:validation[1],verificationNote,
+      datos,aplicaciones,related,faqs,added:this.state.added,
+      addCartLabel:this.state.added?'Añadido a cesta':'Añadir a cotización',addToCart:()=>this.saveCart(cartItem),
+      hasTechnical,noTechnical:!hasTechnical,technicalUrl:product.technicalUrl,technicalLabel,
+      hasSource,sourceUrl:product.sourceUrl,sourceNote:exactInventory?('Información revisada el '+(product.updated||'día de actualización del inventario')+'. La documentación externa puede cambiar.'):'Producto del catálogo anterior; solicita validación documental.',
+      waCotizar:this.wa('Hola KDL, quiero cotizar '+product.model+' ('+product.categoryName+'). SKU KDL: '+(product.sku||'N/D')+'. Cantidad: ___.'),
+      waDocumento:this.wa('Hola KDL, necesito la ficha técnica oficial de '+product.model+' ('+product.brand+'). ¿Me ayudan a confirmar la variante?')
     };
   }
 }
