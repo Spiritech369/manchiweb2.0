@@ -25,15 +25,15 @@
   }
 
   function catalogUrl(){
-    return abs('productos/');
+    return abs('catalogo');
   }
 
   function categoryUrl(catKey){
-    return abs('productos/'+encodeURIComponent(catKey)+'/');
+    return abs('catalogo?cat='+encodeURIComponent(catKey));
   }
 
   function productUrl(catKey, product){
-    return abs('productos/'+encodeURIComponent(catKey)+'/'+encodeURIComponent(product.slug)+'/');
+    return abs('productos/'+encodeURIComponent(catKey)+'/'+encodeURIComponent(product.slug));
   }
 
   function productAppUrl(catKey, product){
@@ -305,10 +305,11 @@
       var cp=new URLSearchParams(location.search);
       var catKey=cp.get('cat')||'';
       var cat=window.KDL.cat(catKey);
+      var family=window.KDLFamilies&&window.KDLFamilies.family(catKey);
       var canonical=cat?categoryUrl(cat.key):catalogUrl();
       meta={
-        title:cat?(cat.name+' | Catalogo KDL'):'Productos | Catalogo KDL',
-        description:cat?(cat.intro+' Explora productos, datos para cotizar y alternativas compatibles con asesoria KDL.'):pageDescription(),
+        title:(family?family.name:(cat?cat.name:'Productos'))+' | Catálogo KDL',
+        description:family?(family.intro+' Existencia, precio de referencia y cotización con asesoría KDL.'):(cat?(cat.intro+' Explora productos, datos para cotizar y alternativas compatibles con asesoría KDL.'):pageDescription()),
         url:canonical,
         image:cat&&cat.img?abs(cat.img):firstImage(cats),
         type:'website'
