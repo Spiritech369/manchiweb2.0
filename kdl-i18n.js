@@ -573,22 +573,26 @@
 
   function translateTextNode(node, code) {
     if (shouldSkip(node)) return;
-    if (!textOriginals.has(node)) textOriginals.set(node, node.nodeValue);
-    var original = textOriginals.get(node);
+    // Si el texto cambió desde la última traducción (p. ej. un subtotal re-renderizado), ése es el nuevo original.
+    var cached = textOriginals.get(node);
+    if (!cached || node.nodeValue !== cached.applied) {
+      cached = { original: node.nodeValue, applied: node.nodeValue };
+      textOriginals.set(node, cached);
+    }
+    var original = cached.original;
     var key = normalize(original);
     if (!key) return;
-    if (code === 'es') {
-      node.nodeValue = original;
-      return;
+    var next = original;
+    if (code !== 'es') {
+      var translated = dictionaries[code].get(key) || translateDynamic(key, code);
+      if (translated) {
+        var leading = (original.match(/^\s*/) || [''])[0];
+        var trailing = (original.match(/\s*$/) || [''])[0];
+        next = leading + translated + trailing;
+      }
     }
-    var translated = dictionaries[code].get(key) || translateDynamic(key, code);
-    if (!translated) {
-      node.nodeValue = original;
-      return;
-    }
-    var leading = (original.match(/^\s*/) || [''])[0];
-    var trailing = (original.match(/\s*$/) || [''])[0];
-    node.nodeValue = leading + translated + trailing;
+    cached.applied = next;
+    if (node.nodeValue !== next) node.nodeValue = next;
   }
 
   function translateAttributes(element, code) {

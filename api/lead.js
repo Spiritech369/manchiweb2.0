@@ -14,6 +14,76 @@ function clean(value, max = 800) {
   return String(value == null ? '' : value).trim().slice(0, max);
 }
 
+const MAX_ITEMS = 100;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const RFC_PATTERN = /^[A-ZÑ&]{3,4}\d{6}[A-Z0-9]{3}$/;
+const DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+function cleanEmail(value) {
+  const email = clean(value, 400).toLowerCase();
+  if (email.length > 160 || !EMAIL_PATTERN.test(email)) return '';
+  return email;
+}
+
+function cleanRfc(value) {
+  const rfc = clean(value, 40).toUpperCase().replace(/[\s-]+/g, '');
+  if (rfc.length > 13 || !RFC_PATTERN.test(rfc)) return '';
+  return rfc;
+}
+
+function cleanDate(value) {
+  const text = clean(value, 20);
+  const match = DATE_PATTERN.exec(text);
+  if (!match) return '';
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  if (Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== text) return '';
+  return text;
+}
+
+function cleanHttpsUrl(value) {
+  const text = clean(value, 2000);
+  if (!text || text.length > 600) return '';
+  try {
+    const url = new URL(text);
+    return url.protocol === 'https:' && url.hostname ? text : '';
+  } catch (error) {
+    return '';
+  }
+}
+
+function cleanChannel(value) {
+  const channel = clean(value, 20).toLowerCase();
+  return channel === 'whatsapp' || channel === 'email' ? channel : '';
+}
+
+function cleanQuantity(value) {
+  const number = typeof value === 'number' ? value : Number(clean(value, 40));
+  return Number.isFinite(number) && number > 0 ? number : 1;
+}
+
+function cleanPrice(value) {
+  if (value == null || value === '') return null;
+  const number = typeof value === 'number' ? value : Number(clean(value, 40));
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+
+function normalizeItems(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .slice(0, MAX_ITEMS)
+    .filter((item) => item && typeof item === 'object' && !Array.isArray(item))
+    .map((item) => ({
+      sku: clean(item.sku, 160),
+      model: clean(item.model, 160),
+      title: clean(item.title, 240),
+      brand: clean(item.brand, 160),
+      quantity: cleanQuantity(item.quantity),
+      unit_price: cleanPrice(item.unit_price),
+      manual_reference: clean(item.manual_reference, 240)
+    }))
+    .filter((item) => item.sku || item.model || item.title || item.manual_reference);
+}
+
 function normalize(input, headerKey) {
   const body = typeof input === 'string' ? JSON.parse(input || '{}') : (input || {});
   return {
@@ -47,6 +117,8 @@ function normalize(input, headerKey) {
     name: clean(body.name, 120),
     company: clean(body.company, 160),
     whatsapp: clean(body.whatsapp, 60),
+    email: cleanEmail(body.email),
+    rfc: cleanRfc(body.rfc),
     city: clean(body.city, 160),
     part: clean(body.part, 240),
     quantity: clean(body.quantity, 60),
@@ -54,11 +126,30 @@ function normalize(input, headerKey) {
     urgency: clean(body.urgency, 80),
     machineDown: clean(body.machineDown, 40),
     message: clean(body.message, 1600),
-    fileName: clean(body.fileName, 240)
+    fileName: clean(body.fileName, 240),
+    required_date: cleanDate(body.required_date),
+    photo_url: cleanHttpsUrl(body.photo_url),
+    channel: cleanChannel(body.channel),
+    items: normalizeItems(body.items)
   };
 }
 
+function itemLines(items) {
+  return (items || []).map((item, index) => {
+    const label = item.model || item.title || item.manual_reference || item.sku || '-';
+    const parts = [`${index + 1}) ${label} — Cant: ${item.quantity}`];
+    if (item.sku) parts.push(`Clave: ${item.sku}`);
+    return parts.join(' · ');
+  });
+}
+
 function leadText(lead) {
+  const optional = [];
+  if (lead.email) optional.push(`Email: ${lead.email}`);
+  if (lead.rfc) optional.push(`RFC: ${lead.rfc}`);
+  if (lead.required_date) optional.push(`Fecha requerida: ${lead.required_date}`);
+  if (lead.channel) optional.push(`Canal: ${lead.channel}`);
+  const items = itemLines(lead.items);
   return [
     'Nuevo lead KDL',
     '',
@@ -66,14 +157,17 @@ function leadText(lead) {
     `Nombre: ${lead.name || '-'}`,
     `Empresa: ${lead.company || '-'}`,
     `WhatsApp: ${lead.whatsapp || '-'}`,
+    ...optional,
     `Ciudad/planta: ${lead.city || '-'}`,
     `Categoria: ${lead.category || '-'}`,
     `Urgencia: ${lead.urgency || '-'}`,
     `Maquina detenida: ${lead.machineDown || '-'}`,
     `Marca / No. de parte: ${lead.part || '-'}`,
     `Cantidad: ${lead.quantity || '-'}`,
+    ...(items.length ? ['', `Partidas (${items.length}):`, ...items, ''] : []),
     `Mensaje: ${lead.message || '-'}`,
     `Foto seleccionada: ${lead.fileName || '-'}`,
+    ...(lead.photo_url ? [`Foto: ${lead.photo_url}`] : []),
     '',
     `Origen: ${lead.page || '-'}`
   ].join('\n');
@@ -117,6 +211,7 @@ async function sendHubSpot(lead) {
       { name: 'firstname', value: lead.name },
       { name: 'company', value: lead.company },
       { name: 'phone', value: lead.whatsapp },
+      { name: 'email', value: lead.email },
       { name: 'city', value: lead.city },
       { name: 'message', value: leadText(lead) },
       { name: 'lead_source', value: 'Sitio KDL' }
@@ -243,3 +338,6 @@ module.exports = async function handler(req, res) {
     results
   });
 };
+
+module.exports.normalize = normalize;
+module.exports.leadText = leadText;

@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F2F5F9;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E2236}a{text-decoration:none;color:inherit}@keyframes kdlBar{to{background-position:-200% 0}}@keyframes kdlDash{to{stroke-dashoffset:-340}}</style>
+<link rel="stylesheet" href="./kdl-ui.css?v=2">
 <link rel="stylesheet" href="./kdl-site-header.css?v=4" data-kdl-shared-header>
 <link rel="stylesheet" href="./kdl-corporate.css?v=4" data-kdl-corporate>
 </helmet>
@@ -49,13 +50,14 @@
 </section>
 
 <nav aria-label="Contenido de soluciones" style="max-width:1280px;margin:24px auto 0;padding:0 22px;display:flex;flex-wrap:wrap;gap:10px">
-  <a href="#soluciones" style="background:#0E2236;color:#fff;border-radius:8px;padding:11px 16px;font-weight:800">Soluciones</a>
+  <a href="#soluciones" style="background:#0E2236;color:#fff;border-radius:8px;padding:11px 16px;font-weight:800">Por tecnología</a>
   <a href="#industrias" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Industrias</a>
   <a href="#servicios" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Servicios</a>
+  <a href="#sobre-kdl" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Sobre KDL</a>
 </nav>
 
 <section id="soluciones" style="max-width:1280px;margin:0 auto;padding:42px 22px 34px;scroll-margin-top:110px">
-  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(25px,3vw,35px);letter-spacing:-.8px;color:#0E2236;margin:0 0 7px">Soluciones por familia técnica</h2>
+  <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(25px,3vw,35px);letter-spacing:-.8px;color:#0E2236;margin:0 0 7px">Por tipo de tecnología</h2>
   <p style="font-size:16px;color:#5A6B80;margin:0 0 24px;max-width:760px">Parte del tipo de tecnología que necesitas y revisa productos, datos para cotizar y aplicaciones.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
     <sc-for list="{{ solutionFamilies }}" as="s" hint-placeholder-count="4">
@@ -99,6 +101,26 @@
   </div>
   <a href="Servicios.dc.html" style="display:inline-flex;margin-top:20px;color:#245B89;font-weight:800">Ver proceso de atención →</a>
 </section>
+
+<section id="sobre-kdl" class="kdl-about" aria-labelledby="kdl-about-title">
+  <div class="kdl-about__inner">
+    <span class="kdl-why__eyebrow">Sobre KDL</span>
+    <h2 id="kdl-about-title">Hacemos mucho más que vender productos.</h2>
+    <p class="kdl-about__lead">Nuestros asesores se especializan en definir soluciones a la medida, dar soporte en reparaciones y capacitar en temas de control, siempre con un enfoque claro: generar ahorro y eficiencia en cada proyecto.</p>
+    <div class="kdl-about__grid">
+      <article><h3>Misión</h3><p>Brindar soluciones integrales de automatización y refacciones accesibles y sostenibles, combinando innovación, eficiencia y servicio personalizado para mejorar la productividad de nuestros clientes, con opciones que se adaptan a cada necesidad.</p></article>
+      <article><h3>Innovación</h3><p>Nos mantenemos al día en tecnología industrial para ofrecer las mejores opciones de automatización y control, y así maximizar la eficiencia de cada proyecto.</p></article>
+      <article><h3>Compromiso</h3><p>Nuestro equipo acompaña a cada cliente con asesoría, capacitación y soporte técnico especializado en cada etapa del proyecto.</p></article>
+    </div>
+    <h3 class="kdl-about__subtitle">¿Por qué elegirnos?</h3>
+    <ul class="kdl-why__stats">
+      <li><strong>+15 años</strong><span>de experiencia comprobada en soluciones industriales</span></li>
+      <li><strong>Asesoría especializada</strong><span>equipo técnico capacitado para resolver cada necesidad</span></li>
+      <li><strong>Soporte integral</strong><span>desde la cotización hasta el soporte postventa</span></li>
+      <li><strong>Soluciones a medida</strong><span>diseños personalizados según cada proyecto</span></li>
+    </ul>
+  </div>
+</section>
 <footer id="contacto" style="background:#06121F;color:#9FB1C6;padding:50px 22px 28px">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-end">
     <div><a href="index.html" style="display:flex;align-items:baseline;gap:1px;margin-bottom:12px"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#1FC8E3">.</span></a><p style="font-size:14px;line-height:1.6;max-width:340px;margin:0">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
@@ -140,7 +162,7 @@ class Component extends DCLogic {
     const services=[
       {t:'Identificación y cotización',d:'Comparte foto, placa, marca o número de parte para iniciar la revisión.',cta:'Iniciar solicitud',href:'index.html#cotiza',target:'_self'},
       {t:'Alternativas y compatibilidad',d:'Revisamos medidas, conexión, montaje, aplicación y condiciones de trabajo.',cta:'Revisar alternativa',href:'Compatibilidad.dc.html',target:'_self'},
-      {t:'Suministro de refacciones',d:'Concentra productos de distintas familias en una sola cesta de solicitud.',cta:'Armar cesta',href:'Cesta.dc.html',target:'_self'},
+      {t:'Suministro de refacciones',d:'Concentra productos de distintas familias en una sola lista: Mi cotización.',cta:'Armar mi cotización',href:'Cesta.dc.html',target:'_self'},
       {t:'Entrega y seguimiento',d:'Un asesor confirma disponibilidad, entrega aplicable y seguimiento comercial.',cta:'Hablar con un asesor',href:this.wa('Hola KDL, necesito apoyo con entrega o seguimiento de una solicitud.'),target:'_blank'}
     ];
     return {isMobile:this.state.isMobile,notMobile:!this.state.isMobile,nav,solutionFamilies,industries,services,waSticky:this.wa('Hola KDL, necesito una solución industrial. ¿Me ayudan a revisar mi aplicación?')};

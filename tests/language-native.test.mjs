@@ -22,7 +22,7 @@ test('el selector ofrece cinco idiomas locales sin mensajes pendientes', () => {
 test('la portada carga primero el motor local y conserva el idioma', () => {
   const home = read('index.html');
   const engine = read('kdl-i18n.js');
-  assert.ok(home.indexOf('kdl-i18n.js?v=2') < home.indexOf('kdl-language.js?v=10'));
+  assert.ok(home.indexOf('kdl-i18n.js?v=3') < home.indexOf('kdl-language.js?v=10'));
   assert.match(engine, /localStorage\.setItem\(STORAGE_KEY, code\)/);
   assert.match(engine, /document\.documentElement\.lang = code/);
   assert.match(engine, /MutationObserver/);
@@ -30,7 +30,7 @@ test('la portada carga primero el motor local y conserva el idioma', () => {
 
 test('las subpáginas cargan el mismo traductor mediante el encabezado compartido', () => {
   const header = read('kdl-site-header.js');
-  assert.match(header, /kdl-i18n\.js\?v=2/);
+  assert.match(header, /kdl-i18n\.js\?v=3/);
   assert.match(header, /kdl-language\.js\?v=10/);
   assert.match(header, /loadLanguageSwitcher/);
 });

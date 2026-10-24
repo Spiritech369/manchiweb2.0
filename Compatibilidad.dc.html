@@ -15,18 +15,18 @@
 <helmet>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Compatibilidad y reemplazo | KDL — Encuentra una alternativa a tu pieza obsoleta</title>
+<title>Alternativas compatibles | KDL — Reemplazo para piezas descontinuadas</title>
 <meta name="description" content="¿Pieza descontinuada u obsoleta? Escribe marca, modelo o número de parte y KDL te sugiere alternativas compatibles del catálogo. Validamos medidas, aplicación y condiciones.">
 <link rel="canonical" href="https://kdl.com.mx/Compatibilidad.dc.html">
 <meta property="og:site_name" content="KDL">
-<meta property="og:title" content="Compatibilidad y reemplazo | KDL">
+<meta property="og:title" content="Alternativas compatibles | KDL">
 <meta property="og:description" content="Encuentra alternativas compatibles para piezas descontinuadas: sensores, cilindros, variadores, guías lineales y refacciones industriales.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kdl.com.mx/Compatibilidad.dc.html">
 <meta property="og:image" content="https://kdl.com.mx/assets/hero-tools.png">
 <meta property="og:locale" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Compatibilidad y reemplazo | KDL">
+<meta name="twitter:title" content="Alternativas compatibles | KDL">
 <meta name="twitter:description" content="Busca una pieza obsoleta o descontinuada y KDL te sugiere alternativas compatibles del catálogo.">
 <meta name="twitter:image" content="https://kdl.com.mx/assets/hero-tools.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://kdl.com.mx/#local-business","name":"KDL","url":"https://kdl.com.mx/","telephone":"+52 81 1227 3382","email":"ventas@kdl.com.mx","image":"https://kdl.com.mx/assets/hero-tools.png","address":{"@type":"PostalAddress","addressLocality":"Monterrey","addressRegion":"Nuevo León","addressCountry":"MX"}},{"@type":"Service","@id":"https://kdl.com.mx/Compatibilidad.dc.html#service","name":"Compatibilidad y reemplazo de refacciones industriales","serviceType":"Búsqueda de alternativas compatibles para piezas descontinuadas","provider":{"@id":"https://kdl.com.mx/#local-business"},"areaServed":{"@type":"Country","name":"México"},"description":"KDL ayuda a identificar alternativas compatibles para refacciones industriales descontinuadas u obsoletas mediante número de parte, marca, medidas, foto o aplicación."},{"@type":"WebPage","@id":"https://kdl.com.mx/Compatibilidad.dc.html#webpage","url":"https://kdl.com.mx/Compatibilidad.dc.html","name":"Compatibilidad y reemplazo | KDL","description":"Busca alternativas compatibles para piezas descontinuadas del catálogo KDL.","about":{"@id":"https://kdl.com.mx/Compatibilidad.dc.html#service"}}]}</script>
@@ -202,7 +202,7 @@
 
 <section class="kdlc-hero">
   <div class="kdlc-hero__inner">
-    <div class="kdlc-breadcrumb"><a href="index.html" style-hover="color:#fff">Inicio</a> <span>/</span> Compatibilidad</div>
+    <div class="kdlc-breadcrumb"><a href="index.html" style-hover="color:#fff">Inicio</a> <span>/</span> <a href="Soluciones.dc.html" style-hover="color:#fff">Cómo te ayudamos</a> <span>/</span> Alternativas compatibles</div>
     <h1 class="kdlc-hero__title">¿Tu pieza está descontinuada? Encuentra una alternativa compatible.</h1>
     <p class="kdlc-hero__copy">Escribe la marca, modelo o número de parte de la pieza obsoleta. Te sugerimos opciones del catálogo y validamos compatibilidad según medidas, aplicación y condiciones de trabajo.</p>
     <!-- BUSCADOR -->
@@ -244,7 +244,7 @@
   <!-- resultados -->
   <sc-if value="{{ hasResults }}" hint-placeholder-val="">
     <h2 class="kdlc-section-title">Alternativas compatibles</h2>
-    <div class="kdlc-results-head">Mostrando <strong>{{ resultCount }}</strong> alternativa(s) compatible(s) para “<strong>{{ query }}</strong>”. Confirmamos compatibilidad con un asesor antes de cotizar.</div>
+    <div class="kdlc-results-head">Mostrando <strong>{{ resultCount }}</strong> opción(es) para “<strong>{{ query }}</strong>”. Confirmamos compatibilidad con un asesor antes de cotizar.</div>
     <div class="kdlc-results-grid">
       <sc-for list="{{ results }}" as="r" hint-placeholder-count="6">
         <div class="kdlc-result-card">
@@ -397,9 +397,10 @@ class Component extends DCLogic {
       const c=JSON.parse(localStorage.getItem('kdl_cart')||'[]');
       const ix=c.findIndex(x=>x.slug===it.slug&&x.cat===it.cat);
       if(ix>=0) c[ix]={...c[ix],qty:(c[ix].qty||1)+1};
-      else c.push({n:it.n,s:it.s,cat:it.cat,catName:it.catName,slug:it.slug,qty:1});
+      else c.push(it.product&&window.KDLFamilies?{...window.KDLFamilies.cartItem(it.product),qty:1}:{n:it.n,s:it.s,cat:it.cat,catName:it.catName,slug:it.slug,qty:1});
       localStorage.setItem('kdl_cart',JSON.stringify(c));
     }catch(e){}
+    if(typeof window.KDLCartChanged==='function') window.KDLCartChanged(it.n+' añadido a Mi cotización');
     this.track('compat_add_cart',{product:it.slug||'',category:it.cat||''});
     this.setState(s=>({cartN:this.cartCount(), added:{...s.added,[it.slug]:true}}));
   }
@@ -407,6 +408,8 @@ class Component extends DCLogic {
   allItems(){
     const K=(typeof window!=='undefined')?window.KDL:null;
     const out=[];
+    const F=(typeof window!=='undefined')?window.KDLFamilies:null;
+    if(F) F.products().forEach(p=>{ const fam=F.family(F.familyOf(p))||{}; out.push({n:p.model,s:p.title,slug:p.slug,cat:p.categoryKey,catName:fam.name||p.categoryName,brand:F.brandLabel(p.brand),img:p.image,context:[p.summary,p.categoryName,F.brandLabel(p.brand)].join(' '),product:p,href:F.productHref(p)}); });
     if(!K||!Array.isArray(K.cats)) return out;
     K.cats.forEach(c=>{
       const context=[c.intro,c.brand].concat(c.filtros||[],c.datos||[],c.fallas||[],c.aplicaciones||[]).join(' ');
@@ -488,7 +491,7 @@ class Component extends DCLogic {
     const exVals=['sensor PNP M12','cilindro Ø63','variador Delta','guía lineal HIWIN'];
     const examples=exVals.map(v=>({label:v, onClick:()=>this.setExample(v)}));
     const rawResults=K&&q?this.scoredItems(q,9,'search'):[];
-    const results=rawResults.map(x=>({ n:x.n, s:x.s, catName:x.catName, media:this.imgEl(x.img,x.n), href:'Producto.dc.html?cat='+x.cat+'&p='+x.slug, add:()=>this.addCart(x), addLabel:this.state.added[x.slug]?'✓ Añadido':'Añadir a cesta' }));
+    const results=rawResults.map(x=>({ n:x.n, s:x.s, catName:x.catName, media:this.imgEl(x.img,x.n), href:x.href||('Producto.dc.html?cat='+x.cat+'&p='+x.slug), add:()=>this.addCart(x), addLabel:this.state.added[x.slug]?'✓ Añadido':'Añadir a cotización' }));
     const liveRaw=K&&q.length>=2&&!this.state.searched&&!this.state.suggestionsClosed?this.scoredItems(q,6,'live'):[];
     const activeIdx=Math.min(this.state.activeSuggestion||0,Math.max(liveRaw.length-1,0));
     const liveSuggestions=liveRaw.map((x,i)=>({ id:'compat-suggestion-'+i, active:i===activeIdx, n:x.n, sub:x.s+' · '+x.catName, media:this.imgEl(x.img,x.n), hover:()=>this.setState({activeSuggestion:i}), select:()=>this.selectSuggestion(x) }));

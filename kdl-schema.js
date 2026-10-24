@@ -155,7 +155,7 @@
       '@type':'LocalBusiness',
       '@id':homeUrl()+'#local-business',
       name:'KDL',
-      legalName:'Refacciones y Distribuciones KDL',
+      legalName:'KDL Soluciones Industriales',
       description:'Refacciones industriales, automatizacion, neumatica, hidraulica, sensores, movimiento lineal, herramientas de corte y suministros para plantas industriales.',
       url:homeUrl(),
       image:abs('assets/hero-tools.png'),

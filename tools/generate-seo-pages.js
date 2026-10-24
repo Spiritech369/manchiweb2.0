@@ -6,7 +6,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://kdl.com.mx';
 const PHONE = '+52 81 1227 3382';
 const EMAIL = 'ventas@kdl.com.mx';
-const LEGAL_NAME = 'Refacciones y Distribuciones KDL';
+const LEGAL_NAME = 'KDL Soluciones Industriales';
 const ADDRESS = 'Lic. José Benítez 2186, Obispado, C.P. 64060, Monterrey, N.L.';
 const HOURS = 'Lunes a viernes · 8:00 a.m. a 6:00 p.m.';
 

@@ -16,7 +16,7 @@
     var i18nScript = document.querySelector('script[data-kdl-i18n]');
     if (!i18nScript) {
       i18nScript = document.createElement('script');
-      i18nScript.src = new URL('kdl-i18n.js?v=2', rootUrl).href;
+      i18nScript.src = new URL('kdl-i18n.js?v=3', rootUrl).href;
       i18nScript.defer = true;
       i18nScript.setAttribute('data-kdl-i18n', '');
       document.head.appendChild(i18nScript);
