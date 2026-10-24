@@ -16,7 +16,7 @@ test('el inventario publicado conserva las 74 filas normalizadas del Excel', () 
   assert.equal(inventory.categories.length, 11);
   assert.deepEqual(
     JSON.parse(JSON.stringify(inventory.stats)),
-    { total: 74, verified: 51, inStock: 67, priced: 51, sourced: 73, exactPhotos: 31, brands: 21 },
+    { total: 74, verified: 51, inStock: 67, priced: 51, sourced: 73, exactPhotos: 31, brands: 20 },
   );
   assert.equal(new Set(inventory.products.map((product) => product.sku)).size, 74);
   assert.equal(new Set(inventory.products.map((product) => product.slug)).size, 74);
@@ -60,11 +60,11 @@ test('las imágenes de HGH30HA y PRDWT12 usan fotografías de producto, no recur
 test('las páginas usan el nuevo inventario y su lógica embebida compila', () => {
   for (const name of ['Productos.dc.html', 'Producto.dc.html']) {
     const html = fs.readFileSync(path.join(root, name), 'utf8');
-    assert.match(html, /kdl-inventory-data\.js\?v=1/);
+    assert.match(html, /kdl-inventory-data\.js\?v=2/);
     const match = html.match(/<script type="text\/x-dc" data-dc-script>([\s\S]*?)<\/script>/);
     assert.ok(match, `${name}: falta la lógica de la página`);
     assert.doesNotThrow(() => new Function(match[1]), `${name}: sintaxis inválida`);
   }
   const cart = fs.readFileSync(path.join(root, 'Cesta.dc.html'), 'utf8');
-  assert.match(cart, /kdl-inventory-data\.js\?v=1/);
+  assert.match(cart, /kdl-inventory-data\.js\?v=2/);
 });

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guías de selección | KDL</title>
+  <meta name="description" content="Guías rápidas de KDL para seleccionar cilindros neumáticos, sensores, insertos de torneado, guías lineales, variadores y servos: qué medir, cómo leer el código y qué datos pedir.">
+  <link rel="canonical" href="https://kdl.com.mx/Guias.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <script src="./kdl-inventory-data.js?v=2"></script>
+<script src="./kdl-families.js?v=1"></script>
+<script src="./kdl-site-header.js?v=14" defer></script>
+  <link rel="stylesheet" href="./kdl-site-header.css?v=4" data-kdl-shared-header>
+  <link rel="stylesheet" href="./kdl-corporate.css?v=4" data-kdl-corporate>
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#F4F6F8;color:#14283C;font-family:"IBM Plex Sans",Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+    .kdl-doc a{color:#1F4E79}
+    .kdl-doc-shell{width:min(1120px,100%);margin:0 auto;padding:0 22px}
+    .kdl-doc h1,.kdl-doc h2,.kdl-doc h3{font-family:"Archivo",Arial,sans-serif;font-weight:800;line-height:1.18;letter-spacing:-.015em}
+    .kdl-doc-hero{background:#0B2239;color:#fff;padding:46px 0 52px}
+    .kdl-doc-crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;font-size:14px;color:#A9C4DA}
+    .kdl-doc-crumbs li+li::before{content:"/";margin-right:6px;color:#7F9AB3}
+    .kdl-doc-crumbs a{color:#DCE6EE;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+    .kdl-doc-crumbs a:hover{color:#fff;text-decoration:underline}
+    .kdl-doc-crumbs [aria-current]{color:#fff;font-weight:600}
+    .kdl-doc-crumbs li{display:inline-flex;align-items:center}
+    .kdl-doc-hero h1{margin:14px 0 10px;font-size:clamp(32px,6vw,50px);color:#fff}
+    .kdl-doc-lead{margin:0;max-width:720px;font-size:18px;color:#D6E0E8}
+    .kdl-doc-main{padding:32px 0 64px}
+    .kdl-doc-index{margin:0 0 28px}
+    .kdl-doc-index h2{font-size:15px;margin:0 0 10px;color:#566A7D;text-transform:uppercase;letter-spacing:.08em}
+    .kdl-doc-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+    .kdl-doc-chips a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid #D6E0E8;border-radius:999px;background:#fff;color:#1F4E79;font-weight:600;font-size:15px;text-decoration:none}
+    .kdl-doc-chips a:hover{border-color:#2E7DF2;background:#EEF4FD}
+    .kdl-doc-guide{background:#fff;border:1px solid #D6E0E8;border-radius:8px;padding:28px;margin:0 0 20px;scroll-margin-top:96px;min-width:0}
+    .kdl-doc-num{display:inline-block;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:13px;color:#1F4E79;background:#EAF1F7;border-radius:4px;padding:2px 8px}
+    .kdl-doc-guide h2{margin:10px 0 8px;font-size:clamp(22px,3.4vw,28px);color:#0B2239}
+    .kdl-doc-guide h3{margin:0 0 8px;font-size:17px;color:#1F4E79}
+    .kdl-doc-guide p{margin:0 0 12px}
+    .kdl-doc-intro{color:#566A7D;max-width:820px}
+    .kdl-doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px 28px;margin-top:16px}
+    .kdl-doc-grid>div{min-width:0}
+    .kdl-doc-guide ul{margin:0 0 12px;padding-left:20px;display:grid;gap:5px}
+    .kdl-doc-guide li::marker{color:#2E7DF2}
+    .kdl-doc-code{font-family:"IBM Plex Mono",Consolas,monospace;font-weight:500;background:#F4F6F8;border:1px solid #D6E0E8;border-radius:4px;padding:1px 6px;font-size:.92em;white-space:nowrap}
+    .kdl-doc-tablewrap{overflow-x:auto;border:1px solid #D6E0E8;border-radius:8px;margin:0 0 12px}
+    .kdl-doc-table{width:100%;border-collapse:collapse;font-size:15px}
+    .kdl-doc-table caption{text-align:left;padding:10px 12px;font-weight:600;color:#14283C;background:#EAF1F7}
+    .kdl-doc-table th,.kdl-doc-table td{padding:8px 12px;border-top:1px solid #D6E0E8;text-align:left;vertical-align:top}
+    .kdl-doc-table thead th{background:#F4F6F8;color:#14283C;font-family:"IBM Plex Sans",Arial,sans-serif;font-weight:700}
+    .kdl-doc-table td.kdl-doc-n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .kdl-doc-small{font-size:14px;color:#566A7D}
+    .kdl-doc-tip{border-left:4px solid #2E7DF2;background:#EEF4FD;border-radius:0 8px 8px 0;padding:12px 16px;margin:4px 0 0}
+    .kdl-doc-tip p{margin:0}
+    .kdl-doc-cta{margin-top:40px;background:#0B2239;color:#fff;border-radius:8px;padding:30px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+    .kdl-doc-cta h2{margin:0 0 6px;font-size:26px;color:#fff}
+    .kdl-doc-cta p{margin:0;color:#D6E0E8}
+    .kdl-doc-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .kdl-doc-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:16px}
+    .kdl-doc .kdl-doc-btn--primary{background:#1F4E79;color:#fff;border:2px solid #fff}
+    .kdl-doc .kdl-doc-btn--primary:hover{background:#2A6399}
+    .kdl-doc .kdl-doc-btn--wa{background:#25D366;color:#06310F;border:2px solid #25D366}
+    .kdl-doc .kdl-doc-btn--wa:hover{background:#3BE07A}
+    .kdl-doc-cross{margin:22px 0 0}
+    .kdl-doc-cross a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+    .kdl-doc-disclaimer{margin:8px 0 0;font-size:13px;color:#566A7D}
+    @media(max-width:600px){
+      .kdl-doc-hero{padding:34px 0 40px}
+      .kdl-doc-lead{font-size:16px}
+      .kdl-doc-guide{padding:20px}
+      .kdl-doc-table{font-size:14px}
+      .kdl-doc-table th,.kdl-doc-table td{padding:7px 9px}
+      .kdl-doc-code{white-space:normal}
+      .kdl-doc-cta{padding:24px 20px}
+      .kdl-doc-actions,.kdl-doc-btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main class="kdl-doc" id="contenido">
+    <section class="kdl-doc-hero">
+      <div class="kdl-doc-shell">
+        <nav class="kdl-doc-crumbs" aria-label="Ruta de navegación">
+          <ol>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Catalogos.dc.html">Descargas</a></li>
+            <li><span aria-current="page">Guías de selección</span></li>
+          </ol>
+        </nav>
+        <h1>Guías rápidas de selección</h1>
+        <p class="kdl-doc-lead">Lo esencial para elegir bien un componente y pedirlo con los datos correctos.</p>
+      </div>
+    </section>
+
+    <div class="kdl-doc-main">
+      <div class="kdl-doc-shell">
+        <nav class="kdl-doc-index" aria-labelledby="kdl-doc-index-title">
+          <h2 id="kdl-doc-index-title">En esta página</h2>
+          <ul class="kdl-doc-chips">
+            <li><a href="#cilindro-neumatico">Cilindro neumático</a></li>
+            <li><a href="#sensor">Sensores</a></li>
+            <li><a href="#inserto-iso">Insertos de torneado</a></li>
+            <li><a href="#guia-lineal">Guía lineal y patín</a></li>
+            <li><a href="#variadores-servos">Variadores y servos</a></li>
+          </ul>
+        </nav>
+
+        <!-- 1. Cilindro neumático -->
+        <article class="kdl-doc-guide" id="cilindro-neumatico" aria-labelledby="g1-title">
+          <span class="kdl-doc-num">Guía 01</span>
+          <h2 id="g1-title">Cómo elegir un cilindro neumático</h2>
+          <p class="kdl-doc-intro">Define primero la fuerza que necesitas y la distancia que debe recorrer; con eso eliges el diámetro de émbolo y la carrera. Después ajusta norma, montaje y accesorios.</p>
+          <div class="kdl-doc-grid">
+            <div>
+              <h3>Fuerza teórica de empuje a 6 bar</h3>
+              <div class="kdl-doc-tablewrap">
+                <table class="kdl-doc-table">
+                  <caption>F = P · A, con P = 0.6 MPa y A = π·d²/4</caption>
+                  <thead>
+                    <tr><th scope="col">Émbolo Ø (mm)</th><th scope="col">Fuerza (N)</th><th scope="col">≈ kgf</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>16</td><td class="kdl-doc-n">121</td><td class="kdl-doc-n">12</td></tr>
+                    <tr><td>20</td><td class="kdl-doc-n">188</td><td class="kdl-doc-n">19</td></tr>
+                    <tr><td>25</td><td class="kdl-doc-n">295</td><td class="kdl-doc-n">30</td></tr>
+                    <tr><td>32</td><td class="kdl-doc-n">483</td><td class="kdl-doc-n">49</td></tr>
+                    <tr><td>40</td><td class="kdl-doc-n">754</td><td class="kdl-doc-n">77</td></tr>
+                    <tr><td>50</td><td class="kdl-doc-n">1,178</td><td class="kdl-doc-n">120</td></tr>
+                    <tr><td>63</td><td class="kdl-doc-n">1,870</td><td class="kdl-doc-n">191</td></tr>
+                    <tr><td>80</td><td class="kdl-doc-n">3,016</td><td class="kdl-doc-n">308</td></tr>
+                    <tr><td>100</td><td class="kdl-doc-n">4,712</td><td class="kdl-doc-n">480</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="kdl-doc-small">Valores teóricos sin fricción. Al retraer la fuerza es menor porque el vástago reduce el área. Como regla práctica, usa solo 50–70&nbsp;% de la fuerza teórica para cargas en movimiento.</p>
+            </div>
+            <div>
+              <h3>Qué definir</h3>
+              <ul>
+                <li><strong>Carrera:</strong> recorrido útil en mm; evita trabajar golpeando el tope.</li>
+                <li><strong>Simple efecto:</strong> aire en un sentido y retorno por resorte; ahorra aire, pero tiene carrera corta y menos fuerza.</li>
+                <li><strong>Doble efecto:</strong> aire en ambos sentidos; es el más común.</li>
+                <li><strong>Norma:</strong> ISO 15552 (perfil, Ø32 mm en adelante), ISO 6432 (minicilindro redondo, Ø8–25 mm) o compacto para espacios reducidos.</li>
+                <li><strong>Montaje:</strong> brida, escuadras (pie), charnela trasera, muñón; en el vástago, horquilla o rótula.</li>
+                <li><strong>Amortiguación:</strong> topes elásticos para cargas ligeras; neumática regulable para cargas o velocidades mayores.</li>
+                <li><strong>Imán en el émbolo:</strong> necesario si vas a colocar sensores de posición.</li>
+              </ul>
+            </div>
+          </div>
+          <h3>Cómo leer un código</h3>
+          <p>El formato varía por marca, pero suele seguir <em>serie + diámetro × carrera + opciones</em>:</p>
+          <ul>
+            <li><span class="kdl-doc-code">SC63x200</span>: serie SC (cilindro estándar tipo ISO), émbolo Ø63 mm, carrera 200 mm.</li>
+            <li><span class="kdl-doc-code">SDA32x25S</span>: serie SDA (compacto), Ø32 mm, carrera 25 mm; la «S» indica émbolo con imán.</li>
+          </ul>
+          <div class="kdl-doc-tip">
+            <p>Calcula el consumo de aire de tu cilindro con la <a href="Compatibilidad.dc.html#consumo-aire">calculadora de consumo de aire de KDL</a>.</p>
+          </div>
+        </article>
+
+        <!-- 2. Sensores -->
+        <article class="kdl-doc-guide" id="sensor" aria-labelledby="g2-title">
+          <span class="kdl-doc-num">Guía 02</span>
+          <h2 id="g2-title">Cómo elegir un sensor</h2>
+          <p class="kdl-doc-intro">Empieza por el objeto que vas a detectar y la distancia; luego asegúrate de que la salida y la conexión coincidan con tu PLC o tarjeta de entradas.</p>
+          <div class="kdl-doc-tablewrap">
+            <table class="kdl-doc-table">
+              <caption>Tecnología según lo que detectas</caption>
+              <thead>
+                <tr><th scope="col">Tipo</th><th scope="col">Detecta</th><th scope="col">Úsalo cuando…</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Inductivo</td><td>Metales</td><td>Detectas piezas metálicas a corta distancia (mm). En aluminio o latón el alcance se reduce.</td></tr>
+                <tr><td>Capacitivo</td><td>Casi cualquier material</td><td>Detectas plástico, madera, granos o nivel de líquido a través de una pared no metálica.</td></tr>
+                <tr><td>Fotoeléctrico</td><td>Objetos por luz</td><td>Necesitas más distancia: difuso, con reflector o de barrera (emisor y receptor).</td></tr>
+                <tr><td>Magnético de cilindro</td><td>Imán del émbolo</td><td>Quieres saber la posición del cilindro; va en la ranura del tubo y requiere cilindro con imán.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="kdl-doc-grid">
+            <div>
+              <h3>Salida y cableado</h3>
+              <ul>
+                <li><strong>PNP</strong> (entrega +24 V a la entrada) o <strong>NPN</strong> (conmuta a 0 V): debe coincidir con tu tarjeta de entradas. PNP es común en equipo europeo y americano; NPN, en mucho equipo asiático.</li>
+                <li><strong>NO / NC:</strong> normalmente abierto (activa al detectar) o normalmente cerrado (se abre al detectar).</li>
+                <li><strong>2 hilos:</strong> en serie con la carga; revisa la corriente de fuga. <strong>3 hilos:</strong> café (+), azul (−), negro (salida). <strong>4 hilos:</strong> dos salidas o NO + NC.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Tamaño, montaje y conexión</h3>
+              <ul>
+                <li><strong>Rosca M8, M12, M18, M30:</strong> a mayor diámetro, mayor distancia de detección.</li>
+                <li><strong>Enrasado:</strong> se monta al ras del metal; menor alcance. <strong>No enrasado:</strong> sobresale y alcanza más, pero necesita espacio libre alrededor.</li>
+                <li><strong>Distancia de detección:</strong> elige un alcance nominal con margen sobre tu distancia real.</li>
+                <li><strong>Conector</strong> (M8 o M12) facilita el cambio; <strong>cable</strong> integrado es más compacto. Indica el largo.</li>
+                <li><strong>IO-Link:</strong> comunicación digital para configurar y diagnosticar el sensor; requiere un maestro IO-Link.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Insertos -->
+        <article class="kdl-doc-guide" id="inserto-iso" aria-labelledby="g3-title">
+          <span class="kdl-doc-num">Guía 03</span>
+          <h2 id="g3-title">Cómo leer la designación ISO de un inserto de torneado</h2>
+          <p class="kdl-doc-intro">La designación ISO describe la forma y las medidas del inserto; el grado y el rompevirutas los define cada fabricante. Ejemplo: <span class="kdl-doc-code">CNMG 120408</span>.</p>
+          <div class="kdl-doc-tablewrap">
+            <table class="kdl-doc-table">
+              <caption>Desglose de CNMG 120408</caption>
+              <thead>
+                <tr><th scope="col">Posición</th><th scope="col">Código</th><th scope="col">Significado</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1 · Forma</td><td><span class="kdl-doc-code">C</span></td><td>Rómbico de 80°</td></tr>
+                <tr><td>2 · Ángulo de incidencia</td><td><span class="kdl-doc-code">N</span></td><td>0° (negativo, utilizable por ambas caras)</td></tr>
+                <tr><td>3 · Tolerancia</td><td><span class="kdl-doc-code">M</span></td><td>Clase de tolerancia M (inserto prensado, común)</td></tr>
+                <tr><td>4 · Tipo / sujeción</td><td><span class="kdl-doc-code">G</span></td><td>Con barreno y rompevirutas en ambas caras</td></tr>
+                <tr><td>5 · Longitud de filo</td><td><span class="kdl-doc-code">12</span></td><td>≈ 12 mm (círculo inscrito de 12.7 mm)</td></tr>
+                <tr><td>6 · Espesor</td><td><span class="kdl-doc-code">04</span></td><td>4.76 mm</td></tr>
+                <tr><td>7 · Radio de punta</td><td><span class="kdl-doc-code">08</span></td><td>0.8 mm</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="kdl-doc-grid">
+            <div>
+              <h3>Grado según el material (ISO 513)</h3>
+              <ul>
+                <li><strong>P</strong> (azul): aceros.</li>
+                <li><strong>M</strong> (amarillo): aceros inoxidables.</li>
+                <li><strong>K</strong> (rojo): hierros fundidos.</li>
+                <li><strong>N</strong> (verde): aluminio y no ferrosos.</li>
+                <li><strong>S</strong> (café/naranja): superaleaciones y titanio.</li>
+                <li><strong>H</strong> (gris): aceros templados.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Recubrimiento</h3>
+              <ul>
+                <li><strong>CVD:</strong> capa más gruesa, alta resistencia al desgaste y al calor; ideal para acero y fundición a velocidades altas.</li>
+                <li><strong>PVD:</strong> capa delgada, filo más agudo y tenaz; ideal para inoxidable, superaleaciones, cortes interrumpidos y velocidades bajas.</li>
+              </ul>
+              <p class="kdl-doc-small">Al cotizar, incluye el sufijo del rompevirutas y el grado que usas hoy (ej. <span class="kdl-doc-code">CNMG 120408-XX</span> + grado).</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Guía lineal -->
+        <article class="kdl-doc-guide" id="guia-lineal" aria-labelledby="g4-title">
+          <span class="kdl-doc-num">Guía 04</span>
+          <h2 id="g4-title">Cómo elegir guía lineal y patín</h2>
+          <p class="kdl-doc-intro">El riel y el patín (bloque) deben ser de la misma serie y tamaño. Para un reemplazo, lo más seguro es el código completo grabado en el bloque o en el riel.</p>
+          <div class="kdl-doc-grid">
+            <div>
+              <h3>Qué definir</h3>
+              <ul>
+                <li><strong>Tamaño:</strong> 15, 20, 25, 30, 35… corresponde aproximadamente al ancho del riel en mm y define la capacidad de carga.</li>
+                <li><strong>Bloque con brida:</strong> más ancho, se puede atornillar por arriba o por abajo. <strong>Sin brida (cuadrado):</strong> más angosto, se fija por arriba.</li>
+                <li><strong>Estándar o bajo perfil:</strong> el bajo perfil reduce la altura total para equipos compactos.</li>
+                <li><strong>Bloque largo:</strong> mayor capacidad y rigidez en el mismo riel.</li>
+                <li><strong>Precarga:</strong> ligera, media o alta; más precarga da más rigidez, con más fricción.</li>
+                <li><strong>Clase de precisión:</strong> normal, alta, de precisión y superiores, según la exactitud del eje.</li>
+                <li><strong>Riel:</strong> longitud total y, si es especial, distancia del primer barreno.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Ejemplos de código (serie HG de HIWIN)</h3>
+              <div class="kdl-doc-tablewrap">
+                <table class="kdl-doc-table">
+                  <thead>
+                    <tr><th scope="col">Código</th><th scope="col">Lectura</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><span class="kdl-doc-code">HGH30HA</span></td><td>Serie HG · H = bloque cuadrado sin brida · tamaño 30 · H = bloque largo (carga superpesada) · A = montaje por arriba</td></tr>
+                    <tr><td><span class="kdl-doc-code">HGW25CC</span></td><td>Serie HG · W = bloque con brida · tamaño 25 · C = bloque estándar (carga pesada) · C = montaje por arriba o por abajo</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="kdl-doc-small">El código completo suele continuar con precarga, clase de precisión y longitud del riel. Otras marcas usan nomenclaturas distintas; envíanos la foto del grabado.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Variadores y servos -->
+        <article class="kdl-doc-guide" id="variadores-servos" aria-labelledby="g5-title">
+          <span class="kdl-doc-num">Guía 05</span>
+          <h2 id="g5-title">Variadores y servos: qué datos pedir</h2>
+          <p class="kdl-doc-intro">La placa del motor y la del equipo actual resuelven la mayoría de las dudas. Tómales foto antes de desmontar.</p>
+          <div class="kdl-doc-grid">
+            <div>
+              <h3>Variador de frecuencia</h3>
+              <ul>
+                <li><strong>Potencia del motor</strong> en kW o HP.</li>
+                <li><strong>Alimentación:</strong> monofásica (1F) o trifásica (3F) y voltaje, por ejemplo 220 V o 440 V. Si alimentas en 1F un motor trifásico, el variador suele necesitar un tamaño mayor.</li>
+                <li><strong>Corriente nominal del motor</strong> (A, en la placa); el variador debe cubrirla.</li>
+                <li><strong>Tipo de carga:</strong> par variable (bomba, ventilador) o par constante (banda, compresor, elevación).</li>
+                <li><strong>Tipo de control:</strong> V/f, vectorial sin sensor o lazo cerrado con encoder.</li>
+                <li><strong>Comunicación:</strong> Modbus RTU, EtherNet/IP, EtherCAT u otra.</li>
+                <li>Si requiere frenado dinámico (resistencia de frenado).</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Servomotor y servodrive</h3>
+              <ul>
+                <li><strong>Modelo de placa</strong> del motor y del drive: suelen venderse como pareja compatible.</li>
+                <li><strong>Potencia</strong>, par nominal y velocidad (rpm).</li>
+                <li><strong>Encoder:</strong> incremental o absoluto, y su resolución.</li>
+                <li><strong>Freno</strong> integrado, tipo de eje (con o sin cuñero) y brida.</li>
+                <li><strong>Alimentación</strong> del drive y <strong>modo de mando:</strong> pulsos, analógico o red (EtherCAT, etc.).</li>
+                <li>Largo de cables de potencia y encoder.</li>
+                <li>Código de alarma, si el equipo está fallando.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <section class="kdl-doc-cta" aria-labelledby="cta-title">
+          <div>
+            <h2 id="cta-title">¿Listo para cotizar?</h2>
+            <p>Agrega tus piezas a la cesta o mándanos los datos directo por WhatsApp.</p>
+          </div>
+          <div class="kdl-doc-actions">
+            <a class="kdl-doc-btn kdl-doc-btn--primary" href="Cesta.dc.html">Armar mi cotización</a>
+            <a class="kdl-doc-btn kdl-doc-btn--wa" href="https://wa.me/528112273382?text=Hola%20KDL%2C%20ya%20tengo%20los%20datos%20para%20cotizar.%20%C2%BFMe%20ayudan%3F" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+          </div>
+        </section>
+        <p class="kdl-doc-cross"><a href="Checklists.html">Ver checklists →</a></p>
+        <p class="kdl-doc-disclaimer">Información general de referencia; confirma siempre con la hoja de datos del fabricante. Marcas referenciales; KDL no afirma distribución exclusiva.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

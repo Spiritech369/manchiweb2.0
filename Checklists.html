@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checklists para cotizar | KDL</title>
+  <meta name="description" content="Checklists de KDL para cotizar refacciones industriales: qué datos reunir y qué síntomas de falla describir en neumática, hidráulica, sensores, automatización, movimiento lineal, control eléctrico, herramientas de corte, IQF y suministros.">
+  <link rel="canonical" href="https://kdl.com.mx/Checklists.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <script src="./kdl-inventory-data.js?v=2"></script>
+<script src="./kdl-families.js?v=1"></script>
+<script src="./kdl-site-header.js?v=14" defer></script>
+  <link rel="stylesheet" href="./kdl-site-header.css?v=4" data-kdl-shared-header>
+  <link rel="stylesheet" href="./kdl-corporate.css?v=4" data-kdl-corporate>
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#F4F6F8;color:#14283C;font-family:"IBM Plex Sans",Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+    .kdl-doc a{color:#1F4E79}
+    .kdl-doc-shell{width:min(1120px,100%);margin:0 auto;padding:0 22px}
+    .kdl-doc h1,.kdl-doc h2,.kdl-doc h3{font-family:"Archivo",Arial,sans-serif;font-weight:800;line-height:1.18;letter-spacing:-.015em}
+    .kdl-doc-hero{background:#0B2239;color:#fff;padding:46px 0 52px}
+    .kdl-doc-crumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;font-size:14px;color:#A9C4DA}
+    .kdl-doc-crumbs li+li::before{content:"/";margin-right:6px;color:#7F9AB3}
+    .kdl-doc-crumbs a{color:#DCE6EE;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+    .kdl-doc-crumbs a:hover{color:#fff;text-decoration:underline}
+    .kdl-doc-crumbs [aria-current]{color:#fff;font-weight:600}
+    .kdl-doc-crumbs li{display:inline-flex;align-items:center}
+    .kdl-doc-hero h1{margin:14px 0 10px;font-size:clamp(32px,6vw,50px);color:#fff}
+    .kdl-doc-lead{margin:0;max-width:720px;font-size:18px;color:#D6E0E8}
+    .kdl-doc-main{padding:32px 0 64px}
+    .kdl-doc-index{margin:0 0 28px}
+    .kdl-doc-index h2{font-size:15px;margin:0 0 10px;color:#566A7D;text-transform:uppercase;letter-spacing:.08em}
+    .kdl-doc-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+    .kdl-doc-chips a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid #D6E0E8;border-radius:999px;background:#fff;color:#1F4E79;font-weight:600;font-size:15px;text-decoration:none}
+    .kdl-doc-chips a:hover{border-color:#2E7DF2;background:#EEF4FD}
+    .kdl-doc-note{background:#fff;border:1px solid #D6E0E8;border-left:5px solid #2E7DF2;border-radius:8px;padding:22px 24px;margin:0 0 28px}
+    .kdl-doc-note h2{margin:0 0 8px;font-size:22px;color:#0B2239}
+    .kdl-doc-note p{margin:0 0 10px;color:#566A7D}
+    .kdl-doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .kdl-doc-card{background:#fff;border:1px solid #D6E0E8;border-radius:8px;padding:24px;display:flex;flex-direction:column;scroll-margin-top:96px;min-width:0}
+    .kdl-doc-card h2{margin:0 0 6px;font-size:22px;color:#0B2239}
+    .kdl-doc-card h3{margin:18px 0 8px;font-size:15px;color:#1F4E79;text-transform:uppercase;letter-spacing:.06em}
+    .kdl-doc-intro{margin:0;color:#566A7D}
+    .kdl-doc-check{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .kdl-doc-check li{position:relative;padding-left:30px}
+    .kdl-doc-check li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border:2px solid #1F4E79;border-radius:4px;background:#fff}
+    .kdl-doc-symptoms{margin:0;padding-left:20px;color:#14283C;display:grid;gap:6px}
+    .kdl-doc-symptoms li::marker{color:#C2410C}
+    .kdl-doc-more{margin-top:auto;padding-top:18px}
+    .kdl-doc-more a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:none}
+    .kdl-doc-more a:hover{text-decoration:underline}
+    .kdl-doc-cta{margin-top:40px;background:#0B2239;color:#fff;border-radius:8px;padding:30px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+    .kdl-doc-cta h2{margin:0 0 6px;font-size:26px;color:#fff}
+    .kdl-doc-cta p{margin:0;color:#D6E0E8}
+    .kdl-doc-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .kdl-doc-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none;font-size:16px}
+    .kdl-doc .kdl-doc-btn--primary{background:#1F4E79;color:#fff;border:2px solid #fff}
+    .kdl-doc .kdl-doc-btn--primary:hover{background:#2A6399}
+    .kdl-doc .kdl-doc-btn--wa{background:#25D366;color:#06310F;border:2px solid #25D366}
+    .kdl-doc .kdl-doc-btn--wa:hover{background:#3BE07A}
+    .kdl-doc-cross{margin:22px 0 0}
+    .kdl-doc-cross a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+    @media(max-width:600px){
+      .kdl-doc-hero{padding:34px 0 40px}
+      .kdl-doc-lead{font-size:16px}
+      .kdl-doc-card,.kdl-doc-note{padding:20px}
+      .kdl-doc-cta{padding:24px 20px}
+      .kdl-doc-actions,.kdl-doc-btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main class="kdl-doc" id="contenido">
+    <section class="kdl-doc-hero">
+      <div class="kdl-doc-shell">
+        <nav class="kdl-doc-crumbs" aria-label="Ruta de navegación">
+          <ol>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Catalogos.dc.html">Descargas</a></li>
+            <li><span aria-current="page">Checklists para cotizar</span></li>
+          </ol>
+        </nav>
+        <h1>Checklists para cotizar</h1>
+        <p class="kdl-doc-lead">Reúne estos datos antes de pedir tu cotización y recibe una respuesta más rápida y precisa.</p>
+      </div>
+    </section>
+
+    <div class="kdl-doc-main">
+      <div class="kdl-doc-shell">
+        <nav class="kdl-doc-index" aria-labelledby="kdl-doc-index-title">
+          <h2 id="kdl-doc-index-title">En esta página</h2>
+          <ul class="kdl-doc-chips">
+            <li><a href="#antes">Antes de empezar</a></li>
+            <li><a href="#neumatica">Neumática</a></li>
+            <li><a href="#hidraulica">Hidráulica</a></li>
+            <li><a href="#sensores">Sensores</a></li>
+            <li><a href="#automatizacion">Automatización y control</a></li>
+            <li><a href="#movimiento">Movimiento lineal</a></li>
+            <li><a href="#electrico">Control eléctrico</a></li>
+            <li><a href="#corte">Herramientas de corte</a></li>
+            <li><a href="#iqf">Refrigeración industrial (IQF)</a></li>
+            <li><a href="#suministros">Suministros industriales</a></li>
+          </ul>
+        </nav>
+
+        <section class="kdl-doc-note" id="antes" aria-labelledby="antes-title">
+          <h2 id="antes-title">Antes de empezar</h2>
+          <p>Sin importar la familia de producto, estos datos siempre ayudan:</p>
+          <ul class="kdl-doc-check">
+            <li>Foto de la placa o etiqueta del equipo (legible y completa).</li>
+            <li>Marca y número de parte completo, incluidos los sufijos.</li>
+            <li>Cantidad que necesitas.</li>
+            <li>Fecha en la que lo requieres.</li>
+            <li>Aplicación o máquina donde se instala.</li>
+            <li>Si buscas reemplazo directo o aceptas una alternativa compatible.</li>
+          </ul>
+        </section>
+
+        <div class="kdl-doc-grid">
+          <section class="kdl-doc-card" id="neumatica" aria-labelledby="neumatica-title">
+            <h2 id="neumatica-title">Neumática</h2>
+            <p class="kdl-doc-intro">Cilindros, grippers, válvulas, conexiones y tratamiento de aire para automatización.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Diámetro de émbolo y carrera (mm).</li>
+              <li>Tipo de cilindro: ISO, compacto o guiado.</li>
+              <li>Marca y número de parte.</li>
+              <li>Presión de trabajo (bar o MPa).</li>
+              <li>Tipo de conexión (rosca de puertos) y montaje.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Fugas de aire por sellos gastados.</li>
+              <li>Ciclo lento o el vástago no regresa.</li>
+              <li>Válvula pegada o bobina quemada.</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=neumatica">Ver productos de Neumática →</a></p>
+          </section>
+
+          <section class="kdl-doc-card" id="hidraulica" aria-labelledby="hidraulica-title">
+            <h2 id="hidraulica-title">Hidráulica</h2>
+            <p class="kdl-doc-intro">Potencia hidráulica para prensas, inyección y maquinaria pesada.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Presión de trabajo y caudal requerido.</li>
+              <li>Diámetro y carrera (si es cilindro).</li>
+              <li>Tipo de válvula (direccional, proporcional, servo).</li>
+              <li>Tipo y tamaño de conexiones.</li>
+              <li>Fluido que usa el sistema y temperatura de operación.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Pérdida de presión.</li>
+              <li>Fuga externa o interna.</li>
+              <li>Sobrecalentamiento del aceite o del equipo.</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=hidraulica">Ver productos de Hidráulica →</a></p>
+          </section>
+
+          <section class="kdl-doc-card" id="sensores" aria-labelledby="sensores-title">
+            <h2 id="sensores-title">Sensores</h2>
+            <p class="kdl-doc-intro">Detección, medición, visión, RFID y comunicación industrial.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Distancia de detección requerida.</li>
+              <li>Tipo de salida: PNP o NPN.</li>
+              <li>Conexión: conector M8 / M12 o cable.</li>
+              <li>Voltaje de alimentación.</li>
+              <li>Material u objeto a detectar.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Lectura intermitente.</li>
+              <li>No entrega señal.</li>
+              <li>Daño por golpe o por temperatura.</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=sensores">Ver productos de Sensores →</a></p>
+          </section>
+
+          <section class="kdl-doc-card" id="automatizacion" aria-labelledby="automatizacion-title">
+            <h2 id="automatizacion-title">Automatización y control</h2>
+            <p class="kdl-doc-intro">PLC, HMI, variadores, servos y comunicación de procesos.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Marca y modelo del equipo.</li>
+              <li>Voltaje de alimentación y potencia.</li>
+              <li>Protocolo de comunicación que utiliza.</li>
+              <li>Número de parte completo.</li>
+              <li>Aplicación o proceso que controla.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Código de error que muestra el equipo.</li>
+              <li>Si el equipo está descontinuado.</li>
+              <li>Comunicación caída con otros equipos.</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=automatizacion">Ver productos de Automatización y control →</a></p>
+          </section>
+
+          <section class="kdl-doc-card" id="movimiento" aria-labelledby="movimiento-title">
+            <h2 id="movimiento-title">Movimiento lineal</h2>
+            <p class="kdl-doc-intro">Guías, husillos, actuadores y sistemas multieje de precisión.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Tamaño y serie de la guía o del husillo.</li>
+              <li>Longitud de carrera o largo del riel.</li>
+              <li>Precarga y clase de precisión.</li>
+              <li>Carga y velocidad de trabajo.</li>
+              <li>Marca y número de parte.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Juego o ruido al desplazarse.</li>
+              <li>Pérdida de precisión.</li>
+              <li>Desgaste del patín (bloque).</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=movimiento">Ver productos de Movimiento lineal →</a></p>
+          </section>
+
+          <section class="kdl-doc-card" id="electrico" aria-labelledby="electrico-title">
+            <h2 id="electrico-title">Control eléctrico</h2>
+            <p class="kdl-doc-intro">Componentes de tablero y distribución eléctrica.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Voltaje y corriente nominales.</li>
+              <li>Tipo de componente (fuente, relevador, contactor, protección…).</li>
+              <li>Marca y número de parte.</li>
+              <li>Tipo de montaje (por ejemplo, riel DIN).</li>
+              <li>Aplicación o carga que maneja.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Disparos o fallas repetidas.</li>
+              <li>Componente quemado.</li>
+              <li>Falso contacto.</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=electrico">Ver productos de Control eléctrico →</a></p>
+          </section>
+
+          <section class="kdl-doc-card" id="corte" aria-labelledby="corte-title">
+            <h2 id="corte-title">Herramientas de corte</h2>
+            <p class="kdl-doc-intro">Insertos de torneado, fresado, ranurado y carburo sólido.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Designación ISO y geometría del inserto (ej. CNMG 120408).</li>
+              <li>Material que vas a maquinar.</li>
+              <li>Grado actual o deseado.</li>
+              <li>Portaherramienta que utilizas.</li>
+              <li>Avance y velocidad de corte actuales.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Filo desgastado o despostillado.</li>
+              <li>Mal acabado superficial.</li>
+              <li>Vida corta del inserto.</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=corte">Ver productos de Herramientas de corte →</a></p>
+          </section>
+
+          <section class="kdl-doc-card" id="iqf" aria-labelledby="iqf-title">
+            <h2 id="iqf-title">Refrigeración industrial (IQF)</h2>
+            <p class="kdl-doc-intro">Congelación rápida y línea de frío para alimentos y acuacultura.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Tipo de equipo o componente.</li>
+              <li>Capacidad requerida y temperatura objetivo.</li>
+              <li>Producto que vas a congelar.</li>
+              <li>Marca y modelo del equipo.</li>
+              <li>Aplicación o etapa de la línea.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Pérdida de temperatura.</li>
+              <li>Falla en el control.</li>
+              <li>Bajo desempeño o capacidad reducida.</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=iqf">Ver productos de Refrigeración industrial (IQF) →</a></p>
+          </section>
+
+          <section class="kdl-doc-card" id="suministros" aria-labelledby="suministros-title">
+            <h2 id="suministros-title">Suministros industriales</h2>
+            <p class="kdl-doc-intro">Componentes para mantenimiento y proyectos.</p>
+            <h3>Datos para cotizar</h3>
+            <ul class="kdl-doc-check">
+              <li>Descripción de la pieza.</li>
+              <li>Marca y número de parte.</li>
+              <li>Cantidad.</li>
+              <li>Medidas principales.</li>
+              <li>Aplicación o uso.</li>
+            </ul>
+            <h3>Si está fallando, describe…</h3>
+            <ul class="kdl-doc-symptoms">
+              <li>Desgaste por uso.</li>
+              <li>Si la pieza está descontinuada.</li>
+              <li>Si es difícil de identificar (envía fotos y medidas).</li>
+            </ul>
+            <p class="kdl-doc-more"><a href="Productos.dc.html?cat=suministros">Ver productos de Suministros industriales →</a></p>
+          </section>
+        </div>
+
+        <section class="kdl-doc-cta" aria-labelledby="cta-title">
+          <div>
+            <h2 id="cta-title">¿Listo para cotizar?</h2>
+            <p>Agrega tus piezas a la cesta o mándanos los datos directo por WhatsApp.</p>
+          </div>
+          <div class="kdl-doc-actions">
+            <a class="kdl-doc-btn kdl-doc-btn--primary" href="Cesta.dc.html">Armar mi cotización</a>
+            <a class="kdl-doc-btn kdl-doc-btn--wa" href="https://wa.me/528112273382?text=Hola%20KDL%2C%20ya%20tengo%20los%20datos%20para%20cotizar.%20%C2%BFMe%20ayudan%3F" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+          </div>
+        </section>
+        <p class="kdl-doc-cross"><a href="Guias.html">Ver guías de selección →</a></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

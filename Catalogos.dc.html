@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
-<script src="./kdl-site-header.js?v=13" defer></script>
+<script src="./kdl-inventory-data.js?v=2"></script>
+<script src="./kdl-families.js?v=1"></script>
+<script src="./kdl-site-header.js?v=14" defer></script>
 </head>
 <body>
 <x-dc>
@@ -17,8 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F2F5F9;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#0E2236}a{text-decoration:none;color:inherit}@keyframes kdlBar{to{background-position:-200% 0}}@keyframes kdlDash{to{stroke-dashoffset:-340}}</style>
-<link rel="stylesheet" href="./kdl-site-header.css?v=3" data-kdl-shared-header>
-<link rel="stylesheet" href="./kdl-corporate.css?v=3" data-kdl-corporate>
+<link rel="stylesheet" href="./kdl-site-header.css?v=4" data-kdl-shared-header>
+<link rel="stylesheet" href="./kdl-corporate.css?v=4" data-kdl-corporate>
 </helmet>
 
 <div style="background:#F2F5F9;overflow-x:hidden">
@@ -38,9 +40,9 @@
 <section style="position:relative;background:radial-gradient(120% 120% at 80% 0%,#15426F,#0A1B30 55%,#06121F);overflow:hidden;padding:46px 22px 50px">
   <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.5" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M-60 200 C 360 80, 720 340, 1260 180" fill="none" stroke="#39A0FF" stroke-width="1.6" stroke-dasharray="14 22" style="animation:kdlDash 3s linear infinite"/></svg>
   <div style="position:relative;max-width:1280px;margin:0 auto">
-    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;color:#7FB4E8;margin-bottom:12px"><a href="index.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span> Centro documental</div>
-    <h1 style="font-family:'Archivo';font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;max-width:820px">Documentación técnica para seleccionar con certeza.</h1>
-    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#B8C7D9;max-width:720px;margin:0">Encuentra catálogos KDL o solicita la ficha técnica de la marca y modelo exactos.</p>
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;color:#7FB4E8;margin-bottom:12px"><a href="index.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span> Descargas</div>
+    <h1 style="font-family:'Archivo';font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;max-width:820px">Descargas para cotizar y seleccionar con certeza.</h1>
+    <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#B8C7D9;max-width:720px;margin:0">Catálogos PDF, checklists por familia, guías de selección y fichas técnicas por marca y modelo.</p>
   </div>
   <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,#1FC8E3,#2E7DF2,transparent);background-size:200% 100%;animation:kdlBar 3s linear infinite"></div>
 </section>
@@ -59,7 +61,7 @@
     </div>
   </div>
   <div style="display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:18px">
-    <div><h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.6px;color:#0E2236;margin:0 0 5px">Biblioteca técnica</h2><p role="status" aria-live="polite" style="font-size:14px;color:#5A6B80;margin:0">{{ resultLabel }}</p></div>
+    <div><h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.6px;color:#0E2236;margin:0 0 5px">Catálogos, guías y fichas</h2><p role="status" aria-live="polite" style="font-size:14px;color:#5A6B80;margin:0">{{ resultLabel }}</p></div>
     <a href="{{ waFicha }}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#2E7DF2;font-weight:800;font-size:14px">Pedir documento oficial a un asesor <span>→</span></a>
   </div>
   <sc-if value="{{ hasDocs }}" hint-placeholder-val="{{ true }}">
@@ -86,7 +88,7 @@
 <section style="max-width:1280px;margin:0 auto;padding:30px 22px 16px">
   <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.6px;color:#0E2236;margin:0 0 6px">Catálogos por marca</h2>
   <p style="font-size:15px;color:#5A6B80;margin:0 0 10px">Consulta productos y documentación directamente con el fabricante.</p>
-  <p class="kdl-document-explainer">Los dos catálogos KDL marcados como <strong>PDF · descarga</strong> existen en este sitio. Las tarjetas siguientes abren sitios externos oficiales; Zenso abre la página de un distribuidor autorizado en México. Si no localizas el documento exacto, KDL puede ayudarte a solicitarlo con marca, modelo y número de parte.</p>
+  <p class="kdl-document-explainer">Estos enlaces abren el sitio oficial de cada fabricante (en ZENSO, la página de un distribuidor autorizado en México). Si no encuentras el documento exacto, te lo conseguimos con marca, modelo y número de parte.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:13px">
     <sc-for list="{{ brands }}" as="b" hint-placeholder-count="9">
       <a class="kdl-commercial-card" href="{{ b.href }}" target="_blank" rel="noopener noreferrer" style="border:1px solid #E3E9F1;border-radius:12px;padding:22px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;background:#fff;text-align:center" style-hover="border-color:#C9D8EC;box-shadow:0 10px 24px rgba(14,34,54,.08)">
@@ -156,11 +158,13 @@ class Component extends DCLogic {
     const rawDocs=[
       {type:'Catálogos',title:'Catálogo de suministros industriales 2026',desc:'Neumática, hidráulica, sensores, automatización, movimiento lineal y refrigeración.',keywords:'catalogo suministros neumatica hidraulica sensores automatizacion movimiento iqf',format:'PDF · descarga',action:'Descargar PDF',target:'_blank',href:'uploads/KDLCATALOGO-SUMINISTROS.pdf'},
       {type:'Catálogos',title:'Catálogo de herramientas de corte 2026',desc:'Insertos, torneado, ranurado, carburo sólido y grados CVD/PVD.',keywords:'catalogo herramientas corte insertos torneado ranurado carburo',format:'PDF · descarga',action:'Descargar PDF',target:'_blank',href:'uploads/KDLCATALOGO-HERRAMIENTA.pdf'},
+      {type:'Guías',title:'Checklists para cotizar',desc:'Qué datos reunir por familia de producto para cotizar a la primera.',keywords:'checklist datos cotizar familia neumatica hidraulica sensores corte',format:'Página · lectura',action:'Ver checklists',target:'_self',href:'Checklists.html'},
+      {type:'Guías',title:'Guías rápidas de selección',desc:'Cómo elegir cilindro, sensor, inserto de torneado, guía lineal, variador o servo.',keywords:'guia seleccion cilindro sensor inserto iso guia lineal variador servo',format:'Página · lectura',action:'Ver guías',target:'_self',href:'Guias.html'},
       request('Fichas técnicas','Ficha técnica oficial','Hoja de datos correspondiente a la marca, serie y variante exactas.','ficha datos especificaciones producto marca modelo')
     ];
     const q=this.norm(this.state.query), type=this.state.docType;
     const documents=rawDocs.filter(d=>(type==='Todos'||d.type===type)&&(!q||this.norm(d.title+' '+d.desc+' '+d.keywords+' '+d.type).includes(q)));
-    const filterNames=['Todos','Catálogos','Fichas técnicas'];
+    const filterNames=['Todos','Catálogos','Guías','Fichas técnicas'];
     const filters=filterNames.map(label=>({label,selected:type===label,onClick:()=>this.setDocType(label),style:'border:1px solid '+(type===label?'#148BFF':'#DDE4EE')+';background:'+(type===label?'#148BFF':'#fff')+';color:'+(type===label?'#fff':'#5A6B80')+';border-radius:99px;padding:8px 13px;font-size:12.5px;font-weight:700;cursor:pointer'}));
     return {
       isMobile:this.state.isMobile, notMobile:!this.state.isMobile, nav,

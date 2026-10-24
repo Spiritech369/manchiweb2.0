@@ -224,7 +224,7 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
 .kdl-products-heading__text{max-width:720px;margin:0 auto;text-align:center}
 .kdl-products-title{font-size:clamp(22px,2.2vw,30px);margin:0 0 8px}
 .kdl-products-subtitle{font-size:14px;color:var(--kdl-muted)}
-.kdl-category-grid{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:14px}
+.kdl-category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .kdl-link-button{display:inline-flex;align-items:center;gap:9px;background:#0E2236;color:#fff;font-weight:700;font-size:14px;padding:13px 20px;border-radius:11px;white-space:nowrap}
 .kdl-link-button:hover{background:#163359}
 .kdl-category-card{border:1px solid var(--kdl-line);border-radius:8px;overflow:hidden;display:flex;background:#fff;cursor:pointer;min-height:142px;box-shadow:0 8px 20px rgba(13,35,58,.06)}
@@ -305,3 +305,14 @@ button:disabled,[aria-disabled="true"]{cursor:not-allowed;opacity:.58}
   .kdl-hero-proof__grid{grid-template-columns:1fr}
   .kdl-hero-proof__grid a{border-left:0!important;border-right:0!important}
 }
+/* Backlog 2026-10: familias, búsqueda conectada al inventario */
+a.kdl-category-card{color:inherit;text-decoration:none}
+.kdl-category-card__title{margin:0}
+.kdl-category-card__desc{margin:0}
+.kdl-category-card__meta{align-self:flex-start;margin-top:12px;padding:3px 9px;border-radius:999px;background:#E8F5EC;color:#14532D;font-size:12px;font-weight:700}
+.kdl-category-card__meta--request{background:#FFF4DB;color:#7A4B00}
+.kdl-category-card__cta{color:#1F4E79}
+.kdl-search-result{text-decoration:none}
+.kdl-search-result__icon img{display:block;border-radius:4px;background:#F4F6F8}
+.kdl-search-result__tag--stock{background:#E8F5EC;color:#14532D}
+.kdl-search-results__all{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;background:#F4F8FC;color:#1F4E79;font-size:13.5px;font-weight:800;text-decoration:underline}

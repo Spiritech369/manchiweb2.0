@@ -98,7 +98,7 @@ button[type="submit"]:hover {
 
 .kdl-brand__logo,
 .kdl-shared-brand img {
-  width: clamp(252px, 21vw, 310px) !important;
+  width: clamp(190px, 17vw, 260px) !important;
   height: auto !important;
   max-height: 72px !important;
   object-fit: contain !important;
@@ -263,7 +263,7 @@ main > section {
 .product-card,
 .catalog-card,
 .doc-card,
-[class*="card"] {
+[class*="card"]:where(:not([class*="card__"]):not([class*="cards"])) {
   background-color: #fff !important;
   background-image: none !important;
   border-color: var(--kdl-border) !important;
@@ -450,14 +450,14 @@ details[open] {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 999px) {
   .kdl-shared-header__inner {
-    min-height: 68px !important;
-    padding: 8px 16px !important;
+    min-height: 64px !important;
+    padding: 8px 14px !important;
   }
 
   .kdl-shared-brand img {
-    width: 240px !important;
+    width: 190px !important;
   }
 
   .kdl-shared-nav,
@@ -473,8 +473,8 @@ details[open] {
 @media (max-width: 767px) {
   .kdl-brand__logo,
   .kdl-shared-brand img {
-    width: 205px !important;
-    max-height: 56px !important;
+    width: 172px !important;
+    max-height: 48px !important;
   }
 
   .kdl-header,
@@ -488,7 +488,7 @@ details[open] {
 
   .kdl-card,
   .card,
-  [class*="card"] {
+  [class*="card"]:where(:not([class*="card__"])) {
     border-radius: 6px !important;
   }
 }
@@ -680,7 +680,7 @@ a[href*="wa.me"][class*="btn"]:hover,
 @media (max-width: 390px) {
   .kdl-brand__logo,
   .kdl-shared-brand img {
-    width: 190px !important;
-    max-height: 52px !important;
+    width: 148px !important;
+    max-height: 42px !important;
   }
 }
