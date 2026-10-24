@@ -13,6 +13,14 @@ function loadData() {
   return sandbox.window.KDL;
 }
 
+function loadInventory() {
+  const code = fs.readFileSync(path.join(ROOT, 'kdl-inventory-data.js'), 'utf8');
+  const sandbox = { window: {}, console };
+  vm.createContext(sandbox);
+  vm.runInContext(code, sandbox, { filename: 'kdl-inventory-data.js' });
+  return sandbox.window.KDLInventory;
+}
+
 function xml(value) {
   return String(value == null ? '' : value)
     .replace(/&/g, '&amp;')
@@ -42,20 +50,28 @@ function main() {
 
   const urls = [
     item(url(''), 'weekly', '1.0'),
-    item(url('productos/'), 'weekly', '0.95'),
-    item(url('Soluciones.dc.html'), 'monthly', '0.75'),
-    item(url('Industrias.dc.html'), 'monthly', '0.70'),
-    item(url('Servicios.dc.html'), 'monthly', '0.70'),
-    item(url('Catalogos.dc.html'), 'monthly', '0.70'),
-    item(url('Contacto.dc.html'), 'monthly', '0.75'),
-    item(url('Aviso-Privacidad.html'), 'yearly', '0.35')
+    item(url('catalogo'), 'weekly', '0.95'),
+    item(url('como-te-ayudamos'), 'monthly', '0.75'),
+    item(url('descargas'), 'monthly', '0.70'),
+    item(url('checklists'), 'monthly', '0.65'),
+    item(url('guias'), 'monthly', '0.65'),
+    item(url('alternativas-compatibles'), 'monthly', '0.70'),
+    item(url('marcas'), 'monthly', '0.55'),
+    item(url('contacto'), 'monthly', '0.75'),
+    item(url('aviso-de-privacidad'), 'yearly', '0.35')
   ];
 
   KDL.cats.forEach((cat) => {
-    urls.push(item(url(`productos/${cat.key}/`), 'weekly', '0.85'));
+    urls.push(item(url(`catalogo?cat=${cat.key}`), 'weekly', '0.85'));
+    urls.push(item(url(`productos/${cat.key}`), 'weekly', '0.80'));
     cat.products.forEach((product) => {
-      urls.push(item(url(`productos/${cat.key}/${product.slug}/`), 'monthly', '0.72'));
+      urls.push(item(url(`productos/${cat.key}/${product.slug}`), 'monthly', '0.70'));
     });
+  });
+
+  const inventory = loadInventory();
+  inventory.products.filter((product) => product.categoryKey !== 'por-identificar').forEach((product) => {
+    urls.push(item(url(`producto?sku=${product.sku}`), 'weekly', '0.80'));
   });
 
   const sitemap = [

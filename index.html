@@ -44,7 +44,7 @@
     <div class="kdl-hero__copy">
       <h1 class="kdl-hero__title">Que tu línea<br>siga <span class="kdl-hero__accent">fluyendo.</span></h1>
       <p class="kdl-hero__lead">Refacciones industriales, automatización y herramientas de corte para plantas que trabajan sin descanso. Envíanos tu número de parte, foto o problema y te ayudamos a encontrar la solución correcta.</p>
-      <form class="kdl-hero-search" onSubmit="{{ doSearch }}" role="search" action="Productos.dc.html">
+      <form class="kdl-hero-search" onSubmit="{{ doSearch }}" role="search" action="catalogo">
         <div class="kdl-hero-search__bar">
           <span class="kdl-hero-search__icon" aria-hidden="true">
             <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -99,10 +99,10 @@
   </div>
   <div class="kdl-hero-proof">
     <div class="kdl-shell kdl-hero-proof__grid">
-      <a href="Contacto.dc.html#solicitud"><strong>Identificación de piezas</strong><span>Por foto, placa o número de parte</span></a>
-      <a href="Compatibilidad.dc.html"><strong>Alternativas compatibles</strong><span>Para componentes difíciles de encontrar o descontinuados</span></a>
-      <a href="Productos.dc.html"><strong>Inventario con precio</strong><span>{{ inventorySummary }}</span></a>
-      <a href="Contacto.dc.html"><strong>Soporte técnico</strong><span>Atención directa desde Monterrey</span></a>
+      <a href="contacto#solicitud"><strong>Identificación de piezas</strong><span>Por foto, placa o número de parte</span></a>
+      <a href="alternativas-compatibles"><strong>Alternativas compatibles</strong><span>Para componentes difíciles de encontrar o descontinuados</span></a>
+      <a href="catalogo"><strong>Inventario con precio</strong><span>{{ inventorySummary }}</span></a>
+      <a href="contacto"><strong>Soporte técnico</strong><span>Atención directa desde Monterrey</span></a>
     </div>
   </div>
   <div style="height:3px;background:linear-gradient(90deg,transparent,#1FC8E3,#2E7DF2,transparent);background-size:200% 100%;animation:kdlBar 3s linear infinite"></div>
@@ -116,7 +116,7 @@
         <h2 class="kdl-section-title kdl-products-title">Elige una familia de productos</h2>
         <span class="kdl-products-subtitle">Modelos con existencia, precio de referencia y ficha técnica. Lo que no esté en inventario lo cotizamos bajo pedido.</span>
       </div>
-      <a class="kdl-link-button" href="Productos.dc.html">Ver catálogo completo<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="kdl-link-button" href="catalogo">Ver catálogo completo<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="kdl-category-grid">
       <sc-for list="{{ categorias }}" as="c" hint-placeholder-count="9">
@@ -153,7 +153,7 @@
       <div><h3>Soporte en reparaciones</h3><p>Te ayudamos a identificar la pieza dañada y a poner la máquina en marcha lo antes posible.</p></div>
       <div><h3>Capacitación en control</h3><p>Acompañamos a tu equipo en automatización, sensores y control para operar y mantener mejor.</p></div>
     </div>
-    <a class="kdl-why__link" href="Soluciones.dc.html#sobre-kdl">Conoce cómo trabajamos →</a>
+    <a class="kdl-why__link" href="como-te-ayudamos#sobre-kdl">Conoce cómo trabajamos →</a>
   </div>
 </section>
 
@@ -218,8 +218,8 @@
         </sc-for>
       </div>
       <div class="kdl-quote-support-links">
-        <a href="Compatibilidad.dc.html"><strong>¿El componente está descontinuado?</strong><span>Revisar una alternativa compatible</span></a>
-        <a href="Cesta.dc.html"><strong>¿Necesitas varias refacciones?</strong><span>Arma Mi cotización con toda la lista</span></a>
+        <a href="alternativas-compatibles"><strong>¿El componente está descontinuado?</strong><span>Revisar una alternativa compatible</span></a>
+        <a href="mi-cotizacion"><strong>¿Necesitas varias refacciones?</strong><span>Arma Mi cotización con toda la lista</span></a>
       </div>
     </div>
 
@@ -236,7 +236,7 @@
         <h2 id="quote-contact-title">¿No sabes el número de parte? Envíanos una foto</h2>
         <p>Sube la foto de la placa o de la pieza, agrega lo que sepas y un asesor la identifica contigo.</p>
       </div>
-      <a class="kdl-quote-contact-cta__button" href="Contacto.dc.html#solicitud">
+      <a class="kdl-quote-contact-cta__button" href="contacto#solicitud">
         Enviar foto o referencia <span aria-hidden="true">→</span>
       </a>
     </section>
@@ -283,7 +283,7 @@
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:34px;padding-top:28px;border-top:1px solid #E3E9F1">
-      <div class="kdl-contact-summary"><strong>Atención desde Monterrey</strong><span>Lunes a viernes · 8:00 a.m. a 6:00 p.m.</span><a href="tel:+528112273382">+52 81 1227 3382</a><a href="mailto:ventas@kdl.com.mx">ventas@kdl.com.mx</a><a href="Contacto.dc.html">Ver ubicación y canales →</a></div>
+      <div class="kdl-contact-summary"><strong>Atención desde Monterrey</strong><span>Lunes a viernes · 8:00 a.m. a 6:00 p.m.</span><a href="tel:+528112273382">+52 81 1227 3382</a><a href="mailto:ventas@kdl.com.mx">ventas@kdl.com.mx</a><a href="contacto">Ver ubicación y canales →</a></div>
       <div style="padding:16px;border-radius:10px;background:#F8FAFD"><strong style="display:block;color:#0E2236;margin-bottom:5px">Validación antes de confirmar</strong><span style="font-size:13px;line-height:1.5;color:#5A6B80">Las alternativas se revisan según aplicación y condiciones de trabajo.</span></div>
       <div style="padding:16px;border-radius:10px;background:#F8FAFD"><strong style="display:block;color:#0E2236;margin-bottom:5px">Siguiente paso claro</strong><span style="font-size:13px;line-height:1.5;color:#5A6B80">Recibes seguimiento por el canal elegido para completar la cotización.</span></div>
     </div>
@@ -326,7 +326,7 @@ class Component extends DCLogic {
   wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
   families(){ return (typeof window!=='undefined'&&window.KDLFamilies)||null; }
   toggleFaq(i){ this.setState(s=>({faqOpen: s.faqOpen===i?-1:i})); }
-  resultsHref(){ return 'Productos.dc.html?q='+encodeURIComponent(this.state.query.trim()); }
+  resultsHref(){ return 'catalogo?q='+encodeURIComponent(this.state.query.trim()); }
   runSearch(e){
     if(e&&e.preventDefault)e.preventDefault();
     const q=this.state.query.trim();
@@ -418,9 +418,9 @@ class Component extends DCLogic {
     const showNoResults = this.state.searchFocused && this.state.searched && hasQuery && results.length===0;
 
     const resources=[
-      {t:'Checklists para cotizar', d:'Qué datos reunir por familia para cotizar a la primera.', icon:rawIcon('<path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',20), href:'Checklists.html'},
-      {t:'Guías rápidas de selección', d:'Cómo elegir cilindro, sensor, inserto o guía lineal según tu aplicación.', icon:rawIcon('<path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2Z"/><path d="M8 7h8M8 11h8"/>',20), href:'Guias.html'},
-      {t:'Fichas técnicas', d:'Hojas de datos por marca y modelo para validar compatibilidad.', icon:rawIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/>',20), href:'Catalogos.dc.html'}
+      {t:'Checklists para cotizar', d:'Qué datos reunir por familia para cotizar a la primera.', icon:rawIcon('<path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',20), href:'checklists'},
+      {t:'Guías rápidas de selección', d:'Cómo elegir cilindro, sensor, inserto o guía lineal según tu aplicación.', icon:rawIcon('<path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2Z"/><path d="M8 7h8M8 11h8"/>',20), href:'guias'},
+      {t:'Fichas técnicas', d:'Hojas de datos por marca y modelo para validar compatibilidad.', icon:rawIcon('<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/>',20), href:'descargas'}
     ];
 
     const faqRaw=[

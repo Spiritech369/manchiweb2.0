@@ -37,7 +37,7 @@
   }
 
   function productAppUrl(catKey, product){
-    return abs('Producto.dc.html?cat='+encodeURIComponent(catKey)+'&p='+encodeURIComponent(product.slug));
+    return abs('producto?cat='+encodeURIComponent(catKey)+'&p='+encodeURIComponent(product.slug));
   }
 
   function allProducts(cats){
@@ -268,7 +268,7 @@
       type:'website'
     };
 
-    if(current==='Producto.dc.html'){
+    if(current==='producto'){
       var params=new URLSearchParams(location.search);
       var hit=window.KDL.find(params.get('cat')||'',params.get('p')||'');
       if(hit){
@@ -301,7 +301,7 @@
           {name:hit.product.n,url:productCanonical}
         ]));
       }
-    }else if(current==='Productos.dc.html'){
+    }else if(current==='catalogo'){
       var cp=new URLSearchParams(location.search);
       var catKey=cp.get('cat')||'';
       var cat=window.KDL.cat(catKey);

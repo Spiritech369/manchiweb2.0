@@ -128,7 +128,7 @@
     all:FAMILIES,list:list,family:family,resolve:resolve,familyOf:familyOf,byFamily:byFamily,products:products,
     search:search,searchFamilies:searchFamilies,brandLabel:brandLabel,norm:norm,
     money:money,date:date,plural:plural,stockLabel:stockLabel,photoLabel:photoLabel,
-    productHref:function(product){ return 'Producto.dc.html?sku='+encodeURIComponent(product.sku); },
-    familyHref:function(key,subKey){ return 'Productos.dc.html?cat='+encodeURIComponent(key)+(subKey?'&sub='+encodeURIComponent(subKey):''); }
+    productHref:function(product){ return 'producto?sku='+encodeURIComponent(product.sku); },
+    familyHref:function(key,subKey){ return 'catalogo?cat='+encodeURIComponent(key)+(subKey?'&sub='+encodeURIComponent(subKey):''); }
   };
 })();

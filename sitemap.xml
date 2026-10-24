@@ -6,453 +6,868 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/</loc>
+    <loc>https://kdl.com.mx/catalogo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/Soluciones.dc.html</loc>
+    <loc>https://kdl.com.mx/como-te-ayudamos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/Industrias.dc.html</loc>
+    <loc>https://kdl.com.mx/descargas</loc>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/Servicios.dc.html</loc>
+    <loc>https://kdl.com.mx/checklists</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/guias</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/alternativas-compatibles</loc>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/Catalogos.dc.html</loc>
+    <loc>https://kdl.com.mx/marcas</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.55</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/Contacto.dc.html</loc>
+    <loc>https://kdl.com.mx/contacto</loc>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/Aviso-Privacidad.html</loc>
+    <loc>https://kdl.com.mx/aviso-de-privacidad</loc>
     <changefreq>yearly</changefreq>
     <priority>0.35</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/</loc>
+    <loc>https://kdl.com.mx/catalogo?cat=neumatica</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/cilindros-iso-15552/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/neumatica</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/minicilindros-iso-6432/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/cilindros-iso-15552</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/minicilindros-aluminio-ma/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/minicilindros-iso-6432</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/cilindros-compactos-cq2/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/minicilindros-aluminio-ma</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/cilindro-compacto-sda/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/cilindros-compactos-cq2</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/cilindros-clean-cm2-cj2/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/cilindro-compacto-sda</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/cilindros-guiados-mgp/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/cilindros-clean-cm2-cj2</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/cilindros-rotacionales-msq/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/cilindros-guiados-mgp</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/twin-rod-tn-tr/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/cilindros-rotacionales-msq</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/twist-clamp-cylinder/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/twin-rod-tn-tr</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/grippers-neumaticos/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/twist-clamp-cylinder</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/amortiguadores-hidraulicos/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/grippers-neumaticos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/chumacera-lineal-sbr-35uu/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/amortiguadores-hidraulicos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/neumatica/filtros-reguladores-ack-frl/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/chumacera-lineal-sbr-35uu</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/</loc>
+    <loc>https://kdl.com.mx/productos/neumatica/filtros-reguladores-ack-frl</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/catalogo?cat=hidraulica</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/bombas-hidraulicas/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/hidraulica</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/motores-hidraulicos/</loc>
+    <loc>https://kdl.com.mx/productos/hidraulica/bombas-hidraulicas</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/valvulas-direccionales/</loc>
+    <loc>https://kdl.com.mx/productos/hidraulica/motores-hidraulicos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/valvulas-proporcionales/</loc>
+    <loc>https://kdl.com.mx/productos/hidraulica/valvulas-direccionales</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/servo-valvulas/</loc>
+    <loc>https://kdl.com.mx/productos/hidraulica/valvulas-proporcionales</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/cilindros-hidraulicos/</loc>
+    <loc>https://kdl.com.mx/productos/hidraulica/servo-valvulas</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/unidades-de-potencia-hpu/</loc>
+    <loc>https://kdl.com.mx/productos/hidraulica/cilindros-hidraulicos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/hidraulica/sistemas-integrados/</loc>
+    <loc>https://kdl.com.mx/productos/hidraulica/unidades-de-potencia-hpu</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/</loc>
+    <loc>https://kdl.com.mx/productos/hidraulica/sistemas-integrados</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/catalogo?cat=sensores</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/fotoelectricos-omron/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/sensores</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/inductivos-y-capacitivos/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/fotoelectricos-omron</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/sensores-laser/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/inductivos-y-capacitivos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/medicion-color-y-contraste/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/sensores-laser</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/sensores-de-presion-ifm/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/medicion-color-y-contraste</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/io-link-masters-ifm/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/sensores-de-presion-ifm</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/modulos-e-s-y-gateways/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/io-link-masters-ifm</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/rfid-omron/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/modulos-e-s-y-gateways</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/sensores/vision-artificial-omron/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/rfid-omron</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/automatizacion/</loc>
+    <loc>https://kdl.com.mx/productos/sensores/vision-artificial-omron</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/catalogo?cat=automatizacion</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/automatizacion/plc-automation-controller/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/automatizacion</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/automatizacion/hmi-delta/</loc>
+    <loc>https://kdl.com.mx/productos/automatizacion/plc-automation-controller</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/automatizacion/variadores-de-frecuencia-delta/</loc>
+    <loc>https://kdl.com.mx/productos/automatizacion/hmi-delta</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/automatizacion/servomotores-y-drives-delta/</loc>
+    <loc>https://kdl.com.mx/productos/automatizacion/variadores-de-frecuencia-delta</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/automatizacion/motores-industriales-delta/</loc>
+    <loc>https://kdl.com.mx/productos/automatizacion/servomotores-y-drives-delta</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/automatizacion/comunicacion-industrial/</loc>
+    <loc>https://kdl.com.mx/productos/automatizacion/motores-industriales-delta</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/</loc>
+    <loc>https://kdl.com.mx/productos/automatizacion/comunicacion-industrial</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/catalogo?cat=movimiento</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/guias-lineales-hg-qh/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/movimiento</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/guias-compactas-mg/</loc>
+    <loc>https://kdl.com.mx/productos/movimiento/guias-lineales-hg-qh</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/husillos-de-bolas/</loc>
+    <loc>https://kdl.com.mx/productos/movimiento/guias-compactas-mg</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/actuadores-lineales/</loc>
+    <loc>https://kdl.com.mx/productos/movimiento/husillos-de-bolas</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/motores-lineales-y-servos/</loc>
+    <loc>https://kdl.com.mx/productos/movimiento/actuadores-lineales</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/sistemas-y-etapas-lineales/</loc>
+    <loc>https://kdl.com.mx/productos/movimiento/motores-lineales-y-servos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/robots-y-multieje/</loc>
+    <loc>https://kdl.com.mx/productos/movimiento/sistemas-y-etapas-lineales</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/movimiento/modulos-ejes-cartesianos/</loc>
+    <loc>https://kdl.com.mx/productos/movimiento/robots-y-multieje</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/</loc>
+    <loc>https://kdl.com.mx/productos/movimiento/modulos-ejes-cartesianos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/catalogo?cat=corte</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/insertos-acero-acabado/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/corte</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/insertos-acero-semiacabado/</loc>
+    <loc>https://kdl.com.mx/productos/corte/insertos-acero-acabado</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/insertos-acero-desbaste/</loc>
+    <loc>https://kdl.com.mx/productos/corte/insertos-acero-semiacabado</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/acero-inoxidable/</loc>
+    <loc>https://kdl.com.mx/productos/corte/insertos-acero-desbaste</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/torneado-hierro-fundido/</loc>
+    <loc>https://kdl.com.mx/productos/corte/acero-inoxidable</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/insertos-para-aluminio/</loc>
+    <loc>https://kdl.com.mx/productos/corte/torneado-hierro-fundido</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/corte-y-ranurado/</loc>
+    <loc>https://kdl.com.mx/productos/corte/insertos-para-aluminio</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/insertos-de-cermet/</loc>
+    <loc>https://kdl.com.mx/productos/corte/corte-y-ranurado</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/insertos-ceramicos/</loc>
+    <loc>https://kdl.com.mx/productos/corte/insertos-de-cermet</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/tronzado-y-ranurado/</loc>
+    <loc>https://kdl.com.mx/productos/corte/insertos-ceramicos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/insertos-de-roscado/</loc>
+    <loc>https://kdl.com.mx/productos/corte/tronzado-y-ranurado</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/torno-tipo-suizo/</loc>
+    <loc>https://kdl.com.mx/productos/corte/insertos-de-roscado</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/carburo-solido/</loc>
+    <loc>https://kdl.com.mx/productos/corte/torno-tipo-suizo</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/grados-cvd/</loc>
+    <loc>https://kdl.com.mx/productos/corte/carburo-solido</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/corte/grados-pvd/</loc>
+    <loc>https://kdl.com.mx/productos/corte/grados-cvd</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/iqf/</loc>
+    <loc>https://kdl.com.mx/productos/corte/grados-pvd</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/catalogo?cat=iqf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/iqf/equipos-de-congelacion-iqf/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/iqf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/iqf/tuneles-congeladores-de-banda/</loc>
+    <loc>https://kdl.com.mx/productos/iqf/equipos-de-congelacion-iqf</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/iqf/sistemas-mecanicos-y-electricos/</loc>
+    <loc>https://kdl.com.mx/productos/iqf/tuneles-congeladores-de-banda</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/iqf/soluciones-para-acuacultura/</loc>
+    <loc>https://kdl.com.mx/productos/iqf/sistemas-mecanicos-y-electricos</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/iqf/equipos-personalizables/</loc>
+    <loc>https://kdl.com.mx/productos/iqf/soluciones-para-acuacultura</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/electrico/</loc>
+    <loc>https://kdl.com.mx/productos/iqf/equipos-personalizables</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/catalogo?cat=electrico</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/electrico/fuentes-de-alimentacion/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/electrico</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/electrico/relevadores-y-contactores/</loc>
+    <loc>https://kdl.com.mx/productos/electrico/fuentes-de-alimentacion</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/electrico/proteccion-y-breakers/</loc>
+    <loc>https://kdl.com.mx/productos/electrico/relevadores-y-contactores</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/electrico/borneras-y-riel-din/</loc>
+    <loc>https://kdl.com.mx/productos/electrico/proteccion-y-breakers</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/electrico/botones-pilotos-y-senalizacion/</loc>
+    <loc>https://kdl.com.mx/productos/electrico/borneras-y-riel-din</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/suministros/</loc>
+    <loc>https://kdl.com.mx/productos/electrico/botones-pilotos-y-senalizacion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/catalogo?cat=suministros</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/suministros/componentes-de-mantenimiento/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <loc>https://kdl.com.mx/productos/suministros</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/suministros/transmision-de-potencia/</loc>
+    <loc>https://kdl.com.mx/productos/suministros/componentes-de-mantenimiento</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/suministros/sujecion-y-fijacion/</loc>
+    <loc>https://kdl.com.mx/productos/suministros/transmision-de-potencia</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
   </url>
   <url>
-    <loc>https://kdl.com.mx/productos/suministros/consumibles-industriales/</loc>
+    <loc>https://kdl.com.mx/productos/suministros/sujecion-y-fijacion</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.72</priority>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/productos/suministros/consumibles-industriales</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0001</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0002</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0003</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0004</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0005</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0006</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0007</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0008</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0009</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0010</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0011</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0012</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0013</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0014</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0015</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0016</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0017</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0018</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0019</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0020</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0021</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0022</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0023</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0024</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0025</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0026</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0027</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0028</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0029</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0030</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0031</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0032</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0033</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0034</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0035</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0036</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0037</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0038</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0039</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0040</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0041</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0042</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0043</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0044</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0045</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0046</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0047</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0048</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0049</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0050</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0051</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0052</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0053</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0054</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0055</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0056</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0058</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0059</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0061</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0063</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0064</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0065</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0066</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0067</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0068</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0069</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0070</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0071</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0072</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0073</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0074</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://kdl.com.mx/producto?sku=IND-0075</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
 </urlset>

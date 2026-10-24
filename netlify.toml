@@ -1,17 +1,3 @@
 [build]
   publish = "."
-
-[[redirects]]
-  from = "/Producto.dc.html"
-  to = "/productos/:cat/:p/"
-  status = 301
-  force = true
-  query = { cat = ":cat", p = ":p" }
-
-[[redirects]]
-  from = "/Productos.dc.html"
-  to = "/productos/:cat/"
-  status = 301
-  force = true
-  query = { cat = ":cat" }
-
+# Las redirecciones y URLs limpias viven en _redirects.

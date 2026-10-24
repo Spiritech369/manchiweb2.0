@@ -16,6 +16,7 @@ function walk(dir) {
   }
 }
 walk(root);
+const routes = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
 
 test('no hay destinos locales rotos', () => {
   const missing = [];
@@ -27,8 +28,12 @@ test('no hay destinos locales rotos', () => {
       if (!value || value.startsWith('#') || value.includes('{{') || /^[a-z]+:/i.test(value) || value.startsWith('//')) continue;
       const clean = decodeURIComponent(value.split(/[?#]/)[0]);
       if (!clean) continue;
-      const target = path.resolve(path.dirname(file), clean);
-      if (!fs.existsSync(target)) missing.push(`${path.relative(root, file)} -> ${value}`);
+      // Rutas limpias: se resuelven con los rewrites de vercel.json (trailingSlash: false).
+      const absolute = clean.startsWith('/') ? clean : '/' + path.relative(root, path.resolve(path.dirname(file), clean)).split(path.sep).join('/');
+      const rewrite = routes.rewrites.find((rule) => rule.source === absolute.replace(/\/$/, '') || rule.source === absolute);
+      const target = rewrite ? path.join(root, rewrite.destination) : path.join(root, absolute);
+      const exists = fs.existsSync(target) && (fs.statSync(target).isFile() || fs.existsSync(path.join(target, 'index.html')));
+      if (!exists && absolute !== '/') missing.push(`${path.relative(root, file)} -> ${value}`);
     }
   }
   assert.deepEqual(missing, []);
@@ -107,8 +112,11 @@ test('Soluciones concentra industrias y servicios sin eliminar sus URLs SEO', ()
   assert.match(central, /id="soluciones"/);
   assert.match(central, /id="industrias"/);
   assert.match(central, /id="servicios"/);
-  assert.match(industries, /Soluciones\.dc\.html#industrias/);
-  assert.match(services, /Soluciones\.dc\.html#servicios/);
+  assert.match(industries, /como-te-ayudamos#industrias/);
+  assert.match(services, /como-te-ayudamos#servicios/);
+  const routing = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+  assert.ok(routing.redirects.some((rule) => rule.source === '/Industrias.dc.html' && rule.destination === '/como-te-ayudamos#industrias' && rule.permanent));
+  assert.ok(routing.redirects.some((rule) => rule.source === '/Servicios.dc.html' && rule.destination === '/como-te-ayudamos#servicios' && rule.permanent));
   assert.doesNotMatch(header, /\['Industrias', 'Industrias\.dc\.html'/);
   assert.doesNotMatch(header, /\['Servicios', 'Servicios\.dc\.html'/);
 });

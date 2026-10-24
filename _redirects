@@ -1,5 +1,27 @@
-# Netlify redirects.
-# Prioritize clean SEO URLs over legacy dynamic URLs.
-
-/Producto.dc.html cat=:cat p=:p  /productos/:cat/:p/  301!
-/Productos.dc.html cat=:cat      /productos/:cat/     301!
+# Netlify: URLs limpias (200 = reescritura interna) y 301 desde las rutas anteriores.
+/index.html                 /                              301!
+/Productos.dc.html          /catalogo                      301!
+/Producto.dc.html           /producto                      301!
+/Cesta.dc.html              /mi-cotizacion                 301!
+/Contacto.dc.html           /contacto                      301!
+/Soluciones.dc.html         /como-te-ayudamos              301!
+/Catalogos.dc.html          /descargas                     301!
+/Compatibilidad.dc.html     /alternativas-compatibles      301!
+/Marcas.dc.html             /marcas                        301!
+/Checklists.html            /checklists                    301!
+/Guias.html                 /guias                         301!
+/Aviso-Privacidad.html      /aviso-de-privacidad           301!
+/Industrias.dc.html         /como-te-ayudamos#industrias   301!
+/Servicios.dc.html          /como-te-ayudamos#servicios    301!
+/productos                  /catalogo                      301
+/catalogo                   /Productos.dc.html             200
+/producto                   /Producto.dc.html              200
+/mi-cotizacion              /Cesta.dc.html                 200
+/contacto                   /Contacto.dc.html              200
+/como-te-ayudamos           /Soluciones.dc.html            200
+/descargas                  /Catalogos.dc.html             200
+/alternativas-compatibles   /Compatibilidad.dc.html        200
+/marcas                     /Marcas.dc.html                200
+/checklists                 /Checklists.html               200
+/guias                      /Guias.html                    200
+/aviso-de-privacidad        /Aviso-Privacidad.html         200

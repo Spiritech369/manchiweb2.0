@@ -1,22 +1,211 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": true,
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/catalogo",
+      "destination": "/Productos.dc.html"
+    },
+    {
+      "source": "/producto",
+      "destination": "/Producto.dc.html"
+    },
+    {
+      "source": "/mi-cotizacion",
+      "destination": "/Cesta.dc.html"
+    },
+    {
+      "source": "/contacto",
+      "destination": "/Contacto.dc.html"
+    },
+    {
+      "source": "/como-te-ayudamos",
+      "destination": "/Soluciones.dc.html"
+    },
+    {
+      "source": "/descargas",
+      "destination": "/Catalogos.dc.html"
+    },
+    {
+      "source": "/alternativas-compatibles",
+      "destination": "/Compatibilidad.dc.html"
+    },
+    {
+      "source": "/marcas",
+      "destination": "/Marcas.dc.html"
+    },
+    {
+      "source": "/checklists",
+      "destination": "/Checklists.html"
+    },
+    {
+      "source": "/guias",
+      "destination": "/Guias.html"
+    },
+    {
+      "source": "/aviso-de-privacidad",
+      "destination": "/Aviso-Privacidad.html"
+    }
+  ],
   "redirects": [
     {
-      "source": "/Producto.dc.html",
-      "has": [
-        { "type": "query", "key": "cat", "value": "(?<cat>[^&]+)" },
-        { "type": "query", "key": "p", "value": "(?<p>[^&]+)" }
-      ],
-      "destination": "/productos/$cat/$p/",
+      "source": "/index.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/Productos.dc.html",
-      "has": [
-        { "type": "query", "key": "cat", "value": "(?<cat>[^&]+)" }
-      ],
-      "destination": "/productos/$cat/",
+      "destination": "/catalogo",
+      "permanent": true
+    },
+    {
+      "source": "/Productos.dc",
+      "destination": "/catalogo",
+      "permanent": true
+    },
+    {
+      "source": "/Producto.dc.html",
+      "destination": "/producto",
+      "permanent": true
+    },
+    {
+      "source": "/Producto.dc",
+      "destination": "/producto",
+      "permanent": true
+    },
+    {
+      "source": "/Cesta.dc.html",
+      "destination": "/mi-cotizacion",
+      "permanent": true
+    },
+    {
+      "source": "/Cesta.dc",
+      "destination": "/mi-cotizacion",
+      "permanent": true
+    },
+    {
+      "source": "/Contacto.dc.html",
+      "destination": "/contacto",
+      "permanent": true
+    },
+    {
+      "source": "/Contacto.dc",
+      "destination": "/contacto",
+      "permanent": true
+    },
+    {
+      "source": "/Soluciones.dc.html",
+      "destination": "/como-te-ayudamos",
+      "permanent": true
+    },
+    {
+      "source": "/Soluciones.dc",
+      "destination": "/como-te-ayudamos",
+      "permanent": true
+    },
+    {
+      "source": "/Catalogos.dc.html",
+      "destination": "/descargas",
+      "permanent": true
+    },
+    {
+      "source": "/Catalogos.dc",
+      "destination": "/descargas",
+      "permanent": true
+    },
+    {
+      "source": "/Compatibilidad.dc.html",
+      "destination": "/alternativas-compatibles",
+      "permanent": true
+    },
+    {
+      "source": "/Compatibilidad.dc",
+      "destination": "/alternativas-compatibles",
+      "permanent": true
+    },
+    {
+      "source": "/Marcas.dc.html",
+      "destination": "/marcas",
+      "permanent": true
+    },
+    {
+      "source": "/Marcas.dc",
+      "destination": "/marcas",
+      "permanent": true
+    },
+    {
+      "source": "/Checklists.html",
+      "destination": "/checklists",
+      "permanent": true
+    },
+    {
+      "source": "/Checklists",
+      "destination": "/checklists",
+      "permanent": true
+    },
+    {
+      "source": "/Guias.html",
+      "destination": "/guias",
+      "permanent": true
+    },
+    {
+      "source": "/Guias",
+      "destination": "/guias",
+      "permanent": true
+    },
+    {
+      "source": "/Aviso-Privacidad.html",
+      "destination": "/aviso-de-privacidad",
+      "permanent": true
+    },
+    {
+      "source": "/Aviso-Privacidad",
+      "destination": "/aviso-de-privacidad",
+      "permanent": true
+    },
+    {
+      "source": "/Industrias.dc.html",
+      "destination": "/como-te-ayudamos#industrias",
+      "permanent": true
+    },
+    {
+      "source": "/Industrias.dc",
+      "destination": "/como-te-ayudamos#industrias",
+      "permanent": true
+    },
+    {
+      "source": "/Servicios.dc.html",
+      "destination": "/como-te-ayudamos#servicios",
+      "permanent": true
+    },
+    {
+      "source": "/Servicios.dc",
+      "destination": "/como-te-ayudamos#servicios",
+      "permanent": true
+    },
+    {
+      "source": "/industrias",
+      "destination": "/como-te-ayudamos#industrias",
+      "permanent": true
+    },
+    {
+      "source": "/servicios",
+      "destination": "/como-te-ayudamos#servicios",
+      "permanent": true
+    },
+    {
+      "source": "/soluciones",
+      "destination": "/como-te-ayudamos",
+      "permanent": true
+    },
+    {
+      "source": "/cesta",
+      "destination": "/mi-cotizacion",
+      "permanent": true
+    },
+    {
+      "source": "/productos",
+      "destination": "/catalogo",
       "permanent": true
     }
   ]

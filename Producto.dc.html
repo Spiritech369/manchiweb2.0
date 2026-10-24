@@ -32,8 +32,8 @@
 <!-- BREADCRUMB BAND -->
 <section style="background:linear-gradient(135deg,#0A1B30,#102C4C);padding:26px 22px 24px;position:relative">
   <div style="max-width:1280px;margin:0 auto;font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.4px;color:#7FB4E8">
-    <a href="index.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span>
-    <a href="Productos.dc.html" style-hover="color:#fff">Productos</a> <span style="color:#39A0FF">/</span>
+    <a href="./" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span>
+    <a href="catalogo" style-hover="color:#fff">Productos</a> <span style="color:#39A0FF">/</span>
     <a href="{{ catHref }}" style-hover="color:#fff">{{ catName }}</a> <span style="color:#39A0FF">/</span>
     <span style="color:#fff;font-weight:600">{{ prodName }}</span>
   </div>
@@ -69,7 +69,7 @@
     </div>
 
     <sc-if value="{{ added }}" hint-placeholder-val="">
-      <div class="kdl-product-added" role="status" aria-live="polite"><span><strong>Añadido a Mi cotización.</strong> Puedes ajustar cantidades antes de enviarla.</span><a href="Cesta.dc.html">Ver mi cotización →</a></div>
+      <div class="kdl-product-added" role="status" aria-live="polite"><span><strong>Añadido a Mi cotización.</strong> Puedes ajustar cantidades antes de enviarla.</span><a href="mi-cotizacion">Ver mi cotización →</a></div>
     </sc-if>
 
     <div class="kdl-product-data">
@@ -100,7 +100,7 @@
         <sc-if value="{{ hasTechnical }}" hint-placeholder-val="{{ true }}"><a class="kdl-product-support__link kdl-product-support__link--primary" href="{{ technicalUrl }}" target="_blank" rel="noopener noreferrer">{{ technicalLabel }} <span>↗</span></a></sc-if>
         <sc-if value="{{ hasSource }}" hint-placeholder-val=""><a class="kdl-product-support__link" href="{{ sourceUrl }}" target="_blank" rel="noopener noreferrer">Fuente del producto <span>↗</span></a></sc-if>
         <sc-if value="{{ noTechnical }}" hint-placeholder-val=""><a class="kdl-product-support__link kdl-product-support__link--primary" href="{{ waDocumento }}" target="_blank" rel="noopener noreferrer">Solicitar ficha técnica <span>→</span></a></sc-if>
-        <a class="kdl-product-support__link" href="Catalogos.dc.html">Descargas KDL <span>→</span></a>
+        <a class="kdl-product-support__link" href="descargas">Descargas KDL <span>→</span></a>
       </div>
       <small>{{ sourceNote }}</small>
     </article>
@@ -108,7 +108,7 @@
       <div class="kdl-product-support__eyebrow">Alternativas compatibles</div>
       <h2>¿Cambió el modelo?</h2>
       <p>Comparamos medidas, montaje, conexión y condiciones de trabajo antes de proponer una alternativa.</p>
-      <a class="kdl-product-support__link kdl-product-support__link--blue" href="Compatibilidad.dc.html">Buscar alternativa <span>→</span></a>
+      <a class="kdl-product-support__link kdl-product-support__link--blue" href="alternativas-compatibles">Buscar alternativa <span>→</span></a>
     </article>
   </div>
 </section>
@@ -151,7 +151,7 @@
   <div style="font-family:'Archivo';font-weight:800;font-size:30px;color:#0E2236;margin-bottom:12px">Producto no encontrado</div>
   <p style="font-size:16px;color:#5A6B80;margin:0 0 24px">El enlace no corresponde a un producto del catálogo. Explora las categorías o pídenos ayuda por WhatsApp.</p>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a href="Productos.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#0E2236;color:#fff;font-weight:700;font-size:15px;padding:14px 22px;border-radius:12px">Ver catálogo</a>
+    <a href="catalogo" style="display:inline-flex;align-items:center;gap:8px;background:#0E2236;color:#fff;font-weight:700;font-size:15px;padding:14px 22px;border-radius:12px">Ver catálogo</a>
     <a href="{{ waSticky }}" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#06310f;font-weight:700;font-size:15px;padding:14px 22px;border-radius:12px">Pedir ayuda</a>
   </div>
 </section>
@@ -232,7 +232,7 @@ class Component extends DCLogic {
     if(!inventory||!F){return {...base,found:false,notFound:false,related:[],datos:[],aplicaciones:[],faqs:[]};}
     const categories=inventory.categories||[];
     const products=inventory.products||[];
-    const productHref=product=>'Producto.dc.html?sku='+encodeURIComponent(product.sku);
+    const productHref=product=>'producto?sku='+encodeURIComponent(product.sku);
     const params=this.params();
     const forced=(typeof window!=='undefined')?window.__KDL_FORCE:null;
     const sku=(forced&&forced.sku)||params.get('sku')||'';
@@ -253,7 +253,7 @@ class Component extends DCLogic {
     const familyKey=F.familyOf(product)||'';
     const family=F.family(familyKey);
     const familyName=family?family.name:category.name;
-    const familyHref=family?F.familyHref(familyKey):'Productos.dc.html';
+    const familyHref=family?F.familyHref(familyKey):'catalogo';
     const brandName=F.brandLabel(product.brand);
     const updated=F.date(product.updated);
     const media=this.image(product,380,true);

@@ -41,11 +41,11 @@
   ];
 
   var NAV_ITEMS = [
-    ['Inicio', 'index.html', 'inicio'],
-    ['Productos', 'Productos.dc.html', 'productos'],
-    ['Cómo te ayudamos', 'Soluciones.dc.html', 'soluciones'],
-    ['Descargas', 'Catalogos.dc.html', 'descargas'],
-    ['Contacto', 'Contacto.dc.html', 'contacto']
+    ['Inicio', './', 'inicio'],
+    ['Productos', 'catalogo', 'productos'],
+    ['Cómo te ayudamos', 'como-te-ayudamos', 'soluciones'],
+    ['Descargas', 'descargas', 'descargas'],
+    ['Contacto', 'contacto', 'contacto']
   ];
 
   function href(path) {
@@ -63,8 +63,8 @@
 
   function activePage() {
     var path = window.location.pathname.toLowerCase();
-    if (/\/productos?(?:\/|$)|producto\.dc|productos\.dc/.test(path)) return 'productos';
-    if (/soluciones|industrias|servicios|compatibilidad|alternativas|herramientas/.test(path)) return 'soluciones';
+    if (/\/productos?(?:\/|$)|\/catalogo(?:\/|$)|producto\.dc|productos\.dc/.test(path)) return 'productos';
+    if (/soluciones|como-te-ayudamos|industrias|servicios|compatibilidad|alternativas|herramientas/.test(path)) return 'soluciones';
     if (/catalogos|descargas|checklists|guias|marcas/.test(path)) return 'descargas';
     if (path.indexOf('contacto') !== -1) return 'contacto';
     if (path.indexOf('cesta') !== -1 || path.indexOf('cotizacion') !== -1) return 'cesta';
@@ -95,7 +95,7 @@
         key: family.key,
         name: family.name,
         onRequest: !!family.onRequest,
-        links: family.lines.map(function (line) { return { name: line, href: 'Productos.dc.html?cat=' + family.key }; })
+        links: family.lines.map(function (line) { return { name: line, href: 'catalogo?cat=' + family.key }; })
       };
     });
   }
@@ -131,7 +131,7 @@
   window.KDLToast = toast;
   window.KDLCartChanged = function (message) {
     try { window.dispatchEvent(new CustomEvent('kdl:cart-updated')); } catch (error) {}
-    if (message) toast(message, { label: 'Ver mi cotización', href: href('Cesta.dc.html') });
+    if (message) toast(message, { label: 'Ver mi cotización', href: href('mi-cotizacion') });
   };
 
   function navMarkup(active) {
@@ -143,14 +143,14 @@
 
   function categoryMarkup(list) {
     return list.map(function (family, index) {
-      return '<a class="kdl-shared-mega__category' + (index === 0 ? ' is-active' : '') + '" href="' + href('Productos.dc.html?cat=' + encodeURIComponent(family.key)) + '" data-kdl-category="' + escapeHtml(family.key) + '">' +
+      return '<a class="kdl-shared-mega__category' + (index === 0 ? ' is-active' : '') + '" href="' + href('catalogo?cat=' + encodeURIComponent(family.key)) + '" data-kdl-category="' + escapeHtml(family.key) + '">' +
         '<span>' + escapeHtml(family.name) + (family.onRequest ? ' <small>Bajo pedido</small>' : '') + '</span><span aria-hidden="true">›</span></a>';
     }).join('');
   }
 
   function mobileCategoryMarkup(list) {
     return list.map(function (family) {
-      return '<a href="' + href('Productos.dc.html?cat=' + encodeURIComponent(family.key)) + '">' +
+      return '<a href="' + href('catalogo?cat=' + encodeURIComponent(family.key)) + '">' +
         '<span>' + escapeHtml(family.name) + '</span><span aria-hidden="true">→</span></a>';
     }).join('');
   }
@@ -183,25 +183,25 @@
     var year = new Date().getFullYear();
     return '<div class="kdl-shared-footer__inner">' +
       '<div class="kdl-shared-footer__brand">' +
-        '<a href="' + href('index.html') + '" aria-label="KDL, inicio"><img src="' + href('assets/kdl-logo-lockup.png') + '" alt="KDL · Suministros y Servicios Industriales" width="1729" height="457" loading="lazy"></a>' +
+        '<a href="' + href('./') + '" aria-label="KDL, inicio"><img src="' + href('assets/kdl-logo-lockup.png') + '" alt="KDL · Suministros y Servicios Industriales" width="1729" height="457" loading="lazy"></a>' +
         '<p>Refacciones industriales, automatización y herramientas de corte para que tu línea no se detenga.</p>' +
         '<a class="kdl-shared-footer__wa" href="' + WA_URL + '" target="_blank" rel="noopener">Cotizar por WhatsApp</a>' +
       '</div>' +
       '<nav class="kdl-shared-footer__cols" aria-label="Navegación del pie de página">' +
         '<div><strong>Productos</strong>' + list.map(function (family) {
-          return '<a href="' + href('Productos.dc.html?cat=' + encodeURIComponent(family.key)) + '">' + escapeHtml(family.name) + '</a>';
-        }).join('') + '<a href="' + href('Productos.dc.html') + '">Ver todo el catálogo</a></div>' +
+          return '<a href="' + href('catalogo?cat=' + encodeURIComponent(family.key)) + '">' + escapeHtml(family.name) + '</a>';
+        }).join('') + '<a href="' + href('catalogo') + '">Ver todo el catálogo</a></div>' +
         '<div><strong>Cómo te ayudamos</strong>' +
-          '<a href="' + href('Soluciones.dc.html') + '">Servicios KDL</a>' +
-          '<a href="' + href('Contacto.dc.html#solicitud') + '">Identificar una pieza</a>' +
-          '<a href="' + href('Compatibilidad.dc.html') + '">Alternativas compatibles</a>' +
-          '<a href="' + href('Cesta.dc.html') + '">Mi cotización</a>' +
+          '<a href="' + href('como-te-ayudamos') + '">Servicios KDL</a>' +
+          '<a href="' + href('contacto#solicitud') + '">Identificar una pieza</a>' +
+          '<a href="' + href('alternativas-compatibles') + '">Alternativas compatibles</a>' +
+          '<a href="' + href('mi-cotizacion') + '">Mi cotización</a>' +
         '</div>' +
         '<div><strong>Descargas</strong>' +
-          '<a href="' + href('Catalogos.dc.html') + '">Catálogos PDF y fichas</a>' +
-          '<a href="' + href('Checklists.html') + '">Checklists para cotizar</a>' +
-          '<a href="' + href('Guias.html') + '">Guías de selección</a>' +
-          '<a href="' + href('Marcas.dc.html') + '">Marcas</a>' +
+          '<a href="' + href('descargas') + '">Catálogos PDF y fichas</a>' +
+          '<a href="' + href('checklists') + '">Checklists para cotizar</a>' +
+          '<a href="' + href('guias') + '">Guías de selección</a>' +
+          '<a href="' + href('marcas') + '">Marcas</a>' +
         '</div>' +
         '<div class="kdl-shared-footer__contact"><strong>Contacto</strong>' +
           '<a href="tel:+528112273382">' + PHONE + '</a>' +
@@ -213,7 +213,7 @@
       '<div class="kdl-shared-footer__legal">' +
         '<span>© ' + year + ' KDL Soluciones Industriales · Monterrey, N.L.</span>' +
         '<span>Marcas referenciales; KDL no afirma distribución exclusiva.</span>' +
-        '<a href="' + href('Aviso-Privacidad.html') + '">Aviso de privacidad</a>' +
+        '<a href="' + href('aviso-de-privacidad') + '">Aviso de privacidad</a>' +
       '</div>' +
     '</div>';
   }
@@ -249,7 +249,7 @@
     header.className = 'kdl-shared-header';
     header.innerHTML =
       '<div class="kdl-shared-header__inner">' +
-        '<a class="kdl-shared-brand" href="' + href('index.html') + '" aria-label="KDL, Suministros y Servicios Industriales">' +
+        '<a class="kdl-shared-brand" href="' + href('./') + '" aria-label="KDL, Suministros y Servicios Industriales">' +
           '<img src="' + href('assets/kdl-logo-lockup.png') + '" alt="" width="1729" height="457">' +
         '</a>' +
         '<nav class="kdl-shared-nav" aria-label="Navegación principal">' +
@@ -259,11 +259,11 @@
               '<div class="kdl-shared-mega" aria-label="Familias de productos">' +
                 '<div class="kdl-shared-mega__inner">' +
                   '<div class="kdl-shared-mega__side">' +
-                    '<div class="kdl-shared-mega__heading"><strong>Productos</strong><a href="' + href('Productos.dc.html') + '">Ver todo</a></div>' +
+                    '<div class="kdl-shared-mega__heading"><strong>Productos</strong><a href="' + href('catalogo') + '">Ver todo</a></div>' +
                     '<div class="kdl-shared-mega__categories">' + categoryMarkup(cats) + '</div>' +
                   '</div>' +
                   '<div class="kdl-shared-mega__panel">' +
-                    '<div class="kdl-shared-mega__heading"><strong data-kdl-mega-title>' + escapeHtml(firstCategory.name) + '</strong><a data-kdl-mega-all href="' + href('Productos.dc.html?cat=' + encodeURIComponent(firstCategory.key)) + '">Ver familia</a></div>' +
+                    '<div class="kdl-shared-mega__heading"><strong data-kdl-mega-title>' + escapeHtml(firstCategory.name) + '</strong><a data-kdl-mega-all href="' + href('catalogo?cat=' + encodeURIComponent(firstCategory.key)) + '">Ver familia</a></div>' +
                     '<p class="kdl-shared-mega__note" data-kdl-mega-note' + (firstCategory.onRequest ? '' : ' hidden') + '>Bajo pedido: cotizamos según marca, medida o aplicación.</p>' +
                     '<div class="kdl-shared-mega__products" data-kdl-mega-products>' + productMarkup(firstCategory) + '</div>' +
                   '</div>' +
@@ -272,7 +272,7 @@
           ) +
         '</nav>' +
         '<div class="kdl-shared-actions">' +
-          '<a class="kdl-shared-cart' + (active === 'cesta' ? ' is-active' : '') + '" href="' + href('Cesta.dc.html') + '" aria-label="Mi cotización">' +
+          '<a class="kdl-shared-cart' + (active === 'cesta' ? ' is-active' : '') + '" href="' + href('mi-cotizacion') + '" aria-label="Mi cotización">' +
             '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>' +
             '<span class="kdl-shared-cart__label">Mi cotización</span>' +
             '<span class="kdl-shared-cart__count" aria-label="Piezas en mi cotización"></span>' +
@@ -288,7 +288,7 @@
         '<div class="kdl-shared-mobile-menu__heading">Familias de productos</div>' +
         '<div class="kdl-shared-mobile-menu__categories">' + mobileCategoryMarkup(cats) + '</div>' +
         '<div class="kdl-shared-mobile-menu__actions">' +
-          '<a href="' + href('Cesta.dc.html') + '" data-kdl-mobile-cart>Mi cotización</a>' +
+          '<a href="' + href('mi-cotizacion') + '" data-kdl-mobile-cart>Mi cotización</a>' +
           '<a href="' + WA_URL + '" target="_blank" rel="noopener">WhatsApp</a>' +
         '</div>' +
       '</nav>';
@@ -341,7 +341,7 @@
           item.classList.toggle('is-active', item === categoryLink);
         });
         title.textContent = category.name;
-        allLink.href = href('Productos.dc.html?cat=' + encodeURIComponent(category.key));
+        allLink.href = href('catalogo?cat=' + encodeURIComponent(category.key));
         note.hidden = !category.onRequest;
         productList.innerHTML = productMarkup(category);
       }

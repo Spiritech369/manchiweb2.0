@@ -28,7 +28,7 @@
 
 <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(10px);background:rgba(8,21,38,.92);border-bottom:1px solid rgba(255,255,255,.08)">
   <div style="max-width:1280px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:18px;justify-content:space-between">
-    <a href="index.html" style="display:flex;align-items:baseline;gap:1px;flex-shrink:0"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;letter-spacing:-1.5px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;color:#1FC8E3">.</span></a>
+    <a href="./" style="display:flex;align-items:baseline;gap:1px;flex-shrink:0"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;letter-spacing:-1.5px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:28px;color:#1FC8E3">.</span></a>
     <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
       <nav style="display:flex;gap:22px;font-size:14.5px;font-weight:500;color:#C7D4E3">
         <sc-for list="{{ nav }}" as="n" hint-placeholder-count="7"><a href="{{ n.href }}" style="{{ n.style }}" style-hover="color:#fff">{{ n.label }}</a></sc-for>
@@ -42,7 +42,7 @@
 <section style="position:relative;background:radial-gradient(120% 120% at 80% 0%,#15426F,#0A1B30 55%,#06121F);overflow:hidden;padding:46px 22px 50px">
   <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.45" viewBox="0 0 1200 400" preserveAspectRatio="none"><path d="M-60 180 C 360 60, 720 320, 1260 160" fill="none" stroke="#39A0FF" stroke-width="1.6" stroke-dasharray="14 22" style="animation:kdlDash 3s linear infinite"/></svg>
   <div style="position:relative;max-width:1280px;margin:0 auto">
-    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;color:#7FB4E8;margin-bottom:12px"><a href="index.html" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span> Cómo te ayudamos</div>
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;color:#7FB4E8;margin-bottom:12px"><a href="./" style-hover="color:#fff">Inicio</a> <span style="color:#39A0FF">/</span> Cómo te ayudamos</div>
     <h1 style="font-family:'Archivo';font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1;letter-spacing:-1.5px;color:#fff;margin:0 0 14px;max-width:830px">Cómo te ayudamos.</h1>
     <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:#B8C7D9;max-width:760px;margin:0">Identificamos la pieza, conseguimos la refacción o una alternativa compatible y te acompañamos hasta la entrega. Elige por tipo de tecnología, por industria o por el apoyo que necesitas.</p>
   </div>
@@ -53,6 +53,7 @@
   <a href="#soluciones" style="background:#0E2236;color:#fff;border-radius:8px;padding:11px 16px;font-weight:800">Por tecnología</a>
   <a href="#industrias" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Industrias</a>
   <a href="#servicios" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Servicios</a>
+  <a href="#herramientas" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Herramientas</a>
   <a href="#sobre-kdl" style="background:#EAF1FB;color:#174A75;border-radius:8px;padding:11px 16px;font-weight:800">Sobre KDL</a>
 </nav>
 
@@ -83,7 +84,11 @@
         </a>
       </sc-for>
     </div>
-    <a href="Industrias.dc.html" style="display:inline-flex;margin-top:20px;color:#245B89;font-weight:800">Conocer cómo atendemos cada sector →</a>
+    <div class="kdl-steps kdl-steps--light" aria-label="Qué cambia de una industria a otra">
+      <div><strong>1. Aplicación</strong><span>Proceso, máquina y función que debe cumplir la pieza.</span></div>
+      <div><strong>2. Condiciones</strong><span>Ambiente, temperatura, montaje, conexión y ciclo de trabajo.</span></div>
+      <div><strong>3. Validación</strong><span>Un asesor confirma los datos críticos antes de cotizar una alternativa.</span></div>
+    </div>
   </div>
 </section>
 
@@ -99,7 +104,38 @@
       </a>
     </sc-for>
   </div>
-  <a href="Servicios.dc.html" style="display:inline-flex;margin-top:20px;color:#245B89;font-weight:800">Ver proceso de atención →</a>
+  <h3 class="kdl-steps__title">Así atendemos tu solicitud</h3>
+  <div class="kdl-steps" aria-label="Proceso de atención">
+    <div><strong>1. Comparte la referencia</strong><span>Número de parte, marca, placa, foto o descripción de la aplicación.</span></div>
+    <div><strong>2. Revisamos los datos</strong><span>Identificamos lo que falte y validamos compatibilidad cuando aplica.</span></div>
+    <div><strong>3. Recibes seguimiento con folio</strong><span>Un asesor confirma disponibilidad, precio y entrega. <a href="mi-cotizacion#mis-solicitudes">Consulta tu folio →</a></span></div>
+  </div>
+</section>
+
+<section id="herramientas" class="kdl-tools" aria-labelledby="kdl-tools-title">
+  <div class="kdl-tools__inner">
+    <span class="kdl-why__eyebrow">Herramientas</span>
+    <h2 id="kdl-tools-title">Calculadora de cilindro neumático</h2>
+    <p class="kdl-tools__lead">Estima la fuerza teórica y el consumo de aire de un cilindro de doble efecto para dimensionarlo y preparar el suministro de aire.</p>
+    <div class="kdl-tool">
+      <div class="kdl-tool__grid">
+        <label class="kdl-tool__field" for="kdl-calc-d"><span>Ø émbolo (mm)</span><input id="kdl-calc-d" type="number" min="1" inputmode="decimal" value="{{ ca_d }}" onInput="{{ onCaD }}"></label>
+        <label class="kdl-tool__field" for="kdl-calc-l"><span>Carrera (mm)</span><input id="kdl-calc-l" type="number" min="1" inputmode="decimal" value="{{ ca_l }}" onInput="{{ onCaL }}"></label>
+        <label class="kdl-tool__field" for="kdl-calc-p"><span>Presión (bar)</span><input id="kdl-calc-p" type="number" min="0" step="0.1" inputmode="decimal" value="{{ ca_p }}" onInput="{{ onCaP }}"></label>
+        <label class="kdl-tool__field" for="kdl-calc-c"><span>Ciclos / min</span><input id="kdl-calc-c" type="number" min="1" inputmode="decimal" value="{{ ca_c }}" onInput="{{ onCaC }}"></label>
+      </div>
+      <div class="kdl-tool__results" role="status" aria-live="polite">
+        <div><span>Fuerza de avance</span><strong>{{ ca_force }}</strong><small>{{ ca_forceKg }}</small></div>
+        <div><span>Consumo de aire</span><strong>{{ ca_result }} NL/min</strong><small>≈ {{ ca_resultStroke }} NL por ciclo</small></div>
+      </div>
+      <p class="kdl-tool__note">Valores teóricos: no incluyen fricción, volumen del vástago, fugas ni accesorios. Para mover cargas, usa entre 50 % y 70 % de la fuerza teórica. Confirma la selección con un asesor.</p>
+      <div class="kdl-tool__actions">
+        <a class="kdl-tool__cta" href="{{ waCalc }}" target="_blank" rel="noopener">Cotizar con este resultado</a>
+        <a class="kdl-tool__link" href="catalogo?cat=neumatica">Ver cilindros en inventario →</a>
+        <a class="kdl-tool__link" href="guias#cilindro-neumatico">Guía para elegir un cilindro →</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="sobre-kdl" class="kdl-about" aria-labelledby="kdl-about-title">
@@ -123,7 +159,7 @@
 </section>
 <footer id="contacto" style="background:#06121F;color:#9FB1C6;padding:50px 22px 28px">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-end">
-    <div><a href="index.html" style="display:flex;align-items:baseline;gap:1px;margin-bottom:12px"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#1FC8E3">.</span></a><p style="font-size:14px;line-height:1.6;max-width:340px;margin:0">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
+    <div><a href="./" style="display:flex;align-items:baseline;gap:1px;margin-bottom:12px"><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#fff">KDL</span><span style="font-family:'Archivo';font-weight:900;font-style:italic;font-size:24px;color:#1FC8E3">.</span></a><p style="font-size:14px;line-height:1.6;max-width:340px;margin:0">Suministros, refacciones, automatización y soluciones industriales · Monterrey, N.L.</p></div>
     <div style="display:flex;flex-direction:column;gap:10px;font-size:14px"><a href="tel:+528112273382" style="display:flex;align-items:center;gap:9px" style-hover="color:#fff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>+52 81 1227 3382</a><a href="mailto:ventas@kdl.com.mx" style="display:flex;align-items:center;gap:9px" style-hover="color:#fff"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39A0FF" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>ventas@kdl.com.mx</a></div>
   </div>
   <div style="max-width:1280px;margin:22px auto 0;padding-top:20px;border-top:1px solid rgba(127,180,232,.12);font-size:13px;color:#5A6B80">© 2026 KDL · Soluciones Industriales · Monterrey, N.L.</div>
@@ -135,19 +171,29 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000}; }
+  constructor(props){ super(props); const w=(typeof window!=='undefined')?window.innerWidth:1280; this.state={isMobile:w<1000,ca:{d:'63',l:'100',p:'6',c:'10'}}; }
+  setCA(k,v){ this.setState(s=>({ca:{...s.ca,[k]:v}})); }
   componentDidMount(){ this._r=()=>{const m=window.innerWidth<1000;if(m!==this.state.isMobile)this.setState({isMobile:m});};window.addEventListener('resize',this._r); }
   componentWillUnmount(){ window.removeEventListener('resize',this._r); }
   wa(t){ return 'https://wa.me/528112273382?text='+encodeURIComponent(t); }
   renderVals(){
-    const ACTIVE='soluciones';
-    const navData=[['Inicio','index.html','inicio'],['Productos','Productos.dc.html','productos'],['Soluciones','Soluciones.dc.html','soluciones'],['Catálogos','Catalogos.dc.html','catalogos'],['Contacto','Contacto.dc.html','contacto']];
-    const nav=navData.map(([label,href,key])=>({label,href,style:'padding:6px 0;'+(key===ACTIVE?'color:#fff;border-bottom:2px solid #1FC8E3':'color:#C7D4E3')}));
+    const nav=[];
+    const ca=this.state.ca;
+    const D=parseFloat(ca.d)||0, L=parseFloat(ca.l)||0, P=parseFloat(ca.p)||0, C=parseFloat(ca.c)||0;
+    const area=Math.PI/4*Math.pow(D/1000,2);
+    const perCycle=2*area*(L/1000)*1000*((P+1.013)/1.013);
+    const perMin=perCycle*C;
+    const force=area*P*100000;
+    const fmt=n=>n.toLocaleString('es-MX',{maximumFractionDigits:0});
+    const ca_result=(D&&L&&P)?(perMin>=100?fmt(perMin):perMin.toFixed(1)):'0';
+    const ca_resultStroke=(D&&L&&P)?(perCycle>=10?perCycle.toFixed(1):perCycle.toFixed(2)):'0';
+    const ca_force=(D&&P)?fmt(force)+' N':'—';
+    const ca_forceKg=(D&&P)?'≈ '+fmt(force/9.80665)+' kgf a '+P+' bar':'Ingresa diámetro y presión';
     const solutionFamilies=[
-      {t:'Automatización y control',d:'PLC, HMI, sensores, variadores, servos y comunicación industrial.',href:'Productos.dc.html?cat=automatizacion'},
-      {t:'Movimiento y actuación',d:'Neumática, hidráulica, guías, husillos y actuadores para movimiento industrial.',href:'Productos.dc.html?cat=movimiento'},
-      {t:'Herramientas de corte',d:'Insertos, portaherramientas, carburo sólido y soluciones para maquinado.',href:'Productos.dc.html?cat=corte'},
-      {t:'Refrigeración industrial / IQF',d:'Equipos y componentes para congelación, proceso y cadena de frío.',href:'Productos.dc.html?cat=iqf'}
+      {t:'Automatización y control',d:'PLC, HMI, sensores, variadores, servos y comunicación industrial.',href:'catalogo?cat=automatizacion'},
+      {t:'Movimiento y actuación',d:'Neumática, hidráulica, guías, husillos y actuadores para movimiento industrial.',href:'catalogo?cat=movimiento'},
+      {t:'Herramientas de corte',d:'Insertos, portaherramientas, carburo sólido y soluciones para maquinado.',href:'catalogo?cat=corte'},
+      {t:'Refrigeración industrial / IQF',d:'Equipos y componentes para congelación, proceso y cadena de frío.',href:'catalogo?cat=iqf'}
     ];
     const industries=[
       ['Alimentos y bebidas','Componentes para proceso, refrigeración y condiciones higiénicas.'],
@@ -160,12 +206,18 @@ class Component extends DCLogic {
       ['Mantenimiento industrial','Identificación y suministro de piezas de desgaste.']
     ].map(([t,d])=>({t,d,wa:this.wa('Hola KDL, trabajo en '+t+'. Necesito cotizar: ___. Aplicación / No. de parte: ___.')}));
     const services=[
-      {t:'Identificación y cotización',d:'Comparte foto, placa, marca o número de parte para iniciar la revisión.',cta:'Iniciar solicitud',href:'index.html#cotiza',target:'_self'},
-      {t:'Alternativas y compatibilidad',d:'Revisamos medidas, conexión, montaje, aplicación y condiciones de trabajo.',cta:'Revisar alternativa',href:'Compatibilidad.dc.html',target:'_self'},
-      {t:'Suministro de refacciones',d:'Concentra productos de distintas familias en una sola lista: Mi cotización.',cta:'Armar mi cotización',href:'Cesta.dc.html',target:'_self'},
-      {t:'Entrega y seguimiento',d:'Un asesor confirma disponibilidad, entrega aplicable y seguimiento comercial.',cta:'Hablar con un asesor',href:this.wa('Hola KDL, necesito apoyo con entrega o seguimiento de una solicitud.'),target:'_blank'}
+      {t:'Identificación y cotización',d:'Comparte foto, placa, marca o número de parte para iniciar la revisión.',cta:'Iniciar solicitud',href:'contacto#solicitud',target:'_self'},
+      {t:'Alternativas compatibles',d:'Revisamos medidas, conexión, montaje, aplicación y condiciones de trabajo.',cta:'Revisar alternativa',href:'alternativas-compatibles',target:'_self'},
+      {t:'Suministro de refacciones',d:'Concentra productos de distintas familias en una sola lista: Mi cotización.',cta:'Armar mi cotización',href:'mi-cotizacion',target:'_self'},
+      {t:'Entrega y seguimiento',d:'Un asesor confirma disponibilidad, entrega aplicable y seguimiento comercial.',cta:'Hablar con un asesor',href:this.wa('Hola KDL, necesito apoyo con entrega o seguimiento de una solicitud.'),target:'_blank'},
+      {t:'Soluciones a la medida',d:'Definimos el componente o la alternativa que mejor cumple tu aplicación y presupuesto.',cta:'Platicar mi proyecto',href:this.wa('Hola KDL, quiero platicar un proyecto para definir una solución a la medida.'),target:'_blank'},
+      {t:'Soporte en reparaciones',d:'Te ayudamos a identificar la pieza dañada y a poner la máquina en marcha lo antes posible.',cta:'Pedir apoyo',href:this.wa('Hola KDL, tengo una máquina detenida y necesito apoyo para identificar la pieza.'),target:'_blank'},
+      {t:'Capacitación en control',d:'Acompañamos a tu equipo en automatización, sensores y control para operar y mantener mejor.',cta:'Solicitar capacitación',href:this.wa('Hola KDL, me interesa una capacitación en temas de control para mi equipo.'),target:'_blank'}
     ];
-    return {isMobile:this.state.isMobile,notMobile:!this.state.isMobile,nav,solutionFamilies,industries,services,waSticky:this.wa('Hola KDL, necesito una solución industrial. ¿Me ayudan a revisar mi aplicación?')};
+    return {ca_d:ca.d,ca_l:ca.l,ca_p:ca.p,ca_c:ca.c,ca_result,ca_resultStroke,ca_force,ca_forceKg,
+      onCaD:e=>this.setCA('d',e.target.value),onCaL:e=>this.setCA('l',e.target.value),onCaP:e=>this.setCA('p',e.target.value),onCaC:e=>this.setCA('c',e.target.value),
+      waCalc:this.wa('Hola KDL, calculé un cilindro: diámetro '+ca.d+' mm, carrera '+ca.l+' mm, '+ca.p+' bar, '+ca.c+' ciclos/min. Fuerza aprox. '+ca_force+', consumo aprox. '+ca_result+' NL/min. Quiero confirmar la selección y cotizar.'),
+      isMobile:this.state.isMobile,notMobile:!this.state.isMobile,nav,solutionFamilies,industries,services,waSticky:this.wa('Hola KDL, necesito una solución industrial. ¿Me ayudan a revisar mi aplicación?')};
   }
 }
 </script>

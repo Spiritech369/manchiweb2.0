@@ -343,3 +343,28 @@ a.kdl-category-card{color:inherit;text-decoration:none}
 .kdl-about__grid p{margin:0;color:#40566B;font-size:14.5px;line-height:1.6}
 .kdl-about__subtitle{margin:0 0 14px;color:#0E2236;font-family:'Archivo',sans-serif;font-size:22px}
 @media (max-width:900px){.kdl-about__grid{grid-template-columns:1fr}}
+.kdl-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.kdl-steps div{display:flex;flex-direction:column;gap:5px;padding:16px 18px;border:1px solid #D6E0E8;border-radius:8px;background:#F7F9FC}
+.kdl-steps strong{color:#0E2236;font-family:'Archivo',sans-serif;font-size:16px}
+.kdl-steps span{color:#566A7D;font-size:14px;line-height:1.5}
+.kdl-steps a{color:#1F4E79;font-weight:800;text-decoration:underline}
+.kdl-steps__title{margin:30px 0 0;color:#0E2236;font-family:'Archivo',sans-serif;font-size:20px}
+.kdl-tools{background:#F4F6F8;padding:56px 22px;scroll-margin-top:110px}
+.kdl-tools__inner{max-width:1080px;margin:0 auto}
+.kdl-tools h2{margin:0 0 10px;color:#0E2236;font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3vw,34px)}
+.kdl-tools__lead{max-width:720px;margin:0 0 20px;color:#40566B;font-size:16px;line-height:1.6}
+.kdl-tool{padding:24px;border:1px solid #D6E0E8;border-radius:12px;background:#fff}
+.kdl-tool__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kdl-tool__field{display:flex;flex-direction:column;gap:7px;color:#566A7D;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:700;text-transform:uppercase}
+.kdl-tool__field input{width:100%;min-height:48px;padding:10px 12px;border:1px solid #C8D5E0;border-radius:6px;background:#F8FAFD;color:#0E2236;font:600 18px 'IBM Plex Sans',sans-serif;text-transform:none}
+.kdl-tool__results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.kdl-tool__results div{display:flex;flex-direction:column;gap:4px;padding:18px 20px;border-radius:10px;background:#0B2239;color:#fff}
+.kdl-tool__results div>span{color:#9FD3FF;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.8px;text-transform:uppercase}
+.kdl-tool__results div>strong{font-family:'Archivo',sans-serif;font-size:clamp(26px,3.5vw,36px);line-height:1.05}
+.kdl-tool__results div>small{color:#C7D4E3;font-size:13.5px}
+.kdl-tool__note{margin:14px 0 0;color:#566A7D;font-size:13px;line-height:1.5}
+.kdl-tool__actions{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin-top:14px}
+.kdl-tool__cta{display:inline-flex;align-items:center;min-height:46px;padding:10px 16px;border-radius:6px;background:#25D366;color:#06310F!important;font-weight:800;font-size:14px}
+.kdl-tool__link{display:inline-flex;align-items:center;min-height:44px;color:#1F4E79;font-weight:800;font-size:14px;text-decoration:underline}
+@media (max-width:900px){.kdl-steps{grid-template-columns:1fr}.kdl-tool__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.kdl-tool{padding:18px}.kdl-tool__results{grid-template-columns:1fr}.kdl-tools{padding:44px 16px}}

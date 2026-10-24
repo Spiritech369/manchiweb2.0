@@ -4,13 +4,42 @@ DirectorySlash On
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-# Legacy product app URLs -> clean product URLs.
-RewriteCond %{QUERY_STRING} (^|&)cat=([^&]+)&p=([^&]+) [NC]
-RewriteRule ^Producto\.dc\.html$ /productos/%2/%3/? [R=301,L,NE]
-RewriteCond %{QUERY_STRING} (^|&)p=([^&]+)&cat=([^&]+) [NC]
-RewriteRule ^Producto\.dc\.html$ /productos/%3/%2/? [R=301,L,NE]
+# Rutas anteriores -> URLs limpias (301). Sólo peticiones directas, no reescrituras internas.
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Productos\.dc(\.html)?$ /catalogo [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Producto\.dc(\.html)?$ /producto [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Cesta\.dc(\.html)?$ /mi-cotizacion [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Contacto\.dc(\.html)?$ /contacto [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Soluciones\.dc(\.html)?$ /como-te-ayudamos [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Catalogos\.dc(\.html)?$ /descargas [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Compatibilidad\.dc(\.html)?$ /alternativas-compatibles [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Marcas\.dc(\.html)?$ /marcas [R=301,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Industrias\.dc(\.html)?$ /como-te-ayudamos#industrias [R=301,NE,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^Servicios\.dc(\.html)?$ /como-te-ayudamos#servicios [R=301,NE,L]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^productos/?$ /catalogo [R=301,L]
 
-# Legacy catalog category URLs -> clean category URLs.
-RewriteCond %{QUERY_STRING} (^|&)cat=([^&]+) [NC]
-RewriteRule ^Productos\.dc\.html$ /productos/%2/? [R=301,L,NE]
+# URLs limpias -> archivos.
+RewriteRule ^catalogo$ Productos.dc.html [L]
+RewriteRule ^producto$ Producto.dc.html [L]
+RewriteRule ^mi-cotizacion$ Cesta.dc.html [L]
+RewriteRule ^contacto$ Contacto.dc.html [L]
+RewriteRule ^como-te-ayudamos$ Soluciones.dc.html [L]
+RewriteRule ^descargas$ Catalogos.dc.html [L]
+RewriteRule ^alternativas-compatibles$ Compatibilidad.dc.html [L]
+RewriteRule ^marcas$ Marcas.dc.html [L]
+RewriteRule ^checklists$ Checklists.html [L]
+RewriteRule ^guias$ Guias.html [L]
+RewriteRule ^aviso-de-privacidad$ Aviso-Privacidad.html [L]
 </IfModule>

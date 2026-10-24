@@ -35,11 +35,11 @@ function absPath(p) {
 }
 
 function cleanProductUrl(cat, product) {
-  return absPath(`productos/${cat.key}/${product.slug}/`);
+  return absPath(`productos/${cat.key}/${product.slug}`);
 }
 
 function cleanCategoryUrl(cat) {
-  return absPath(`productos/${cat.key}/`);
+  return absPath(`productos/${cat.key}`);
 }
 
 function description(cat, product) {
@@ -82,9 +82,9 @@ function layout({ title, description: desc, canonical, image, rootRel, body, sch
 <link rel="stylesheet" href="${rootRel}kdl-corporate.css?v=4" data-kdl-corporate>
 </head>
 <body>
-<header class="top"><div class="shell nav"><a class="logo" href="${rootRel}index.html">KDL<span>.</span></a><nav class="nav-links"><a href="${rootRel}index.html">Inicio</a><a class="active" href="${rootRel}Productos.dc.html">Productos</a><a href="${rootRel}Soluciones.dc.html">Soluciones</a><a href="${rootRel}Industrias.dc.html">Industrias</a><a href="${rootRel}Servicios.dc.html">Servicios</a><a href="${rootRel}Catalogos.dc.html">Catálogos</a><a href="${rootRel}Contacto.dc.html">Contacto</a></nav></div></header>
+<header class="top"><div class="shell nav"><a class="logo" href="/">KDL<span>.</span></a><nav class="nav-links"><a href="/">Inicio</a><a class="active" href="/catalogo">Productos</a><a href="/como-te-ayudamos">Soluciones</a><a href="/como-te-ayudamos#industrias">Industrias</a><a href="/como-te-ayudamos#servicios">Servicios</a><a href="/descargas">Descargas</a><a href="/contacto">Contacto</a></nav></div></header>
 ${body}
-<footer class="footer"><div class="shell"><strong>KDL · ${LEGAL_NAME}</strong><br>${PHONE} · <a href="mailto:${EMAIL}">${EMAIL}</a><br>${ADDRESS}<br>${HOURS}<br><a href="${rootRel}Aviso-Privacidad.html">Aviso de privacidad</a></div></footer>
+<footer class="footer"><div class="shell"><strong>KDL · ${LEGAL_NAME}</strong><br>${PHONE} · <a href="mailto:${EMAIL}">${EMAIL}</a><br>${ADDRESS}<br>${HOURS}<br><a href="/aviso-de-privacidad">Aviso de privacidad</a></div></footer>
 </body>
 </html>`;
 }
@@ -115,7 +115,7 @@ function productSchema(cat, product) {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Inicio', item: absPath('') },
-          { '@type': 'ListItem', position: 2, name: 'Productos', item: absPath('productos/') },
+          { '@type': 'ListItem', position: 2, name: 'Productos', item: absPath('catalogo') },
           { '@type': 'ListItem', position: 3, name: cat.name, item: cleanCategoryUrl(cat) },
           { '@type': 'ListItem', position: 4, name: product.n, item: url }
         ]
@@ -164,16 +164,16 @@ function categorySchema(cat) {
 }
 
 function renderProduct(cat, product) {
-  const rootRel = '../../../';
+  const rootRel = '/';
   const img = product.img || cat.img || 'assets/hero-tools.png';
   const rel = cat.products.filter((p) => p.slug !== product.slug).slice(0, 6);
   const faqs = productFaqs(cat, product);
   const body = `<main>
-<section class="hero"><div class="shell hero-grid"><div><div class="eyebrow">${text(cat.name)}${cat.brand ? ' · ' + text(cat.brand) : ''}</div><h1 class="h1">${text(product.n)}</h1><p class="lead">${text(description(cat, product))}</p><div class="btns"><a class="btn btn-whatsapp" href="${wa(`Hola KDL, quiero cotizar: ${product.n} (${cat.name}). Cantidad / No. de parte / aplicacion: ___`)}">Cotizar por WhatsApp</a><a class="btn btn-primary" href="${rootRel}Producto.dc.html?cat=${encodeURIComponent(cat.key)}&p=${encodeURIComponent(product.slug)}">Ver ficha interactiva</a></div></div><div class="media"><img src="${rootRel}${esc(img)}" alt="${esc(product.n)}" loading="eager" decoding="async"></div></div></section>
+<section class="hero"><div class="shell hero-grid"><div><div class="eyebrow">${text(cat.name)}${cat.brand ? ' · ' + text(cat.brand) : ''}</div><h1 class="h1">${text(product.n)}</h1><p class="lead">${text(description(cat, product))}</p><div class="btns"><a class="btn btn-whatsapp" href="${wa(`Hola KDL, quiero cotizar: ${product.n} (${cat.name}). Cantidad / No. de parte / aplicacion: ___`)}">Cotizar por WhatsApp</a><a class="btn btn-primary" href="/producto?cat=${encodeURIComponent(cat.key)}&p=${encodeURIComponent(product.slug)}">Ver ficha interactiva</a></div></div><div class="media"><img src="${rootRel}${esc(img)}" alt="${esc(product.n)}" loading="eager" decoding="async"></div></div></section>
 <section class="section"><div class="shell"><h2>Datos para cotizar</h2><ul class="list">${(cat.datos || []).map((d) => `<li>${text(d)}</li>`).join('')}</ul></div></section>
-<section class="section"><div class="shell split"><div class="card"><h2>Aplicaciones</h2><ul class="list">${(cat.aplicaciones || []).map((a) => `<li>${text(a)}</li>`).join('')}</ul></div><div class="card"><h2>Fallas comunes</h2><ul class="list">${(cat.fallas || []).map((f) => `<li>${text(f)}</li>`).join('')}</ul></div><div class="card"><h2>Documentacion</h2><p class="muted">Solicita la ficha técnica correspondiente a la marca y modelo exactos.</p><div class="btns"><a class="btn btn-primary" href="${rootRel}Catalogos.dc.html">Centro documental</a><a class="btn btn-whatsapp" href="${wa(`Hola KDL, necesito la ficha tecnica oficial de ${product.n}. Marca / modelo / No. de parte: ___`)}">Solicitar</a></div></div></div></section>
+<section class="section"><div class="shell split"><div class="card"><h2>Aplicaciones</h2><ul class="list">${(cat.aplicaciones || []).map((a) => `<li>${text(a)}</li>`).join('')}</ul></div><div class="card"><h2>Fallas comunes</h2><ul class="list">${(cat.fallas || []).map((f) => `<li>${text(f)}</li>`).join('')}</ul></div><div class="card"><h2>Documentacion</h2><p class="muted">Solicita la ficha técnica correspondiente a la marca y modelo exactos.</p><div class="btns"><a class="btn btn-primary" href="/descargas">Descargas</a><a class="btn btn-whatsapp" href="${wa(`Hola KDL, necesito la ficha tecnica oficial de ${product.n}. Marca / modelo / No. de parte: ___`)}">Solicitar</a></div></div></div></section>
 <section class="section"><div class="shell"><h2>Preguntas frecuentes sobre ${text(product.n)}</h2>${faqs.map((faq) => `<details class="faq"><summary>${text(faq.q)}</summary><p>${text(faq.a)}</p></details>`).join('')}</div></section>
-<section class="section"><div class="shell"><h2>Productos relacionados</h2><div class="grid">${rel.map((p) => `<a class="card" href="../${p.slug}/"><div class="card-media"><img src="${rootRel}${esc(p.img || cat.img)}" alt="${esc(p.n)}" loading="lazy" decoding="async"></div><strong>${text(p.n)}</strong><div class="mono">${text(p.s)}</div></a>`).join('')}</div></div></section>
+<section class="section"><div class="shell"><h2>Productos relacionados</h2><div class="grid">${rel.map((p) => `<a class="card" href="/productos/${cat.key}/${p.slug}"><div class="card-media"><img src="${rootRel}${esc(p.img || cat.img)}" alt="${esc(p.n)}" loading="lazy" decoding="async"></div><strong>${text(p.n)}</strong><div class="mono">${text(p.s)}</div></a>`).join('')}</div></div></section>
 </main>`;
   return layout({
     title: `${product.n} | ${cat.name} | KDL`,
@@ -188,10 +188,10 @@ function renderProduct(cat, product) {
 }
 
 function renderCategory(cat) {
-  const rootRel = '../../';
+  const rootRel = '/';
   const body = `<main>
-<section class="hero"><div class="shell hero-grid"><div><div class="eyebrow">Catalogo KDL</div><h1 class="h1">${text(cat.name)}</h1><p class="lead">${text(cat.intro || '')}</p><div class="btns"><a class="btn btn-whatsapp" href="${wa(`Hola KDL, quiero cotizar productos de: ${cat.name}.`)}">Cotizar esta categoria</a><a class="btn btn-primary" href="${rootRel}Productos.dc.html?cat=${encodeURIComponent(cat.key)}">Ver catalogo interactivo</a></div></div><div class="media"><img src="${rootRel}${esc(cat.img || 'assets/hero-tools.png')}" alt="${esc(cat.name)}" loading="eager" decoding="async"></div></div></section>
-<section class="section"><div class="shell"><h2>Productos de ${text(cat.name)}</h2><div class="grid">${cat.products.map((p) => `<a class="card" href="${p.slug}/"><div class="card-media"><img src="${rootRel}${esc(p.img || cat.img)}" alt="${esc(p.n)}" loading="lazy" decoding="async"></div><strong>${text(p.n)}</strong><div class="mono">${text(p.s)}</div></a>`).join('')}</div></div></section>
+<section class="hero"><div class="shell hero-grid"><div><div class="eyebrow">Catalogo KDL</div><h1 class="h1">${text(cat.name)}</h1><p class="lead">${text(cat.intro || '')}</p><div class="btns"><a class="btn btn-whatsapp" href="${wa(`Hola KDL, quiero cotizar productos de: ${cat.name}.`)}">Cotizar esta categoria</a><a class="btn btn-primary" href="/catalogo?cat=${encodeURIComponent(cat.key)}">Ver catalogo interactivo</a></div></div><div class="media"><img src="${rootRel}${esc(cat.img || 'assets/hero-tools.png')}" alt="${esc(cat.name)}" loading="eager" decoding="async"></div></div></section>
+<section class="section"><div class="shell"><h2>Productos de ${text(cat.name)}</h2><div class="grid">${cat.products.map((p) => `<a class="card" href="/productos/${cat.key}/${p.slug}"><div class="card-media"><img src="${rootRel}${esc(p.img || cat.img)}" alt="${esc(p.n)}" loading="lazy" decoding="async"></div><strong>${text(p.n)}</strong><div class="mono">${text(p.s)}</div></a>`).join('')}</div></div></section>
 </main>`;
   return layout({
     title: `${cat.name} | Catalogo KDL`,
@@ -205,15 +205,15 @@ function renderCategory(cat) {
 }
 
 function renderIndex(cats) {
-  const rootRel = '../';
+  const rootRel = '/';
   const body = `<main>
-<section class="hero"><div class="shell"><div class="eyebrow">Catalogo KDL</div><h1 class="h1">Productos y refacciones industriales</h1><p class="lead">Categorias KDL para neumática, hidráulica, sensores, automatización, movimiento lineal, herramientas de corte, refrigeración IQF y suministros.</p><div class="btns"><a class="btn btn-primary" href="${rootRel}Productos.dc.html">Abrir catalogo interactivo</a><a class="btn btn-whatsapp" href="${wa('Hola KDL, quiero cotizar productos del catalogo. ¿Me ayudan a identificar la pieza?')}">Cotizar por WhatsApp</a></div></div></section>
-<section class="section"><div class="shell"><div class="grid">${cats.map((cat) => `<a class="card" href="${cat.key}/"><div class="card-media"><img src="${rootRel}${esc(cat.img || 'assets/hero-tools.png')}" alt="${esc(cat.name)}" loading="lazy" decoding="async"></div><strong>${text(cat.name)}</strong><p class="muted">${text(cat.intro || '')}</p><div class="mono">${cat.products.length} productos</div></a>`).join('')}</div></div></section>
+<section class="hero"><div class="shell"><div class="eyebrow">Catalogo KDL</div><h1 class="h1">Productos y refacciones industriales</h1><p class="lead">Categorias KDL para neumática, hidráulica, sensores, automatización, movimiento lineal, herramientas de corte, refrigeración IQF y suministros.</p><div class="btns"><a class="btn btn-primary" href="/catalogo">Abrir catalogo interactivo</a><a class="btn btn-whatsapp" href="${wa('Hola KDL, quiero cotizar productos del catalogo. ¿Me ayudan a identificar la pieza?')}">Cotizar por WhatsApp</a></div></div></section>
+<section class="section"><div class="shell"><div class="grid">${cats.map((cat) => `<a class="card" href="/productos/${cat.key}"><div class="card-media"><img src="${rootRel}${esc(cat.img || 'assets/hero-tools.png')}" alt="${esc(cat.name)}" loading="lazy" decoding="async"></div><strong>${text(cat.name)}</strong><p class="muted">${text(cat.intro || '')}</p><div class="mono">${cat.products.length} productos</div></a>`).join('')}</div></div></section>
 </main>`;
   return layout({
     title: 'Productos y refacciones industriales | Catalogo KDL',
     description: 'Catalogo KDL de refacciones industriales por categoria: neumatica, hidraulica, sensores, automatizacion, movimiento lineal, herramientas de corte, IQF y suministros.',
-    canonical: absPath('productos/'),
+    canonical: absPath('catalogo'),
     image: cats[0] && cats[0].img,
     rootRel,
     body,
@@ -221,7 +221,7 @@ function renderIndex(cats) {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'Catalogo KDL',
-      url: absPath('productos/'),
+      url: absPath('catalogo'),
       mainEntity: {
         '@type': 'ItemList',
         itemListElement: cats.map((cat, index) => ({

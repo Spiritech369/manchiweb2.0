@@ -31,7 +31,7 @@
 
 <section class="kdl-quote-band">
   <div class="kdl-quote-band__inner">
-    <div class="kdl-breadcrumb kdl-breadcrumb--dark"><a href="index.html">Inicio</a> <span>/</span> <strong>Mi cotización</strong></div>
+    <div class="kdl-breadcrumb kdl-breadcrumb--dark"><a href="./">Inicio</a> <span>/</span> <strong>Mi cotización</strong></div>
     <h1>Mi cotización</h1>
     <p>Arma tu lista, revisa precios de referencia (más IVA) y envíala por WhatsApp o correo. Te damos un folio para dar seguimiento.</p>
   </div>
@@ -46,7 +46,7 @@
     <sc-if value="{{ hasFolio }}" hint-placeholder-val=""><p class="kdl-quote-sent__folio">Tu folio: <strong>{{ sentFolio }}</strong></p></sc-if>
     <div class="kdl-quote-sent__actions">
       <a class="kdl-quote-btn kdl-quote-btn--primary" href="{{ sentUrl }}" target="_blank" rel="noopener">{{ sentRetryLabel }}</a>
-      <a class="kdl-quote-btn" href="Productos.dc.html">Seguir en el catálogo</a>
+      <a class="kdl-quote-btn" href="catalogo">Seguir en el catálogo</a>
       <button type="button" class="kdl-quote-btn" onClick="{{ newQuote }}">Empezar una cotización nueva</button>
     </div>
   </div>
@@ -81,13 +81,27 @@
         <label class="kdl-quote-field kdl-quote-field--qty"><span>Cantidad</span><input value="{{ q_qty }}" onChange="{{ onQty }}" type="number" min="1" inputmode="numeric" placeholder="1"></label>
         <button class="kdl-cart-quick-submit" type="submit">Añadir</button>
       </form>
+      <button type="button" class="kdl-quote-link kdl-quote-bulk-toggle" onClick="{{ toggleBulk }}" aria-expanded="{{ showBulk }}">{{ bulkToggleLabel }}</button>
+      <sc-if value="{{ showBulk }}" hint-placeholder-val="">
+        <div class="kdl-quote-bulk">
+          <label class="kdl-quote-field"><span>Pega tu lista (una pieza por renglón: número de parte y cantidad)</span>
+            <textarea rows="6" value="{{ bulkText }}" onChange="{{ onBulkText }}" placeholder="4V210-08, 4&#10;SDA32X25S 2&#10;Sensor M12 PNP	10"></textarea>
+          </label>
+          <div class="kdl-quote-bulk__actions">
+            <button type="button" class="kdl-quote-btn kdl-quote-btn--primary" onClick="{{ importBulk }}">Agregar lista</button>
+            <label class="kdl-quote-btn kdl-quote-file"><input type="file" accept=".csv,.txt,.xlsx,.xls,text/csv" onChange="{{ onBulkFile }}">Subir CSV o Excel</label>
+            <a class="kdl-quote-link" href="{{ templateHref }}" download="plantilla-cotizacion-kdl.csv">Descargar plantilla</a>
+          </div>
+          <p class="kdl-quote-card__hint">Reconocemos los modelos de inventario; lo demás se agrega como referencia por cotizar. En Excel usamos la primera hoja: columna A número de parte, columna B cantidad.</p>
+        </div>
+      </sc-if>
     </div>
 
     <sc-if value="{{ empty }}" hint-placeholder-val="{{ true }}">
       <div class="kdl-quote-card kdl-quote-empty">
         <h2>Tu cotización está vacía</h2>
         <p>Agrega piezas desde el catálogo o escribe el número de parte arriba.</p>
-        <a class="kdl-quote-btn kdl-quote-btn--primary" href="Productos.dc.html">Ir al catálogo</a>
+        <a class="kdl-quote-btn kdl-quote-btn--primary" href="catalogo">Ir al catálogo</a>
       </div>
     </sc-if>
 
@@ -118,12 +132,43 @@
         </div>
       </div>
     </sc-if>
+
+    <div id="mis-solicitudes" class="kdl-quote-card kdl-quote-history">
+      <h2 class="kdl-quote-card__title">Mis solicitudes</h2>
+      <p class="kdl-quote-card__hint">Consulta el estado con tu folio y los últimos 4 dígitos de tu teléfono, o vuelve a cotizar una lista anterior.</p>
+      <form class="kdl-quote-lookup" onSubmit="{{ lookup }}">
+        <label class="kdl-quote-field"><span>Folio</span><input value="{{ lk_folio }}" onChange="{{ onLkFolio }}" placeholder="KDL-20261023-AB12" autocapitalize="characters"></label>
+        <label class="kdl-quote-field"><span>Últimos 4 dígitos del teléfono</span><input value="{{ lk_tel }}" onChange="{{ onLkTel }}" inputmode="numeric" maxlength="4" placeholder="5678"></label>
+        <button type="submit" class="kdl-quote-btn kdl-quote-btn--primary" disabled="{{ lkBusy }}">Consultar estado</button>
+      </form>
+      <sc-if value="{{ hasLkMessage }}" hint-placeholder-val="">
+        <div class="{{ lkClass }}" role="status" aria-live="polite">
+          <strong>{{ lkTitle }}</strong>
+          <span>{{ lkText }}</span>
+          <sc-for list="{{ lkItems }}" as="li" hint-placeholder-count="2"><span class="kdl-quote-lookup__item">{{ li }}</span></sc-for>
+          <sc-if value="{{ lkShowWa }}" hint-placeholder-val=""><a href="{{ lkWa }}" target="_blank" rel="noopener">Preguntar por WhatsApp →</a></sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ hasHistory }}" hint-placeholder-val="">
+        <ul class="kdl-quote-history__list">
+          <sc-for list="{{ historyRows }}" as="h" hint-placeholder-count="2">
+            <li>
+              <div><strong>{{ h.folio }}</strong><span>{{ h.meta }}</span></div>
+              <div class="kdl-quote-history__actions">
+                <button type="button" class="kdl-quote-btn" onClick="{{ h.requote }}">Volver a cotizar</button>
+                <button type="button" class="kdl-quote-link" onClick="{{ h.check }}">Ver estado</button>
+              </div>
+            </li>
+          </sc-for>
+        </ul>
+      </sc-if>
+    </div>
   </div>
 
   <aside class="kdl-quote-side">
     <form class="kdl-quote-card kdl-quote-form" onSubmit="{{ sendWhatsapp }}" novalidate>
       <h2 class="kdl-quote-card__title">Tus datos</h2>
-      <p class="kdl-quote-card__hint">Los usamos sólo para responder esta cotización. <a href="Aviso-Privacidad.html">Aviso de privacidad</a></p>
+      <p class="kdl-quote-card__hint">Los usamos sólo para responder esta cotización. <a href="aviso-de-privacidad">Aviso de privacidad</a></p>
       <sc-if value="{{ hasErrors }}" hint-placeholder-val=""><div class="kdl-quote-error" role="alert">{{ errorSummary }}</div></sc-if>
       <label class="kdl-quote-field"><span>Nombre *</span><input autocomplete="name" value="{{ f_name }}" onChange="{{ onName }}" aria-invalid="{{ invalidName }}"></label>
       <label class="kdl-quote-field"><span>Empresa</span><input autocomplete="organization" value="{{ f_company }}" onChange="{{ onCompany }}"></label>
@@ -153,7 +198,7 @@ class Component extends DCLogic {
     super(props);
     let saved={};
     try{ saved=JSON.parse(localStorage.getItem('kdl_quote_contact')||'{}')||{}; }catch(e){}
-    this.state={cart:this.load(),q_part:'',q_qty:'',notice:'',errors:{},sent:null,
+    this.state={cart:this.load(),q_part:'',q_qty:'',notice:'',errors:{},sent:null,showBulk:false,bulkText:'',lk_folio:'',lk_tel:'',lk:null,lkBusy:false,history:this.history(),
       f:{name:saved.name||'',company:saved.company||'',rfc:saved.rfc||'',email:saved.email||'',phone:saved.phone||'',date:'',notes:''}};
   }
   componentDidMount(){
@@ -175,7 +220,7 @@ class Component extends DCLogic {
     try{ params=new URLSearchParams(window.location.search); }catch(e){ return; }
     const add=params.get('add'), ref=params.get('ref');
     if(!add&&!ref) return;
-    try{ window.history.replaceState(null,'','Cesta.dc.html'); }catch(e){}
+    try{ window.history.replaceState(null,'','mi-cotizacion'); }catch(e){}
     if(ref){ this.addItem({n:ref,s:'Solicitud sin número de parte'},1); this.setState({notice:'“'+ref+'” se agregó a tu cotización.'}); return; }
     const split=add.indexOf(':');
     const K=window.KDL, F=this.F();
@@ -233,10 +278,83 @@ class Component extends DCLogic {
     if(Object.keys(errors).length){ this.setState({errors}); return; }
     const result=R.send({channel,form:'cart',contact:this.contact(),items:cart});
     R.open(result,channel);
-    this.setState({sent:{channel,folio:result.folio,url:result.url},errors:{}});
+    this.setState({sent:{channel,folio:result.folio,url:result.url},errors:{},history:this.history()});
     try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(err){}
   }
-  newQuote(){ this.clear(); this.setState({sent:null,notice:'',f:{...this.state.f,date:'',notes:''}}); }
+  history(){ try{ return JSON.parse(localStorage.getItem('kdl_quote_history')||'[]'); }catch(e){ return []; } }
+  matchProduct(text){
+    const F=this.F();
+    if(!F) return null;
+    const key=F.norm(text).replace(/ /g,'');
+    if(!key) return null;
+    return F.products().find(p=>F.norm(p.model).replace(/ /g,'')===key||F.norm(p.sku).replace(/ /g,'')===key)||null;
+  }
+  parseLines(text){
+    return String(text||'').split(/\r?\n/).map(line=>line.trim()).filter(Boolean).map(line=>{
+      const cells=line.split(/\t|;|,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(c=>c.replace(/^"|"$/g,'').trim()).filter(c=>c!=='');
+      let part=line, qty=1;
+      if(cells.length>=2&&/^\d+(?:[.,]\d+)?$/.test(cells[1])){ part=cells[0]; qty=Math.max(1,Math.round(parseFloat(cells[1].replace(',','.')))); }
+      else{ const m=line.match(/^(.*\S)\s+(\d{1,5})$/); if(m){ part=m[1]; qty=parseInt(m[2],10)||1; } else if(cells.length) part=cells[0]; }
+      return {part:part.trim(),qty};
+    }).filter(row=>row.part&&!/^(n(ú|u)mero de parte|no\.? de parte|parte|pieza|modelo|part(\s?number)?|sku)$/i.test(row.part));
+  }
+  importRows(rows){
+    if(!rows.length){ this.setState({notice:'No encontramos renglones para agregar.'}); return; }
+    const F=this.F(), c=this.load();
+    let known=0, manual=0;
+    rows.forEach(row=>{
+      const product=this.matchProduct(row.part);
+      const item=product&&F?F.cartItem(product):{n:row.part,s:'Entrada manual'};
+      if(product) known++; else manual++;
+      const ix=c.findIndex(x=>(item.sku&&x.sku===item.sku)||(!item.sku&&!x.sku&&x.n===item.n));
+      if(ix>=0) c[ix]={...c[ix],qty:(Number(c[ix].qty)||1)+row.qty}; else c.push({...item,qty:row.qty});
+    });
+    this.save(c);
+    this.setState({bulkText:'',showBulk:false,notice:'Agregamos '+rows.length+' partida'+(rows.length===1?'':'s')+': '+known+' del inventario y '+manual+' por cotizar.'});
+  }
+  importBulk(){ this.importRows(this.parseLines(this.state.bulkText)); }
+  loadXlsx(){
+    if(window.XLSX) return Promise.resolve(window.XLSX);
+    return new Promise((resolve,reject)=>{ const s=document.createElement('script'); s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js'; s.onload=()=>resolve(window.XLSX); s.onerror=reject; document.head.appendChild(s); });
+  }
+  onBulkFile(e){
+    const file=e&&e.target&&e.target.files&&e.target.files[0];
+    if(!file) return;
+    const done=text=>this.importRows(this.parseLines(text));
+    if(/\.xlsx?$/i.test(file.name)){
+      this.setState({notice:'Leyendo '+file.name+'…'});
+      file.arrayBuffer().then(buffer=>this.loadXlsx().then(XLSX=>{ const book=XLSX.read(buffer,{type:'array'}); done(XLSX.utils.sheet_to_csv(book.Sheets[book.SheetNames[0]])); }))
+        .catch(()=>this.setState({notice:'No pudimos leer el archivo de Excel. Guárdalo como CSV o pega la lista.'}));
+    } else {
+      const reader=new FileReader();
+      reader.onload=()=>done(String(reader.result||''));
+      reader.onerror=()=>this.setState({notice:'No pudimos leer el archivo.'});
+      reader.readAsText(file);
+    }
+    try{ e.target.value=''; }catch(err){}
+  }
+  requote(entry){
+    const c=this.load();
+    (entry.items||[]).forEach(item=>{
+      const product=item.sku&&window.KDLInventory?window.KDLInventory.find(item.sku):null;
+      const fresh=product&&this.F()?this.F().cartItem(product):{n:item.n,s:item.s||'Entrada manual',sku:item.sku||'',cat:item.cat||'',slug:item.slug||'',price:item.price||0,img:item.img||''};
+      const ix=c.findIndex(x=>(fresh.sku&&x.sku===fresh.sku)||(!fresh.sku&&x.n===fresh.n));
+      if(ix>=0) c[ix]={...c[ix],qty:(Number(c[ix].qty)||1)+(Number(item.qty)||1)}; else c.push({...fresh,qty:Number(item.qty)||1});
+    });
+    this.save(c);
+    this.setState({notice:'Agregamos la lista del folio '+entry.folio+'. Revisa cantidades y precios actuales antes de enviar.',sent:null});
+    try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(err){}
+  }
+  lookup(e){
+    if(e&&e.preventDefault)e.preventDefault();
+    const R=window.KDLRequest;
+    const folio=(this.state.lk_folio||'').trim().toUpperCase(), tel=(this.state.lk_tel||'').replace(/\D/g,'');
+    if(!/^KDL-\d{8}-[A-Z0-9]{4}$/.test(folio)||tel.length!==4){ this.setState({lk:{error:'invalid'}}); return; }
+    if(!R) return;
+    this.setState({lkBusy:true,lk:null});
+    R.lookup(folio,tel).then(result=>this.setState({lkBusy:false,lk:result&&result.ok?result:{error:(result&&result.error)||'lookup_failed',folio}}));
+  }
+  newQuote(){ this.clear(); this.setState({sent:null,notice:'',history:this.history(),f:{...this.state.f,date:'',notes:''}}); }
   pdf(){
     const R=window.KDLRequest, F=this.F();
     const cart=this.load();
@@ -263,7 +381,7 @@ class Component extends DCLogic {
       const qty=Number(it.qty)||1, price=Number(it.price)||0;
       return {
         n:it.n, s:[it.s&&it.s!=='Entrada manual'?it.s:'Referencia por cotizar',it.sku].filter(Boolean).join(' · '),
-        href:it.sku?('Producto.dc.html?sku='+encodeURIComponent(it.sku)):'Productos.dc.html?q='+encodeURIComponent(it.n),
+        href:it.sku?('producto?sku='+encodeURIComponent(it.sku)):'catalogo?q='+encodeURIComponent(it.n),
         media:img(it.img,52), qty:String(qty),
         unit:price>0?money(price)+' c/u':'Precio a cotizar',
         line:price>0?plainMoney(price*qty):'—',
@@ -275,7 +393,29 @@ class Component extends DCLogic {
     const pieces=cart.reduce((a,b)=>a+(Number(b.qty)||1),0);
     const errors=this.state.errors||{}, f=this.state.f, sent=this.state.sent;
     const today=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+    const lk=this.state.lk;
+    const lkMessages={invalid:['Revisa los datos','El folio tiene el formato KDL-AAAAMMDD-XXXX y se piden 4 dígitos.'],not_found:['No encontramos ese folio','Verifica el folio y los últimos 4 dígitos del teléfono que registraste.'],lookup_not_configured:['Consulta en línea no disponible','Escríbenos por WhatsApp con tu folio y te damos el estado.'],network_error:['Sin conexión','No pudimos consultar el estado. Intenta de nuevo.'],lookup_failed:['No pudimos consultar el estado','Intenta de nuevo o escríbenos por WhatsApp con tu folio.']};
+    const lkOk=!!(lk&&lk.ok);
+    const lkMsg=lk&&!lkOk?(lkMessages[lk.error]||lkMessages.lookup_failed):null;
+    const fmtDate=v=>{ try{ return new Date(v).toLocaleDateString('es-MX',{day:'numeric',month:'short',year:'numeric'}); }catch(e){ return ''; } };
+    const historyRows=(this.state.history||[]).slice(0,8).map(entry=>{
+      const n=(entry.items||[]).length;
+      return {folio:entry.folio,meta:fmtDate(entry.date)+' · '+(n?n+' partida'+(n===1?'':'s'):(entry.reference||'Solicitud de contacto'))+' · '+(entry.channel==='email'?'correo':'WhatsApp'),
+        requote:()=>this.requote(entry),check:()=>this.setState({lk_folio:entry.folio,lk:null})};
+    });
+    const template='\ufeffNumero de parte,Cantidad\r\n4V210-08,2\r\nSDA32X25S,1\r\n';
     return {
+      showBulk:this.state.showBulk, bulkToggleLabel:this.state.showBulk?'Ocultar carga de lista':'¿Tienes una lista? Pégala o sube un CSV/Excel',
+      toggleBulk:()=>this.setState(s=>({showBulk:!s.showBulk})), bulkText:this.state.bulkText, onBulkText:e=>this.setState({bulkText:e.target.value}),
+      importBulk:()=>this.importBulk(), onBulkFile:e=>this.onBulkFile(e), templateHref:'data:text/csv;charset=utf-8,'+encodeURIComponent(template),
+      lk_folio:this.state.lk_folio, lk_tel:this.state.lk_tel, onLkFolio:e=>this.setState({lk_folio:e.target.value}), onLkTel:e=>this.setState({lk_tel:e.target.value}),
+      lookup:e=>this.lookup(e), lkBusy:this.state.lkBusy, hasLkMessage:!!lk,
+      lkClass:'kdl-quote-lookup__result'+(lkOk?' is-ok':' is-error'),
+      lkTitle:lkOk?(lk.folio+' · '+lk.status_label):(lkMsg?lkMsg[0]:''),
+      lkText:lkOk?('Recibida el '+fmtDate(lk.created_at)+(lk.updated_at&&lk.updated_at!==lk.created_at?' · actualizada el '+fmtDate(lk.updated_at):'')):(lkMsg?lkMsg[1]:''),
+      lkItems:lkOk?(lk.items||[]).map(it=>it.name+(it.quantity?' — Cant: '+it.quantity:'')):[],
+      lkShowWa:!!lk&&!lkOk&&lk.error!=='invalid', lkWa:'https://wa.me/528112273382?text='+encodeURIComponent('Hola KDL, quiero saber el estado de mi solicitud con folio '+((lk&&lk.folio)||this.state.lk_folio||'')+'.'),
+      hasHistory:historyRows.length>0, historyRows,
       sent:!!sent, notSent:!sent,
       sentFolio:sent?sent.folio:'', hasFolio:!!(sent&&sent.folio), sentUrl:sent?sent.url:'#',
       sentChannelText:sent&&sent.channel==='email'?'Abrimos tu correo con la lista completa. Si no se abrió, usa el botón de abajo.':'Abrimos WhatsApp con la lista completa. Si no se abrió, usa el botón de abajo.',
