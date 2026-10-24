@@ -395,6 +395,20 @@
     buildFooter(cats);
   }
 
+  /* Las páginas se pintan con JS después de cargar: reintenta llevar al ancla (#herramientas, #solicitud…). */
+  function scrollToHash() {
+    var id = decodeURIComponent((window.location.hash || '').slice(1));
+    if (!id) return;
+    var tries = 0;
+    (function attempt() {
+      var target = document.getElementById(id);
+      if (target) { target.scrollIntoView({ block: 'start' }); return; }
+      if (tries++ < 30) window.setTimeout(attempt, 100);
+    })();
+  }
+  if (document.readyState === 'complete') scrollToHash();
+  else window.addEventListener('load', scrollToHash, { once: true });
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', buildHeader, { once: true });
   } else {

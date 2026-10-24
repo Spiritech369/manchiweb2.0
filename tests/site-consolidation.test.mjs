@@ -80,7 +80,7 @@ test('las subpáginas muestran únicamente el encabezado compartido', () => {
     const text = fs.readFileSync(file, 'utf8');
     const loaders = text.match(/kdl-site-header\.js/g) || [];
     if (loaders.length > 1) duplicatedLoader.push(path.relative(root, file));
-    if (loaders.length && !text.includes('kdl-site-header.js?v=14')) staleHeaderAssets.push(path.relative(root, file));
+    if (loaders.length && !text.includes('kdl-site-header.js?v=15')) staleHeaderAssets.push(path.relative(root, file));
     if (text.includes('data-kdl-shared-header') && !text.includes('kdl-site-header.css?v=5')) staleHeaderAssets.push(path.relative(root, file));
   }
   assert.deepEqual(duplicatedLoader, []);
