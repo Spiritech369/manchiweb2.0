@@ -395,19 +395,28 @@
     buildFooter(cats);
   }
 
-  /* Las páginas se pintan con JS después de cargar: reintenta llevar al ancla (#herramientas, #solicitud…). */
+  /* Las páginas se pintan con JS después de cargar: lleva al ancla (#herramientas, #solicitud…) y la reajusta
+     mientras cargan imágenes, a menos que la persona ya haya movido la página. */
   function scrollToHash() {
     var id = decodeURIComponent((window.location.hash || '').slice(1));
     if (!id) return;
-    var tries = 0;
+    var userMoved = false;
+    function stop() { userMoved = true; }
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (name) { window.addEventListener(name, stop, { once: true, passive: true }); });
+    var started = Date.now();
     (function attempt() {
+      if (userMoved) return;
       var target = document.getElementById(id);
-      if (target) { target.scrollIntoView({ block: 'start' }); return; }
-      if (tries++ < 30) window.setTimeout(attempt, 100);
+      if (target) {
+        var offset = target.getBoundingClientRect().top - 84;
+        if (Math.abs(offset) > 4) window.scrollTo(0, window.scrollY + offset);
+      }
+      if (Date.now() - started < 2500) window.setTimeout(attempt, 150);
     })();
   }
-  if (document.readyState === 'complete') scrollToHash();
-  else window.addEventListener('load', scrollToHash, { once: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', scrollToHash, { once: true });
+  else scrollToHash();
+  window.addEventListener('hashchange', scrollToHash);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', buildHeader, { once: true });
