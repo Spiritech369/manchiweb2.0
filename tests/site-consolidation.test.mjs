@@ -71,7 +71,7 @@ test('la consolidación elimina CTA redundantes y conserva los destinos reales',
 test('las subpáginas muestran únicamente el encabezado compartido', () => {
   const headerScript = fs.readFileSync(path.join(root, 'kdl-site-header.js'), 'utf8');
   const headerStyles = fs.readFileSync(path.join(root, 'kdl-site-header.css'), 'utf8');
-  assert.match(headerScript, /kdl-site-header\.css\?v=4/);
+  assert.match(headerScript, /kdl-site-header\.css\?v=5/);
   assert.match(headerStyles, /header:not\(\.kdl-shared-header\)\{display:none!important\}/);
 
   const duplicatedLoader = [];
@@ -81,7 +81,7 @@ test('las subpáginas muestran únicamente el encabezado compartido', () => {
     const loaders = text.match(/kdl-site-header\.js/g) || [];
     if (loaders.length > 1) duplicatedLoader.push(path.relative(root, file));
     if (loaders.length && !text.includes('kdl-site-header.js?v=14')) staleHeaderAssets.push(path.relative(root, file));
-    if (text.includes('data-kdl-shared-header') && !text.includes('kdl-site-header.css?v=4')) staleHeaderAssets.push(path.relative(root, file));
+    if (text.includes('data-kdl-shared-header') && !text.includes('kdl-site-header.css?v=5')) staleHeaderAssets.push(path.relative(root, file));
   }
   assert.deepEqual(duplicatedLoader, []);
   assert.deepEqual(staleHeaderAssets, []);

@@ -163,7 +163,7 @@
 
   function injectStylesheet() {
     [
-      { href: 'kdl-site-header.css?v=4', attr: 'data-kdl-shared-header' },
+      { href: 'kdl-site-header.css?v=5', attr: 'data-kdl-shared-header' },
       { href: 'kdl-corporate.css?v=4', attr: 'data-kdl-corporate' }
     ].forEach(function (sheet) {
       var existing = document.querySelector('link[' + sheet.attr + ']');

@@ -77,8 +77,8 @@
 .kdl-shared-footer__legal a{color:#DCE6EE!important;min-height:44px;display:inline-flex;align-items:center}
 
 .kdl-toast-host{position:fixed;left:50%;bottom:92px;z-index:2000;display:grid;gap:8px;transform:translateX(-50%);width:min(440px,calc(100% - 28px));pointer-events:none}
-.kdl-toast{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 16px;border-radius:8px;background:#0B2239;color:#fff;font:600 14px/1.4 'IBM Plex Sans',Arial,sans-serif;box-shadow:0 14px 34px rgba(4,18,34,.35);pointer-events:auto;animation:kdlToastIn .18s ease-out}
-.kdl-toast a{color:#8EDCFF!important;font-weight:800;white-space:nowrap;text-decoration:underline}
+.kdl-toast{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 16px;border:1px solid #9FC3E6;border-left:4px solid #25D366;border-radius:8px;background:#fff;color:#0E2236;font:600 14px/1.4 'IBM Plex Sans',Arial,sans-serif;box-shadow:0 14px 34px rgba(4,18,34,.35);pointer-events:auto;animation:kdlToastIn .18s ease-out}
+.kdl-toast a{color:#1F4E79!important;font-weight:800;white-space:nowrap;text-decoration:underline}
 .kdl-toast.is-leaving{opacity:0;transition:opacity .35s}
 @keyframes kdlToastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
