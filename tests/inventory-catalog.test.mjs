@@ -60,11 +60,11 @@ test('las imágenes de HGH30HA y PRDWT12 usan fotografías de producto, no recur
 test('las páginas usan el nuevo inventario y su lógica embebida compila', () => {
   for (const name of ['Productos.dc.html', 'Producto.dc.html']) {
     const html = fs.readFileSync(path.join(root, name), 'utf8');
-    assert.match(html, /kdl-inventory-data\.js\?v=2/);
+    assert.match(html, /kdl-inventory-data\.js\?v=3/);
     const match = html.match(/<script type="text\/x-dc" data-dc-script>([\s\S]*?)<\/script>/);
     assert.ok(match, `${name}: falta la lógica de la página`);
     assert.doesNotThrow(() => new Function(match[1]), `${name}: sintaxis inválida`);
   }
   const cart = fs.readFileSync(path.join(root, 'Cesta.dc.html'), 'utf8');
-  assert.match(cart, /kdl-inventory-data\.js\?v=2/);
+  assert.match(cart, /kdl-inventory-data\.js\?v=3/);
 });

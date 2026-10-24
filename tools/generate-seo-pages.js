@@ -72,7 +72,7 @@ function layout({ title, description: desc, canonical, image, rootRel, body, sch
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${esc(ogImage)}">
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
-<script src="${rootRel}kdl-inventory-data.js?v=2"></script>
+<script src="${rootRel}kdl-inventory-data.js?v=3"></script>
 <script src="${rootRel}kdl-families.js?v=1"></script>
 <script src="${rootRel}kdl-site-header.js?v=16" defer></script>
 <style>

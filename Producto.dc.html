@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <script src="./kdl-data.js"></script>
-<script src="./kdl-inventory-data.js?v=2"></script>
+<script src="./kdl-inventory-data.js?v=3"></script>
 <script src="./kdl-families.js?v=1"></script>
 <script src="./kdl-site-header.js?v=16" defer></script>
 <script src="./kdl-schema.js?v=3" defer></script>
@@ -64,7 +64,7 @@
     <div class="kdl-product-actions">
       <label class="kdl-product-qty">Cantidad <input type="number" min="1" inputmode="numeric" value="{{ qty }}" onChange="{{ onQty }}" aria-label="Cantidad a cotizar"></label>
       <button class="kdl-product-action kdl-product-action--primary" onClick="{{ addToCart }}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.2 11h11l2-8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M12 9v6M9 12h6"/></svg>{{ addCartLabel }}</button>
-      <sc-if value="{{ hasTechnical }}" hint-placeholder-val="{{ true }}"><a class="kdl-product-action kdl-product-action--document" href="{{ technicalUrl }}" target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l4 4v16H6z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></svg>{{ technicalLabel }}</a></sc-if>
+      <a class="kdl-product-action kdl-product-action--document" href="{{ waDocumento }}" target="_blank" rel="noopener noreferrer"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l4 4v16H6z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></svg>Pedir ficha técnica</a>
       <a class="kdl-product-action kdl-product-action--secondary" href="{{ waCotizar }}" target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp</a>
     </div>
 
@@ -95,11 +95,9 @@
     <article class="kdl-product-support__card">
       <div class="kdl-product-support__eyebrow">Documentación</div>
       <h2>Valida el modelo exacto</h2>
-      <p>Consulta la fuente localizada para este modelo y confirma sufijos, montaje y condiciones de operación.</p>
+      <p>Te enviamos la ficha técnica del modelo exacto para confirmar sufijos, montaje y condiciones de operación.</p>
       <div class="kdl-product-support__links">
-        <sc-if value="{{ hasTechnical }}" hint-placeholder-val="{{ true }}"><a class="kdl-product-support__link kdl-product-support__link--primary" href="{{ technicalUrl }}" target="_blank" rel="noopener noreferrer">{{ technicalLabel }} <span>↗</span></a></sc-if>
-        <sc-if value="{{ hasSource }}" hint-placeholder-val=""><a class="kdl-product-support__link" href="{{ sourceUrl }}" target="_blank" rel="noopener noreferrer">Fuente del producto <span>↗</span></a></sc-if>
-        <sc-if value="{{ noTechnical }}" hint-placeholder-val=""><a class="kdl-product-support__link kdl-product-support__link--primary" href="{{ waDocumento }}" target="_blank" rel="noopener noreferrer">Solicitar ficha técnica <span>→</span></a></sc-if>
+        <a class="kdl-product-support__link kdl-product-support__link--primary" href="{{ waDocumento }}" target="_blank" rel="noopener noreferrer">Pedir ficha técnica <span>→</span></a>
         <a class="kdl-product-support__link" href="descargas">Descargas KDL <span>→</span></a>
       </div>
       <small>{{ sourceNote }}</small>
@@ -287,19 +285,16 @@ class Component extends DCLogic {
       {label:'Precio de referencia',value:priceLabel},
       {label:'Actualización',value:updated||'Consultar'}
     ];
-    const hasTechnical=!!product.technicalUrl;
-    const hasSource=!!(product.sourceUrl&&product.sourceUrl!==product.technicalUrl);
-    const technicalLabel=product.technicalKind==='pdf'?'Abrir ficha técnica PDF':'Abrir página técnica';
     const verificationNote=product.validation==='Verificado'
-      ?'El modelo fue contrastado con una fuente técnica. Confirma sufijos, voltaje, conexiones y dimensiones antes de instalar.'
+      ?'Modelo verificado por KDL. Confirma sufijos, voltaje, conexiones y dimensiones antes de instalar.'
       :product.validation==='Parcial'
         ?'Antes de comprar, confirma la variante con un asesor: envíanos una foto de la placa o la etiqueta.'
         :'Confirma la variante con un asesor antes de comprar: comparte placa, medidas y aplicación.';
     const faqRaw=[
       {q:'¿Qué debo confirmar antes de pedir '+product.model+'?',a:'Confirma el modelo completo y sus sufijos, cantidad, voltaje o señal cuando aplique, conexiones, montaje, dimensiones y condiciones de trabajo.'},
-      {q:'¿La fotografía corresponde exactamente al producto?',a:product.imageKind==='exact'?'La fotografía localizada corresponde al modelo investigado; aun así, la variante física puede cambiar por sufijos o revisión de fabricante.':product.imageKind==='family'?'La fotografía representa la familia de producto. La forma, conectores o accesorios pueden variar en el modelo exacto.':'La imagen es referencial y no debe usarse como única confirmación de compatibilidad.'},
+      {q:'¿La fotografía corresponde exactamente al producto?',a:product.imageKind==='exact'?'La fotografía corresponde al modelo; aun así, la variante física puede cambiar por sufijos o revisión de fabricante.':product.imageKind==='family'?'La fotografía representa la familia de producto. La forma, conectores o accesorios pueden variar en el modelo exacto.':'La imagen es referencial y no debe usarse como única confirmación de compatibilidad.'},
       {q:'¿Cómo se valida una alternativa compatible?',a:'KDL compara especificaciones críticas, montaje, conexiones, dimensiones y condiciones de operación. Una coincidencia de apariencia o nombre no confirma compatibilidad.'},
-      {q:'¿Puedo solicitar apoyo con la ficha técnica?',a:hasTechnical?'Sí. Esta página enlaza la documentación o página técnica localizada; si necesitas confirmar una variante, envía la placa completa a KDL.':'Sí. Envía la marca, modelo completo y una fotografía de la placa para localizar la documentación correspondiente.'}
+      {q:'¿Puedo solicitar la ficha técnica?',a:'Sí. Pídela a un asesor con el modelo completo y, si puedes, una foto de la placa; te enviamos la hoja de datos de la variante exacta.'}
     ];
     const faqs=faqRaw.map((item,index)=>({...item,panelId:'product-faq-panel-'+index,open:this.state.faqOpen===index,sign:this.state.faqOpen===index?'−':'+',onToggle:()=>this.toggleFaq(index),onKeyDown:event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();this.toggleFaq(index);}}}));
     const cartItem={n:product.model,s:product.title,cat:product.categoryKey,catName:product.categoryName,brand:brandName,slug:product.slug,img:product.image,sku:product.sku,price:product.price};
@@ -313,8 +308,7 @@ class Component extends DCLogic {
       datos,aplicaciones,related,faqs,added:this.state.added,
       addCartLabel:this.state.added?'Añadir otra vez':'Añadir a cotización',addToCart:()=>this.saveCart(product,cartItem),
       qty:String(this.state.qty),onQty:event=>this.setState({qty:event.target.value}),
-      hasTechnical,noTechnical:!hasTechnical,technicalUrl:product.technicalUrl,technicalLabel,
-      hasSource,sourceUrl:product.sourceUrl,sourceNote:exactInventory?('Información revisada el '+(updated||'día de actualización del inventario')+'. La documentación externa puede cambiar.'):'Producto del catálogo anterior; solicita validación documental.',
+      sourceNote:exactInventory?('Información actualizada el '+(updated||'día de actualización del inventario')+'.'):'Solicita la validación del modelo a un asesor.',
       waCotizar:this.wa('Hola KDL, quiero cotizar '+product.model+' ('+familyName+'). Clave KDL: '+(product.sku||'N/D')+'. Cantidad: '+this.qty()+'.'),
       waDocumento:this.wa('Hola KDL, necesito la ficha técnica oficial de '+product.model+(brandName?' ('+brandName+')':'')+'. ¿Me ayudan a confirmar la variante?')
     };

@@ -20,8 +20,6 @@
       "image": "assets/inventory/ind-0001.jpg",
       "imageKind": "family",
       "imageAlt": "Sensor magnético para cilindro, modelo DMSH-050, AirTAC",
-      "sourceUrl": "https://sa-es.airtac.com/pro_det_c_kind_4%26c_kind2_19%26c_kind3_41%26c_kind4_55%26c_kind5_418%26id_283.html",
-      "technicalUrl": "https://sa-es.airtac.com/upload/Sensor-Series-DMS,CMS-202606081018034246.PDF",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -43,8 +41,6 @@
       "image": "assets/inventory/ind-0002.webp",
       "imageKind": "exact",
       "imageAlt": "Sensor digital de presión, modelo DPSN1B-10020, AirTAC",
-      "sourceUrl": "https://us-en.airtac.com/upload/DPS-Series-digital-display-pressure-sensor-202510211003099946.PDF",
-      "technicalUrl": "https://us-en.airtac.com/upload/DPS-Series-digital-display-pressure-sensor-202510211003099946.PDF",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -66,8 +62,6 @@
       "image": "assets/inventory/ind-0003.jpg",
       "imageKind": "family",
       "imageAlt": "Sensor magnético para cilindro, modelo DMSG-020, AirTAC",
-      "sourceUrl": "https://sa-es.airtac.com/pro_det_c_kind_4%26c_kind2_19%26c_kind3_41%26c_kind4_55%26c_kind5_418%26id_283.html",
-      "technicalUrl": "https://sa-es.airtac.com/upload/Sensor-Series-DMS,CMS-202606081018034246.PDF",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -89,8 +83,6 @@
       "image": "assets/inventory/ind-0004.jpg",
       "imageKind": "family",
       "imageAlt": "Sensor magnético para cilindro, modelo CMSG-020, AirTAC",
-      "sourceUrl": "https://eu-es.airtac.com/pro_det_c_kind_4%26c_kind2_19%26c_kind3_55%26c_kind4_421%26c_kind5_421%26id_288.html",
-      "technicalUrl": "https://eu-es.airtac.com/upload/Sensor-Series-DMS,CMS-202606081022282366.PDF",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -112,8 +104,6 @@
       "image": "assets/catalog/pneumatic-shock.png",
       "imageKind": "reference",
       "imageAlt": "Amortiguador de choque auto-compensable, carrera 60 mm, modelo AC3660, VPC",
-      "sourceUrl": "https://www.vpc-pneumatic.com/AC-Series-Self-compensation-Shock-Absorber-pd542312858.html",
-      "technicalUrl": "https://www.vpc-pneumatic.com/AC-Series-Self-compensation-Shock-Absorber-pd542312858.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -135,8 +125,6 @@
       "image": "assets/catalog/pneumatic-shock.png",
       "imageKind": "reference",
       "imageAlt": "Amortiguador de choque ajustable, carrera 40 mm, modelo AD2540, VPC",
-      "sourceUrl": "https://www.vpc-pneumatic.com/AD-Series-Adjustable-Shock-Absorber-pd569441858.html",
-      "technicalUrl": "https://www.vpc-pneumatic.com/AD-Series-Adjustable-Shock-Absorber-pd569441858.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -158,8 +146,6 @@
       "image": "assets/inventory/ind-0007.webp",
       "imageKind": "exact",
       "imageAlt": "Amortiguador hidráulico, modelo ACA1625-3N, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/products/airtac-aca-accessories-shock-absorber-aca1625-3n",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0714/2336/1327/files/airtac-aca-acj-ok30.pdf?v=1780217119",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -181,8 +167,6 @@
       "image": "assets/catalog/hydraulic-valves.png",
       "imageKind": "reference",
       "imageAlt": "Regulador hidráulico de velocidad, modelo HR15, Por confirmar",
-      "sourceUrl": "https://www.c-jac.com/jingmiwensuqi/261.html",
-      "technicalUrl": "https://www.c-jac.com/jingmiwensuqi/261.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -204,8 +188,6 @@
       "image": "assets/inventory/ind-0009.jpg",
       "imageKind": "family",
       "imageAlt": "Cilindro de sujeción rotativa, modelo MKB25-10L, SMC",
-      "sourceUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MKB25-10LZ",
-      "technicalUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MKB25-10LZ",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -227,8 +209,6 @@
       "image": "assets/catalog/pneumatic-cylinder-iso.png",
       "imageKind": "reference",
       "imageAlt": "Cilindro de sujeción rotativa, modelo ACKL40X90, AirTAC",
-      "sourceUrl": "https://airtac2.partcommunity.com/3d-cad-models/sso/ackl40x90-0-airtac",
-      "technicalUrl": "https://airtac2.partcommunity.com/3d-cad-models/sso/ackl40x90-0-airtac",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -250,8 +230,6 @@
       "image": "assets/inventory/ind-0011.avif",
       "imageKind": "exact",
       "imageAlt": "Cilindro de sujeción rotativa, modelo ACKR40X90, AirTAC",
-      "sourceUrl": "https://airtac-shop.com/products/airtac-ack-clamping-air-cylinder-ackr40x90",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0068/3235/7429/files/Airtac_ACK_Trimantec2016.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -273,8 +251,6 @@
       "image": "assets/catalog/hydraulic-valves.png",
       "imageKind": "reference",
       "imageAlt": "Cilindro de sujeción rotativa hidráulico, modelo HSC-40SR-90, Por confirmar",
-      "sourceUrl": "https://www.jd.com/brand/140659f6c04e2742b6f69.html",
-      "technicalUrl": "https://www.jd.com/brand/140659f6c04e2742b6f69.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -296,8 +272,6 @@
       "image": "assets/catalog/hydraulic-valves.png",
       "imageKind": "reference",
       "imageAlt": "Cilindro de sujeción rotativa hidráulico, modelo HSC-40SL-90, Por confirmar",
-      "sourceUrl": "https://www.jd.com/brand/140659f6c04e2742b6f69.html",
-      "technicalUrl": "https://www.jd.com/brand/140659f6c04e2742b6f69.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -319,8 +293,6 @@
       "image": "assets/inventory/ind-0014.webp",
       "imageKind": "exact",
       "imageAlt": "Cilindro compacto de doble efecto, modelo ACQ63X35S, AirTAC",
-      "sourceUrl": "https://trimantec.com/products/airtac-acq-pneumatic-double-acting-compact-air-cylinder-acq63x35s",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0068/3235/7429/files/Airtac_ACQ_Trimantec2016.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -342,8 +314,6 @@
       "image": "assets/inventory/ind-0015.webp",
       "imageKind": "exact",
       "imageAlt": "Filtro-regulador de aire, modelo GAFR30010SNT, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/products/airtac-gafr300-10-series-filter-regulator-gafr30010snt",
-      "technicalUrl": "https://www.airtacs.com/products/airtac-gafr300-10-series-filter-regulator-gafr30010snt",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -365,8 +335,6 @@
       "image": "assets/inventory/ind-0016.webp",
       "imageKind": "exact",
       "imageAlt": "Sensor electrónico para cilindro de sujeción, modelo DS1KN63, AirTAC",
-      "sourceUrl": "https://www.youph-industry.com/DS1KN63-DS1KP63-AIRTAC-JCK-Strong-Welding-Clamping-Cylinder-Electronic-Sensor-pd44581431.html",
-      "technicalUrl": "https://www.youph-industry.com/DS1KN63-DS1KP63-AIRTAC-JCK-Strong-Welding-Clamping-Cylinder-Electronic-Sensor-pd44581431.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -388,8 +356,6 @@
       "image": "assets/inventory/ind-0017.webp",
       "imageKind": "exact",
       "imageAlt": "Pinza neumática angular, modelo HFY25, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/products/airtac-hfy-air-gripperangular-style-air-finger-angle-style-double-acting-hfy25-1",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0714/2336/1327/files/airtac-hfz-ok16.pdf?v=1780217155",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -411,8 +377,6 @@
       "image": "assets/inventory/ind-0018.jpg",
       "imageKind": "family",
       "imageAlt": "Cilindro de sujeción rotativa, modelo MKB25-10LN, SMC",
-      "sourceUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MKB25-10LZ",
-      "technicalUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MKB25-10LZ",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -434,8 +398,6 @@
       "image": "assets/inventory/ind-0019.jpg",
       "imageKind": "family",
       "imageAlt": "Cilindro de sujeción rotativa, modelo MKB25-10RN, SMC",
-      "sourceUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MKB25-10LZ",
-      "technicalUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MKB25-10LZ",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -457,8 +419,6 @@
       "image": "assets/inventory/ind-0020.jpg",
       "imageKind": "family",
       "imageAlt": "Encoder rotativo incremental, modelo E6B2-CWZ6C 360P/R, OMRON",
-      "sourceUrl": "https://www.ia.omron.com/products/family/487/specification.html",
-      "technicalUrl": "https://www.ia.omron.com/products/family/487/specification.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -480,8 +440,6 @@
       "image": "assets/inventory/ind-0021.jpg",
       "imageKind": "family",
       "imageAlt": "Encoder rotativo incremental, modelo E6B2-CWZ6C 2000P/R, OMRON",
-      "sourceUrl": "https://www.ia.omron.com/products/family/487/specification.html",
-      "technicalUrl": "https://www.ia.omron.com/products/family/487/specification.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -503,8 +461,6 @@
       "image": "assets/inventory/ind-0022.jpg",
       "imageKind": "family",
       "imageAlt": "Encoder rotativo incremental, modelo E6B2-CWZ6C 1000P/R, OMRON",
-      "sourceUrl": "https://www.ia.omron.com/products/family/487/specification.html",
-      "technicalUrl": "https://www.ia.omron.com/products/family/487/specification.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -526,8 +482,6 @@
       "image": "assets/inventory/ind-0023.jpg",
       "imageKind": "family",
       "imageAlt": "Módulo lineal de un eje, modelo KK4001C-100A1-H0C, HIWIN",
-      "sourceUrl": "https://hiwin.com/products/single-axis-stages/",
-      "technicalUrl": "https://hiwin.com/products/single-axis-stages/",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -549,8 +503,6 @@
       "image": "assets/inventory/ind-0024-hgh30ha.jpg",
       "imageKind": "exact",
       "imageAlt": "Patín/bloque de guía lineal, modelo HGH30HA, HIWIN",
-      "sourceUrl": "https://www.hiwin.de/sk/Shop/Linear-Guideways/Series-HG/Blocks/HGH30HA/p/5-001683",
-      "technicalUrl": "https://www.hiwin.de/medias/sys_master/hiwinDocumentMedia/h0d/h5a/14755945709598/HIWIN%20CATALOGUE%20LINEAR%20GUIDEWAYS/HIWIN-CATALOGUE-LINEAR-GUIDEWAYS.PDF?attachment=true",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -572,8 +524,6 @@
       "image": "assets/inventory/ind-0025.avif",
       "imageKind": "exact",
       "imageAlt": "Controlador PID de temperatura, modelo XMTE-818, Por confirmar",
-      "sourceUrl": "https://yuyaogongyi.en.made-in-china.com/product/FBgQkcSyEaYh/China-Cj-LED-Display-Pid-Temperature-Controller-with-Alarm-XMTE-818-.html",
-      "technicalUrl": "https://yuyaogongyi.en.made-in-china.com/product/FBgQkcSyEaYh/China-Cj-LED-Display-Pid-Temperature-Controller-with-Alarm-XMTE-818-.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -595,8 +545,6 @@
       "image": "assets/inventory/ind-0026.webp",
       "imageKind": "exact",
       "imageAlt": "Driver para motor BLDC, modelo HQ-WSBH500, Por confirmar",
-      "sourceUrl": "https://www.thanksbuyer.com/ja/products/hqudj-er16-48v-400w-spindle-motor-with-high-torque-bldc-motor-driver-600w-power-supply-fixture",
-      "technicalUrl": "https://www.thanksbuyer.com/ja/products/hqudj-er16-48v-400w-spindle-motor-with-high-torque-bldc-motor-driver-600w-power-supply-fixture",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -618,8 +566,6 @@
       "image": "assets/catalog/automation-servo.png",
       "imageKind": "reference",
       "imageAlt": "Motor spindle brushless, modelo WS6090-48, Por confirmar",
-      "sourceUrl": "https://shopee.com.my/ER16-48V-400W-Brushless-Spindle-Motor-WS6090-48-i.108085607.20721099688",
-      "technicalUrl": "https://shopee.com.my/ER16-48V-400W-Brushless-Spindle-Motor-WS6090-48-i.108085607.20721099688",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -641,8 +587,6 @@
       "image": "assets/inventory/ind-0028.avif",
       "imageKind": "exact",
       "imageAlt": "Sensor inductivo de proximidad, modelo IES200, ifm",
-      "sourceUrl": "https://www.ifm.com/mx/es/product/IES200",
-      "technicalUrl": "https://www.ifm.com/mx/es/product/IES200",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -664,8 +608,6 @@
       "image": "assets/inventory/ind-0029.avif",
       "imageKind": "exact",
       "imageAlt": "Sensor fotoeléctrico láser, modelo OJ5154, ifm",
-      "sourceUrl": "https://www.ifm.com/mx/es/product/OJ5154",
-      "technicalUrl": "https://www.ifm.com/mx/es/product/OJ5154",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -687,8 +629,6 @@
       "image": "assets/catalog/cat-sensores.png",
       "imageKind": "reference",
       "imageAlt": "Sensor fotoeléctrico láser con supresión de fondo, modelo BG-40N, BOJKE",
-      "sourceUrl": "https://www.boyijingke.cn/product/list-405-1-en.html",
-      "technicalUrl": "https://www.boyijingke.cn/product/list-405-1-en.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -710,8 +650,6 @@
       "image": "assets/catalog/motion-guide.png",
       "imageKind": "reference",
       "imageAlt": "Bloque de rodamiento lineal abierto, modelo SBR35UU, Por confirmar",
-      "sourceUrl": "https://www.alibaba.com/product-detail/SBR-35UU-Open-Type-Linear-Ball_62155504823.html",
-      "technicalUrl": "https://www.alibaba.com/product-detail/SBR-35UU-Open-Type-Linear-Ball_62155504823.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -733,8 +671,6 @@
       "image": "assets/inventory/ind-0032.jpg",
       "imageKind": "family",
       "imageAlt": "Controlador de temperatura serie V, formato 48 × 96 mm, modelo V200-RRR0, ARICO",
-      "sourceUrl": "https://www.arico.com.tw/cn/products_i_V_Series_Temperature_Controller.html",
-      "technicalUrl": "https://www.arico.com.tw/cn/products_i_V_Series_Temperature_Controller.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -756,8 +692,6 @@
       "image": "assets/inventory/ind-0033.avif",
       "imageKind": "exact",
       "imageAlt": "Sensor inductivo de proximidad, modelo IFS213, ifm",
-      "sourceUrl": "https://www.ifm.com/mx/es/product/IFS213",
-      "technicalUrl": "https://www.ifm.com/mx/es/product/IFS213",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -779,8 +713,6 @@
       "image": "assets/inventory/ind-0034.avif",
       "imageKind": "exact",
       "imageAlt": "Sensor inductivo de proximidad, modelo IFS212, ifm",
-      "sourceUrl": "https://www.ifm.com/mx/es/product/IFS212",
-      "technicalUrl": "https://www.ifm.com/mx/es/product/IFS212",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -802,8 +734,6 @@
       "image": "assets/catalog/cat-sensores.png",
       "imageKind": "reference",
       "imageAlt": "Sensor láser de desplazamiento NPN + RS485, centro 200 mm, rango ±80 mm, modelo BL-200NZ, BOJKE",
-      "sourceUrl": "https://www.boyijingke.cn/product/706-en.html",
-      "technicalUrl": "https://www.boyijingke.cn/product/706-en.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -825,8 +755,6 @@
       "image": "assets/inventory/ind-0036-prdwt12.webp",
       "imageKind": "family",
       "imageAlt": "Sensor de proximidad inductivo cilíndrico, serie PRDWT12, modelo PRDWT12-4XO-I, Autonics",
-      "sourceUrl": "https://www.autonics.com/la/model/PRDWT12-4XO-I",
-      "technicalUrl": "https://www.autonics.com/la/model/PRDWT12-4XO-I",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -848,8 +776,6 @@
       "image": "assets/inventory/ind-0037.avif",
       "imageKind": "exact",
       "imageAlt": "Cilindro neumático miniatura, modelo MI32X300, AirTAC",
-      "sourceUrl": "https://es.okmarts.com/airtac-air-cylinder-pneumatic-mi32x300--mini-cylinder-pneumatic-double-acting-.html",
-      "technicalUrl": "https://es.okmarts.com/airtac-air-cylinder-pneumatic-mi32x300--mini-cylinder-pneumatic-double-acting-.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -871,8 +797,6 @@
       "image": "assets/inventory/ind-0038.avif",
       "imageKind": "exact",
       "imageAlt": "Cilindro neumático compacto, modelo SDA32X25S, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/products/airtac-sda-pneumatic-double-acting-compact-air-cylinder-sda32x25s",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0714/2336/1327/files/airtac-sda-ok15.pdf?v=1780217125",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -894,8 +818,6 @@
       "image": "assets/inventory/ind-0039.avif",
       "imageKind": "exact",
       "imageAlt": "Cilindro neumático sin vástago magnético, modelo RMS25X950, AirTAC",
-      "sourceUrl": "https://okmarts.com/airtac-air-cylinder-pneumatic-rms25x950---rodless-magnetic-cylinder-pneumatic-basic-version-.html",
-      "technicalUrl": "https://okmarts.com/airtac-air-cylinder-pneumatic-rms25x950---rodless-magnetic-cylinder-pneumatic-basic-version-.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -917,8 +839,6 @@
       "image": "assets/catalog/electrical-components.png",
       "imageKind": "reference",
       "imageAlt": "Relevador electromecánico miniatura, modelo NJX6/1Z, CHINT",
-      "sourceUrl": "https://www.chintglobal.com/content/dam/chint/global/product-center/low-voltage/iec/industrial-control/miniature-electromagnetic-relay/NJX6/Catalog/NJX6-General%20Purpose%20Relays-Catalog.pdf",
-      "technicalUrl": "https://www.chintglobal.com/content/dam/chint/global/product-center/low-voltage/iec/industrial-control/miniature-electromagnetic-relay/NJX6/Catalog/NJX6-General%20Purpose%20Relays-Catalog.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -940,8 +860,6 @@
       "image": "assets/catalog/electrical-components.png",
       "imageKind": "reference",
       "imageAlt": "Relevador electromecánico slim, modelo RJ2S-CL, IDEC",
-      "sourceUrl": "https://www.idec.com/ja-jp/industrial-components/relays-timers/relays/rj-slim-general-purpose-relay/rj2s-cl-d24",
-      "technicalUrl": "https://www.idec.com/ja-jp/industrial-components/relays-timers/relays/rj-slim-general-purpose-relay/rj2s-cl-d24",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -963,8 +881,6 @@
       "image": "assets/inventory/ind-0042.webp",
       "imageKind": "exact",
       "imageAlt": "Válvula solenoide 2/2, modelo 2V025-08, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/collections/2v",
-      "technicalUrl": "https://www.airtacs.com/collections/2v",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -986,8 +902,6 @@
       "image": "assets/inventory/ind-0043.webp",
       "imageKind": "exact",
       "imageAlt": "Válvula solenoide neumática 5/2, modelo 4V220-08, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/products/airtac-4v220-08-solenoid-air-valve5-2-5-3-way-4v22008aiw",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0714/2336/1327/files/airtac-4v200-ok69.pdf?v=1780217062",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1009,8 +923,6 @@
       "image": "assets/inventory/ind-0044.webp",
       "imageKind": "exact",
       "imageAlt": "Válvula solenoide neumática 5/2, modelo 4V210-08, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/products/airtac-4v210-08-solenoid-air-valve5-2-5-3-way-4v21008figw",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0714/2336/1327/files/airtac-4v200-ok69.pdf?v=1780217062",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1032,8 +944,6 @@
       "image": "assets/catalog/motion-guide.png",
       "imageKind": "reference",
       "imageAlt": "Patín/bloque de guía lineal, modelo SSAH20VN, Por confirmar",
-      "sourceUrl": "https://www.hengerda.com/public/attachment/image/%E6%81%92%E8%80%8C%E8%BE%BE%E6%BB%9A%E7%8F%A0%E7%9B%B4%E7%BA%BF%E5%AF%BC%E8%BD%A8-SSA%E7%B3%BB%E5%88%97.pdf",
-      "technicalUrl": "https://www.hengerda.com/public/attachment/image/%E6%81%92%E8%80%8C%E8%BE%BE%E6%BB%9A%E7%8F%A0%E7%9B%B4%E7%BA%BF%E5%AF%BC%E8%BD%A8-SSA%E7%B3%BB%E5%88%97.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1055,8 +965,6 @@
       "image": "assets/inventory/ind-0046.webp",
       "imageKind": "exact",
       "imageAlt": "Amortiguador hidráulico, modelo ACA1616-1, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/products/airtac-aca-accessories-shock-absorber-aca1616-1",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0714/2336/1327/files/airtac-aca-acj-ok30.pdf?v=1780217119",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1078,8 +986,6 @@
       "image": "assets/catalog/automation-control.png",
       "imageKind": "reference",
       "imageAlt": "Controlador capacitivo de altura para corte láser, modelo CHC-1000L, HYD",
-      "sourceUrl": "https://www.wsxlaser.com/uploads/upload/20250715/beaa2aa6a4057540a97bab916c256de7.pdf",
-      "technicalUrl": "https://www.wsxlaser.com/uploads/upload/20250715/beaa2aa6a4057540a97bab916c256de7.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1101,8 +1007,6 @@
       "image": "assets/inventory/ind-0048.jpg",
       "imageKind": "exact",
       "imageAlt": "Panel HMI táctil, modelo TK8072iP, Weintek",
-      "sourceUrl": "https://dl.weintek.com/public/MT8000iP/Certificate/TK8072iP_MT8072iP_CE_UKCA_Certificate.pdf",
-      "technicalUrl": "https://dl.weintek.com/public/MT8000iP/Certificate/TK8072iP_MT8072iP_CE_UKCA_Certificate.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1124,8 +1028,6 @@
       "image": "assets/catalog/cat-sensores.png",
       "imageKind": "reference",
       "imageAlt": "Sensor inductivo de proximidad, modelo ZI8-3001NAT3, ZENSO",
-      "sourceUrl": "https://www.eytsa.com/etiqueta-producto/sensor-inductivo-8mm-conector-m8/",
-      "technicalUrl": "https://www.eytsa.com/etiqueta-producto/sensor-inductivo-8mm-conector-m8/",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1147,8 +1049,6 @@
       "image": "assets/inventory/ind-0050.avif",
       "imageKind": "exact",
       "imageAlt": "Cilindro neumático sin vástago magnético con guía, modelo RMT32X900S, AirTAC",
-      "sourceUrl": "https://es.okmarts.com/airtac-air-cylinder-pneumatic-rmt32x900s--rodless-magnetic-cylinder-pneumatic-with-guide-.html",
-      "technicalUrl": "https://es.okmarts.com/airtac-air-cylinder-pneumatic-rmt32x900s--rodless-magnetic-cylinder-pneumatic-with-guide-.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1170,8 +1070,6 @@
       "image": "assets/catalog/pneumatic-shock.png",
       "imageKind": "reference",
       "imageAlt": "Amortiguador de choque ajustable, carrera 30 mm, modelo AD2530, VPC",
-      "sourceUrl": "https://www.vpc-pneumatic.com/AD-Series-Adjustable-Shock-Absorber-pd569441858.html",
-      "technicalUrl": "https://www.vpc-pneumatic.com/AD-Series-Adjustable-Shock-Absorber-pd569441858.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1193,8 +1091,6 @@
       "image": "assets/inventory/ind-0052.webp",
       "imageKind": "exact",
       "imageAlt": "Sensor inductivo de proximidad, modelo E2E-X1R5E1-M3, OMRON",
-      "sourceUrl": "https://www.omron-ap.com/products/family/449/download/cad.html",
-      "technicalUrl": "https://www.omron-ap.com/products/family/449/download/cad.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1216,8 +1112,6 @@
       "image": "assets/inventory/ind-0053.jpg",
       "imageKind": "family",
       "imageAlt": "Cilindro de sujeción rotativa, modelo MKB25-10LZ, SMC",
-      "sourceUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MKB25-10LZ",
-      "technicalUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MKB25-10LZ",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1239,8 +1133,6 @@
       "image": "assets/catalog/pneumatic-cylinder-iso.png",
       "imageKind": "reference",
       "imageAlt": "Cilindro neumático multiposición, modelo SCT32X25X125S, ZJHD",
-      "sourceUrl": "https://www.alibaba.com/product-detail/ZJHD-SCT-Series-Multi-Position-Type_1601196021086.html",
-      "technicalUrl": "https://www.alibaba.com/product-detail/ZJHD-SCT-Series-Multi-Position-Type_1601196021086.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1262,8 +1154,6 @@
       "image": "assets/inventory/ind-0055.avif",
       "imageKind": "exact",
       "imageAlt": "Sensor óptico de distancia, modelo O1D100, ifm",
-      "sourceUrl": "https://www.ifm.com/de/en/product/O1D100",
-      "technicalUrl": "https://www.ifm.com/de/en/product/O1D100",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1285,8 +1175,6 @@
       "image": "assets/catalog/pneumatic-cylinder-iso.png",
       "imageKind": "reference",
       "imageAlt": "Cilindro neumático sin vástago magnético, modelo RMTL16X500SA, AirTAC",
-      "sourceUrl": "https://www.rowse-pneumatics.co.uk/airtac-rmtl16x500sa",
-      "technicalUrl": "https://www.rowse-pneumatics.co.uk/airtac-rmtl16x500sa",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1308,8 +1196,6 @@
       "image": "assets/inventory/ind-0058.webp",
       "imageKind": "exact",
       "imageAlt": "Cilindro de sujeción rotativa, modelo QCKR40X10S, AirTAC",
-      "sourceUrl": "https://trimantec.com/products/airtac-qck-rotary-clamping-air-cylinder-qckr40x10s",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0068/3235/7429/files/Airtac-QCK-New.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1331,8 +1217,6 @@
       "image": "assets/inventory/ind-0059.avif",
       "imageKind": "exact",
       "imageAlt": "Sensor inductivo M12, modelo comercial IEC202, modelo IEC202, ifm",
-      "sourceUrl": "https://www.ifm.com/de/en/product/IEC202",
-      "technicalUrl": "https://www.ifm.com/de/en/product/IEC202",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1354,8 +1238,6 @@
       "image": "assets/inventory/ind-0061.png",
       "imageKind": "exact",
       "imageAlt": "Interruptor de límite, modelo TZ-6001, Por confirmar",
-      "sourceUrl": "https://en.elmarkstore.eu/limit-switch-tz-6001-product9647",
-      "technicalUrl": "https://en.elmarkstore.eu/limit-switch-tz-6001-product9647",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1377,8 +1259,6 @@
       "image": "assets/catalog/supplies-maintenance.png",
       "imageKind": "reference",
       "imageAlt": "Dato de norma / posible sensor de proximidad, modelo Dato de norma / posible sensor de proximidad, Por confirmar",
-      "sourceUrl": "https://www.codeofchina.com/standard/GBT14048.10-2016.html",
-      "technicalUrl": "https://www.codeofchina.com/standard/GBT14048.10-2016.html",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1400,8 +1280,6 @@
       "image": "assets/catalog/cat-sensores.png",
       "imageKind": "reference",
       "imageAlt": "Sensor inductivo de proximidad, modelo CJY12S-07PAT, CNTD",
-      "sourceUrl": "https://www.cntd.com/shop/cjy12s-07t",
-      "technicalUrl": "https://www.cntd.com/shop/cjy12s-07t",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1423,8 +1301,6 @@
       "image": "assets/catalog/cat-sensores.png",
       "imageKind": "reference",
       "imageAlt": "Sensor inductivo de proximidad, modelo CJY12-04LA, CNTD",
-      "sourceUrl": "https://www.cntd.com/shop/cjy08-01",
-      "technicalUrl": "https://www.cntd.com/shop/cjy08-01",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1446,8 +1322,6 @@
       "image": "assets/inventory/ind-0065.jpg",
       "imageKind": "family",
       "imageAlt": "Cilindro compacto guiado, diámetro 20 mm, carrera 40 mm, modelo MGPM20-40Z, SMC",
-      "sourceUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MGPM20-40Z",
-      "technicalUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=MGPM20-40Z",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1469,8 +1343,6 @@
       "image": "assets/catalog/pneumatic-cylinder-iso.png",
       "imageKind": "reference",
       "imageAlt": "Filtro-regulador de aire, modelo AW30-N03-B, SMC",
-      "sourceUrl": "https://www.smcworld.com/assets/manual/en-jp/files/AW-OMT0013.pdf",
-      "technicalUrl": "https://www.smcworld.com/assets/manual/en-jp/files/AW-OMT0013.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1492,8 +1364,6 @@
       "image": "assets/inventory/ind-0067.jpg",
       "imageKind": "exact",
       "imageAlt": "Amortiguador hidráulico con accesorio, modelo RBC1411S, SMC",
-      "sourceUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=RBC1411S",
-      "technicalUrl": "https://www.smcworld.com/webcatalog/s3s/en-jp/detail/?partNumber=RBC1411S",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1515,8 +1385,6 @@
       "image": "assets/inventory/ind-0068.webp",
       "imageKind": "exact",
       "imageAlt": "Amortiguador hidráulico ajustable, modelo ACJ1412, AirTAC",
-      "sourceUrl": "https://www.airtacs.com/products/airtac-acj-accessories-shock-absorber-acj1412",
-      "technicalUrl": "https://cdn.shopify.com/s/files/1/0714/2336/1327/files/airtac-aca-acj-ok30.pdf?v=1780217119",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1538,8 +1406,6 @@
       "image": "assets/inventory/ind-0069.png",
       "imageKind": "exact",
       "imageAlt": "Componente HIWIN sin modelo identificable, modelo Componente HIWIN sin modelo identificable, HIWIN",
-      "sourceUrl": "https://hiwin.com/",
-      "technicalUrl": "https://hiwin.com/",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1561,8 +1427,6 @@
       "image": "assets/inventory/ind-0070.jpg",
       "imageKind": "family",
       "imageAlt": "Servomotor AC, modelo SGM7J-01AFC6S, Yaskawa",
-      "sourceUrl": "https://www.yaskawa.com/products/motion/sigma-7-servo-products/rotary-servo-motors/sgm7j",
-      "technicalUrl": "https://www.yaskawa.com/delegate/getAttachment?documentId=BL.Sigma-7.01&cmd=documents&openNewTab=true&documentName=BL.Sigma-7.01.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1584,8 +1448,6 @@
       "image": "assets/catalog/automation-hmi.png",
       "imageKind": "reference",
       "imageAlt": "Panel HMI táctil, modelo MT6071iP, Weintek",
-      "sourceUrl": "https://dl.weintek.com/public/MT8000iP/Datasheet/eng/MT6071iP1_Datasheet_ENG.pdf",
-      "technicalUrl": "https://dl.weintek.com/public/MT8000iP/Datasheet/eng/MT6071iP1_Datasheet_ENG.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1607,8 +1469,6 @@
       "image": "assets/inventory/ind-0072.jpg",
       "imageKind": "family",
       "imageAlt": "Amortiguador hidráulico con accesorio, modelo RBC1412S, SMC",
-      "sourceUrl": "https://www.grainger.com/product/SMC-SHOCK-ABSORBER-826H60",
-      "technicalUrl": "https://www.grainger.com/product/SMC-SHOCK-ABSORBER-826H60",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1630,8 +1490,6 @@
       "image": "assets/catalog/automation-servo.png",
       "imageKind": "reference",
       "imageAlt": "Servovariador AC, modelo ASD-B2-0721-B, Delta",
-      "sourceUrl": "https://www.deltaww.com/en-US/products/Servo-Systems-AC-Servo-Motors-and-Drives/225",
-      "technicalUrl": "https://www.deltaww.com/en-US/products/Servo-Systems-AC-Servo-Motors-and-Drives/225",
       "technicalKind": "page",
       "updated": "2026-08-12"
     },
@@ -1653,8 +1511,6 @@
       "image": "assets/catalog/hydraulic-valves.png",
       "imageKind": "reference",
       "imageAlt": "Válvula direccional de solenoide, modelo DSV-G03-33C-DC24-82, Seven Ocean",
-      "sourceUrl": "https://www.seven-ocean.com.tw/Templates/att/NG10-Directional-Valve_TW.pdf?lng=zh-TW",
-      "technicalUrl": "https://www.seven-ocean.com.tw/Templates/att/NG10-Directional-Valve_TW.pdf?lng=zh-TW",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1676,8 +1532,6 @@
       "image": "assets/catalog/hydraulic-valves.png",
       "imageKind": "reference",
       "imageAlt": "Válvula direccional de corredera con solenoide, modelo 4WE10D30/CW110Z4L, Bosch Rexroth",
-      "sourceUrl": "https://www.pressoil.it/en/prod/2494/v.distr.-4we10d3x-cw110n9k4",
-      "technicalUrl": "https://www.pressoil.it/share/download/057337000-1615302052bosch-rexroth-we-valvola-valve-re23327.pdf",
       "technicalKind": "pdf",
       "updated": "2026-08-12"
     },
@@ -1699,8 +1553,6 @@
       "image": "assets/catalog/supplies-maintenance.png",
       "imageKind": "reference",
       "imageAlt": "Pieza industrial no identificada, modelo LSQ-0676704, Por confirmar",
-      "sourceUrl": "",
-      "technicalUrl": "",
       "technicalKind": "none",
       "updated": "2026-08-12"
     }
