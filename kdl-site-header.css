@@ -41,6 +41,9 @@
 .kdl-shared-cart__count[hidden]{display:none}
 .kdl-shared-whatsapp{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:4px;background:#148BFF;color:#fff;font-size:14px;font-weight:800;white-space:nowrap}
 .kdl-shared-whatsapp:hover{filter:brightness(1.08)}
+.kdl-shared-staff{display:flex;align-items:center;gap:6px;min-height:44px;padding:0 4px;color:#9FB4CC;font-size:13px;font-weight:700;white-space:nowrap}
+.kdl-shared-staff:hover,.kdl-shared-staff:focus-visible{color:#fff}
+.kdl-shared-mobile-menu__staff{display:block;margin:10px 14px 4px;padding:12px;border:1px solid rgba(127,180,232,.24);border-radius:6px;color:#C9D6E6!important;font-size:13.5px;font-weight:700;text-align:center}
 .kdl-shared-menu-button{display:none;width:44px;background:#148BFF;cursor:pointer}
 .kdl-shared-mobile-menu{position:absolute;left:14px;right:14px;top:calc(100% + 8px);z-index:1020;max-height:calc(100vh - 92px);overflow:auto;padding-bottom:10px;border:1px solid rgba(127,180,232,.24);border-radius:8px;background:#071B33;box-shadow:0 22px 48px rgba(0,0,0,.38)}
 .kdl-shared-mobile-menu[hidden]{display:none}
@@ -92,7 +95,7 @@
 @media(max-width:999px){
   .kdl-shared-header__inner{min-height:64px;padding:8px 14px}
   .kdl-shared-brand img{width:180px}
-  .kdl-shared-nav,.kdl-shared-whatsapp{display:none}
+  .kdl-shared-nav,.kdl-shared-whatsapp,.kdl-shared-staff{display:none}
   .kdl-shared-menu-button{display:flex}
   .kdl-shared-footer__inner{grid-template-columns:1fr}
   .kdl-shared-footer__cols{grid-template-columns:1fr 1fr}

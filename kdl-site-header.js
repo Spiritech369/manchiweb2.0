@@ -26,6 +26,7 @@
 
   var PHONE = '+52 81 1227 3382';
   var EMAIL = 'ventas@kdl.com.mx';
+  var STAFF_URL = 'https://interno.kdl.com.mx/';
   var WA_URL = 'https://wa.me/528112273382?text=' + encodeURIComponent('Hola KDL, quiero cotizar una refacción industrial.');
 
   var FALLBACK_FAMILIES = [
@@ -163,7 +164,7 @@
 
   function injectStylesheet() {
     [
-      { href: 'kdl-site-header.css?v=5', attr: 'data-kdl-shared-header' },
+      { href: 'kdl-site-header.css?v=6', attr: 'data-kdl-shared-header' },
       { href: 'kdl-corporate.css?v=4', attr: 'data-kdl-corporate' }
     ].forEach(function (sheet) {
       var existing = document.querySelector('link[' + sheet.attr + ']');
@@ -214,6 +215,7 @@
         '<span>© ' + year + ' KDL Soluciones Industriales · Monterrey, N.L.</span>' +
         '<span>Marcas referenciales; KDL no afirma distribución exclusiva.</span>' +
         '<a href="' + href('aviso-de-privacidad') + '">Aviso de privacidad</a>' +
+        '<a href="' + STAFF_URL + '" rel="nofollow">Acceso empleados</a>' +
       '</div>' +
     '</div>';
   }
@@ -277,6 +279,10 @@
             '<span class="kdl-shared-cart__label">Mi cotización</span>' +
             '<span class="kdl-shared-cart__count" aria-label="Piezas en mi cotización"></span>' +
           '</a>' +
+          '<a class="kdl-shared-staff" href="' + STAFF_URL + '" rel="nofollow" title="Acceso para empleados de KDL">' +
+            '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>' +
+            '<span>Empleados</span>' +
+          '</a>' +
           '<a class="kdl-shared-whatsapp" href="' + WA_URL + '" target="_blank" rel="noopener"><span class="kdl-shared-whatsapp__long">Cotizar por </span>WhatsApp</a>' +
           '<button class="kdl-shared-menu-button" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="kdl-shared-mobile-menu">' +
             '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>' +
@@ -291,6 +297,7 @@
           '<a href="' + href('mi-cotizacion') + '" data-kdl-mobile-cart>Mi cotización</a>' +
           '<a href="' + WA_URL + '" target="_blank" rel="noopener">WhatsApp</a>' +
         '</div>' +
+        '<a class="kdl-shared-mobile-menu__staff" href="' + STAFF_URL + '" rel="nofollow">Acceso empleados</a>' +
       '</nav>';
 
     var insertionPoint = document.querySelector('x-dc') || document.body.firstChild;
